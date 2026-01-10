@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
@@ -13,6 +14,7 @@ const navLinks = [
 ];
 
 export function Header() {
+    const pathname = usePathname();
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const [isScrolled, setIsScrolled] = React.useState(false);
 
@@ -23,6 +25,9 @@ export function Header() {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    // Hide header on ads pages
+    if (pathname?.startsWith("/ads")) return null;
 
     return (
         <header
