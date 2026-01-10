@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { AdsNav } from "@/components/ads/AdsNav";
 import { Button } from "@/components/ui/Button";
 import { AdCard } from "@/components/ads/AdCard";
 
@@ -152,7 +153,7 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
                 throw new Error(data.error || "Failed to delete");
             }
 
-            router.push("/ads/dashboard");
+            router.push("/ads/campaigns");
         } catch (err) {
             setError(err instanceof Error ? err.message : "Failed to delete");
             setIsDeleting(false);
@@ -161,42 +162,32 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
 
     if (isLoading) {
         return (
-            <div className="min-h-screen flex items-center justify-center">
-                <div className="text-[var(--color-neutral-500)]">Loading campaign...</div>
+            <div className="min-h-screen">
+                <AdsNav />
+                <div className="flex items-center justify-center py-20">
+                    <div className="text-[var(--color-neutral-500)]">Loading campaign...</div>
+                </div>
             </div>
         );
     }
 
     if (!campaign) {
         return (
-            <div className="min-h-screen flex flex-col items-center justify-center gap-4">
-                <h1 className="text-2xl font-bold">Campaign Not Found</h1>
-                <Link href="/ads/dashboard">
-                    <Button>Back to Dashboard</Button>
-                </Link>
+            <div className="min-h-screen">
+                <AdsNav />
+                <div className="flex flex-col items-center justify-center py-20 gap-4">
+                    <h1 className="text-2xl font-bold">Campaign Not Found</h1>
+                    <Link href="/ads/campaigns">
+                        <Button>Back to Campaigns</Button>
+                    </Link>
+                </div>
             </div>
         );
     }
 
     return (
         <div className="min-h-screen">
-            {/* Header */}
-            <header className="bg-[var(--background-elevated)] border-b border-[var(--color-neutral-200)]">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-16">
-                        <div className="flex items-center gap-4">
-                            <Link href="/ads/dashboard" className="flex items-center gap-2">
-                                <div className="relative w-8 h-8">
-                                    <img src="/logo.png" alt="Flav Logo" className="object-contain w-full h-full" />
-                                </div>
-                                <span className="text-xl font-bold gradient-text">Flav Ads</span>
-                            </Link>
-                            <span className="text-[var(--color-neutral-400)]">/</span>
-                            <span className="text-sm text-[var(--color-neutral-600)]">Edit Campaign</span>
-                        </div>
-                    </div>
-                </div>
-            </header>
+            <AdsNav />
 
             {/* Main Content */}
             <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">

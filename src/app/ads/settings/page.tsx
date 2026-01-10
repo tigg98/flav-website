@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import { AdsNav } from "@/components/ads/AdsNav";
 import { Button } from "@/components/ui/Button";
 
 interface Profile {
@@ -82,39 +82,18 @@ export default function SettingsPage() {
 
     if (isLoading) {
         return (
-            <div className="min-h-screen flex items-center justify-center">
-                <div className="text-[var(--color-neutral-500)]">Loading settings...</div>
+            <div className="min-h-screen">
+                <AdsNav />
+                <div className="flex items-center justify-center py-20">
+                    <div className="text-[var(--color-neutral-500)]">Loading settings...</div>
+                </div>
             </div>
         );
     }
 
     return (
         <div className="min-h-screen">
-            {/* Header */}
-            <header className="bg-[var(--background-elevated)] border-b border-[var(--color-neutral-200)]">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-16">
-                        <div className="flex items-center gap-4">
-                            <Link href="/ads/dashboard" className="flex items-center gap-2">
-                                <div className="relative w-8 h-8">
-                                    <img src="/logo.png" alt="Flav Logo" className="object-contain w-full h-full" />
-                                </div>
-                                <span className="text-xl font-bold gradient-text">Flav Ads</span>
-                            </Link>
-                            <span className="text-[var(--color-neutral-400)]">/</span>
-                            <span className="text-sm text-[var(--color-neutral-600)]">Settings</span>
-                        </div>
-                        <nav className="hidden md:flex items-center gap-6">
-                            <Link href="/ads/dashboard" className="text-sm font-medium text-[var(--color-neutral-600)] hover:text-[var(--foreground)]">
-                                Dashboard
-                            </Link>
-                            <Link href="/ads/billing" className="text-sm font-medium text-[var(--color-neutral-600)] hover:text-[var(--foreground)]">
-                                Billing
-                            </Link>
-                        </nav>
-                    </div>
-                </div>
-            </header>
+            <AdsNav userEmail={email} />
 
             {/* Main Content */}
             <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">

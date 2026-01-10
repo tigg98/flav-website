@@ -1,0 +1,82 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/Button";
+import { signOut } from "@/app/auth/actions";
+
+interface AdsNavProps {
+    userEmail?: string;
+}
+
+export function AdsNav({ userEmail }: AdsNavProps) {
+    const pathname = usePathname();
+
+    const navItems = [
+        { href: "/ads/dashboard", label: "Dashboard" },
+        { href: "/ads/campaigns", label: "Campaigns" },
+        { href: "/ads/billing", label: "Billing" },
+        { href: "/ads/settings", label: "Settings" },
+    ];
+
+    const isActive = (href: string) => pathname === href || pathname.startsWith(href + "/");
+
+    return (
+        <header className="bg-[var(--background-elevated)] border-b border-[var(--color-neutral-200)] sticky top-0 z-50">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex items-center justify-between h-16">
+                    <div className="flex items-center gap-8">
+                        <Link href="/ads/dashboard" className="flex items-center gap-2">
+                            <div className="relative w-8 h-8 md:w-10 md:h-10">
+                                <img src="/logo.png" alt="Flav Logo" className="object-contain w-full h-full" />
+                            </div>
+                            <span className="text-xl font-bold gradient-text">Flav Ads</span>
+                        </Link>
+                        <nav className="hidden md:flex items-center gap-1">
+                            {navItems.map((item) => (
+                                <Link
+                                    key={item.href}
+                                    href={item.href}
+                                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${isActive(item.href)
+                                            ? "text-[var(--color-primary-600)] bg-[var(--color-primary-50)]"
+                                            : "text-[var(--color-neutral-600)] hover:text-[var(--foreground)] hover:bg-[var(--color-neutral-100)]"
+                                        }`}
+                                >
+                                    {item.label}
+                                </Link>
+                            ))}
+                        </nav>
+                    </div>
+                    <div className="flex items-center gap-4">
+                        {userEmail && (
+                            <span className="hidden lg:block text-sm text-[var(--color-neutral-500)]">
+                                {userEmail}
+                            </span>
+                        )}
+                        <form action={signOut}>
+                            <Button variant="outline" size="sm">Sign Out</Button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            {/* Mobile Navigation */}
+            <div className="md:hidden border-t border-[var(--color-neutral-200)]">
+                <nav className="flex overflow-x-auto">
+                    {navItems.map((item) => (
+                        <Link
+                            key={item.href}
+                            href={item.href}
+                            className={`flex-shrink-0 px-4 py-3 text-sm font-medium border-b-2 transition-colors ${isActive(item.href)
+                                    ? "text-[var(--color-primary-600)] border-[var(--color-primary-500)]"
+                                    : "text-[var(--color-neutral-600)] border-transparent hover:text-[var(--foreground)]"
+                                }`}
+                        >
+                            {item.label}
+                        </Link>
+                    ))}
+                </nav>
+            </div>
+        </header>
+    );
+}
