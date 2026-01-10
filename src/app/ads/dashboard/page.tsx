@@ -132,11 +132,13 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
             })
         }
     } else if (range === '30d') {
-        // Every 3 days or weekly-ish
-        for (let i = 0; i < 4; i++) {
+        // Show 6 periodic points (every 5 days) for the last 30 days
+        for (let i = 5; i >= 0; i--) {
+            const d = new Date()
+            d.setDate(d.getDate() - (i * 5))
             chartData.push({
-                label: `Week ${i + 1}`,
-                value: Math.floor((totalImpressions / 4) * (0.8 + Math.random() * 0.4))
+                label: d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+                value: Math.floor((totalImpressions / 6) * (0.8 + Math.random() * 0.4))
             })
         }
     } else if (range === '90d') {

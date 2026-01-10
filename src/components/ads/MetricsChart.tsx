@@ -165,13 +165,20 @@ export function MetricsChart({
             {ChartContent}
 
             {/* X Axis Labels */}
-            <div className="flex justify-between mt-4 text-xs text-neutral-500">
+            <div className="relative h-6 mt-4 text-xs text-neutral-500">
                 {points.map((p, i) => (
                     <div
                         key={i}
-                        className={`text-center transition-colors duration-200 ${hoveredIndex === i ? 'text-primary-500 font-medium' : ''
+                        className={`absolute top-0 whitespace-nowrap transition-colors duration-200 ${hoveredIndex === i ? 'text-primary-500 font-medium' : ''
                             }`}
-                        style={{ width: `${100 / points.length}%` }}
+                        style={{
+                            left: `${p.x}%`,
+                            transform: i === 0
+                                ? 'translateX(0%)'
+                                : i === points.length - 1
+                                    ? 'translateX(-100%)'
+                                    : 'translateX(-50%)'
+                        }}
                     >
                         {p.label}
                     </div>
