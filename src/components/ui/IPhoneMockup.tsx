@@ -5,6 +5,7 @@ interface IPhoneMockupProps {
     alt: string;
     priority?: boolean;
     className?: string;
+    imageClassName?: string;
     size?: "sm" | "md" | "lg";
 }
 
@@ -13,6 +14,7 @@ export function IPhoneMockup({
     alt,
     priority = false,
     className = "",
+    imageClassName = "",
     size = "md"
 }: IPhoneMockupProps) {
     const sizeClasses = {
@@ -52,8 +54,10 @@ export function IPhoneMockup({
                                     src={src}
                                     alt={alt}
                                     fill
-                                    className="object-cover"
+                                    className={`object-cover ${imageClassName}`}
                                     priority={priority}
+                                    sizes="(max-width: 768px) 300px, 500px"
+                                    quality={100}
                                 />
 
                                 {/* Dynamic Island - iPhone 17 Pro (compact) */}

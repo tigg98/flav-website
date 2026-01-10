@@ -227,9 +227,9 @@ export default function HomePage() {
       </section>
 
       {/* Creator Economy Section - Dark Mode Contrast */}
-      <section className="section bg-neutral-900 text-white overflow-hidden relative">
+      <section className="section bg-gradient-to-b from-neutral-900 to-neutral-800 text-white overflow-hidden relative">
         {/* Background glow */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-orange-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-orange-500/20 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="container-main relative z-10">
           <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -254,13 +254,13 @@ export default function HomePage() {
                   { icon: "✨", title: " AI-Powered Creation", desc: "Turn a video into a structured recipe in seconds." },
                   { icon: "📈", title: "Detailed Analytics", desc: "Understand your audience with pro-level insights." },
                 ].map((item, i) => (
-                  <li key={i} className="flex gap-4">
-                    <div className="w-12 h-12 rounded-2xl bg-neutral-800 flex items-center justify-center text-2xl border border-neutral-700 flex-shrink-0">
+                  <li key={i} className="group flex gap-5 items-start p-4 rounded-2xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/10">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-neutral-800 to-neutral-900 flex items-center justify-center text-2xl border border-neutral-700/50 group-hover:border-orange-500/30 shadow-lg shrink-0 transition-colors">
                       {item.icon}
                     </div>
                     <div>
-                      <h4 className="font-bold text-lg mb-1">{item.title}</h4>
-                      <p className="text-neutral-400">{item.desc}</p>
+                      <h4 className="font-bold text-lg mb-1 text-white group-hover:text-orange-100 transition-colors">{item.title}</h4>
+                      <p className="text-neutral-400 text-base leading-relaxed">{item.desc}</p>
                     </div>
                   </li>
                 ))}
@@ -278,10 +278,10 @@ export default function HomePage() {
 
             <div className="order-1 md:order-2 flex justify-center perspective-1000">
               <div className="relative transform rotate-y-[-10deg] rotate-x-[5deg] hover:rotate-0 transition-transform duration-700">
-                <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/30 to-purple-500/30 rounded-[3rem] blur-xl" />
-                <div className="relative w-72 md:w-80 bg-neutral-900 rounded-[2.5rem] border-8 border-neutral-800 shadow-2xl overflow-hidden">
+                <div className="absolute -inset-4 bg-gradient-to-tr from-orange-600/20 to-amber-200/10 rounded-[3rem] blur-2xl group-hover:blur-3xl transition-all duration-700 opacity-70" />
+                <div className="relative drop-shadow-2xl">
                   <IPhoneMockup
-                    src="/screenshots/create-recipe.png"
+                    src="/screenshots/create-recipe-final.png"
                     alt="Creator tools interface"
                     size="lg"
                   />
@@ -383,7 +383,7 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="section bg-gradient-to-br from-orange-600 to-rose-600 text-white overflow-hidden py-32 md:py-40" id="download">
+      <section className="section bg-gradient-to-br from-orange-500 to-orange-600 text-white overflow-hidden py-32 md:py-40" id="download">
         <div className="container-main relative z-10 text-center">
           <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
             Ready to cook?
