@@ -23,19 +23,19 @@ export const metadata: Metadata = {
     template: "%s | Flav",
   },
   description:
-    "The short-form video app for food lovers. Discover recipes, grow your audience, and monetize your cooking content with tips and premium recipes.",
+    "The ultimate cooking app that combines short-form food videos with step-by-step recipes. Watch, cook with AI assistance, and earn money as a food creator.",
   keywords: [
-    "recipes",
-    "cooking",
-    "food videos",
-    "creator monetization",
-    "cooking app",
-    "recipe app",
-    "food creators",
-    "short-form video",
+    "best cooking app 2026",
+    "how to monetize food videos",
+    "AI recipe generator",
+    "TikTok for food",
+    "step by step cooking app",
+    "recipe organizer",
+    "food creator economy",
+    "Flav app",
   ],
-  authors: [{ name: "Flav" }],
-  creator: "Flav",
+  authors: [{ name: "Flav Team" }],
+  creator: "Flav Inc.",
   publisher: "Flav Inc.",
   metadataBase: new URL("https://flav.app"),
   openGraph: {
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://flav.app",
     siteName: "Flav",
-    title: "Flav — Your Recipes, Your Audience, Your Income",
+    title: "Flav — Cook Anything. Ask Anything.",
     description:
-      "The short-form video app for food lovers. Discover recipes, grow your audience, and monetize your cooking content.",
+      "Discover viral recipes, cook with confidence using our AI sous-chef, and turn your passion into income.",
     images: [
       {
         url: "/og-image.png",

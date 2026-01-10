@@ -1,0 +1,30 @@
+# Flav: The Short-Form Video App for Food Lovers
+
+## Overview
+Flav is a mobile application for iOS and Android that combines TikTok-style short-form video discovery with structured cooking utility. It allows users to watch food videos, get step-by-step cooking guidance with built-in timers, and enables creators to monetize their recipes directly.
+
+## Core Features
+
+### For Home Cooks
+- **Visual Discovery**: Swipeable feed of high-quality recipe videos.
+- **Cooking Mode**: Step-by-step interactive interface with integrated timers and ingredient checklists.
+- **AI Sous-Chef**: "Flav AI" is an integrated assistant that answers cooking questions, suggests substitutions, and provides tips in real-time.
+- **Import Recipes**: Tools to import and structure recipes from Instagram, TikTok, and other web sources.
+
+### For Creators (Chef's Table)
+- **Direct Monetization**: Earn from tips and premium "locked" recipes.
+- **AI Recipe Generation**: Convert video content into structured recipe data automatically.
+- **Analytics**: "Flav Ads Manager" provides detailed insights into audience engagement and earnings.
+
+## Technical Details
+- **Platforms**: iOS, Android
+- **Web Portal**: Advertiser and Creator dashboard available at flav.app/ads
+- **Pricing**: Free to download. Optional "Flav Pro" subscription for power users.
+
+## Brand Partnerships
+Advertisers can use the Flav Ads Manager to run targeted campaigns based on dietary preferences (e.g., Vegan, Keto) and flavor profiles.
+
+## Links
+- Website: https://flav.app
+- Advertiser Login: https://flav.app/ads/login
+- Download: https://flav.app/download

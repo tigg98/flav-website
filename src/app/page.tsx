@@ -406,59 +406,65 @@ export default function HomePage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "MobileApplication",
-            name: "Flav",
-            operatingSystem: "iOS, Android",
-            applicationCategory: "FoodApplication",
-            description:
-              "The recipe app with AI assistance. Discover recipes, cook step-by-step with timers, and get instant help from your AI cooking assistant.",
-            offers: {
-              "@type": "Offer",
-              price: "0",
-              priceCurrency: "USD",
-            },
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: "4.8",
-              ratingCount: "1200",
-            },
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "Flav",
-            url: "https://flav.app",
-            logo: "https://flav.app/logo.png",
-            sameAs: [
-              "https://twitter.com/flavapp",
-              "https://instagram.com/flavapp",
-              "https://tiktok.com/@flavapp",
-            ],
-          }),
-        }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: faqItems.map((item) => ({
-              "@type": "Question",
-              name: item.question,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: item.answer,
+          __html: JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "SoftwareApplication",
+              "name": "Flav",
+              "applicationCategory": "LifestyleApplication",
+              "applicationSubCategory": "CookingApplication",
+              "operatingSystem": "iOS, Android",
+              "description": "The viral short-form video app for food lovers. Watch authentic recipes, cook with AI assistance, and earn money as a creator.",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
               },
-            })),
-          }),
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.9",
+                "ratingCount": "15420"
+              },
+              "featureList": [
+                "AI Cooking Assistant",
+                "Step-by-step Timers",
+                "Recipe Import Tool",
+                "Creator Monetization"
+              ],
+              "screenshot": "https://flav.app/screenshots/home-feed.png",
+              "downloadUrl": "https://flav.app/download"
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Flav",
+              "url": "https://flav.app",
+              "logo": "https://flav.app/logo.png",
+              "sameAs": [
+                "https://twitter.com/flavapp",
+                "https://instagram.com/flavapp",
+                "https://tiktok.com/@flavapp",
+                "https://linkedin.com/company/flav-app"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "support@flav.app",
+                "contactType": "customer service"
+              }
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": faqItems.map((item) => ({
+                "@type": "Question",
+                "name": item.question,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": item.answer
+                }
+              }))
+            }
+          ]),
         }}
       />
     </>
