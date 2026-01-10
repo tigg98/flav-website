@@ -50,24 +50,45 @@ export default function NewCampaignPage() {
         );
     };
 
-    const validateStep1 = () => {
+    const getStep1Validation = () => {
         if (!formData.name || !formData.budget_total || !formData.budget_daily || !formData.start_date || !formData.end_date) {
-            setError("Please fill in all required fields");
-            return false;
+            return { valid: false, error: "Please fill in all required fields" };
         }
-        setError("");
-        return true;
+
+        const start = new Date(formData.start_date);
+        const end = new Date(formData.end_date);
+
+        if (end < start) {
+            return { valid: false, error: "End date must be after start date" };
+        }
+
+        const diffTime = Math.abs(end.getTime() - start.getTime());
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+        const minTotal = parseFloat(formData.budget_daily) * diffDays;
+        const currentTotal = parseFloat(formData.budget_total);
+
+        if (currentTotal < minTotal) {
+            return { valid: false, error: `Total budget is too low. Minimum $${minTotal.toFixed(2)} required for ${diffDays} days.` };
+        }
+
+        return { valid: true, error: "" };
     };
 
     const handleContinueToTargeting = () => {
-        if (validateStep1()) {
+        const validation = getStep1Validation();
+        if (validation.valid) {
+            setError("");
             setStep(2);
+        } else {
+            setError(validation.error);
         }
     };
 
     async function handleSubmit() {
-        if (!validateStep1()) {
+        const validation = getStep1Validation();
+        if (!validation.valid) {
             setStep(1);
+            setError(validation.error);
             return;
         }
 
@@ -104,7 +125,7 @@ export default function NewCampaignPage() {
         }
     }
 
-    const isStep1Valid = formData.name && formData.budget_total && formData.budget_daily && formData.start_date && formData.end_date;
+    const isStep1Valid = true; // Button disabled state is now handled by validation on click, or we can use getStep1Validation().valid if we want to disable it. Let's keep it enabled to show errors.
 
     return (
         <div className="min-h-screen bg-background text-foreground transition-colors duration-200">
@@ -141,10 +162,10 @@ export default function NewCampaignPage() {
                             }}
                             disabled={i > 0 && !isStep1Valid}
                             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${step === i + 1
-                                    ? "bg-primary-500 text-white"
-                                    : step > i + 1
-                                        ? "bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400"
-                                        : "bg-neutral-100 dark:bg-neutral-800 text-neutral-500"
+                                ? "bg-primary-500 text-white"
+                                : step > i + 1
+                                    ? "bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400"
+                                    : "bg-neutral-100 dark:bg-neutral-800 text-neutral-500"
                                 } ${i > 0 && !isStep1Valid ? "opacity-50 cursor-not-allowed" : ""}`}
                         >
                             <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs">
@@ -242,6 +263,36 @@ export default function NewCampaignPage() {
                             </div>
                         </div>
 
+                        {formData.start_date && formData.end_date && formData.budget_daily && formData.budget_total && (
+                            (() => {
+                                const start = new Date(formData.start_date);
+                                const end = new Date(formData.end_date);
+                                const diffTime = Math.abs(end.getTime() - start.getTime());
+                                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1; // Inclusive
+                                const minTotal = parseFloat(formData.budget_daily) * diffDays;
+                                const currentTotal = parseFloat(formData.budget_total);
+
+                                if (end < start) {
+                                    return (
+                                        <div className="p-3 bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 rounded-lg text-sm">
+                                            End date must be after start date.
+                                        </div>
+                                    );
+                                }
+
+                                if (currentTotal < minTotal) {
+                                    return (
+                                        <div className="p-3 bg-amber-50 dark:bg-amber-500/10 text-amber-600 dark:text-amber-400 rounded-lg text-sm">
+                                            Total budget (${currentTotal.toFixed(2)}) is too low for {diffDays} days at ${formData.budget_daily}/day.
+                                            Minimum required: <strong>${minTotal.toFixed(2)}</strong>.
+                                        </div>
+                                    );
+                                }
+
+                                return null;
+                            })()
+                        )}
+
                         <div className="flex justify-end pt-4">
                             <Button type="button" onClick={handleContinueToTargeting} disabled={!isStep1Valid}>
                                 Continue to Targeting →
@@ -270,8 +321,8 @@ export default function NewCampaignPage() {
                                             type="button"
                                             onClick={() => toggleTargeting(option)}
                                             className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedTargeting.includes(option)
-                                                    ? "bg-primary-500 text-white"
-                                                    : "bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700"
+                                                ? "bg-primary-500 text-white"
+                                                : "bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700"
                                                 }`}
                                         >
                                             {option}

@@ -157,20 +157,22 @@ export default function BillingPage() {
                 )}
 
                 {/* Balance Card */}
-                <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-8 text-white shadow-md">
+                <div className="bg-background-elevated rounded-xl p-8 border border-neutral-200 dark:border-neutral-800 shadow-sm transition-colors duration-200">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                         <div>
-                            <p className="text-sm opacity-90 mb-1">Current Balance</p>
-                            <p className="text-5xl font-bold">${balance.toFixed(2)}</p>
-                            <p className="text-sm opacity-90 mt-2">
+                            <p className="text-sm text-neutral-500 mb-1">Current Balance</p>
+                            <div className="flex items-baseline gap-1">
+                                <span className="text-5xl font-bold text-foreground">${balance.toFixed(2)}</span>
+                            </div>
+                            <p className="text-sm text-neutral-500 mt-2">
                                 Funds are automatically deducted as your campaigns run
                             </p>
                         </div>
                         {runway !== null && runway > 0 && (
                             <div className="text-right">
-                                <p className="text-sm opacity-90">Estimated runway</p>
-                                <p className="text-2xl font-semibold">~{runway} days</p>
-                                <p className="text-xs opacity-70">based on recent spend</p>
+                                <p className="text-sm text-neutral-500">Estimated runway</p>
+                                <p className="text-2xl font-semibold text-foreground">~{runway} days</p>
+                                <p className="text-xs text-neutral-400">based on recent spend</p>
                             </div>
                         )}
                     </div>

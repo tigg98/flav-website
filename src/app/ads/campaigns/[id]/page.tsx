@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AdsNav } from "@/components/ads/AdsNav";
@@ -39,7 +39,8 @@ const statusColors: Record<string, string> = {
     completed: "bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-400",
 };
 
-export default function CampaignDetailPage({ params }: { params: { id: string } }) {
+export default function CampaignDetailPage({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = use(params);
     const router = useRouter();
     const [campaign, setCampaign] = useState<Campaign | null>(null);
     const [ads, setAds] = useState<Ad[]>([]);
@@ -61,13 +62,13 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
     useEffect(() => {
         fetchCampaign();
         fetchAds();
-    }, [params.id]);
+    }, [id]);
 
     const fetchCampaign = async () => {
         try {
             const res = await fetch("/api/campaigns");
             const data = await res.json();
-            const found = data.campaigns?.find((c: Campaign) => c.id === params.id);
+            const found = data.campaigns?.find((c: Campaign) => c.id === id);
             if (found) {
                 setCampaign(found);
                 setFormData({
@@ -90,7 +91,7 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
 
     const fetchAds = async () => {
         try {
-            const res = await fetch(`/api/ads?campaign_id=${params.id}`);
+            const res = await fetch(`/api/ads?campaign_id=${id}`);
             const data = await res.json();
             if (data.ads) {
                 setAds(data.ads);
@@ -111,7 +112,7 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
-                    id: params.id,
+                    id: id,
                     name: formData.name,
                     budget_total: parseFloat(formData.budget_total),
                     budget_daily: parseFloat(formData.budget_daily),
@@ -144,7 +145,7 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
         setError("");
 
         try {
-            const res = await fetch(`/api/campaigns?id=${params.id}`, {
+            const res = await fetch(`/api/campaigns?id=${id}`, {
                 method: "DELETE",
             });
 
@@ -343,7 +344,7 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
                                 {ads.length} ad{ads.length !== 1 ? 's' : ''} in this campaign
                             </p>
                         </div>
-                        <Link href={`/ads/campaigns/${params.id}/ads/new`}>
+                        <Link href={`/ads/campaigns/${id}/ads/new`}>
                             <Button size="sm">+ Create Ad</Button>
                         </Link>
                     </div>
@@ -355,14 +356,14 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
                             <p className="text-sm text-neutral-500 mb-4">
                                 Create your first ad to start reaching users
                             </p>
-                            <Link href={`/ads/campaigns/${params.id}/ads/new`}>
+                            <Link href={`/ads/campaigns/${id}/ads/new`}>
                                 <Button>Create Your First Ad</Button>
                             </Link>
                         </div>
                     ) : (
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                             {ads.map((ad) => (
-                                <AdCard key={ad.id} ad={ad} campaignId={params.id} />
+                                <AdCard key={ad.id} ad={ad} campaignId={id} />
                             ))}
                         </div>
                     )}

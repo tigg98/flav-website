@@ -3,9 +3,17 @@ import { redirect } from 'next/navigation'
 import Link from 'next/link'
 import { AdsNav } from '@/components/ads/AdsNav'
 import { Button } from '@/components/ui/Button'
+import { MetricsChart } from '@/components/ads/MetricsChart'
+import { DateRangeFilter } from '@/components/ads/DateRangeFilter'
 
-export default async function DashboardPage() {
+interface DashboardPageProps {
+    searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}
+
+export default async function DashboardPage({ searchParams }: DashboardPageProps) {
     const supabase = await createClient()
+    const resolvedSearchParams = await searchParams
+    const range = typeof resolvedSearchParams.range === 'string' ? resolvedSearchParams.range : '30d'
 
     const {
         data: { user },
@@ -24,29 +32,68 @@ export default async function DashboardPage() {
 
     const campaignIds = campaigns?.map(c => c.id) || []
 
+    // Calculate dates
+    const now = new Date()
+    let startDate: Date | null = new Date()
+
+    switch (range) {
+        case '7d':
+            startDate.setDate(now.getDate() - 7)
+            break
+        case '30d':
+            startDate.setDate(now.getDate() - 30)
+            break
+        case '90d':
+            startDate.setDate(now.getDate() - 90)
+            break
+        case 'all':
+            startDate = null
+            break
+        default:
+            startDate.setDate(now.getDate() - 30)
+    }
+
     // Get total impressions from ad_events
     let totalImpressions = 0
     let totalClicks = 0
     let totalSaves = 0
 
     if (campaignIds.length > 0) {
-        const { count: impressionCount } = await supabase
+        // Impressions
+        let impressionsQuery = supabase
             .from('ad_events')
             .select('*', { count: 'exact', head: true })
             .in('campaign_id', campaignIds)
             .eq('event_type', 'impression')
 
-        const { count: clickCount } = await supabase
+        if (startDate) {
+            impressionsQuery = impressionsQuery.gte('created_at', startDate.toISOString())
+        }
+        const { count: impressionCount } = await impressionsQuery
+
+        // Clicks
+        let clicksQuery = supabase
             .from('ad_events')
             .select('*', { count: 'exact', head: true })
             .in('campaign_id', campaignIds)
             .eq('event_type', 'click')
 
-        const { count: saveCount } = await supabase
+        if (startDate) {
+            clicksQuery = clicksQuery.gte('created_at', startDate.toISOString())
+        }
+        const { count: clickCount } = await clicksQuery
+
+        // Saves
+        let savesQuery = supabase
             .from('ad_events')
             .select('*', { count: 'exact', head: true })
             .in('campaign_id', campaignIds)
             .eq('event_type', 'save')
+
+        if (startDate) {
+            savesQuery = savesQuery.gte('created_at', startDate.toISOString())
+        }
+        const { count: saveCount } = await savesQuery
 
         totalImpressions = impressionCount || 0
         totalClicks = clickCount || 0
@@ -69,15 +116,50 @@ export default async function DashboardPage() {
     // Get recent campaigns for display
     const recentCampaigns = campaigns?.slice(0, 5) || []
 
-    // Mock weekly data for chart (in production, this would come from real data)
-    const weeklyData = [
-        { week: 'Week 1', impressions: Math.floor(totalImpressions * 0.1) || 100 },
-        { week: 'Week 2', impressions: Math.floor(totalImpressions * 0.2) || 200 },
-        { week: 'Week 3', impressions: Math.floor(totalImpressions * 0.3) || 600 },
-        { week: 'Week 4', impressions: Math.floor(totalImpressions * 0.4) || 800 },
-    ]
+    // Generate Chart Data based on Range
+    let chartData = []
 
-    const maxImpressions = Math.max(...weeklyData.map(d => d.impressions), 1)
+    // Helper to generate fake historical data based on current totals
+    // (In production this would be a real day-by-day query)
+    if (range === '7d') {
+        // Daily data for last 7 days
+        for (let i = 6; i >= 0; i--) {
+            const d = new Date()
+            d.setDate(d.getDate() - i)
+            chartData.push({
+                label: d.toLocaleDateString('en-US', { weekday: 'short' }),
+                value: Math.floor((totalImpressions / 7) * (0.8 + Math.random() * 0.4)) // Randomize slightly around average
+            })
+        }
+    } else if (range === '30d') {
+        // Every 3 days or weekly-ish
+        for (let i = 0; i < 4; i++) {
+            chartData.push({
+                label: `Week ${i + 1}`,
+                value: Math.floor((totalImpressions / 4) * (0.8 + Math.random() * 0.4))
+            })
+        }
+    } else if (range === '90d') {
+        // Monthly
+        for (let i = 2; i >= 0; i--) {
+            const d = new Date()
+            d.setMonth(d.getMonth() - i)
+            chartData.push({
+                label: d.toLocaleDateString('en-US', { month: 'short' }),
+                value: Math.floor((totalImpressions / 3) * (0.8 + Math.random() * 0.4))
+            })
+        }
+    } else {
+        // All time (just show monthly for last 6 months)
+        for (let i = 5; i >= 0; i--) {
+            const d = new Date()
+            d.setMonth(d.getMonth() - i)
+            chartData.push({
+                label: d.toLocaleDateString('en-US', { month: 'short' }),
+                value: Math.floor((totalImpressions / 6) * (0.8 + Math.random() * 0.4))
+            })
+        }
+    }
 
     return (
         <div className="min-h-screen bg-background text-foreground transition-colors duration-200">
@@ -90,9 +172,12 @@ export default async function DashboardPage() {
                         <p className="text-neutral-500 text-sm uppercase tracking-wider mb-1">FLAV</p>
                         <h1 className="text-2xl font-semibold">Analytics: Recipe Ad Performance</h1>
                     </div>
-                    <Link href="/ads/campaigns/new">
-                        <Button>+ New Campaign</Button>
-                    </Link>
+                    <div className="flex items-center gap-3">
+                        <DateRangeFilter />
+                        <Link href="/ads/campaigns/new">
+                            <Button>+ New Campaign</Button>
+                        </Link>
+                    </div>
                 </div>
 
                 {/* Top Metrics Row */}
@@ -106,78 +191,50 @@ export default async function DashboardPage() {
                             </span>
                         </div>
                         <p className="text-3xl font-bold mb-2">{formatNumber(totalImpressions)}</p>
-                        <div className="h-8">
-                            <svg viewBox="0 0 100 30" className="w-full h-full">
-                                <path
-                                    d="M0,25 Q20,20 40,15 T80,10 T100,5"
-                                    fill="none"
-                                    stroke="var(--color-primary-500)"
-                                    strokeWidth="2"
-                                />
-                            </svg>
+                        <div className="h-12 -mx-2">
+                            <MetricsChart minimal data={[{ label: '1', value: 10 }, { label: '2', value: totalImpressions }]} height={48} color="var(--color-primary-500)" />
                         </div>
                     </div>
 
                     {/* Engagement */}
-                    <div className="bg-background-elevated rounded-xl p-5 border border-neutral-200 dark:border-neutral-800 shadow-sm transition-colors duration-200">
-                        <div className="flex items-center justify-between mb-3">
+                    <div className="bg-background-elevated rounded-xl p-5 border border-neutral-200 dark:border-neutral-800 shadow-sm transition-colors duration-200 overflow-hidden relative">
+                        <div className="flex items-center justify-between mb-3 relative z-10">
                             <h3 className="text-sm text-neutral-500">Engagement</h3>
                             <span className="text-xs text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-400/10 px-2 py-0.5 rounded-full font-medium">
                                 +{engagement}%
                             </span>
                         </div>
-                        <p className="text-3xl font-bold mb-2">{engagement}%</p>
-                        <div className="h-8">
-                            <svg viewBox="0 0 100 30" className="w-full h-full">
-                                <path
-                                    d="M0,20 Q25,25 50,15 T100,10"
-                                    fill="none"
-                                    stroke="var(--color-primary-500)"
-                                    strokeWidth="2"
-                                />
-                            </svg>
+                        <p className="text-3xl font-bold mb-2 relative z-10">{engagement}%</p>
+                        <div className="h-12 -mx-2">
+                            <MetricsChart minimal data={[{ label: '1', value: 5 }, { label: '2', value: parseFloat(engagement) }]} height={48} color="var(--color-primary-500)" />
                         </div>
                     </div>
 
                     {/* Conversions (Saves) */}
-                    <div className="bg-background-elevated rounded-xl p-5 border border-neutral-200 dark:border-neutral-800 shadow-sm transition-colors duration-200">
-                        <div className="flex items-center justify-between mb-3">
+                    <div className="bg-background-elevated rounded-xl p-5 border border-neutral-200 dark:border-neutral-800 shadow-sm transition-colors duration-200 overflow-hidden relative">
+                        <div className="flex items-center justify-between mb-3 relative z-10">
                             <h3 className="text-sm text-neutral-500">Saves</h3>
                             <span className="text-xs text-neutral-500 bg-neutral-100 dark:bg-neutral-800 px-2 py-0.5 rounded-full font-medium">
                                 {totalSaves}
                             </span>
                         </div>
-                        <p className="text-3xl font-bold mb-2">{formatNumber(totalSaves)}</p>
-                        <div className="h-8">
-                            <svg viewBox="0 0 100 30" className="w-full h-full">
-                                <path
-                                    d="M0,15 Q30,20 60,10 T100,15"
-                                    fill="none"
-                                    stroke="var(--color-primary-500)"
-                                    strokeWidth="2"
-                                />
-                            </svg>
+                        <p className="text-3xl font-bold mb-2 relative z-10">{formatNumber(totalSaves)}</p>
+                        <div className="h-12 -mx-2">
+                            <MetricsChart minimal data={[{ label: '1', value: 2 }, { label: '2', value: totalSaves }]} height={48} color="var(--color-primary-500)" />
                         </div>
                     </div>
 
                     {/* Total Spend */}
-                    <div className="bg-background-elevated rounded-xl p-5 border border-neutral-200 dark:border-neutral-800 shadow-sm transition-colors duration-200">
-                        <div className="flex items-center justify-between mb-3">
+                    <div className="bg-background-elevated rounded-xl p-5 border border-neutral-200 dark:border-neutral-800 shadow-sm transition-colors duration-200 overflow-hidden relative">
+                        <div className="flex items-center justify-between mb-3 relative z-10">
                             <h3 className="text-sm text-neutral-500">Total Spend</h3>
                             <span className="text-xs text-neutral-500 bg-neutral-100 dark:bg-neutral-800 px-2 py-0.5 rounded-full font-medium">
                                 $5 CPM
                             </span>
                         </div>
-                        <p className="text-3xl font-bold mb-2">${totalSpend.toFixed(2)}</p>
-                        <div className="h-8">
-                            <svg viewBox="0 0 100 30" className="w-full h-full">
-                                <path
-                                    d="M0,25 L25,20 L50,15 L75,10 L100,5"
-                                    fill="none"
-                                    stroke="var(--color-primary-500)"
-                                    strokeWidth="2"
-                                />
-                            </svg>
+                        <p className="text-3xl font-bold mb-2 relative z-10">${totalSpend.toFixed(2)}</p>
+                        <div className="h-12 -mx-2">
+                            <MetricsChart minimal data={[{ label: '1', value: 100 }, { label: '2', value: totalSpend }]} height={48} color="var(--color-primary-500)" />
                         </div>
                     </div>
                 </div>
@@ -185,36 +242,12 @@ export default async function DashboardPage() {
                 {/* Main Content Grid */}
                 <div className="grid lg:grid-cols-3 gap-6">
                     {/* Impressions Growth Chart */}
-                    <div className="lg:col-span-2 bg-background-elevated rounded-xl p-6 border border-neutral-200 dark:border-neutral-800 shadow-sm transition-colors duration-200">
-                        <div className="flex items-center justify-between mb-6">
-                            <h2 className="text-lg font-semibold">Impressions Growth</h2>
-                            <select className="bg-background dark:bg-background text-neutral-500 text-sm px-3 py-1.5 rounded-lg border border-neutral-200 dark:border-neutral-800">
-                                <option>All months</option>
-                                <option>Last 30 days</option>
-                                <option>Last 7 days</option>
-                            </select>
-                        </div>
-
-                        {/* Bar Chart */}
-                        <div className="flex items-end justify-between h-48 gap-4">
-                            {weeklyData.map((data, index) => {
-                                const heightPercent = (data.impressions / maxImpressions) * 100
-                                return (
-                                    <div key={index} className="flex-1 flex flex-col items-center gap-2">
-                                        <div className="text-xs text-neutral-500 mb-1">
-                                            {data.week}: {formatNumber(data.impressions)}
-                                        </div>
-                                        <div className="relative w-full flex justify-center">
-                                            <div
-                                                className="w-12 md:w-16 rounded-t-lg bg-gradient-to-t from-primary-600 to-primary-400"
-                                                style={{ height: `${Math.max(heightPercent * 1.5, 20)}px` }}
-                                            />
-                                        </div>
-                                        <div className="text-xs text-neutral-400">{data.week}</div>
-                                    </div>
-                                )
-                            })}
-                        </div>
+                    <div className="lg:col-span-2">
+                        <MetricsChart
+                            title="Impressions Growth"
+                            data={chartData}
+                            height={300}
+                        />
                     </div>
 
                     {/* Engagement Breakdown */}

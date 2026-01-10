@@ -1,9 +1,12 @@
 "use client";
 
+import { use } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { AdForm } from "@/components/ads/AdForm";
 
-export default function NewAdPage({ params }: { params: { id: string } }) {
+export default function NewAdPage({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = use(params);
     return (
         <div className="min-h-screen">
             {/* Header */}
@@ -13,12 +16,12 @@ export default function NewAdPage({ params }: { params: { id: string } }) {
                         <div className="flex items-center gap-4">
                             <Link href="/ads/dashboard" className="flex items-center gap-2">
                                 <div className="relative w-8 h-8">
-                                    <img src="/logo.png" alt="Flav Logo" className="object-contain w-full h-full" />
+                                    <Image src="/logo.png" alt="Flav Logo" fill className="object-contain" />
                                 </div>
                                 <span className="text-xl font-bold gradient-text">Flav Ads</span>
                             </Link>
                             <span className="text-[var(--color-neutral-400)]">/</span>
-                            <Link href={`/ads/campaigns/${params.id}`} className="text-sm text-[var(--color-neutral-600)] hover:text-[var(--foreground)]">
+                            <Link href={`/ads/campaigns/${id}`} className="text-sm text-[var(--color-neutral-600)] hover:text-[var(--foreground)]">
                                 Campaign
                             </Link>
                             <span className="text-[var(--color-neutral-400)]">/</span>
@@ -38,7 +41,7 @@ export default function NewAdPage({ params }: { params: { id: string } }) {
                 </div>
 
                 <div className="bg-[var(--background-elevated)] rounded-2xl p-8 shadow-sm border border-[var(--color-neutral-200)]">
-                    <AdForm campaignId={params.id} />
+                    <AdForm campaignId={id} />
                 </div>
             </main>
         </div>
