@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/Button";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { Badge } from "@/components/ui/Badge";
+import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
 
 const features = [
   {
@@ -124,35 +125,23 @@ export default function HomePage() {
 
             {/* Right: Phone Mockups */}
             <div className="relative flex justify-center lg:justify-end">
-              {/* Main phone */}
-              <div className="relative w-64 md:w-72 z-20">
-                <div className="relative bg-[var(--color-neutral-900)] rounded-[3rem] p-2 shadow-2xl">
-                  <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden bg-black">
-                    <Image
-                      src="/screenshots/home-feed.png"
-                      alt="Flav home feed showing recipe discovery"
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                  </div>
-                  {/* Notch */}
-                  <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-full" />
-                </div>
+              {/* Main phone - Realistic iPhone */}
+              <div className="relative z-20">
+                <IPhoneMockup
+                  src="/screenshots/home-feed.png"
+                  alt="Flav home feed showing recipe discovery"
+                  size="lg"
+                  priority
+                />
               </div>
 
               {/* Background phone - Recipe Detail */}
-              <div className="absolute right-0 md:right-8 top-12 w-48 md:w-56 z-10 opacity-80 hidden sm:block">
-                <div className="relative bg-[var(--color-neutral-800)] rounded-[2.5rem] p-1.5 shadow-xl">
-                  <div className="relative w-full aspect-[9/19.5] rounded-[2rem] overflow-hidden bg-black">
-                    <Image
-                      src="/screenshots/recipe-detail.png"
-                      alt="Recipe detail view"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
+              <div className="absolute right-0 md:right-4 top-16 z-10 opacity-70 hidden sm:block scale-[0.85]">
+                <IPhoneMockup
+                  src="/screenshots/recipe-detail.png"
+                  alt="Recipe detail view"
+                  size="md"
+                />
               </div>
             </div>
           </div>
@@ -181,19 +170,11 @@ export default function HomePage() {
               >
                 {/* Phone mockup */}
                 <div className={`flex justify-center ${index % 2 === 1 ? "md:order-2" : ""}`}>
-                  <div className="relative w-56 md:w-64">
-                    <div className="relative bg-[var(--color-neutral-900)] rounded-[3rem] p-2 shadow-2xl">
-                      <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden bg-black">
-                        <Image
-                          src={feature.screenshot}
-                          alt={feature.title}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full" />
-                    </div>
-                  </div>
+                  <IPhoneMockup
+                    src={feature.screenshot}
+                    alt={feature.title}
+                    size="md"
+                  />
                 </div>
 
                 {/* Content */}
@@ -318,8 +299,13 @@ export default function HomePage() {
               </Button>
             </div>
             <div className="hidden md:flex justify-center">
-              <div className="relative w-80 h-80 bg-gradient-to-br from-[var(--color-primary-500)]/20 to-[var(--color-secondary-500)]/20 rounded-3xl flex items-center justify-center">
-                <span className="text-8xl">📊</span>
+              <div className="relative w-96 h-80 rounded-3xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/advertiser-dashboard.png"
+                  alt="Flav advertiser analytics dashboard"
+                  fill
+                  className="object-cover"
+                />
               </div>
             </div>
           </div>
@@ -359,18 +345,11 @@ export default function HomePage() {
             </div>
 
             <div className="hidden md:flex justify-center">
-              <div className="relative w-48">
-                <div className="relative bg-black rounded-[2.5rem] p-1.5">
-                  <div className="relative w-full aspect-[9/19.5] rounded-[2rem] overflow-hidden">
-                    <Image
-                      src="/screenshots/home-feed.png"
-                      alt="Flav app"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
+              <IPhoneMockup
+                src="/screenshots/home-feed.png"
+                alt="Flav app"
+                size="sm"
+              />
             </div>
           </div>
         </div>

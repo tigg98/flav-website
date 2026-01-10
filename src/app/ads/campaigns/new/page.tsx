@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AdsNav } from "@/components/ads/AdsNav";
 import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
 
 const targetingCategories = [
     {
@@ -32,7 +31,6 @@ export default function NewCampaignPage() {
     const [error, setError] = useState("");
     const [step, setStep] = useState(1);
 
-    // Form state - persisted across all steps
     const [formData, setFormData] = useState({
         name: "",
         budget_total: "",
@@ -109,23 +107,23 @@ export default function NewCampaignPage() {
     const isStep1Valid = formData.name && formData.budget_total && formData.budget_daily && formData.start_date && formData.end_date;
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen bg-background text-foreground transition-colors duration-200">
             <AdsNav />
 
             <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {/* Breadcrumb */}
-                <div className="flex items-center gap-2 text-sm text-[var(--color-neutral-500)] mb-6">
-                    <Link href="/ads/campaigns" className="hover:text-[var(--foreground)]">
+                <div className="flex items-center gap-2 text-sm text-neutral-500 mb-6">
+                    <Link href="/ads/campaigns" className="hover:text-foreground">
                         Campaigns
                     </Link>
                     <span>/</span>
-                    <span className="text-[var(--foreground)]">New Campaign</span>
+                    <span className="text-foreground">New Campaign</span>
                 </div>
 
                 {/* Header */}
                 <div className="mb-8">
-                    <h1 className="text-3xl font-bold text-[var(--foreground)]">Create New Campaign</h1>
-                    <p className="text-[var(--color-neutral-500)]">
+                    <h1 className="text-2xl font-bold">Create New Campaign</h1>
+                    <p className="text-neutral-500">
                         Set up your campaign details, budget, and targeting
                     </p>
                 </div>
@@ -143,10 +141,10 @@ export default function NewCampaignPage() {
                             }}
                             disabled={i > 0 && !isStep1Valid}
                             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${step === i + 1
-                                    ? "bg-[var(--color-primary-500)] text-white"
+                                    ? "bg-primary-500 text-white"
                                     : step > i + 1
-                                        ? "bg-[var(--color-secondary-100)] text-[var(--color-secondary-700)]"
-                                        : "bg-[var(--color-neutral-100)] text-[var(--color-neutral-500)]"
+                                        ? "bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400"
+                                        : "bg-neutral-100 dark:bg-neutral-800 text-neutral-500"
                                 } ${i > 0 && !isStep1Valid ? "opacity-50 cursor-not-allowed" : ""}`}
                         >
                             <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs">
@@ -159,34 +157,35 @@ export default function NewCampaignPage() {
 
                 {/* Error Display */}
                 {error && (
-                    <div className="mb-6 p-4 text-sm text-red-500 bg-red-50 rounded-xl border border-red-200">
+                    <div className="mb-6 p-4 text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10 rounded-xl border border-red-200 dark:border-red-500/20">
                         {error}
                     </div>
                 )}
 
                 {/* Step 1: Details */}
                 {step === 1 && (
-                    <div className="space-y-6 bg-white p-8 rounded-2xl shadow-sm border border-[var(--color-neutral-200)]">
+                    <div className="space-y-6 bg-background-elevated p-8 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm transition-colors duration-200">
                         <h2 className="text-lg font-semibold">Campaign Details</h2>
 
                         <div className="space-y-2">
-                            <label htmlFor="name" className="text-sm font-medium">
+                            <label htmlFor="name" className="text-sm font-medium text-neutral-500">
                                 Campaign Name *
                             </label>
-                            <Input
+                            <input
                                 id="name"
                                 value={formData.name}
                                 onChange={(e) => updateFormData("name", e.target.value)}
                                 placeholder="e.g. Summer Grilling Promo"
+                                className="w-full px-4 py-3 rounded-xl bg-background border border-neutral-200 dark:border-neutral-800 placeholder-neutral-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-colors"
                             />
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label htmlFor="budget_total" className="text-sm font-medium">
+                                <label htmlFor="budget_total" className="text-sm font-medium text-neutral-500">
                                     Total Budget ($) *
                                 </label>
-                                <Input
+                                <input
                                     id="budget_total"
                                     type="number"
                                     min="50"
@@ -194,14 +193,15 @@ export default function NewCampaignPage() {
                                     value={formData.budget_total}
                                     onChange={(e) => updateFormData("budget_total", e.target.value)}
                                     placeholder="1000.00"
+                                    className="w-full px-4 py-3 rounded-xl bg-background border border-neutral-200 dark:border-neutral-800 placeholder-neutral-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-colors"
                                 />
-                                <p className="text-xs text-[var(--color-neutral-500)]">Minimum $50</p>
+                                <p className="text-xs text-neutral-500">Minimum $50</p>
                             </div>
                             <div className="space-y-2">
-                                <label htmlFor="budget_daily" className="text-sm font-medium">
+                                <label htmlFor="budget_daily" className="text-sm font-medium text-neutral-500">
                                     Daily Budget ($) *
                                 </label>
-                                <Input
+                                <input
                                     id="budget_daily"
                                     type="number"
                                     min="10"
@@ -209,32 +209,35 @@ export default function NewCampaignPage() {
                                     value={formData.budget_daily}
                                     onChange={(e) => updateFormData("budget_daily", e.target.value)}
                                     placeholder="50.00"
+                                    className="w-full px-4 py-3 rounded-xl bg-background border border-neutral-200 dark:border-neutral-800 placeholder-neutral-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-colors"
                                 />
-                                <p className="text-xs text-[var(--color-neutral-500)]">Minimum $10/day</p>
+                                <p className="text-xs text-neutral-500">Minimum $10/day</p>
                             </div>
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label htmlFor="start_date" className="text-sm font-medium">
+                                <label htmlFor="start_date" className="text-sm font-medium text-neutral-500">
                                     Start Date *
                                 </label>
-                                <Input
+                                <input
                                     id="start_date"
                                     type="date"
                                     value={formData.start_date}
                                     onChange={(e) => updateFormData("start_date", e.target.value)}
+                                    className="w-full px-4 py-3 rounded-xl bg-background border border-neutral-200 dark:border-neutral-800 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-colors"
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label htmlFor="end_date" className="text-sm font-medium">
+                                <label htmlFor="end_date" className="text-sm font-medium text-neutral-500">
                                     End Date *
                                 </label>
-                                <Input
+                                <input
                                     id="end_date"
                                     type="date"
                                     value={formData.end_date}
                                     onChange={(e) => updateFormData("end_date", e.target.value)}
+                                    className="w-full px-4 py-3 rounded-xl bg-background border border-neutral-200 dark:border-neutral-800 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-colors"
                                 />
                             </div>
                         </div>
@@ -249,10 +252,10 @@ export default function NewCampaignPage() {
 
                 {/* Step 2: Targeting */}
                 {step === 2 && (
-                    <div className="space-y-6 bg-white p-8 rounded-2xl shadow-sm border border-[var(--color-neutral-200)]">
+                    <div className="space-y-6 bg-background-elevated p-8 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm transition-colors duration-200">
                         <div>
                             <h2 className="text-lg font-semibold">Audience Targeting</h2>
-                            <p className="text-sm text-[var(--color-neutral-500)]">
+                            <p className="text-sm text-neutral-500">
                                 Select the categories that match your target audience (optional)
                             </p>
                         </div>
@@ -267,8 +270,8 @@ export default function NewCampaignPage() {
                                             type="button"
                                             onClick={() => toggleTargeting(option)}
                                             className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${selectedTargeting.includes(option)
-                                                    ? "bg-[var(--color-primary-500)] text-white"
-                                                    : "bg-[var(--color-neutral-100)] text-[var(--color-neutral-700)] hover:bg-[var(--color-neutral-200)]"
+                                                    ? "bg-primary-500 text-white"
+                                                    : "bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700"
                                                 }`}
                                         >
                                             {option}
@@ -279,8 +282,8 @@ export default function NewCampaignPage() {
                         ))}
 
                         {selectedTargeting.length > 0 && (
-                            <div className="p-4 bg-[var(--color-primary-50)] rounded-xl">
-                                <p className="text-sm font-medium text-[var(--color-primary-700)]">
+                            <div className="p-4 bg-primary-50 dark:bg-primary-500/10 rounded-xl border border-primary-100 dark:border-primary-500/20">
+                                <p className="text-sm font-medium text-primary-600 dark:text-primary-400">
                                     {selectedTargeting.length} targeting options selected
                                 </p>
                             </div>
@@ -300,34 +303,34 @@ export default function NewCampaignPage() {
                 {/* Step 3: Review */}
                 {step === 3 && (
                     <div className="space-y-6">
-                        <div className="bg-white p-8 rounded-2xl shadow-sm border border-[var(--color-neutral-200)]">
+                        <div className="bg-background-elevated p-8 rounded-xl border border-neutral-200 dark:border-neutral-800 shadow-sm transition-colors duration-200">
                             <h2 className="text-lg font-semibold mb-6">Review Your Campaign</h2>
 
                             <div className="space-y-4">
-                                <div className="flex justify-between py-3 border-b border-[var(--color-neutral-200)]">
-                                    <span className="text-[var(--color-neutral-500)]">Campaign Name</span>
+                                <div className="flex justify-between py-3 border-b border-neutral-200 dark:border-neutral-800">
+                                    <span className="text-neutral-500">Campaign Name</span>
                                     <span className="font-medium">{formData.name || "Not set"}</span>
                                 </div>
-                                <div className="flex justify-between py-3 border-b border-[var(--color-neutral-200)]">
-                                    <span className="text-[var(--color-neutral-500)]">Total Budget</span>
+                                <div className="flex justify-between py-3 border-b border-neutral-200 dark:border-neutral-800">
+                                    <span className="text-neutral-500">Total Budget</span>
                                     <span className="font-medium">${formData.budget_total || "0"}</span>
                                 </div>
-                                <div className="flex justify-between py-3 border-b border-[var(--color-neutral-200)]">
-                                    <span className="text-[var(--color-neutral-500)]">Daily Budget</span>
+                                <div className="flex justify-between py-3 border-b border-neutral-200 dark:border-neutral-800">
+                                    <span className="text-neutral-500">Daily Budget</span>
                                     <span className="font-medium">${formData.budget_daily || "0"}/day</span>
                                 </div>
-                                <div className="flex justify-between py-3 border-b border-[var(--color-neutral-200)]">
-                                    <span className="text-[var(--color-neutral-500)]">Schedule</span>
+                                <div className="flex justify-between py-3 border-b border-neutral-200 dark:border-neutral-800">
+                                    <span className="text-neutral-500">Schedule</span>
                                     <span className="font-medium">{formData.start_date} – {formData.end_date}</span>
                                 </div>
-                                <div className="flex justify-between py-3 border-b border-[var(--color-neutral-200)]">
-                                    <span className="text-[var(--color-neutral-500)]">Status</span>
-                                    <span className="px-3 py-1 bg-[var(--color-neutral-100)] text-[var(--color-neutral-600)] rounded-full text-sm font-medium">
+                                <div className="flex justify-between py-3 border-b border-neutral-200 dark:border-neutral-800">
+                                    <span className="text-neutral-500">Status</span>
+                                    <span className="px-3 py-1 bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 rounded-full text-sm font-medium">
                                         Draft
                                     </span>
                                 </div>
                                 <div className="flex justify-between py-3">
-                                    <span className="text-[var(--color-neutral-500)]">Targeting</span>
+                                    <span className="text-neutral-500">Targeting</span>
                                     <span className="text-right max-w-xs">
                                         {selectedTargeting.length > 0
                                             ? selectedTargeting.join(", ")
@@ -336,8 +339,8 @@ export default function NewCampaignPage() {
                                 </div>
                             </div>
 
-                            <div className="mt-6 p-4 bg-[var(--color-secondary-50)] rounded-xl">
-                                <p className="text-sm text-[var(--color-secondary-700)]">
+                            <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-500/10 rounded-xl border border-blue-100 dark:border-blue-500/20">
+                                <p className="text-sm text-blue-600 dark:text-blue-400">
                                     <strong>Note:</strong> Your campaign will be saved as a draft. You can edit it
                                     before submitting for review.
                                 </p>

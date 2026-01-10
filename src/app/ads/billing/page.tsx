@@ -74,16 +74,13 @@ export default function BillingPage() {
                 throw new Error(data.error || "Failed to add funds");
             }
 
-            // Success!
             setSuccessMessage(`Successfully added $${amount.toFixed(2)} to your account`);
             setShowSuccess(true);
             setSelectedAmount(null);
             setCustomAmount("");
 
-            // Refresh balance and transactions
             await fetchBillingData();
 
-            // Hide success after 5 seconds
             setTimeout(() => setShowSuccess(false), 5000);
         } catch (err: any) {
             setError(err.message || "Failed to add funds. Please try again.");
@@ -94,12 +91,10 @@ export default function BillingPage() {
 
     const fundingOptions = [50, 100, 250, 500, 1000];
 
-    // Calculate estimated runway based on average daily spend
     const calculateRunway = () => {
         const spendTransactions = transactions.filter(t => t.type === "spend");
         if (spendTransactions.length === 0) return null;
 
-        // Calculate average daily spend based on recent transactions
         const totalSpend = spendTransactions.reduce((sum, t) => sum + Math.abs(t.amount), 0);
         const avgDaily = totalSpend / Math.max(spendTransactions.length, 1);
 
@@ -111,50 +106,50 @@ export default function BillingPage() {
 
     if (isLoading) {
         return (
-            <div className="min-h-screen">
+            <div className="min-h-screen bg-background text-foreground transition-colors duration-200">
                 <AdsNav />
                 <div className="flex items-center justify-center py-20">
-                    <div className="text-[var(--color-neutral-500)]">Loading billing...</div>
+                    <div className="text-neutral-500">Loading billing...</div>
                 </div>
             </div>
         );
     }
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen bg-background text-foreground transition-colors duration-200">
             <AdsNav />
 
-            <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+            <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">
                 {/* Header */}
                 <div>
                     <h1 className="text-2xl font-bold">Billing</h1>
-                    <p className="text-sm text-[var(--color-neutral-500)]">
+                    <p className="text-sm text-neutral-500">
                         Manage your account balance and view transaction history
                     </p>
                 </div>
 
                 {/* Success Message */}
                 {showSuccess && (
-                    <div className="p-4 bg-green-50 border border-green-200 rounded-xl flex items-center gap-3">
-                        <span className="text-xl text-green-600">✓</span>
+                    <div className="p-4 bg-green-50 dark:bg-green-500/10 border border-green-200 dark:border-green-500/20 rounded-xl flex items-center gap-3">
+                        <span className="text-xl text-green-600 dark:text-green-400">✓</span>
                         <div>
-                            <p className="font-medium text-green-800">{successMessage}</p>
-                            <p className="text-sm text-green-600">Your balance has been updated.</p>
+                            <p className="font-medium text-green-600 dark:text-green-400">{successMessage}</p>
+                            <p className="text-sm text-green-700 dark:text-green-400/70">Your balance has been updated.</p>
                         </div>
                     </div>
                 )}
 
                 {/* Error Message */}
                 {error && (
-                    <div className="p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3">
-                        <span className="text-xl text-red-600">⚠</span>
+                    <div className="p-4 bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 rounded-xl flex items-center gap-3">
+                        <span className="text-xl text-red-600 dark:text-red-400">⚠</span>
                         <div>
-                            <p className="font-medium text-red-800">Error</p>
-                            <p className="text-sm text-red-600">{error}</p>
+                            <p className="font-medium text-red-600 dark:text-red-400">Error</p>
+                            <p className="text-sm text-red-700 dark:text-red-400/70">{error}</p>
                         </div>
                         <button
                             onClick={() => setError("")}
-                            className="ml-auto text-red-400 hover:text-red-600"
+                            className="ml-auto text-red-500 dark:text-red-400/50 hover:text-red-700 dark:hover:text-red-400"
                         >
                             ✕
                         </button>
@@ -162,27 +157,27 @@ export default function BillingPage() {
                 )}
 
                 {/* Balance Card */}
-                <div className="bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-primary-600)] rounded-2xl p-8 text-white">
+                <div className="bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl p-8 text-white shadow-md">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                         <div>
-                            <p className="text-sm opacity-80 mb-1">Current Balance</p>
+                            <p className="text-sm opacity-90 mb-1">Current Balance</p>
                             <p className="text-5xl font-bold">${balance.toFixed(2)}</p>
-                            <p className="text-sm opacity-80 mt-2">
+                            <p className="text-sm opacity-90 mt-2">
                                 Funds are automatically deducted as your campaigns run
                             </p>
                         </div>
                         {runway !== null && runway > 0 && (
                             <div className="text-right">
-                                <p className="text-sm opacity-80">Estimated runway</p>
+                                <p className="text-sm opacity-90">Estimated runway</p>
                                 <p className="text-2xl font-semibold">~{runway} days</p>
-                                <p className="text-xs opacity-60">based on recent spend</p>
+                                <p className="text-xs opacity-70">based on recent spend</p>
                             </div>
                         )}
                     </div>
                 </div>
 
                 {/* Add Funds */}
-                <div className="bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-neutral-200)]">
+                <div className="bg-background-elevated rounded-xl p-6 border border-neutral-200 dark:border-neutral-800 shadow-sm transition-colors duration-200">
                     <h2 className="text-lg font-semibold mb-6">Add Funds</h2>
 
                     <div className="grid grid-cols-3 sm:grid-cols-5 gap-3 mb-6">
@@ -196,8 +191,8 @@ export default function BillingPage() {
                                     setError("");
                                 }}
                                 className={`py-4 px-4 rounded-xl border-2 font-semibold transition-all ${selectedAmount === amount
-                                        ? "border-[var(--color-primary-500)] bg-[var(--color-primary-50)] text-[var(--color-primary-600)]"
-                                        : "border-[var(--color-neutral-200)] hover:border-[var(--color-neutral-300)]"
+                                    ? "border-orange-500 bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400"
+                                    : "border-neutral-200 dark:border-neutral-800 text-foreground hover:border-neutral-300 dark:hover:border-neutral-700"
                                     }`}
                             >
                                 ${amount}
@@ -207,12 +202,8 @@ export default function BillingPage() {
 
                     <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                         <div className="flex-1">
-                            <label htmlFor="custom_amount" className="sr-only">
-                                Custom Amount
-                            </label>
                             <input
                                 type="number"
-                                id="custom_amount"
                                 min="10"
                                 max="10000"
                                 step="0.01"
@@ -223,7 +214,7 @@ export default function BillingPage() {
                                     setSelectedAmount(null);
                                     setError("");
                                 }}
-                                className="w-full px-4 py-3 rounded-xl border border-[var(--color-neutral-300)] focus:border-[var(--color-primary-500)] focus:ring-2 focus:ring-[var(--color-primary-500)]/20 outline-none transition-colors"
+                                className="w-full px-4 py-3 rounded-xl bg-background border border-neutral-200 dark:border-neutral-800 outline-none transition-colors placeholder-neutral-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
                             />
                         </div>
                         <Button
@@ -245,44 +236,44 @@ export default function BillingPage() {
                         </Button>
                     </div>
 
-                    <p className="text-xs text-[var(--color-neutral-500)] mt-4">
+                    <p className="text-xs text-neutral-500 mt-4">
                         Payments are processed securely via Stripe. Minimum deposit is $10, maximum $10,000.
                     </p>
                 </div>
 
                 {/* Transaction History */}
-                <div className="bg-white rounded-2xl shadow-sm border border-[var(--color-neutral-200)]">
-                    <div className="p-6 border-b border-[var(--color-neutral-200)]">
+                <div className="bg-background-elevated rounded-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden shadow-sm transition-colors duration-200">
+                    <div className="p-6 border-b border-neutral-200 dark:border-neutral-800">
                         <h2 className="text-lg font-semibold">Transaction History</h2>
-                        <p className="text-sm text-[var(--color-neutral-500)]">
+                        <p className="text-sm text-neutral-500">
                             Complete record of all account activity
                         </p>
                     </div>
 
                     {transactions.length === 0 ? (
-                        <div className="text-center py-12 text-[var(--color-neutral-500)]">
+                        <div className="text-center py-12">
                             <div className="text-4xl mb-3">📄</div>
                             <p className="font-medium">No transactions yet</p>
-                            <p className="text-sm">Add funds to get started</p>
+                            <p className="text-sm text-neutral-500">Add funds to get started</p>
                         </div>
                     ) : (
-                        <div className="divide-y divide-[var(--color-neutral-200)]">
+                        <div className="divide-y divide-neutral-200 dark:divide-neutral-800">
                             {transactions.map((tx) => (
-                                <div key={tx.id} className="px-6 py-4 flex items-center justify-between">
+                                <div key={tx.id} className="px-6 py-4 flex items-center justify-between hover:bg-neutral-50 dark:hover:bg-neutral-900 transition-colors">
                                     <div className="flex items-center gap-4">
                                         <div
                                             className={`w-10 h-10 rounded-full flex items-center justify-center text-lg ${tx.type === "deposit"
-                                                    ? "bg-green-100 text-green-600"
-                                                    : tx.type === "refund"
-                                                        ? "bg-blue-100 text-blue-600"
-                                                        : "bg-[var(--color-neutral-100)] text-[var(--color-neutral-500)]"
+                                                ? "bg-green-100 dark:bg-green-500/20 text-green-600 dark:text-green-400"
+                                                : tx.type === "refund"
+                                                    ? "bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400"
+                                                    : "bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400"
                                                 }`}
                                         >
                                             {tx.type === "deposit" ? "↓" : tx.type === "refund" ? "↩" : "↑"}
                                         </div>
                                         <div>
                                             <p className="font-medium">{tx.description}</p>
-                                            <p className="text-sm text-[var(--color-neutral-500)]">
+                                            <p className="text-sm text-neutral-500">
                                                 {new Date(tx.created_at).toLocaleDateString("en-US", {
                                                     year: "numeric",
                                                     month: "short",
@@ -295,12 +286,12 @@ export default function BillingPage() {
                                     </div>
                                     <div className="text-right">
                                         <span
-                                            className={`font-semibold ${tx.amount > 0 ? "text-green-600" : "text-[var(--color-neutral-600)]"
+                                            className={`font-semibold ${tx.amount > 0 ? "text-green-600 dark:text-green-400" : "text-neutral-500"
                                                 }`}
                                         >
                                             {tx.amount > 0 ? "+" : ""}${Math.abs(tx.amount).toFixed(2)}
                                         </span>
-                                        <p className="text-xs text-[var(--color-neutral-500)]">
+                                        <p className="text-xs text-neutral-500">
                                             Balance: ${tx.balance_after.toFixed(2)}
                                         </p>
                                     </div>
@@ -311,9 +302,9 @@ export default function BillingPage() {
                 </div>
 
                 {/* Info Card */}
-                <div className="bg-[var(--color-neutral-50)] rounded-2xl p-6 border border-[var(--color-neutral-200)]">
-                    <h3 className="font-semibold mb-2">💡 How billing works</h3>
-                    <ul className="text-sm text-[var(--color-neutral-600)] space-y-2">
+                <div className="bg-background-elevated rounded-xl p-6 border border-neutral-200 dark:border-neutral-800 shadow-sm transition-colors duration-200">
+                    <h3 className="font-semibold mb-3">💡 How billing works</h3>
+                    <ul className="text-sm text-neutral-500 space-y-2">
                         <li>• Add funds to your account anytime (min $10, max $10,000 per transaction)</li>
                         <li>• Funds are automatically deducted as your ads receive impressions</li>
                         <li>• Current rate: $5.00 CPM (cost per 1,000 impressions)</li>

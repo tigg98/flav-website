@@ -40,44 +40,48 @@ export function CampaignForm() {
 
             router.push('/ads/dashboard')
             router.refresh()
-        } catch (err: any) {
-            setError(err.message)
+        } catch (err: unknown) {
+            if (err instanceof Error) {
+                setError(err.message)
+            } else {
+                setError('An unknown error occurred')
+            }
         } finally {
             setLoading(false)
         }
     }
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl bg-white p-8 rounded-2xl shadow-sm border border-[var(--color-neutral-200)]">
+        <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl bg-background-elevated p-8 rounded-2xl shadow-sm border border-neutral-200 dark:border-neutral-800 transition-colors duration-200">
             <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-medium">Campaign Name</label>
-                <Input name="name" id="name" required placeholder="e.g. Summer Sale 2026" />
+                <label htmlFor="name" className="text-sm font-medium text-foreground">Campaign Name</label>
+                <Input name="name" id="name" required placeholder="e.g. Summer Sale 2026" className="bg-background" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                    <label htmlFor="budget_total" className="text-sm font-medium">Total Budget ($)</label>
-                    <Input name="budget_total" id="budget_total" type="number" min="1" step="0.01" required placeholder="1000.00" />
+                    <label htmlFor="budget_total" className="text-sm font-medium text-foreground">Total Budget ($)</label>
+                    <Input name="budget_total" id="budget_total" type="number" min="1" step="0.01" required placeholder="1000.00" className="bg-background" />
                 </div>
                 <div className="space-y-2">
-                    <label htmlFor="budget_daily" className="text-sm font-medium">Daily Budget ($)</label>
-                    <Input name="budget_daily" id="budget_daily" type="number" min="1" step="0.01" required placeholder="50.00" />
+                    <label htmlFor="budget_daily" className="text-sm font-medium text-foreground">Daily Budget ($)</label>
+                    <Input name="budget_daily" id="budget_daily" type="number" min="1" step="0.01" required placeholder="50.00" className="bg-background" />
                 </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                    <label htmlFor="start_date" className="text-sm font-medium">Start Date</label>
-                    <Input name="start_date" id="start_date" type="date" required />
+                    <label htmlFor="start_date" className="text-sm font-medium text-foreground">Start Date</label>
+                    <Input name="start_date" id="start_date" type="date" required className="bg-background" />
                 </div>
                 <div className="space-y-2">
-                    <label htmlFor="end_date" className="text-sm font-medium">End Date</label>
-                    <Input name="end_date" id="end_date" type="date" required />
+                    <label htmlFor="end_date" className="text-sm font-medium text-foreground">End Date</label>
+                    <Input name="end_date" id="end_date" type="date" required className="bg-background" />
                 </div>
             </div>
 
             {error && (
-                <div className="p-3 text-sm text-red-500 bg-red-50 rounded-lg">
+                <div className="p-3 text-sm text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10 rounded-lg border border-red-200 dark:border-red-500/20">
                     {error}
                 </div>
             )}

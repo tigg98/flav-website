@@ -33,10 +33,10 @@ interface Ad {
 const statusOptions = ["draft", "active", "paused", "completed"];
 
 const statusColors: Record<string, string> = {
-    draft: "bg-gray-100 text-gray-700",
-    active: "bg-green-100 text-green-700",
-    paused: "bg-orange-100 text-orange-700",
-    completed: "bg-blue-100 text-blue-700",
+    draft: "bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400",
+    active: "bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400",
+    paused: "bg-orange-100 dark:bg-orange-500/20 text-orange-700 dark:text-orange-400",
+    completed: "bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-400",
 };
 
 export default function CampaignDetailPage({ params }: { params: { id: string } }) {
@@ -162,10 +162,10 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
 
     if (isLoading) {
         return (
-            <div className="min-h-screen">
+            <div className="min-h-screen bg-background text-foreground transition-colors duration-200">
                 <AdsNav />
                 <div className="flex items-center justify-center py-20">
-                    <div className="text-[var(--color-neutral-500)]">Loading campaign...</div>
+                    <div className="text-neutral-500">Loading campaign...</div>
                 </div>
             </div>
         );
@@ -173,7 +173,7 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
 
     if (!campaign) {
         return (
-            <div className="min-h-screen">
+            <div className="min-h-screen bg-background text-foreground transition-colors duration-200">
                 <AdsNav />
                 <div className="flex flex-col items-center justify-center py-20 gap-4">
                     <h1 className="text-2xl font-bold">Campaign Not Found</h1>
@@ -186,7 +186,7 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
     }
 
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen bg-background text-foreground transition-colors duration-200">
             <AdsNav />
 
             {/* Main Content */}
@@ -195,7 +195,7 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
                 <div className="flex items-center justify-between">
                     <div>
                         <h1 className="text-2xl font-bold">{campaign.name}</h1>
-                        <p className="text-sm text-[var(--color-neutral-500)]">
+                        <p className="text-sm text-neutral-500">
                             Created {new Date(campaign.created_at).toLocaleDateString()}
                         </p>
                     </div>
@@ -205,30 +205,30 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
                 </div>
 
                 {error && (
-                    <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700">
+                    <div className="p-4 rounded-xl bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/20 text-red-600 dark:text-red-400">
                         {error}
                     </div>
                 )}
 
                 {successMessage && (
-                    <div className="p-4 rounded-xl bg-green-50 border border-green-200 text-green-700">
+                    <div className="p-4 rounded-xl bg-green-50 dark:bg-green-500/10 border border-green-200 dark:border-green-500/20 text-green-600 dark:text-green-400">
                         {successMessage}
                     </div>
                 )}
 
                 {/* Campaign Settings Form */}
-                <form onSubmit={handleSave} className="bg-[var(--background-elevated)] rounded-2xl p-8 shadow-sm border border-[var(--color-neutral-200)] space-y-6">
+                <form onSubmit={handleSave} className="bg-background-elevated rounded-xl p-8 border border-neutral-200 dark:border-neutral-800 shadow-sm transition-colors duration-200 space-y-6">
                     <h2 className="text-lg font-semibold">Campaign Settings</h2>
 
                     <div>
-                        <label htmlFor="name" className="block text-sm font-medium mb-2">
+                        <label htmlFor="name" className="block text-sm font-medium mb-2 text-neutral-500">
                             Campaign Name
                         </label>
                         <input
                             type="text"
                             id="name"
                             required
-                            className="w-full px-4 py-3 rounded-xl border border-[var(--color-neutral-300)] focus:border-[var(--color-primary-500)] focus:ring-2 focus:ring-[var(--color-primary-500)]/20 outline-none transition-colors"
+                            className="w-full px-4 py-3 rounded-xl bg-background border border-neutral-200 dark:border-neutral-800 outline-none transition-colors placeholder-neutral-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
                             value={formData.name}
                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         />
@@ -236,7 +236,7 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label htmlFor="budget_total" className="block text-sm font-medium mb-2">
+                            <label htmlFor="budget_total" className="block text-sm font-medium mb-2 text-neutral-500">
                                 Total Budget ($)
                             </label>
                             <input
@@ -245,13 +245,13 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
                                 required
                                 min="1"
                                 step="0.01"
-                                className="w-full px-4 py-3 rounded-xl border border-[var(--color-neutral-300)] focus:border-[var(--color-primary-500)] focus:ring-2 focus:ring-[var(--color-primary-500)]/20 outline-none transition-colors"
+                                className="w-full px-4 py-3 rounded-xl bg-background border border-neutral-200 dark:border-neutral-800 outline-none transition-colors placeholder-neutral-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
                                 value={formData.budget_total}
                                 onChange={(e) => setFormData({ ...formData, budget_total: e.target.value })}
                             />
                         </div>
                         <div>
-                            <label htmlFor="budget_daily" className="block text-sm font-medium mb-2">
+                            <label htmlFor="budget_daily" className="block text-sm font-medium mb-2 text-neutral-500">
                                 Daily Budget ($)
                             </label>
                             <input
@@ -259,7 +259,7 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
                                 id="budget_daily"
                                 min="1"
                                 step="0.01"
-                                className="w-full px-4 py-3 rounded-xl border border-[var(--color-neutral-300)] focus:border-[var(--color-primary-500)] focus:ring-2 focus:ring-[var(--color-primary-500)]/20 outline-none transition-colors"
+                                className="w-full px-4 py-3 rounded-xl bg-background border border-neutral-200 dark:border-neutral-800 outline-none transition-colors placeholder-neutral-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
                                 value={formData.budget_daily}
                                 onChange={(e) => setFormData({ ...formData, budget_daily: e.target.value })}
                             />
@@ -268,25 +268,25 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label htmlFor="start_date" className="block text-sm font-medium mb-2">
+                            <label htmlFor="start_date" className="block text-sm font-medium mb-2 text-neutral-500">
                                 Start Date
                             </label>
                             <input
                                 type="date"
                                 id="start_date"
-                                className="w-full px-4 py-3 rounded-xl border border-[var(--color-neutral-300)] focus:border-[var(--color-primary-500)] focus:ring-2 focus:ring-[var(--color-primary-500)]/20 outline-none transition-colors"
+                                className="w-full px-4 py-3 rounded-xl bg-background border border-neutral-200 dark:border-neutral-800 outline-none transition-colors focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
                                 value={formData.start_date}
                                 onChange={(e) => setFormData({ ...formData, start_date: e.target.value })}
                             />
                         </div>
                         <div>
-                            <label htmlFor="end_date" className="block text-sm font-medium mb-2">
+                            <label htmlFor="end_date" className="block text-sm font-medium mb-2 text-neutral-500">
                                 End Date
                             </label>
                             <input
                                 type="date"
                                 id="end_date"
-                                className="w-full px-4 py-3 rounded-xl border border-[var(--color-neutral-300)] focus:border-[var(--color-primary-500)] focus:ring-2 focus:ring-[var(--color-primary-500)]/20 outline-none transition-colors"
+                                className="w-full px-4 py-3 rounded-xl bg-background border border-neutral-200 dark:border-neutral-800 outline-none transition-colors focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
                                 value={formData.end_date}
                                 onChange={(e) => setFormData({ ...formData, end_date: e.target.value })}
                             />
@@ -294,36 +294,36 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
                     </div>
 
                     <div>
-                        <label htmlFor="status" className="block text-sm font-medium mb-2">
+                        <label htmlFor="status" className="block text-sm font-medium mb-2 text-neutral-500">
                             Status
                         </label>
                         <select
                             id="status"
-                            className="w-full px-4 py-3 rounded-xl border border-[var(--color-neutral-300)] focus:border-[var(--color-primary-500)] focus:ring-2 focus:ring-[var(--color-primary-500)]/20 outline-none transition-colors bg-white"
+                            className="w-full px-4 py-3 rounded-xl bg-background border border-neutral-200 dark:border-neutral-800 outline-none transition-colors focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
                             value={formData.status}
                             onChange={(e) => setFormData({ ...formData, status: e.target.value })}
                         >
                             {statusOptions.map((s) => (
-                                <option key={s} value={s}>
+                                <option key={s} value={s} className="bg-background text-foreground">
                                     {s.charAt(0).toUpperCase() + s.slice(1)}
                                 </option>
                             ))}
                         </select>
                     </div>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-[var(--color-neutral-200)]">
+                    <div className="flex items-center justify-between pt-4 border-t border-neutral-200 dark:border-neutral-800">
                         <Button
                             type="button"
                             variant="ghost"
                             onClick={handleDelete}
                             disabled={isDeleting}
-                            className="text-red-600 hover:text-red-700 hover:bg-red-50"
+                            className="text-red-500 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10"
                         >
                             {isDeleting ? "Deleting..." : "Delete Campaign"}
                         </Button>
                         <div className="flex gap-3">
                             <Link href="/ads/dashboard">
-                                <Button type="button" variant="outline">
+                                <Button type="button" variant="outline" className="border-neutral-200 dark:border-neutral-800 hover:bg-neutral-100 dark:hover:bg-neutral-800">
                                     Cancel
                                 </Button>
                             </Link>
@@ -335,11 +335,11 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
                 </form>
 
                 {/* Ads Section */}
-                <div className="bg-[var(--background-elevated)] rounded-2xl p-8 shadow-sm border border-[var(--color-neutral-200)]">
+                <div className="bg-background-elevated rounded-xl p-8 border border-neutral-200 dark:border-neutral-800 shadow-sm transition-colors duration-200">
                     <div className="flex items-center justify-between mb-6">
                         <div>
                             <h2 className="text-lg font-semibold">Ads</h2>
-                            <p className="text-sm text-[var(--color-neutral-500)]">
+                            <p className="text-sm text-neutral-500">
                                 {ads.length} ad{ads.length !== 1 ? 's' : ''} in this campaign
                             </p>
                         </div>
@@ -349,10 +349,10 @@ export default function CampaignDetailPage({ params }: { params: { id: string } 
                     </div>
 
                     {ads.length === 0 ? (
-                        <div className="text-center py-12 border-2 border-dashed border-[var(--color-neutral-200)] rounded-xl">
+                        <div className="text-center py-12 border-2 border-dashed border-neutral-200 dark:border-neutral-800 rounded-xl">
                             <div className="text-4xl mb-3">🎨</div>
                             <h3 className="font-semibold mb-1">No ads yet</h3>
-                            <p className="text-sm text-[var(--color-neutral-500)] mb-4">
+                            <p className="text-sm text-neutral-500 mb-4">
                                 Create your first ad to start reaching users
                             </p>
                             <Link href={`/ads/campaigns/${params.id}/ads/new`}>
