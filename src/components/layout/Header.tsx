@@ -38,10 +38,16 @@ export function Header() {
                     {/* Logo */}
                     <Link
                         href="/"
-                        className="flex items-center gap-2 text-xl md:text-2xl font-bold"
+                        className="flex items-center gap-2"
                     >
-                        <span className="text-3xl">🍳</span>
-                        <span className="gradient-text">Flav</span>
+                        <div className="relative w-8 h-8 md:w-10 md:h-10">
+                            <img
+                                src="/logo.png"
+                                alt="Flav Logo"
+                                className="object-contain w-full h-full"
+                            />
+                        </div>
+                        <span className="text-xl md:text-2xl font-bold gradient-text">Flav</span>
                     </Link>
 
                     {/* Desktop Navigation */}

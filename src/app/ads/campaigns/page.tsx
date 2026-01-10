@@ -35,9 +35,15 @@ export default function CampaignsPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-16">
                         <div className="flex items-center gap-8">
-                            <Link href="/ads/dashboard" className="flex items-center gap-2 text-xl font-bold">
-                                <span className="text-2xl">🍳</span>
-                                <span className="gradient-text">Flav Ads</span>
+                            <Link href="/ads/dashboard" className="flex items-center gap-2">
+                                <div className="relative w-8 h-8 md:w-10 md:h-10">
+                                    <img
+                                        src="/logo.png"
+                                        alt="Flav Logo"
+                                        className="object-contain w-full h-full"
+                                    />
+                                </div>
+                                <span className="text-xl font-bold gradient-text">Flav Ads</span>
                             </Link>
                             <nav className="hidden md:flex items-center gap-6">
                                 <Link href="/ads/dashboard" className="text-sm font-medium text-[var(--color-neutral-600)] hover:text-[var(--foreground)]">

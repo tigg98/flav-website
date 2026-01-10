@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 
@@ -24,29 +24,10 @@ const adFormats = [
     },
 ];
 
-const whyFlav = [
-    {
-        title: "Intent-Based Audience",
-        description: "Flav users save recipes they plan to make. Saves signal real cooking intent, not passive scrolling.",
-    },
-    {
-        title: "Food-Focused Targeting",
-        description: "Target by dietary preferences, flavor profiles, cuisines, and cooking skill level.",
-    },
-    {
-        title: "Brand-Safe Environment",
-        description: "Our content policies ensure your brand appears alongside quality, family-friendly content.",
-    },
-    {
-        title: "Transparent Reporting",
-        description: "Real-time dashboards showing impressions, views, saves, and engagement metrics.",
-    },
-];
-
 const targetingOptions = [
-    { category: "Dietary", tags: ["Vegetarian", "Vegan", "Keto", "Gluten-Free", "High-Protein", "Low-Carb"] },
-    { category: "Cuisine", tags: ["Italian", "Mexican", "Asian", "Mediterranean", "American", "Indian"] },
-    { category: "Meal Type", tags: ["Breakfast", "Lunch", "Dinner", "Snacks", "Desserts", "Drinks"] },
+    { category: "Dietary", tags: ["Vegetarian", "Vegan", "Keto", "Gluten-Free", "High-Protein"] },
+    { category: "Cuisine", tags: ["Italian", "Mexican", "Asian", "Mediterranean", "Indian"] },
+    { category: "Meal Type", tags: ["Breakfast", "Lunch", "Dinner", "Snacks", "Desserts"] },
     { category: "Skill Level", tags: ["Beginner", "Intermediate", "Advanced", "Quick & Easy"] },
 ];
 
@@ -65,10 +46,7 @@ export default function AdvertisePage() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-
-        // Simulate form submission
         await new Promise((resolve) => setTimeout(resolve, 1000));
-
         setIsSubmitting(false);
         setIsSubmitted(true);
     };
@@ -76,43 +54,97 @@ export default function AdvertisePage() {
     return (
         <>
             {/* Hero */}
-            <section className="relative overflow-hidden">
+            <section className="relative overflow-hidden min-h-[80vh] flex items-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-neutral-900)] to-[var(--color-neutral-950)]" />
 
-                <div className="container-main relative z-10 py-16 md:py-24 text-white">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <Badge variant="beta" className="mb-6" />
+                <div className="container-main relative z-10 py-12 md:py-20">
+                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                        {/* Left: Text Content */}
+                        <div className="text-center lg:text-left text-white">
+                            <Badge variant="beta" className="mb-6" />
 
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                            Reach food lovers where they're{" "}
-                            <span className="text-[var(--color-primary-400)]">hungry to discover</span>
-                        </h1>
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                                Reach food lovers where they're{" "}
+                                <span className="text-[var(--color-primary-400)]">hungry to discover</span>
+                            </h1>
 
-                        <p className="text-lg md:text-xl text-[var(--color-neutral-300)] mb-8 max-w-2xl mx-auto">
-                            Advertise on Flav to connect with millions of home cooks who are actively looking for their next meal.
-                            Our intent-based platform means your brand reaches ready-to-cook audiences.
-                        </p>
+                            <p className="text-lg md:text-xl text-[var(--color-neutral-300)] mb-8 max-w-xl">
+                                Advertise on Flav to connect with millions of home cooks actively looking for their next meal.
+                            </p>
 
-                        <Button size="lg" asChild>
-                            <Link href="#contact">Request Advertiser Access</Link>
-                        </Button>
+                            <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-8">
+                                <Button size="lg" asChild>
+                                    <Link href="#contact">Request Advertiser Access</Link>
+                                </Button>
+                                <Button variant="outline" size="lg" asChild>
+                                    <Link href="/ads/login" className="!text-white !border-white/30 hover:!bg-white/10">
+                                        Ads Manager Login
+                                    </Link>
+                                </Button>
+                            </div>
+
+                            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-[var(--color-neutral-400)]">
+                                <div className="flex items-center gap-2">
+                                    <span className="text-lg">✓</span>
+                                    <span>Intent-based targeting</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <span className="text-lg">✓</span>
+                                    <span>Brand-safe environment</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Right: Phone Mockups */}
+                        <div className="relative flex justify-center lg:justify-end">
+                            {/* Main phone - Feed */}
+                            <div className="relative w-56 md:w-64 z-20">
+                                <div className="relative bg-white/10 backdrop-blur rounded-[3rem] p-2">
+                                    <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden">
+                                        <Image
+                                            src="/screenshots/feed-video.png"
+                                            alt="Flav feed with promoted content"
+                                            fill
+                                            className="object-cover"
+                                            priority
+                                        />
+                                    </div>
+                                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full" />
+                                </div>
+                            </div>
+
+                            {/* Background phone - Explore */}
+                            <div className="absolute -left-4 md:left-0 top-12 w-44 md:w-52 z-10 opacity-70 hidden sm:block">
+                                <div className="relative bg-white/5 backdrop-blur rounded-[2.5rem] p-1.5">
+                                    <div className="relative w-full aspect-[9/19.5] rounded-[2rem] overflow-hidden">
+                                        <Image
+                                            src="/screenshots/explore.png"
+                                            alt="Explore page with sponsored placements"
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* Ad Formats */}
+            {/* Ad Formats with Screenshots */}
             <section className="section">
                 <div className="container-main">
                     <div className="text-center mb-12 md:mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                            Ad formats that work
+                            Ad formats that{" "}
+                            <span className="gradient-text">work</span>
                         </h2>
                         <p className="text-lg text-[var(--color-neutral-600)] max-w-2xl mx-auto">
                             Choose from multiple formats designed for authentic engagement.
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-6">
+                    <div className="grid md:grid-cols-3 gap-8">
                         {adFormats.map((format, index) => (
                             <div
                                 key={index}
@@ -127,28 +159,89 @@ export default function AdvertisePage() {
                 </div>
             </section>
 
-            {/* Why Flav */}
+            {/* In-Feed Example */}
             <section className="section bg-[var(--background-subtle)]">
                 <div className="container-main">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                                Why advertise on Flav?
-                            </h2>
-                            <div className="space-y-6">
-                                {whyFlav.map((item, index) => (
-                                    <div key={index}>
-                                        <h3 className="text-lg font-bold mb-1">{item.title}</h3>
-                                        <p className="text-[var(--color-neutral-600)]">{item.description}</p>
+                        <div className="flex justify-center">
+                            <div className="relative w-56 md:w-64">
+                                <div className="relative bg-[var(--color-neutral-900)] rounded-[3rem] p-2 shadow-2xl">
+                                    <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden bg-black">
+                                        <Image
+                                            src="/screenshots/feed-video.png"
+                                            alt="In-feed promoted recipe"
+                                            fill
+                                            className="object-cover"
+                                        />
                                     </div>
-                                ))}
+                                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full" />
+                                </div>
                             </div>
                         </div>
-                        <div className="flex justify-center">
-                            <div className="relative w-full max-w-md aspect-square bg-gradient-to-br from-[var(--color-primary-100)] to-[var(--color-secondary-100)] rounded-3xl flex items-center justify-center">
-                                <div className="text-center">
-                                    <p className="text-6xl font-bold gradient-text">85%</p>
-                                    <p className="text-lg text-[var(--color-neutral-600)] mt-2">of saves convert to cooking sessions</p>
+
+                        <div>
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                                Native in-feed ads
+                            </h2>
+                            <p className="text-lg text-[var(--color-neutral-600)] mb-6">
+                                Your promoted recipes appear naturally in the For You feed. Users engage with your content just like any other recipe—with saves, likes, and comments.
+                            </p>
+                            <ul className="space-y-3 mb-8">
+                                {[
+                                    "Seamless full-screen video format",
+                                    "Clear 'Promoted' labeling",
+                                    "Real engagement metrics",
+                                    "Link to your website or app",
+                                ].map((item, i) => (
+                                    <li key={i} className="flex items-center gap-3">
+                                        <span className="w-6 h-6 rounded-full bg-[var(--color-secondary-100)] text-[var(--color-secondary-600)] flex items-center justify-center text-sm">✓</span>
+                                        <span className="text-[var(--color-neutral-700)]">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Explore Page Example */}
+            <section className="section">
+                <div className="container-main">
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                        <div className="order-2 md:order-1">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                                Sponsored explore placements
+                            </h2>
+                            <p className="text-lg text-[var(--color-neutral-600)] mb-6">
+                                Feature your brand in the Explore tab with premium placements. Reach users who are actively searching for inspiration.
+                            </p>
+                            <ul className="space-y-3 mb-8">
+                                {[
+                                    "Featured carousel placement",
+                                    "Category-specific targeting",
+                                    "Trending section sponsorship",
+                                    "Search result boosts",
+                                ].map((item, i) => (
+                                    <li key={i} className="flex items-center gap-3">
+                                        <span className="w-6 h-6 rounded-full bg-[var(--color-primary-100)] text-[var(--color-primary-600)] flex items-center justify-center text-sm">✓</span>
+                                        <span className="text-[var(--color-neutral-700)]">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div className="order-1 md:order-2 flex justify-center">
+                            <div className="relative w-56 md:w-64">
+                                <div className="relative bg-[var(--color-neutral-900)] rounded-[3rem] p-2 shadow-2xl">
+                                    <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden bg-black">
+                                        <Image
+                                            src="/screenshots/explore.png"
+                                            alt="Explore page sponsorship"
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    </div>
+                                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full" />
                                 </div>
                             </div>
                         </div>
@@ -157,26 +250,26 @@ export default function AdvertisePage() {
             </section>
 
             {/* Targeting Options */}
-            <section className="section">
+            <section className="section bg-[var(--color-neutral-950)] text-white">
                 <div className="container-main">
                     <div className="text-center mb-12 md:mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">
                             Precision targeting for food brands
                         </h2>
-                        <p className="text-lg text-[var(--color-neutral-600)] max-w-2xl mx-auto">
+                        <p className="text-lg text-[var(--color-neutral-400)] max-w-2xl mx-auto">
                             Reach exactly the right audience with our food-native targeting categories.
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {targetingOptions.map((option, index) => (
-                            <div key={index} className="p-6 rounded-2xl bg-[var(--background-elevated)] border border-[var(--color-neutral-200)]">
-                                <h3 className="font-bold mb-4 text-[var(--color-primary-600)]">{option.category}</h3>
+                            <div key={index} className="p-6 rounded-2xl bg-white/5 border border-white/10">
+                                <h3 className="font-bold mb-4 text-[var(--color-primary-400)]">{option.category}</h3>
                                 <div className="flex flex-wrap gap-2">
                                     {option.tags.map((tag, tagIndex) => (
                                         <span
                                             key={tagIndex}
-                                            className="px-3 py-1 text-sm bg-[var(--color-neutral-100)] text-[var(--color-neutral-700)] rounded-full"
+                                            className="px-3 py-1 text-sm bg-white/10 text-white/80 rounded-full"
                                         >
                                             {tag}
                                         </span>
@@ -185,33 +278,19 @@ export default function AdvertisePage() {
                             </div>
                         ))}
                     </div>
-                </div>
-            </section>
 
-            {/* Brand Safety */}
-            <section className="section bg-[var(--color-neutral-950)] text-white">
-                <div className="container-main">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                            Brand safety you can trust
-                        </h2>
-                        <p className="text-lg text-[var(--color-neutral-300)] mb-8">
-                            Every ad goes through our review process. All promoted content is clearly labeled.
-                            We maintain strict content policies to ensure your brand appears in a safe, welcoming environment.
-                        </p>
-                        <div className="grid sm:grid-cols-3 gap-6 text-center">
-                            <div>
-                                <p className="text-3xl font-bold text-[var(--color-primary-400)]">100%</p>
-                                <p className="text-sm text-[var(--color-neutral-400)]">Human-reviewed ads</p>
-                            </div>
-                            <div>
-                                <p className="text-3xl font-bold text-[var(--color-primary-400)]">Labeled</p>
-                                <p className="text-sm text-[var(--color-neutral-400)]">Clearly marked sponsored content</p>
-                            </div>
-                            <div>
-                                <p className="text-3xl font-bold text-[var(--color-primary-400)]">Family-Safe</p>
-                                <p className="text-sm text-[var(--color-neutral-400)]">Strict content policies</p>
-                            </div>
+                    <div className="mt-12 grid sm:grid-cols-3 gap-6 text-center max-w-3xl mx-auto">
+                        <div>
+                            <p className="text-4xl font-bold text-[var(--color-primary-400)]">85%</p>
+                            <p className="text-sm text-[var(--color-neutral-400)]">of saves convert to cooking</p>
+                        </div>
+                        <div>
+                            <p className="text-4xl font-bold text-[var(--color-primary-400)]">10M+</p>
+                            <p className="text-sm text-[var(--color-neutral-400)]">monthly active users</p>
+                        </div>
+                        <div>
+                            <p className="text-4xl font-bold text-[var(--color-primary-400)]">100%</p>
+                            <p className="text-sm text-[var(--color-neutral-400)]">human-reviewed ads</p>
                         </div>
                     </div>
                 </div>

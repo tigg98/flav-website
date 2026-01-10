@@ -56,7 +56,13 @@ export function Footer() {
                     {/* Brand Column */}
                     <div className="col-span-2 md:col-span-1">
                         <Link href="/" className="flex items-center gap-2 text-2xl font-bold mb-4">
-                            <span className="text-3xl">🍳</span>
+                            <div className="relative w-8 h-8">
+                                <img
+                                    src="/logo.png"
+                                    alt="Flav Logo"
+                                    className="object-contain w-full h-full"
+                                />
+                            </div>
                             <span>Flav</span>
                         </Link>
                         <p className="text-[var(--color-neutral-400)] text-sm mb-6 max-w-xs">

@@ -101,3 +101,37 @@ $$ language plpgsql security definer;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute procedure public.handle_new_user();
+
+-- Create a table for ad events (impressions, clicks, saves)
+create table ad_events (
+  id uuid default gen_random_uuid() primary key,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null,
+  ad_id uuid references ads(id) on delete cascade not null,
+  campaign_id uuid references campaigns(id) on delete cascade not null,
+  event_type text check (event_type in ('impression', 'click', 'save')) not null,
+  user_id uuid, -- nullable, for anonymous tracking
+  metadata jsonb default '{}'::jsonb
+);
+
+-- Indexes for efficient querying
+create index idx_ad_events_campaign on ad_events(campaign_id);
+create index idx_ad_events_ad on ad_events(ad_id);
+create index idx_ad_events_created on ad_events(created_at);
+create index idx_ad_events_type on ad_events(event_type);
+
+-- Enable RLS
+alter table ad_events enable row level security;
+
+-- Advertisers can view events for their own campaigns
+create policy "Advertisers can view their own ad events."
+  on ad_events for select
+  using (
+    campaign_id in (
+      select id from campaigns where advertiser_id = auth.uid()
+    )
+  );
+
+-- Anyone can insert events (for tracking from the app)
+create policy "Events can be inserted by anyone."
+  on ad_events for insert
+  with check ( true );

@@ -1,90 +1,49 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
-import { FeatureCard } from "@/components/ui/FeatureCard";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { Badge } from "@/components/ui/Badge";
 
 const features = [
   {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-    title: "Short-Form Video Discovery",
-    description:
-      "Swipe through endless cooking inspiration. Every video is a complete recipe you can actually make.",
+    title: "Discover Recipes",
+    description: "Swipe through endless cooking inspiration. Every video is a complete recipe you can actually make.",
+    screenshot: "/screenshots/home-feed.png",
+    badge: "For You Feed",
   },
   {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-      </svg>
-    ),
-    title: "Save-First Personalization",
-    description:
-      "Your taste graph learns what you love. The more you save, the better your feed becomes.",
+    title: "Cook Step-by-Step",
+    description: "Follow along with timers, ingredient lists, and clear instructions. Cooking mode guides you through every dish.",
+    screenshot: "/screenshots/cooking-mode.png",
+    badge: "Cooking Mode",
   },
   {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
-    title: "Creator Monetization",
-    description:
-      "Earn tips from fans, sell premium recipes, and unlock brand partnerships. Your content, your income.",
-  },
-  {
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-      </svg>
-    ),
-    title: "Verified & Pro Tiers",
-    description:
-      "Stand out with a verified badge, access advanced analytics, and enjoy lower fees on earnings.",
+    title: "Ask Flav AI",
+    description: "Stuck on a step? Get instant tips, substitutions, and answers from our AI cooking assistant.",
+    screenshot: "/screenshots/ask-flav.png",
+    badge: "AI Assistant",
   },
 ];
 
 const howItWorks = [
   {
     step: "01",
-    title: "Download Flav",
-    description: "Get the app free on iOS and Android. Create your account in seconds.",
+    title: "Discover",
+    description: "Swipe through personalized recipe videos tailored to your taste",
+    icon: "🍝",
   },
   {
     step: "02",
-    title: "Create or Discover",
-    description: "Share your recipes or explore millions of cooking videos tailored to your taste.",
+    title: "Save & Cook",
+    description: "Save recipes and cook with step-by-step guidance and timers",
+    icon: "⏱️",
   },
   {
     step: "03",
-    title: "Grow & Earn",
-    description: "Build your audience, receive tips, and unlock premium monetization features.",
-  },
-];
-
-const testimonials = [
-  {
-    quote: "Flav helped me turn my passion for cooking into a real income stream. The community is amazing!",
-    author: "Maria Rodriguez",
-    role: "Food Creator, 50K followers",
-    avatar: "👩‍🍳",
-  },
-  {
-    quote: "Finally, an app that understands food content. The saves-based algorithm actually rewards quality recipes.",
-    author: "James Chen",
-    role: "Home Chef & Recipe Developer",
-    avatar: "👨‍🍳",
-  },
-  {
-    quote: "I've tried every food app out there. Flav is the only one where I feel like my content matters.",
-    author: "Sarah Thompson",
-    role: "Verified Creator",
-    avatar: "🧑‍🍳",
+    title: "Create & Share",
+    description: "Upload your own recipes and grow your following",
+    icon: "✨",
   },
 ];
 
@@ -92,27 +51,22 @@ const faqItems = [
   {
     question: "What is Flav?",
     answer:
-      "Flav is a short-form video app built specifically for food lovers. Discover recipes through swipeable videos, save your favorites, and if you're a creator, earn money from tips and premium recipe content.",
+      "Flav is a short-form video app built specifically for food lovers. Discover recipes through swipeable videos, cook with step-by-step guidance, and create your own recipes to share with the world.",
   },
   {
-    question: "How is Flav different from other video apps?",
+    question: "How does the cooking mode work?",
     answer:
-      "Flav is built around saves, not likes. When you save a recipe, it signals real intent to cook it—and that trains your personal taste graph for better recommendations. For creators, this means your content reaches people who actually want to use your recipes.",
+      "When you tap 'Start Cooking', Flav guides you through each step with timers, ingredient checklists, and clear instructions. You can even ask Flav AI for tips mid-recipe!",
   },
   {
-    question: "How do creators make money on Flav?",
+    question: "Can I import recipes from Instagram or TikTok?",
     answer:
-      "Creators earn through tips from fans, premium recipe content (followers pay a small fee to access exclusive recipes), and brand partnerships. Verified and Pro creators enjoy lower platform fees and priority discovery.",
-  },
-  {
-    question: "What is Flav Verified?",
-    answer:
-      "Flav Verified is a subscription badge for serious creators. You get a verified checkmark, access to advanced analytics, highlighted replies in comments, and reduced fees on tips and premium content sales.",
+      "Yes! Flav lets you import recipes from your favorite social platforms. Just paste a link and we'll help you turn it into a structured recipe.",
   },
   {
     question: "Is Flav free to use?",
     answer:
-      "Yes! Flav is free to download and use. Creators can upgrade to Verified or Pro tiers for enhanced features and lower fees, and viewers can optionally tip creators or purchase premium recipes.",
+      "Yes! Flav is free to download and use. Creators can earn money through tips and premium recipes, and we offer optional Pro features for power users.",
   },
   {
     question: "What platforms is Flav available on?",
@@ -125,110 +79,187 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden min-h-screen flex items-center">
         {/* Background gradient */}
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-50)] via-[var(--background)] to-[var(--color-secondary-50)] opacity-50" />
 
-        {/* Decorative elements */}
+        {/* Decorative blurs */}
         <div className="absolute top-20 right-10 w-72 h-72 bg-[var(--color-primary-200)] rounded-full filter blur-3xl opacity-20 animate-pulse" />
         <div className="absolute bottom-20 left-10 w-96 h-96 bg-[var(--color-secondary-200)] rounded-full filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: "1s" }} />
 
-        <div className="container-main relative z-10 py-16 md:py-24 lg:py-32">
-          <div className="max-w-4xl mx-auto text-center">
-            <Badge variant="new" className="mb-6" />
+        <div className="container-main relative z-10 py-12 md:py-20">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left: Text Content */}
+            <div className="text-center lg:text-left">
+              <Badge variant="new" className="mb-6" />
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Your recipes, your audience,{" "}
-              <span className="gradient-text">your income.</span>
-            </h1>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                Cook anything.{" "}
+                <span className="gradient-text">Ask anything.</span>
+              </h1>
 
-            <p className="text-lg md:text-xl text-[var(--color-neutral-600)] mb-8 max-w-2xl mx-auto">
-              The short-form video app for food creators who want to grow and earn.
-              Discover recipes, build your following, and monetize your passion.
-            </p>
+              <p className="text-lg md:text-xl text-[var(--color-neutral-600)] mb-8 max-w-xl">
+                Discover recipes, follow along step-by-step with timers, and get instant help from AI—all in one beautiful app.
+              </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-              <AppStoreButtons size="lg" utmSource="homepage_hero" />
-            </div>
-
-            <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-[var(--color-neutral-500)]">
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-[var(--color-secondary-500)]" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span>Free to download</span>
+              <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-8">
+                <AppStoreButtons size="lg" utmSource="homepage_hero" />
               </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-[var(--color-secondary-500)]" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span>Creator monetization</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-[var(--color-secondary-500)]" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                <span>iOS & Android</span>
+
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-[var(--color-neutral-500)]">
+                <div className="flex items-center gap-2">
+                  <span className="text-lg">✓</span>
+                  <span>Free to download</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-lg">✓</span>
+                  <span>AI cooking assistant</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-lg">✓</span>
+                  <span>Step-by-step timers</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* App mockup placeholder */}
-          <div className="mt-16 flex justify-center">
-            <div className="relative w-64 md:w-80 aspect-[9/19] bg-gradient-to-br from-[var(--color-neutral-800)] to-[var(--color-neutral-900)] rounded-[2.5rem] p-2 shadow-2xl">
-              <div className="w-full h-full bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-secondary-500)] rounded-[2rem] flex items-center justify-center">
-                <span className="text-6xl">🍳</span>
+            {/* Right: Phone Mockups */}
+            <div className="relative flex justify-center lg:justify-end">
+              {/* Main phone */}
+              <div className="relative w-64 md:w-72 z-20">
+                <div className="relative bg-[var(--color-neutral-900)] rounded-[3rem] p-2 shadow-2xl">
+                  <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden bg-black">
+                    <Image
+                      src="/screenshots/home-feed.png"
+                      alt="Flav home feed showing recipe discovery"
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+                  {/* Notch */}
+                  <div className="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-7 bg-black rounded-full" />
+                </div>
               </div>
-              {/* Notch */}
-              <div className="absolute top-2 left-1/2 -translate-x-1/2 w-20 h-6 bg-[var(--color-neutral-900)] rounded-full" />
+
+              {/* Background phone - Recipe Detail */}
+              <div className="absolute right-0 md:right-8 top-12 w-48 md:w-56 z-10 opacity-80 hidden sm:block">
+                <div className="relative bg-[var(--color-neutral-800)] rounded-[2.5rem] p-1.5 shadow-xl">
+                  <div className="relative w-full aspect-[9/19.5] rounded-[2rem] overflow-hidden bg-black">
+                    <Image
+                      src="/screenshots/recipe-detail.png"
+                      alt="Recipe detail view"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Social Proof Section */}
-      <section className="py-12 border-y border-[var(--color-neutral-200)] bg-[var(--background-subtle)]">
+      {/* App Showcase Section */}
+      <section className="section bg-[var(--background-subtle)]" id="features">
         <div className="container-main">
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-60">
-            <p className="text-sm font-medium text-[var(--color-neutral-500)] uppercase tracking-wider">
-              As featured in
-            </p>
-            {["TechCrunch", "Forbes", "Food Network", "Eater"].map((brand) => (
-              <span key={brand} className="text-xl md:text-2xl font-bold text-[var(--color-neutral-400)]">
-                {brand}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="section" id="features">
-        <div className="container-main">
-          <div className="text-center mb-12 md:mb-16">
+          <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Built for food lovers,{" "}
-              <span className="gradient-text">powered by creators</span>
+              Everything you need to{" "}
+              <span className="gradient-text">cook confidently</span>
             </h2>
             <p className="text-lg text-[var(--color-neutral-600)] max-w-2xl mx-auto">
-              Flav isn't just another video app. It's a platform designed from the ground up for recipes that matter.
+              From discovery to plating—Flav guides you through every step of your cooking journey.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="space-y-24 md:space-y-32">
             {features.map((feature, index) => (
-              <FeatureCard
+              <div
                 key={index}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-              />
+                className={`grid md:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "md:flex-row-reverse" : ""
+                  }`}
+              >
+                {/* Phone mockup */}
+                <div className={`flex justify-center ${index % 2 === 1 ? "md:order-2" : ""}`}>
+                  <div className="relative w-56 md:w-64">
+                    <div className="relative bg-[var(--color-neutral-900)] rounded-[3rem] p-2 shadow-2xl">
+                      <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden bg-black">
+                        <Image
+                          src={feature.screenshot}
+                          alt={feature.title}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className={`text-center md:text-left ${index % 2 === 1 ? "md:order-1" : ""}`}>
+                  <div className="inline-flex px-4 py-1 rounded-full bg-[var(--color-primary-100)] text-[var(--color-primary-700)] text-sm font-medium mb-4">
+                    {feature.badge}
+                  </div>
+                  <h3 className="text-2xl md:text-3xl font-bold mb-4">{feature.title}</h3>
+                  <p className="text-lg text-[var(--color-neutral-600)] max-w-md">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* How It Works Section */}
+      {/* Create Your Own Section */}
+      <section className="section">
+        <div className="container-main">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="order-2 md:order-1">
+              <Badge variant="beta" className="mb-4" />
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                Create & share your recipes
+              </h2>
+              <p className="text-lg text-[var(--color-neutral-600)] mb-6">
+                Turn your culinary creations into step-by-step recipes anyone can follow. Import from Instagram or TikTok, or create from scratch.
+              </p>
+              <ul className="space-y-3 mb-8">
+                {[
+                  "Import recipes from social media",
+                  "AI-powered recipe generation",
+                  "Add photos, timers, and tips",
+                  "Share and grow your audience",
+                ].map((item, i) => (
+                  <li key={i} className="flex items-center gap-3">
+                    <span className="w-6 h-6 rounded-full bg-[var(--color-secondary-100)] text-[var(--color-secondary-600)] flex items-center justify-center text-sm">✓</span>
+                    <span className="text-[var(--color-neutral-700)]">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <AppStoreButtons utmSource="homepage_create" />
+            </div>
+
+            <div className="order-1 md:order-2 flex justify-center">
+              <div className="relative w-56 md:w-64">
+                <div className="relative bg-[var(--color-neutral-900)] rounded-[3rem] p-2 shadow-2xl">
+                  <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden bg-black">
+                    <Image
+                      src="/screenshots/create-recipe.png"
+                      alt="Create new recipe screen"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
       <section className="section bg-[var(--background-subtle)]">
         <div className="container-main">
           <div className="text-center mb-12 md:mb-16">
@@ -236,50 +267,19 @@ export default function HomePage() {
               How it works
             </h2>
             <p className="text-lg text-[var(--color-neutral-600)] max-w-2xl mx-auto">
-              Getting started with Flav takes less than a minute.
+              From hungry to cooking in under a minute.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {howItWorks.map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-primary-600)] text-white text-2xl font-bold mb-4">
-                  {item.step}
+              <div key={index} className="text-center group">
+                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white shadow-lg mb-4 text-4xl group-hover:scale-110 transition-transform">
+                  {item.icon}
                 </div>
+                <div className="text-sm font-bold text-[var(--color-primary-500)] mb-2">{item.step}</div>
                 <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                 <p className="text-[var(--color-neutral-600)]">{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="section">
-        <div className="container-main">
-          <div className="text-center mb-12 md:mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Loved by creators
-            </h2>
-            <p className="text-lg text-[var(--color-neutral-600)] max-w-2xl mx-auto">
-              Join thousands of food creators who are building their audience on Flav.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="p-6 md:p-8 rounded-2xl bg-[var(--background-elevated)] border border-[var(--color-neutral-200)]"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-4xl">{testimonial.avatar}</span>
-                  <div>
-                    <p className="font-semibold">{testimonial.author}</p>
-                    <p className="text-sm text-[var(--color-neutral-500)]">{testimonial.role}</p>
-                  </div>
-                </div>
-                <p className="text-[var(--color-neutral-600)] italic">"{testimonial.quote}"</p>
               </div>
             ))}
           </div>
@@ -296,8 +296,7 @@ export default function HomePage() {
                 Reach food lovers where they're hungry to discover
               </h2>
               <p className="text-lg text-[var(--color-neutral-300)] mb-6">
-                Advertise on Flav to connect with an audience that's actively looking for their next meal.
-                Our intent-based targeting means your brand reaches people who are ready to cook.
+                Advertise on Flav to connect with an audience actively looking for their next meal.
               </p>
               <ul className="space-y-3 mb-8">
                 {[
@@ -347,14 +346,33 @@ export default function HomePage() {
 
       {/* Final CTA Section */}
       <section className="section bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-primary-600)]" id="download">
-        <div className="container-main text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to start cooking?
-          </h2>
-          <p className="text-lg text-white/80 mb-8 max-w-xl mx-auto">
-            Download Flav for free and discover your next favorite recipe.
-          </p>
-          <AppStoreButtons size="lg" utmSource="homepage_cta" className="justify-center" />
+        <div className="container-main">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="text-center md:text-left">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Ready to cook something amazing?
+              </h2>
+              <p className="text-lg text-white/80 mb-8 max-w-xl">
+                Download Flav for free and discover your next favorite recipe—with AI assistance and step-by-step guidance.
+              </p>
+              <AppStoreButtons size="lg" utmSource="homepage_cta" />
+            </div>
+
+            <div className="hidden md:flex justify-center">
+              <div className="relative w-48">
+                <div className="relative bg-black rounded-[2.5rem] p-1.5">
+                  <div className="relative w-full aspect-[9/19.5] rounded-[2rem] overflow-hidden">
+                    <Image
+                      src="/screenshots/home-feed.png"
+                      alt="Flav app"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -369,7 +387,7 @@ export default function HomePage() {
             operatingSystem: "iOS, Android",
             applicationCategory: "FoodApplication",
             description:
-              "The short-form video app for food lovers. Discover recipes, grow your audience, and monetize your cooking content.",
+              "The recipe app with AI assistance. Discover recipes, cook step-by-step with timers, and get instant help from your AI cooking assistant.",
             offers: {
               "@type": "Offer",
               price: "0",

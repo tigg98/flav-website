@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
-import { FeatureCard } from "@/components/ui/FeatureCard";
 import { Badge } from "@/components/ui/Badge";
 
 export const metadata: Metadata = {
@@ -18,67 +18,24 @@ export const metadata: Metadata = {
 
 const monetizationMethods = [
     {
-        icon: (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-        ),
+        icon: "💰",
         title: "Tips from Fans",
-        description:
-            "Your followers can send you tips directly on your videos. Each tip goes straight to your wallet with minimal platform fees.",
+        description: "Receive tips directly on your videos. Minimal platform fees, maximum earnings.",
     },
     {
-        icon: (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-            </svg>
-        ),
+        icon: "🔒",
         title: "Premium Recipes",
-        description:
-            "Lock your best recipes behind a paywall. Fans pay a one-time fee to access exclusive content you've created.",
+        description: "Lock your best recipes behind a paywall. Fans pay to access your exclusive content.",
     },
     {
-        icon: (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-        ),
+        icon: "🤝",
         title: "Brand Partnerships",
-        description:
-            "Get discovered by brands looking for authentic food creators. Collaborate on sponsored content that fits your style.",
+        description: "Get discovered by brands for sponsored content that fits your authentic style.",
     },
     {
-        icon: (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-            </svg>
-        ),
+        icon: "✓",
         title: "Verified Benefits",
-        description:
-            "Upgrade to Verified for a badge, lower fees, highlighted replies, and advanced analytics to grow faster.",
-    },
-];
-
-const steps = [
-    {
-        number: "1",
-        title: "Download & Create Your Profile",
-        description: "Get the app, sign up, and set up your creator profile. Add a bio, profile photo, and links to your other socials.",
-    },
-    {
-        number: "2",
-        title: "Upload Your First Recipe",
-        description: "Record a short video of your recipe in action. Add ingredients, cooking steps, and tags so people can find it.",
-    },
-    {
-        number: "3",
-        title: "Enable Monetization",
-        description: "Once you hit 100 followers, unlock tips and premium recipes. Connect your payment method and start earning.",
-    },
-    {
-        number: "4",
-        title: "Go Verified (Optional)",
-        description: "Ready to go pro? Subscribe to Verified for lower fees, a badge, and access to advanced creator tools.",
+        description: "Lower fees, verified badge, and advanced analytics with Flav Pro.",
     },
 ];
 
@@ -93,25 +50,72 @@ export default function CreatorsPage() {
     return (
         <>
             {/* Hero */}
-            <section className="relative overflow-hidden">
+            <section className="relative overflow-hidden min-h-screen flex items-center">
                 <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-50)] via-[var(--background)] to-[var(--color-secondary-50)] opacity-50" />
 
-                <div className="container-main relative z-10 py-16 md:py-24">
-                    <div className="max-w-3xl mx-auto text-center">
-                        <Badge variant="verified" className="mb-6" />
+                <div className="container-main relative z-10 py-12 md:py-20">
+                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                        {/* Left: Text Content */}
+                        <div className="text-center lg:text-left">
+                            <Badge variant="verified" className="mb-6" />
 
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                            Turn your recipes into{" "}
-                            <span className="gradient-text">real income</span>
-                        </h1>
+                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                                Turn your recipes into{" "}
+                                <span className="gradient-text">real income</span>
+                            </h1>
 
-                        <p className="text-lg md:text-xl text-[var(--color-neutral-600)] mb-8 max-w-2xl mx-auto">
-                            Join thousands of food creators who are building their audience and earning money on Flav.
-                            Your passion for cooking can become your career.
-                        </p>
+                            <p className="text-lg md:text-xl text-[var(--color-neutral-600)] mb-8 max-w-xl">
+                                Join thousands of food creators building their audience and earning money on Flav.
+                                Your passion for cooking can become your career.
+                            </p>
 
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                            <AppStoreButtons size="lg" utmSource="creators_hero" />
+                            <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-8">
+                                <AppStoreButtons size="lg" utmSource="creators_hero" />
+                            </div>
+
+                            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-[var(--color-neutral-500)]">
+                                <div className="flex items-center gap-2">
+                                    <span className="text-lg">✓</span>
+                                    <span>Keep 93% of earnings</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <span className="text-lg">✓</span>
+                                    <span>Tips + Premium recipes</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Right: Phone Mockups */}
+                        <div className="relative flex justify-center lg:justify-end">
+                            {/* Main phone - Creator Profile */}
+                            <div className="relative w-56 md:w-64 z-20">
+                                <div className="relative bg-[var(--color-neutral-900)] rounded-[3rem] p-2 shadow-2xl">
+                                    <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden bg-black">
+                                        <Image
+                                            src="/screenshots/creator-profile.png"
+                                            alt="Creator profile on Flav"
+                                            fill
+                                            className="object-cover"
+                                            priority
+                                        />
+                                    </div>
+                                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full" />
+                                </div>
+                            </div>
+
+                            {/* Background phone - Earnings */}
+                            <div className="absolute -left-4 md:left-0 top-12 w-44 md:w-52 z-10 opacity-80 hidden sm:block">
+                                <div className="relative bg-[var(--color-neutral-800)] rounded-[2.5rem] p-1.5 shadow-xl">
+                                    <div className="relative w-full aspect-[9/19.5] rounded-[2rem] overflow-hidden bg-black">
+                                        <Image
+                                            src="/screenshots/earnings.png"
+                                            alt="Earnings dashboard"
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -131,48 +135,51 @@ export default function CreatorsPage() {
                 </div>
             </section>
 
-            {/* Monetization Methods */}
+            {/* Multiple Ways to Earn */}
             <section className="section">
                 <div className="container-main">
                     <div className="text-center mb-12 md:mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                            Multiple ways to earn
+                            Multiple ways to{" "}
+                            <span className="gradient-text">earn</span>
                         </h2>
                         <p className="text-lg text-[var(--color-neutral-600)] max-w-2xl mx-auto">
                             Flav gives you real tools to turn your cooking content into sustainable income.
                         </p>
                     </div>
 
-                    <div className="grid md:grid-cols-2 gap-6">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
                         {monetizationMethods.map((method, index) => (
-                            <FeatureCard
+                            <div
                                 key={index}
-                                icon={method.icon}
-                                title={method.title}
-                                description={method.description}
-                            />
+                                className="p-6 rounded-2xl bg-[var(--background-elevated)] border border-[var(--color-neutral-200)] hover:shadow-lg transition-shadow"
+                            >
+                                <div className="text-4xl mb-4">{method.icon}</div>
+                                <h3 className="text-lg font-bold mb-2">{method.title}</h3>
+                                <p className="text-sm text-[var(--color-neutral-600)]">{method.description}</p>
+                            </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Analytics Preview */}
+            {/* Earnings Dashboard Showcase */}
             <section className="section bg-[var(--color-neutral-950)] text-white">
                 <div className="container-main">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div>
+                        <div className="order-2 md:order-1">
                             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                                Analytics that actually help you grow
+                                Track your earnings in real time
                             </h2>
                             <p className="text-lg text-[var(--color-neutral-300)] mb-6">
-                                Understand what's working and what's not. Track saves, views, engagement, and revenue in real time.
+                                See exactly how much you're making. Net earnings, pending payouts, and fee savings—all in one beautiful dashboard.
                             </p>
-                            <ul className="space-y-3">
+                            <ul className="space-y-3 mb-8">
                                 {[
-                                    "Real-time save and view tracking",
-                                    "Audience demographics & preferences",
-                                    "Revenue breakdowns by content",
-                                    "Best posting times for your audience",
+                                    "Real-time revenue tracking",
+                                    "53% savings with Flav Pro",
+                                    "Weekly automatic payouts",
+                                    "Transaction history",
                                 ].map((item, index) => (
                                     <li key={index} className="flex items-center gap-3">
                                         <svg className="w-5 h-5 text-[var(--color-primary-500)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -182,29 +189,21 @@ export default function CreatorsPage() {
                                     </li>
                                 ))}
                             </ul>
+                            <Link href="/verified">
+                                <Button>Learn about Flav Pro →</Button>
+                            </Link>
                         </div>
-                        <div className="flex justify-center">
-                            <div className="w-full max-w-sm p-6 rounded-2xl bg-[var(--color-neutral-800)] border border-[var(--color-neutral-700)]">
-                                <div className="flex items-center justify-between mb-6">
-                                    <span className="text-sm text-[var(--color-neutral-400)]">Last 30 days</span>
-                                    <span className="text-xs px-2 py-1 rounded-full bg-[var(--color-secondary-500)]/20 text-[var(--color-secondary-400)]">+24%</span>
-                                </div>
-                                <div className="space-y-4">
-                                    <div className="flex justify-between items-center">
-                                        <span className="text-[var(--color-neutral-400)]">Views</span>
-                                        <span className="font-semibold">124,892</span>
-                                    </div>
-                                    <div className="flex justify-between items-center">
-                                        <span className="text-[var(--color-neutral-400)]">Saves</span>
-                                        <span className="font-semibold">8,432</span>
-                                    </div>
-                                    <div className="flex justify-between items-center">
-                                        <span className="text-[var(--color-neutral-400)]">Tips Received</span>
-                                        <span className="font-semibold text-[var(--color-secondary-400)]">$847</span>
-                                    </div>
-                                    <div className="flex justify-between items-center">
-                                        <span className="text-[var(--color-neutral-400)]">Premium Sales</span>
-                                        <span className="font-semibold text-[var(--color-secondary-400)]">$1,234</span>
+
+                        <div className="order-1 md:order-2 flex justify-center">
+                            <div className="relative w-56 md:w-64">
+                                <div className="relative bg-white/10 backdrop-blur rounded-[3rem] p-2">
+                                    <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden">
+                                        <Image
+                                            src="/screenshots/earnings.png"
+                                            alt="Flav earnings dashboard"
+                                            fill
+                                            className="object-cover"
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -213,8 +212,55 @@ export default function CreatorsPage() {
                 </div>
             </section>
 
-            {/* Getting Started Steps */}
+            {/* Recipe Creation */}
             <section className="section">
+                <div className="container-main">
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                        <div className="flex justify-center">
+                            <div className="relative w-56 md:w-64">
+                                <div className="relative bg-[var(--color-neutral-900)] rounded-[3rem] p-2 shadow-2xl">
+                                    <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden bg-black">
+                                        <Image
+                                            src="/screenshots/create-recipe.png"
+                                            alt="Create recipe screen"
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    </div>
+                                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <Badge variant="beta" className="mb-4" />
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+                                Create recipes effortlessly
+                            </h2>
+                            <p className="text-lg text-[var(--color-neutral-600)] mb-6">
+                                Upload from scratch or import from Instagram and TikTok. Our AI helps you structure your recipe in seconds.
+                            </p>
+                            <ul className="space-y-3 mb-8">
+                                {[
+                                    "Import from social media",
+                                    "AI-powered recipe generation",
+                                    "Step-by-step editor",
+                                    "Add timers and tips",
+                                ].map((item, i) => (
+                                    <li key={i} className="flex items-center gap-3">
+                                        <span className="w-6 h-6 rounded-full bg-[var(--color-secondary-100)] text-[var(--color-secondary-600)] flex items-center justify-center text-sm">✓</span>
+                                        <span className="text-[var(--color-neutral-700)]">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <AppStoreButtons utmSource="creators_create" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* How to Get Started */}
+            <section className="section bg-[var(--background-subtle)]">
                 <div className="container-main">
                     <div className="text-center mb-12 md:mb-16">
                         <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -225,16 +271,20 @@ export default function CreatorsPage() {
                         </p>
                     </div>
 
-                    <div className="max-w-3xl mx-auto">
-                        {steps.map((step, index) => (
-                            <div key={index} className="flex gap-6 mb-8 last:mb-0">
-                                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-primary-600)] text-white flex items-center justify-center font-bold">
-                                    {step.number}
+                    <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                        {[
+                            { step: "01", title: "Download", description: "Get Flav free on iOS or Android", icon: "📱" },
+                            { step: "02", title: "Create Profile", description: "Set up your creator bio and photo", icon: "👤" },
+                            { step: "03", title: "Upload Recipes", description: "Share your first recipe video", icon: "🍳" },
+                            { step: "04", title: "Start Earning", description: "Enable tips once you hit 100 followers", icon: "💵" },
+                        ].map((item, index) => (
+                            <div key={index} className="text-center">
+                                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white shadow-lg mb-4 text-3xl">
+                                    {item.icon}
                                 </div>
-                                <div>
-                                    <h3 className="text-xl font-bold mb-2">{step.title}</h3>
-                                    <p className="text-[var(--color-neutral-600)]">{step.description}</p>
-                                </div>
+                                <div className="text-sm font-bold text-[var(--color-primary-500)] mb-2">{item.step}</div>
+                                <h3 className="text-lg font-bold mb-1">{item.title}</h3>
+                                <p className="text-sm text-[var(--color-neutral-600)]">{item.description}</p>
                             </div>
                         ))}
                     </div>
@@ -243,22 +293,39 @@ export default function CreatorsPage() {
 
             {/* CTA */}
             <section className="section bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-primary-600)]" id="download">
-                <div className="container-main text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                        Start your creator journey today
-                    </h2>
-                    <p className="text-lg text-white/80 mb-8 max-w-xl mx-auto">
-                        Download Flav and join thousands of creators earning from their recipes.
-                    </p>
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <AppStoreButtons size="lg" utmSource="creators_cta" />
+                <div className="container-main">
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                        <div className="text-center md:text-left">
+                            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                                Start your creator journey today
+                            </h2>
+                            <p className="text-lg text-white/80 mb-8 max-w-xl">
+                                Download Flav and join thousands of creators earning from their recipes.
+                            </p>
+                            <AppStoreButtons size="lg" utmSource="creators_cta" />
+                            <p className="mt-6 text-white/60 text-sm">
+                                Already a creator?{" "}
+                                <Link href="/verified" className="underline hover:text-white">
+                                    Upgrade to Verified →
+                                </Link>
+                            </p>
+                        </div>
+
+                        <div className="hidden md:flex justify-center">
+                            <div className="relative w-48">
+                                <div className="relative bg-white/10 backdrop-blur rounded-[2.5rem] p-1.5">
+                                    <div className="relative w-full aspect-[9/19.5] rounded-[2rem] overflow-hidden">
+                                        <Image
+                                            src="/screenshots/creator-profile.png"
+                                            alt="Creator profile"
+                                            fill
+                                            className="object-cover"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p className="mt-6 text-white/60 text-sm">
-                        Already a creator?{" "}
-                        <Link href="/verified" className="underline hover:text-white">
-                            Upgrade to Verified →
-                        </Link>
-                    </p>
                 </div>
             </section>
         </>

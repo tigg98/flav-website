@@ -50,23 +50,20 @@ export function AppStoreButtons({
                 </div>
             </Link>
 
-            <Link
-                href={buildUrl(androidUrl, "android")}
+            <div
                 className={cn(
-                    "inline-flex items-center gap-2 bg-[var(--color-neutral-900)] text-white rounded-xl px-5 transition-all duration-200 hover:bg-[var(--color-neutral-800)] hover:scale-[1.02]",
+                    "inline-flex items-center gap-2 bg-[var(--color-neutral-900)]/60 text-white/70 rounded-xl px-5 cursor-default",
                     sizeClasses[size]
                 )}
-                target="_blank"
-                rel="noopener noreferrer"
             >
                 <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.302 2.302-8.636-8.635z" />
                 </svg>
                 <div className="flex flex-col items-start">
-                    <span className="text-[10px] leading-tight opacity-80">Get it on</span>
+                    <span className="text-[10px] leading-tight opacity-80">Coming Soon</span>
                     <span className="text-sm font-semibold leading-tight">Google Play</span>
                 </div>
-            </Link>
+            </div>
         </div>
     );
 }

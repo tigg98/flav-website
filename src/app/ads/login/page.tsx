@@ -26,9 +26,15 @@ export default function AdsLoginPage() {
         <div className="min-h-screen flex items-center justify-center p-4">
             <div className="w-full max-w-md">
                 <div className="text-center mb-8">
-                    <Link href="/" className="inline-flex items-center gap-2 text-2xl font-bold mb-2">
-                        <span className="text-3xl">🍳</span>
-                        <span className="gradient-text">Flav Ads</span>
+                    <Link href="/" className="inline-flex items-center gap-2 mb-2">
+                        <div className="relative w-8 h-8 md:w-10 md:h-10">
+                            <img
+                                src="/logo.png"
+                                alt="Flav Logo"
+                                className="object-contain w-full h-full"
+                            />
+                        </div>
+                        <span className="text-2xl font-bold gradient-text">Flav Ads</span>
                     </Link>
                     <p className="text-[var(--color-neutral-600)]">
                         Sign in to manage your campaigns
