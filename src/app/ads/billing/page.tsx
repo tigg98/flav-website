@@ -1,43 +1,124 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { AdsNav } from "@/components/ads/AdsNav";
 import { Button } from "@/components/ui/Button";
 
-// Mock transaction data - in production this would come from Stripe/database
-const mockTransactions = [
-    { id: "1", date: "2026-01-08", description: "Added funds", amount: 500, type: "credit" as const },
-    { id: "2", date: "2026-01-05", description: "Campaign: Summer Grilling", amount: -45.50, type: "debit" as const },
-    { id: "3", date: "2026-01-03", description: "Campaign: Summer Grilling", amount: -32.25, type: "debit" as const },
-    { id: "4", date: "2026-01-01", description: "Added funds", amount: 200, type: "credit" as const },
-];
+interface Transaction {
+    id: string;
+    created_at: string;
+    amount: number;
+    type: "deposit" | "spend" | "refund" | "adjustment";
+    description: string;
+    balance_after: number;
+}
 
 export default function BillingPage() {
+    const [balance, setBalance] = useState<number>(0);
+    const [transactions, setTransactions] = useState<Transaction[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
     const [isAddingFunds, setIsAddingFunds] = useState(false);
     const [selectedAmount, setSelectedAmount] = useState<number | null>(null);
+    const [customAmount, setCustomAmount] = useState("");
     const [showSuccess, setShowSuccess] = useState(false);
+    const [successMessage, setSuccessMessage] = useState("");
+    const [error, setError] = useState("");
 
-    // Mock balance - in production this would come from the database
-    const currentBalance = 622.25;
+    const fetchBillingData = useCallback(async () => {
+        try {
+            const res = await fetch("/api/billing");
+            if (!res.ok) {
+                throw new Error("Failed to fetch billing data");
+            }
+            const data = await res.json();
+            setBalance(data.balance || 0);
+            setTransactions(data.transactions || []);
+        } catch (err) {
+            console.error("Error fetching billing data:", err);
+            setError("Failed to load billing information");
+        } finally {
+            setIsLoading(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        fetchBillingData();
+    }, [fetchBillingData]);
 
     const handleAddFunds = async () => {
-        if (!selectedAmount) return;
+        const amount = selectedAmount || parseFloat(customAmount);
+
+        if (!amount || amount < 10) {
+            setError("Minimum deposit is $10");
+            return;
+        }
+
+        if (amount > 10000) {
+            setError("Maximum single deposit is $10,000");
+            return;
+        }
 
         setIsAddingFunds(true);
+        setError("");
 
-        // Simulate processing
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        try {
+            const res = await fetch("/api/billing", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ amount }),
+            });
 
-        // Show success message
-        setIsAddingFunds(false);
-        setShowSuccess(true);
-        setSelectedAmount(null);
+            const data = await res.json();
 
-        // Hide success after 3 seconds
-        setTimeout(() => setShowSuccess(false), 3000);
+            if (!res.ok) {
+                throw new Error(data.error || "Failed to add funds");
+            }
+
+            // Success!
+            setSuccessMessage(`Successfully added $${amount.toFixed(2)} to your account`);
+            setShowSuccess(true);
+            setSelectedAmount(null);
+            setCustomAmount("");
+
+            // Refresh balance and transactions
+            await fetchBillingData();
+
+            // Hide success after 5 seconds
+            setTimeout(() => setShowSuccess(false), 5000);
+        } catch (err: any) {
+            setError(err.message || "Failed to add funds. Please try again.");
+        } finally {
+            setIsAddingFunds(false);
+        }
     };
 
     const fundingOptions = [50, 100, 250, 500, 1000];
+
+    // Calculate estimated runway based on average daily spend
+    const calculateRunway = () => {
+        const spendTransactions = transactions.filter(t => t.type === "spend");
+        if (spendTransactions.length === 0) return null;
+
+        // Calculate average daily spend based on recent transactions
+        const totalSpend = spendTransactions.reduce((sum, t) => sum + Math.abs(t.amount), 0);
+        const avgDaily = totalSpend / Math.max(spendTransactions.length, 1);
+
+        if (avgDaily <= 0) return null;
+        return Math.floor(balance / avgDaily);
+    };
+
+    const runway = calculateRunway();
+
+    if (isLoading) {
+        return (
+            <div className="min-h-screen">
+                <AdsNav />
+                <div className="flex items-center justify-center py-20">
+                    <div className="text-[var(--color-neutral-500)]">Loading billing...</div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen">
@@ -48,18 +129,35 @@ export default function BillingPage() {
                 <div>
                     <h1 className="text-2xl font-bold">Billing</h1>
                     <p className="text-sm text-[var(--color-neutral-500)]">
-                        Manage your account balance and payment methods
+                        Manage your account balance and view transaction history
                     </p>
                 </div>
 
                 {/* Success Message */}
                 {showSuccess && (
                     <div className="p-4 bg-green-50 border border-green-200 rounded-xl flex items-center gap-3">
-                        <span className="text-xl">✓</span>
+                        <span className="text-xl text-green-600">✓</span>
                         <div>
-                            <p className="font-medium text-green-800">Funds added successfully!</p>
+                            <p className="font-medium text-green-800">{successMessage}</p>
                             <p className="text-sm text-green-600">Your balance has been updated.</p>
                         </div>
+                    </div>
+                )}
+
+                {/* Error Message */}
+                {error && (
+                    <div className="p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3">
+                        <span className="text-xl text-red-600">⚠</span>
+                        <div>
+                            <p className="font-medium text-red-800">Error</p>
+                            <p className="text-sm text-red-600">{error}</p>
+                        </div>
+                        <button
+                            onClick={() => setError("")}
+                            className="ml-auto text-red-400 hover:text-red-600"
+                        >
+                            ✕
+                        </button>
                     </div>
                 )}
 
@@ -68,16 +166,18 @@ export default function BillingPage() {
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                         <div>
                             <p className="text-sm opacity-80 mb-1">Current Balance</p>
-                            <p className="text-5xl font-bold">${currentBalance.toFixed(2)}</p>
+                            <p className="text-5xl font-bold">${balance.toFixed(2)}</p>
                             <p className="text-sm opacity-80 mt-2">
                                 Funds are automatically deducted as your campaigns run
                             </p>
                         </div>
-                        <div className="text-right">
-                            <p className="text-sm opacity-80">Estimated runway</p>
-                            <p className="text-2xl font-semibold">~12 days</p>
-                            <p className="text-xs opacity-60">at $50/day spend</p>
-                        </div>
+                        {runway !== null && runway > 0 && (
+                            <div className="text-right">
+                                <p className="text-sm opacity-80">Estimated runway</p>
+                                <p className="text-2xl font-semibold">~{runway} days</p>
+                                <p className="text-xs opacity-60">based on recent spend</p>
+                            </div>
+                        )}
                     </div>
                 </div>
 
@@ -90,7 +190,11 @@ export default function BillingPage() {
                             <button
                                 key={amount}
                                 type="button"
-                                onClick={() => setSelectedAmount(amount)}
+                                onClick={() => {
+                                    setSelectedAmount(amount);
+                                    setCustomAmount("");
+                                    setError("");
+                                }}
                                 className={`py-4 px-4 rounded-xl border-2 font-semibold transition-all ${selectedAmount === amount
                                         ? "border-[var(--color-primary-500)] bg-[var(--color-primary-50)] text-[var(--color-primary-600)]"
                                         : "border-[var(--color-neutral-200)] hover:border-[var(--color-neutral-300)]"
@@ -110,12 +214,23 @@ export default function BillingPage() {
                                 type="number"
                                 id="custom_amount"
                                 min="10"
-                                placeholder="Or enter custom amount..."
+                                max="10000"
+                                step="0.01"
+                                placeholder="Or enter custom amount ($10 - $10,000)..."
+                                value={customAmount}
+                                onChange={(e) => {
+                                    setCustomAmount(e.target.value);
+                                    setSelectedAmount(null);
+                                    setError("");
+                                }}
                                 className="w-full px-4 py-3 rounded-xl border border-[var(--color-neutral-300)] focus:border-[var(--color-primary-500)] focus:ring-2 focus:ring-[var(--color-primary-500)]/20 outline-none transition-colors"
-                                onChange={(e) => setSelectedAmount(Number(e.target.value) || null)}
                             />
                         </div>
-                        <Button onClick={handleAddFunds} disabled={!selectedAmount || isAddingFunds} size="lg">
+                        <Button
+                            onClick={handleAddFunds}
+                            disabled={(!selectedAmount && !customAmount) || isAddingFunds}
+                            size="lg"
+                        >
                             {isAddingFunds ? (
                                 <span className="flex items-center gap-2">
                                     <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24">
@@ -125,13 +240,13 @@ export default function BillingPage() {
                                     Processing...
                                 </span>
                             ) : (
-                                `Add $${selectedAmount || 0}`
+                                `Add $${selectedAmount || parseFloat(customAmount) || 0}`
                             )}
                         </Button>
                     </div>
 
                     <p className="text-xs text-[var(--color-neutral-500)] mt-4">
-                        Payments are processed securely via Stripe. Minimum deposit is $10.
+                        Payments are processed securely via Stripe. Minimum deposit is $10, maximum $10,000.
                     </p>
                 </div>
 
@@ -139,67 +254,72 @@ export default function BillingPage() {
                 <div className="bg-white rounded-2xl shadow-sm border border-[var(--color-neutral-200)]">
                     <div className="p-6 border-b border-[var(--color-neutral-200)]">
                         <h2 className="text-lg font-semibold">Transaction History</h2>
+                        <p className="text-sm text-[var(--color-neutral-500)]">
+                            Complete record of all account activity
+                        </p>
                     </div>
 
-                    <div className="divide-y divide-[var(--color-neutral-200)]">
-                        {mockTransactions.map((tx) => (
-                            <div key={tx.id} className="px-6 py-4 flex items-center justify-between">
-                                <div className="flex items-center gap-4">
-                                    <div
-                                        className={`w-10 h-10 rounded-full flex items-center justify-center ${tx.type === "credit"
-                                                ? "bg-green-100 text-green-600"
-                                                : "bg-[var(--color-neutral-100)] text-[var(--color-neutral-500)]"
-                                            }`}
-                                    >
-                                        {tx.type === "credit" ? "↓" : "↑"}
+                    {transactions.length === 0 ? (
+                        <div className="text-center py-12 text-[var(--color-neutral-500)]">
+                            <div className="text-4xl mb-3">📄</div>
+                            <p className="font-medium">No transactions yet</p>
+                            <p className="text-sm">Add funds to get started</p>
+                        </div>
+                    ) : (
+                        <div className="divide-y divide-[var(--color-neutral-200)]">
+                            {transactions.map((tx) => (
+                                <div key={tx.id} className="px-6 py-4 flex items-center justify-between">
+                                    <div className="flex items-center gap-4">
+                                        <div
+                                            className={`w-10 h-10 rounded-full flex items-center justify-center text-lg ${tx.type === "deposit"
+                                                    ? "bg-green-100 text-green-600"
+                                                    : tx.type === "refund"
+                                                        ? "bg-blue-100 text-blue-600"
+                                                        : "bg-[var(--color-neutral-100)] text-[var(--color-neutral-500)]"
+                                                }`}
+                                        >
+                                            {tx.type === "deposit" ? "↓" : tx.type === "refund" ? "↩" : "↑"}
+                                        </div>
+                                        <div>
+                                            <p className="font-medium">{tx.description}</p>
+                                            <p className="text-sm text-[var(--color-neutral-500)]">
+                                                {new Date(tx.created_at).toLocaleDateString("en-US", {
+                                                    year: "numeric",
+                                                    month: "short",
+                                                    day: "numeric",
+                                                    hour: "2-digit",
+                                                    minute: "2-digit",
+                                                })}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p className="font-medium">{tx.description}</p>
-                                        <p className="text-sm text-[var(--color-neutral-500)]">
-                                            {new Date(tx.date).toLocaleDateString("en-US", {
-                                                year: "numeric",
-                                                month: "short",
-                                                day: "numeric",
-                                            })}
+                                    <div className="text-right">
+                                        <span
+                                            className={`font-semibold ${tx.amount > 0 ? "text-green-600" : "text-[var(--color-neutral-600)]"
+                                                }`}
+                                        >
+                                            {tx.amount > 0 ? "+" : ""}${Math.abs(tx.amount).toFixed(2)}
+                                        </span>
+                                        <p className="text-xs text-[var(--color-neutral-500)]">
+                                            Balance: ${tx.balance_after.toFixed(2)}
                                         </p>
                                     </div>
                                 </div>
-                                <span
-                                    className={`font-semibold ${tx.type === "credit" ? "text-green-600" : "text-[var(--color-neutral-600)]"
-                                        }`}
-                                >
-                                    {tx.type === "credit" ? "+" : "-"}${Math.abs(tx.amount).toFixed(2)}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-
-                    {mockTransactions.length === 0 && (
-                        <div className="text-center py-12 text-[var(--color-neutral-500)]">
-                            <div className="text-3xl mb-2">📄</div>
-                            No transactions yet
+                            ))}
                         </div>
                     )}
                 </div>
 
-                {/* Payment Methods */}
-                <div className="bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-neutral-200)]">
-                    <div className="flex items-center justify-between mb-6">
-                        <h2 className="text-lg font-semibold">Payment Methods</h2>
-                        <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => alert("Stripe Payment Methods UI would open here.")}
-                        >
-                            + Add Card
-                        </Button>
-                    </div>
-
-                    <div className="text-center py-8 border-2 border-dashed border-[var(--color-neutral-200)] rounded-xl">
-                        <div className="text-4xl mb-3">💳</div>
-                        <p className="font-medium text-[var(--color-neutral-700)]">No payment methods saved</p>
-                        <p className="text-sm text-[var(--color-neutral-500)]">Save a card for faster checkout</p>
-                    </div>
+                {/* Info Card */}
+                <div className="bg-[var(--color-neutral-50)] rounded-2xl p-6 border border-[var(--color-neutral-200)]">
+                    <h3 className="font-semibold mb-2">💡 How billing works</h3>
+                    <ul className="text-sm text-[var(--color-neutral-600)] space-y-2">
+                        <li>• Add funds to your account anytime (min $10, max $10,000 per transaction)</li>
+                        <li>• Funds are automatically deducted as your ads receive impressions</li>
+                        <li>• Current rate: $5.00 CPM (cost per 1,000 impressions)</li>
+                        <li>• All transactions are logged and available in your history</li>
+                        <li>• Unused funds can be refunded—contact support@flav.app</li>
+                    </ul>
                 </div>
             </main>
         </div>
