@@ -267,12 +267,16 @@ export default function HomePage() {
               </ul>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-white text-neutral-900 hover:bg-neutral-100 border-none">
-                  Join as Creator
-                </Button>
-                <Button size="lg" variant="outline" className="border-neutral-700 text-white hover:bg-neutral-800 hover:text-white">
-                  View Creator Tools
-                </Button>
+                <Link href="/signup">
+                  <Button size="lg" className="bg-white text-neutral-900 hover:bg-neutral-100 border-none w-full sm:w-auto">
+                    Join as Creator
+                  </Button>
+                </Link>
+                <Link href="/creators">
+                  <Button size="lg" variant="outline" className="border-neutral-700 text-white hover:bg-neutral-800 hover:text-white w-full sm:w-auto">
+                    View Creator Tools
+                  </Button>
+                </Link>
               </div>
             </div>
 
@@ -281,7 +285,7 @@ export default function HomePage() {
                 <div className="absolute -inset-4 bg-gradient-to-tr from-orange-600/20 to-amber-200/10 rounded-[3rem] blur-2xl group-hover:blur-3xl transition-all duration-700 opacity-70" />
                 <div className="relative drop-shadow-2xl">
                   <IPhoneMockup
-                    src="/screenshots/create-recipe-final.png"
+                    src="/screenshots/create-recipe-sharp.png"
                     alt="Creator tools interface"
                     size="lg"
                   />

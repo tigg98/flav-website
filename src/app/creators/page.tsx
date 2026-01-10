@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { Badge } from "@/components/ui/Badge";
+import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
 
 export const metadata: Metadata = {
     title: "For Creators",
@@ -88,33 +89,22 @@ export default function CreatorsPage() {
                         {/* Right: Phone Mockups */}
                         <div className="relative flex justify-center lg:justify-end">
                             {/* Main phone - Creator Profile */}
-                            <div className="relative w-56 md:w-64 z-20">
-                                <div className="relative bg-[var(--color-neutral-900)] rounded-[3rem] p-2 shadow-2xl">
-                                    <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden bg-black">
-                                        <Image
-                                            src="/screenshots/creator-profile.png"
-                                            alt="Creator profile on Flav"
-                                            fill
-                                            className="object-cover"
-                                            priority
-                                        />
-                                    </div>
-                                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full" />
-                                </div>
+                            <div className="relative z-20">
+                                <IPhoneMockup
+                                    src="/screenshots/creator-profile.png"
+                                    alt="Creator profile on Flav"
+                                    size="md"
+                                    priority
+                                />
                             </div>
 
                             {/* Background phone - Earnings */}
-                            <div className="absolute -left-4 md:left-0 top-12 w-44 md:w-52 z-10 opacity-80 hidden sm:block">
-                                <div className="relative bg-[var(--color-neutral-800)] rounded-[2.5rem] p-1.5 shadow-xl">
-                                    <div className="relative w-full aspect-[9/19.5] rounded-[2rem] overflow-hidden bg-black">
-                                        <Image
-                                            src="/screenshots/earnings.png"
-                                            alt="Earnings dashboard"
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                </div>
+                            <div className="absolute -left-12 top-12 z-10 opacity-60 hidden sm:block transform scale-90">
+                                <IPhoneMockup
+                                    src="/screenshots/earnings.png"
+                                    alt="Earnings dashboard"
+                                    size="md"
+                                />
                             </div>
                         </div>
                     </div>
@@ -195,18 +185,11 @@ export default function CreatorsPage() {
                         </div>
 
                         <div className="order-1 md:order-2 flex justify-center">
-                            <div className="relative w-56 md:w-64">
-                                <div className="relative bg-white/10 backdrop-blur rounded-[3rem] p-2">
-                                    <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden">
-                                        <Image
-                                            src="/screenshots/earnings.png"
-                                            alt="Flav earnings dashboard"
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
+                            <IPhoneMockup
+                                src="/screenshots/earnings.png"
+                                alt="Flav earnings dashboard"
+                                size="md"
+                            />
                         </div>
                     </div>
                 </div>
@@ -217,19 +200,11 @@ export default function CreatorsPage() {
                 <div className="container-main">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="flex justify-center">
-                            <div className="relative w-56 md:w-64">
-                                <div className="relative bg-[var(--color-neutral-900)] rounded-[3rem] p-2 shadow-2xl">
-                                    <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden bg-black">
-                                        <Image
-                                            src="/screenshots/create-recipe.png"
-                                            alt="Create recipe screen"
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full" />
-                                </div>
-                            </div>
+                            <IPhoneMockup
+                                src="/screenshots/create-recipe.png"
+                                alt="Create recipe screen"
+                                size="md"
+                            />
                         </div>
 
                         <div>
@@ -312,17 +287,12 @@ export default function CreatorsPage() {
                         </div>
 
                         <div className="hidden md:flex justify-center">
-                            <div className="relative w-48">
-                                <div className="relative bg-white/10 backdrop-blur rounded-[2.5rem] p-1.5">
-                                    <div className="relative w-full aspect-[9/19.5] rounded-[2rem] overflow-hidden">
-                                        <Image
-                                            src="/screenshots/creator-profile.png"
-                                            alt="Creator profile"
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                </div>
+                            <div className="scale-90 origin-center">
+                                <IPhoneMockup
+                                    src="/screenshots/creator-profile.png"
+                                    alt="Creator profile"
+                                    size="md"
+                                />
                             </div>
                         </div>
                     </div>
