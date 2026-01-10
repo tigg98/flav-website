@@ -80,53 +80,62 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden min-h-screen flex items-center">
+      <section className="relative overflow-hidden min-h-screen flex items-center pt-20 pb-16">
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-50)] via-[var(--background)] to-[var(--color-secondary-50)] opacity-50" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-100/40 via-background to-background dark:from-orange-900/20" />
 
-        {/* Decorative blurs */}
-        <div className="absolute top-20 right-10 w-72 h-72 bg-[var(--color-primary-200)] rounded-full filter blur-3xl opacity-20 animate-pulse" />
-        <div className="absolute bottom-20 left-10 w-96 h-96 bg-[var(--color-secondary-200)] rounded-full filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: "1s" }} />
+        {/* Decorative blobs */}
+        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary-500/10 rounded-full blur-[100px] animate-pulse-subtle" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-secondary-500/10 rounded-full blur-[100px] animate-pulse-subtle" style={{ animationDelay: '2s' }} />
 
-        <div className="container-main relative z-10 py-12 md:py-20">
+        <div className="container-main relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left: Text Content */}
-            <div className="text-center lg:text-left">
-              <Badge variant="new" className="mb-6" />
+            <div className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0 animate-fade-in">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400 text-sm font-medium mb-8 border border-orange-200 dark:border-orange-500/20">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+                </span>
+                The #1 Food App for 2026
+              </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                Cook anything.{" "}
-                <span className="gradient-text">Ask anything.</span>
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight">
+                Cook anything. <br className="hidden lg:block" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">
+                  Taste everything.
+                </span>
               </h1>
 
-              <p className="text-lg md:text-xl text-[var(--color-neutral-600)] mb-8 max-w-xl">
-                Discover recipes, follow along step-by-step with timers, and get instant help from AI—all in one beautiful app.
+              <p className="text-xl text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed">
+                Discover viral recipes, cook with confidence using step-by-step video guides, and get instant answers from your AI sous-chef.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-8">
+              <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-12">
                 <AppStoreButtons size="lg" utmSource="homepage_hero" />
               </div>
 
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-[var(--color-neutral-500)]">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 text-sm font-medium text-neutral-500 dark:text-neutral-400">
                 <div className="flex items-center gap-2">
-                  <span className="text-lg">✓</span>
+                  <div className="w-5 h-5 rounded-full bg-green-100 dark:bg-green-500/20 text-green-600 dark:text-green-400 flex items-center justify-center text-xs">✓</div>
                   <span>Free to download</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-lg">✓</span>
-                  <span>AI cooking assistant</span>
+                  <div className="w-5 h-5 rounded-full bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs">✓</div>
+                  <span>AI Powered</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-lg">✓</span>
-                  <span>Step-by-step timers</span>
+                  <div className="w-5 h-5 rounded-full bg-purple-100 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xs">✓</div>
+                  <span>Creator Economy</span>
                 </div>
               </div>
             </div>
 
             {/* Right: Phone Mockups */}
-            <div className="relative flex justify-center lg:justify-end">
-              {/* Main phone - Realistic iPhone */}
-              <div className="relative z-20">
+            <div className="relative flex justify-center lg:justify-end animate-slide-up" style={{ animationDelay: '0.2s' }}>
+              {/* Main phone */}
+              <div className="relative z-20 transform hover:scale-[1.02] transition-transform duration-500">
+                <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/20 to-amber-500/20 rounded-[3rem] blur-2xl" />
                 <IPhoneMockup
                   src="/screenshots/home-feed.png"
                   alt="Flav home feed showing recipe discovery"
@@ -135,13 +144,18 @@ export default function HomePage() {
                 />
               </div>
 
-              {/* Background phone - Recipe Detail */}
-              <div className="absolute right-0 md:right-4 top-16 z-10 opacity-70 hidden sm:block scale-[0.85]">
-                <IPhoneMockup
-                  src="/screenshots/recipe-detail.png"
-                  alt="Recipe detail view"
-                  size="md"
-                />
+              {/* Decorative elements */}
+              <div className="absolute -right-12 top-20 z-10 hidden xl:block animate-float">
+                <div className="glass-panel p-4 rounded-2xl shadow-xl max-w-[200px]">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center text-white font-bold">JD</div>
+                    <div>
+                      <div className="font-bold text-sm">Chef John</div>
+                      <div className="text-xs text-neutral-500">Just now</div>
+                    </div>
+                  </div>
+                  <p className="text-xs font-medium">"This pasta recipe is absolutely incredible! 🍝"</p>
+                </div>
               </div>
             </div>
           </div>
@@ -149,43 +163,62 @@ export default function HomePage() {
       </section>
 
       {/* App Showcase Section */}
-      <section className="section bg-[var(--background-subtle)]" id="features">
+      <section className="section bg-neutral-50 dark:bg-neutral-900/50" id="features">
         <div className="container-main">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Everything you need to{" "}
-              <span className="gradient-text">cook confidently</span>
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+              Everything you need to <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">cook confidently</span>
             </h2>
-            <p className="text-lg text-[var(--color-neutral-600)] max-w-2xl mx-auto">
-              From discovery to plating—Flav guides you through every step of your cooking journey.
+            <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
+              From the first spark of inspiration to the final garnish—Flav is your sous-chef for every step of the journey.
             </p>
           </div>
 
-          <div className="space-y-24 md:space-y-32">
+          <div className="space-y-12">
             {features.map((feature, index) => (
               <div
                 key={index}
-                className={`grid md:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "md:flex-row-reverse" : ""
-                  }`}
+                className={`group bg-white dark:bg-neutral-900 rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-neutral-100 dark:border-neutral-800 transition-all duration-500 hover:shadow-xl hover:border-orange-100 dark:hover:border-orange-900/30 overflow-hidden relative`}
               >
-                {/* Phone mockup */}
-                <div className={`flex justify-center ${index % 2 === 1 ? "md:order-2" : ""}`}>
-                  <IPhoneMockup
-                    src={feature.screenshot}
-                    alt={feature.title}
-                    size="md"
-                  />
-                </div>
+                <div className={`grid md:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}>
+                  {/* Phone mockup */}
+                  <div className={`flex justify-center relative ${index % 2 === 1 ? "md:order-2" : ""}`}>
+                    {/* Blob behind phone */}
+                    <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 ${index === 0 ? 'bg-orange-200 dark:bg-orange-900/40' :
+                      index === 1 ? 'bg-green-200 dark:bg-green-900/40' :
+                        'bg-blue-200 dark:bg-blue-900/40'
+                      }`} />
 
-                {/* Content */}
-                <div className={`text-center md:text-left ${index % 2 === 1 ? "md:order-1" : ""}`}>
-                  <div className="inline-flex px-4 py-1 rounded-full bg-[var(--color-primary-100)] text-[var(--color-primary-700)] text-sm font-medium mb-4">
-                    {feature.badge}
+                    <div className="relative z-10 transform group-hover:scale-[1.02] transition-transform duration-500">
+                      <IPhoneMockup
+                        src={feature.screenshot}
+                        alt={feature.title}
+                        size="md"
+                      />
+                    </div>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4">{feature.title}</h3>
-                  <p className="text-lg text-[var(--color-neutral-600)] max-w-md">
-                    {feature.description}
-                  </p>
+
+                  {/* Content */}
+                  <div className={`text-center md:text-left ${index % 2 === 1 ? "md:order-1" : ""}`}>
+                    <div className={`inline-flex px-4 py-1.5 rounded-full text-sm font-semibold mb-6 ${index === 0 ? 'bg-orange-50 text-orange-600 dark:bg-orange-900/30 dark:text-orange-300' :
+                      index === 1 ? 'bg-green-50 text-green-600 dark:bg-green-900/30 dark:text-green-300' :
+                        'bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-300'
+                      }`}>
+                      {feature.badge}
+                    </div>
+                    <h3 className="text-3xl md:text-4xl font-bold mb-6">{feature.title}</h3>
+                    <p className="text-lg text-neutral-600 dark:text-neutral-400 leading-relaxed max-w-md mx-auto md:mx-0">
+                      {feature.description}
+                    </p>
+
+                    <div className="mt-8">
+                      <Button variant="ghost" className="group/btn text-lg px-0 hover:bg-transparent hover:text-orange-600 dark:hover:text-orange-400">
+                        Learn more
+                        <span className="inline-block transition-transform group-hover/btn:translate-x-1">→</span>
+                      </Button>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
@@ -193,46 +226,65 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Create Your Own Section */}
-      <section className="section">
-        <div className="container-main">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+      {/* Creator Economy Section - Dark Mode Contrast */}
+      <section className="section bg-neutral-900 text-white overflow-hidden relative">
+        {/* Background glow */}
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-orange-500/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="container-main relative z-10">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="order-2 md:order-1">
-              <Badge variant="beta" className="mb-4" />
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Create & share your recipes
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-800 text-orange-400 text-sm font-medium mb-6 border border-neutral-700">
+                <span className="w-2 h-2 rounded-full bg-orange-500"></span>
+                For Creators
+              </div>
+
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+                Turn your passion into <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-200">a career.</span>
               </h2>
-              <p className="text-lg text-[var(--color-neutral-600)] mb-6">
-                Turn your culinary creations into step-by-step recipes anyone can follow. Import from Instagram or TikTok, or create from scratch.
+
+              <p className="text-xl text-neutral-400 mb-8 leading-relaxed">
+                Flav isn't just for sharing—it's for earning. Build your brand with professional tools designed for food creators.
               </p>
-              <ul className="space-y-3 mb-8">
+
+              <ul className="space-y-6 mb-10">
                 {[
-                  "Import recipes from social media",
-                  "AI-powered recipe generation",
-                  "Add photos, timers, and tips",
-                  "Share and grow your audience",
+                  { icon: "💰", title: "Monetize Directly", desc: "Earn from tips and premium recipe subscriptions." },
+                  { icon: "✨", title: " AI-Powered Creation", desc: "Turn a video into a structured recipe in seconds." },
+                  { icon: "📈", title: "Detailed Analytics", desc: "Understand your audience with pro-level insights." },
                 ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3">
-                    <span className="w-6 h-6 rounded-full bg-[var(--color-secondary-100)] text-[var(--color-secondary-600)] flex items-center justify-center text-sm">✓</span>
-                    <span className="text-[var(--color-neutral-700)]">{item}</span>
+                  <li key={i} className="flex gap-4">
+                    <div className="w-12 h-12 rounded-2xl bg-neutral-800 flex items-center justify-center text-2xl border border-neutral-700 flex-shrink-0">
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">{item.title}</h4>
+                      <p className="text-neutral-400">{item.desc}</p>
+                    </div>
                   </li>
                 ))}
               </ul>
-              <AppStoreButtons utmSource="homepage_create" />
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button size="lg" className="bg-white text-neutral-900 hover:bg-neutral-100 border-none">
+                  Join as Creator
+                </Button>
+                <Button size="lg" variant="outline" className="border-neutral-700 text-white hover:bg-neutral-800 hover:text-white">
+                  View Creator Tools
+                </Button>
+              </div>
             </div>
 
-            <div className="order-1 md:order-2 flex justify-center">
-              <div className="relative w-56 md:w-64">
-                <div className="relative bg-[var(--color-neutral-900)] rounded-[3rem] p-2 shadow-2xl">
-                  <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden bg-black">
-                    <Image
-                      src="/screenshots/create-recipe.png"
-                      alt="Create new recipe screen"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full" />
+            <div className="order-1 md:order-2 flex justify-center perspective-1000">
+              <div className="relative transform rotate-y-[-10deg] rotate-x-[5deg] hover:rotate-0 transition-transform duration-700">
+                <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/30 to-purple-500/30 rounded-[3rem] blur-xl" />
+                <div className="relative w-72 md:w-80 bg-neutral-900 rounded-[2.5rem] border-8 border-neutral-800 shadow-2xl overflow-hidden">
+                  <IPhoneMockup
+                    src="/screenshots/create-recipe.png"
+                    alt="Creator tools interface"
+                    size="lg"
+                  />
                 </div>
               </div>
             </div>
@@ -331,28 +383,23 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="section bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-primary-600)]" id="download">
-        <div className="container-main">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="text-center md:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Ready to cook something amazing?
-              </h2>
-              <p className="text-lg text-white/80 mb-8 max-w-xl">
-                Download Flav for free and discover your next favorite recipe—with AI assistance and step-by-step guidance.
-              </p>
-              <AppStoreButtons size="lg" utmSource="homepage_cta" />
-            </div>
-
-            <div className="hidden md:flex justify-center">
-              <IPhoneMockup
-                src="/screenshots/home-feed.png"
-                alt="Flav app"
-                size="sm"
-              />
-            </div>
+      <section className="section bg-gradient-to-br from-orange-600 to-rose-600 text-white overflow-hidden py-32 md:py-40" id="download">
+        <div className="container-main relative z-10 text-center">
+          <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
+            Ready to cook?
+          </h2>
+          <p className="text-xl md:text-2xl text-orange-50 mb-12 max-w-2xl mx-auto font-medium">
+            Join millions of food lovers and start your journey today.
+          </p>
+          <div className="flex justify-center transform hover:scale-105 transition-transform duration-300">
+            <AppStoreButtons size="lg" utmSource="homepage_cta_bottom" />
           </div>
         </div>
+
+        {/* Background decorative circles */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-white/20 rounded-full opacity-30 animate-pulse" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-white/20 rounded-full opacity-30" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] border border-white/10 rounded-full opacity-30" />
       </section>
 
       {/* Schema.org structured data */}
