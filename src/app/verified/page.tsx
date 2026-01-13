@@ -5,6 +5,16 @@ import { Button } from "@/components/ui/Button";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { Badge } from "@/components/ui/Badge";
+import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
+import {
+    DollarSign,
+    BadgeCheck,
+    BarChart3,
+    TrendingUp,
+    Rocket,
+    Headphones,
+    type LucideIcon,
+} from "lucide-react";
 
 export const metadata: Metadata = {
     title: "Verified & Pro",
@@ -22,14 +32,14 @@ const tiers = [
         name: "Free",
         price: "$0",
         period: "forever",
-        description: "For casual creators just getting started.",
+        description: "For casual users who want to discover and save recipes.",
         features: [
             { label: "Unlimited video uploads", included: true },
             { label: "Basic analytics", included: true },
-            { label: "Tips (85% payout)", included: true },
-            { label: "Premium recipes (85% payout)", included: true },
+            { label: "Community features", included: true },
+            { label: "Tips & monetization", included: false },
+            { label: "Premium recipe sales", included: false },
             { label: "Verified badge", included: false },
-            { label: "Reply highlighting", included: false },
             { label: "Advanced analytics", included: false },
             { label: "Priority support", included: false },
         ],
@@ -39,35 +49,37 @@ const tiers = [
     },
     {
         name: "Verified",
-        price: "$9.99",
+        price: "$7.99",
         period: "/month",
-        description: "For serious creators ready to grow.",
+        annualPrice: "$69.99/year",
+        description: "For creators ready to start earning.",
         features: [
             { label: "Unlimited video uploads", included: true },
             { label: "Basic analytics", included: true },
-            { label: "Tips (92% payout)", included: true },
-            { label: "Premium recipes (92% payout)", included: true },
+            { label: "Community features", included: true },
+            { label: "Tips (90% payout)", included: true },
+            { label: "Premium recipe sales (90%)", included: true },
             { label: "Verified badge", included: true },
-            { label: "Reply highlighting", included: true },
             { label: "Advanced analytics", included: true },
             { label: "Priority support", included: false },
         ],
-        cta: "Get Verified",
+        cta: "Unlock Monetization",
         href: "#download",
         highlight: true,
     },
     {
         name: "Pro",
-        price: "$29.99",
+        price: "$19.99",
         period: "/month",
-        description: "For professional creators and businesses.",
+        annualPrice: "$179.99/year",
+        description: "For full-time creators and businesses.",
         features: [
             { label: "Unlimited video uploads", included: true },
             { label: "Basic analytics", included: true },
-            { label: "Tips (95% payout)", included: true },
-            { label: "Premium recipes (95% payout)", included: true },
+            { label: "Community features", included: true },
+            { label: "Tips (97% payout)", included: true },
+            { label: "Premium recipe sales (97%)", included: true },
             { label: "Pro badge", included: true },
-            { label: "Reply highlighting", included: true },
             { label: "Advanced analytics", included: true },
             { label: "Priority support", included: true },
         ],
@@ -81,27 +93,32 @@ const faqItems = [
     {
         question: "What does 'Verified' mean on Flav?",
         answer:
-            "Verified is a paid subscription that gives you a verified badge, lower fees on earnings, highlighted replies, and advanced analytics. It's designed for creators who are serious about growing on Flav.",
+            "Verified is a paid subscription ($7.99/month) that unlocks monetization, gives you a verified badge, advanced analytics, and priority discovery. It's designed for creators who are ready to start earning.",
     },
     {
-        question: "Who is eligible for Verified?",
+        question: "Can I earn money on the Free tier?",
         answer:
-            "Any creator with at least 10 published recipes can subscribe to Verified. There's no follower minimum—it's about commitment, not clout.",
+            "No, monetization features (tips and premium recipe sales) are only available to Verified and Pro subscribers. Free users can upload content and build an audience, but need to upgrade to start earning.",
     },
     {
         question: "What's the difference between Verified and Pro?",
         answer:
-            "Pro includes everything in Verified plus even lower platform fees (95% vs 92%), priority support, and early access to new creator features. Pro is ideal for full-time creators and food businesses.",
+            "Both tiers unlock monetization, but Pro offers a higher payout rate (97% vs 90%), priority support, early access to new features, and a distinct Pro badge. Pro is ideal for full-time creators and food businesses.",
+    },
+    {
+        question: "Is there annual pricing?",
+        answer:
+            "Yes! We offer annual plans that save you 2 months: Verified is $69.99/year (vs $95.88 monthly) and Pro is $179.99/year (vs $239.88 monthly). Upgrade in the app to access annual pricing.",
     },
     {
         question: "Can I cancel anytime?",
         answer:
-            "Yes, you can cancel your Verified or Pro subscription at any time. You'll retain your benefits until the end of your current billing period.",
+            "Yes, you can cancel your Verified or Pro subscription at any time. You'll retain your benefits until the end of your current billing period, but monetization features will be disabled after that.",
     },
     {
         question: "How do payouts work?",
         answer:
-            "Tips and premium recipe sales are paid out monthly via direct deposit or PayPal. Free creators receive 85% of earnings, Verified creators receive 92%, and Pro creators receive 95%.",
+            "Tips and premium recipe sales are paid out monthly via direct deposit or PayPal. Verified creators receive 90% of earnings, and Pro creators receive 97%. Free users cannot receive payouts.",
     },
 ];
 
@@ -189,17 +206,17 @@ export default function VerifiedPage() {
                                 Keep more of what you earn
                             </h2>
                             <p className="text-lg text-[var(--color-neutral-300)] mb-6">
-                                With Flav Pro, you get 95% of your earnings—a 53% savings compared to free accounts. See exactly what you're earning in real time.
+                                With Flav Pro, you keep 97% of your earnings—the highest payout rate in the industry. Free users need to upgrade to unlock monetization.
                             </p>
                             <div className="grid grid-cols-2 gap-4 mb-8">
                                 <div className="p-4 rounded-xl bg-white/10">
-                                    <p className="text-sm text-[var(--color-neutral-400)]">Free Creator</p>
-                                    <p className="text-2xl font-bold">85%</p>
-                                    <p className="text-xs text-[var(--color-neutral-500)]">payout rate</p>
+                                    <p className="text-sm text-[var(--color-neutral-400)]">Free User</p>
+                                    <p className="text-2xl font-bold text-[var(--color-neutral-500)]">—</p>
+                                    <p className="text-xs text-[var(--color-neutral-500)]">no monetization</p>
                                 </div>
                                 <div className="p-4 rounded-xl bg-gradient-to-br from-[var(--color-primary-500)]/30 to-[var(--color-primary-600)]/30 border border-[var(--color-primary-500)]/50">
                                     <p className="text-sm text-[var(--color-primary-300)]">Pro Creator</p>
-                                    <p className="text-2xl font-bold">95%</p>
+                                    <p className="text-2xl font-bold">97%</p>
                                     <p className="text-xs text-[var(--color-primary-400)]">payout rate</p>
                                 </div>
                             </div>
@@ -225,23 +242,28 @@ export default function VerifiedPage() {
                     </div>
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {[
-                            { icon: "✓", title: "Verified Badge", description: "A visible checkmark that signals authenticity and trust to your audience." },
-                            { icon: "📊", title: "Advanced Analytics", description: "Deep insights into audience demographics, best posting times, and revenue trends." },
-                            { icon: "💬", title: "Highlighted Replies", description: "Your comments stand out in threads, making engagement easier." },
-                            { icon: "💰", title: "Lower Platform Fees", description: "Keep more of what you earn—92% (Verified) or 95% (Pro)." },
-                            { icon: "🚀", title: "Discovery Boost", description: "Subtle prioritization in recommendations to help you reach new audiences." },
-                            { icon: "🎯", title: "Priority Support", description: "Pro creators get dedicated support with faster response times." },
-                        ].map((benefit, index) => (
-                            <div
-                                key={index}
-                                className="p-6 rounded-2xl bg-[var(--background-elevated)] border border-[var(--color-neutral-200)] hover:shadow-lg transition-shadow"
-                            >
-                                <span className="text-3xl mb-4 block">{benefit.icon}</span>
-                                <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
-                                <p className="text-[var(--color-neutral-600)]">{benefit.description}</p>
-                            </div>
-                        ))}
+                        {([
+                            { icon: DollarSign, title: "Unlock Monetization", description: "Start earning from tips and premium recipe sales—only available to Verified and Pro subscribers." },
+                            { icon: BadgeCheck, title: "Verified Badge", description: "A visible checkmark that signals authenticity and trust to your audience." },
+                            { icon: BarChart3, title: "Advanced Analytics", description: "Deep insights into audience demographics, best posting times, and revenue trends." },
+                            { icon: TrendingUp, title: "Industry-Leading Payouts", description: "Keep 90% (Verified) or 97% (Pro) of your earnings—the best rates available." },
+                            { icon: Rocket, title: "Discovery Boost", description: "Priority placement in recommendations to help you reach new audiences faster." },
+                            { icon: Headphones, title: "Priority Support", description: "Pro creators get dedicated support with faster response times." },
+                        ] as { icon: LucideIcon; title: string; description: string }[]).map((benefit, index) => {
+                            const IconComponent = benefit.icon;
+                            return (
+                                <div
+                                    key={index}
+                                    className="p-6 rounded-2xl bg-[var(--background-elevated)] border border-[var(--color-neutral-200)] hover:shadow-lg transition-shadow"
+                                >
+                                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-primary-100)] to-[var(--color-primary-50)] dark:from-[var(--color-primary-900)] dark:to-[var(--color-primary-800)] flex items-center justify-center mb-4">
+                                        <IconComponent className="w-6 h-6 text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)]" />
+                                    </div>
+                                    <h3 className="text-xl font-bold mb-2">{benefit.title}</h3>
+                                    <p className="text-[var(--color-neutral-600)]">{benefit.description}</p>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -341,18 +363,11 @@ export default function VerifiedPage() {
                         </div>
 
                         <div className="hidden md:flex justify-center">
-                            <div className="relative w-48">
-                                <div className="relative bg-white/10 backdrop-blur rounded-[2.5rem] p-1.5">
-                                    <div className="relative w-full aspect-[9/19.5] rounded-[2rem] overflow-hidden">
-                                        <Image
-                                            src="/screenshots/creator-profile.png"
-                                            alt="Verified profile"
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
+                            <IPhoneMockup
+                                src="/screenshots/creator-profile.png"
+                                alt="Verified profile"
+                                size="md"
+                            />
                         </div>
                     </div>
                 </div>

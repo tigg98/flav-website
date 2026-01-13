@@ -58,7 +58,7 @@ export function EarningsChart() {
                             boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)'
                         }}
                         itemStyle={{ color: isDark ? '#fff' : '#000' }}
-                        formatter={(value: number) => [value ? `$${value}` : '$0', "Earnings"]}
+                        formatter={(value: number | undefined) => [value ? `$${value}` : '$0', "Earnings"]}
                     />
                     <Area
                         type="monotone"

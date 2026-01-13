@@ -70,9 +70,7 @@ export function Header() {
 
                     {/* Desktop CTA */}
                     <div className="hidden md:flex items-center gap-3">
-                        <Button variant="ghost" size="sm" asChild>
-                            <Link href="/ads/login">Advertiser Login</Link>
-                        </Button>
+                        <span className="text-sm font-medium text-[var(--color-neutral-400)] cursor-default">Advertiser Dashboard <span className="text-xs">(Coming Soon)</span></span>
                         <Button size="sm" asChild>
                             <Link href="#download">Download App</Link>
                         </Button>
@@ -128,13 +126,11 @@ export function Header() {
                             </Link>
                         ))}
                         <div className="flex flex-col gap-2 pt-2 mt-2 border-t border-[var(--color-neutral-200)]">
-                            <Link
-                                href="/ads/login"
-                                className="px-4 py-3 rounded-lg text-center font-medium text-[var(--color-neutral-600)] hover:bg-[var(--color-neutral-100)] transition-colors"
-                                onClick={() => setIsMenuOpen(false)}
+                            <span
+                                className="px-4 py-3 rounded-lg text-center font-medium text-[var(--color-neutral-400)] cursor-default"
                             >
-                                Advertiser Login
-                            </Link>
+                                Advertiser Dashboard <span className="text-xs">(Coming Soon)</span>
+                            </span>
                             <Button size="md" className="mx-4">
                                 Download App
                             </Button>

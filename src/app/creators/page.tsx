@@ -5,6 +5,17 @@ import { Button } from "@/components/ui/Button";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { Badge } from "@/components/ui/Badge";
 import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
+import {
+    DollarSign,
+    Lock,
+    Handshake,
+    BadgeCheck,
+    Smartphone,
+    User,
+    ChefHat,
+    Wallet,
+    type LucideIcon,
+} from "lucide-react";
 
 export const metadata: Metadata = {
     title: "For Creators",
@@ -17,24 +28,24 @@ export const metadata: Metadata = {
     },
 };
 
-const monetizationMethods = [
+const monetizationMethods: { icon: LucideIcon; title: string; description: string }[] = [
     {
-        icon: "💰",
+        icon: DollarSign,
         title: "Tips from Fans",
         description: "Receive tips directly on your videos. Minimal platform fees, maximum earnings.",
     },
     {
-        icon: "🔒",
+        icon: Lock,
         title: "Premium Recipes",
         description: "Lock your best recipes behind a paywall. Fans pay to access your exclusive content.",
     },
     {
-        icon: "🤝",
+        icon: Handshake,
         title: "Brand Partnerships",
         description: "Get discovered by brands for sponsored content that fits your authentic style.",
     },
     {
-        icon: "✓",
+        icon: BadgeCheck,
         title: "Verified Benefits",
         description: "Lower fees, verified badge, and advanced analytics with Flav Pro.",
     },
@@ -139,16 +150,21 @@ export default function CreatorsPage() {
                     </div>
 
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {monetizationMethods.map((method, index) => (
-                            <div
-                                key={index}
-                                className="p-6 rounded-2xl bg-[var(--background-elevated)] border border-[var(--color-neutral-200)] hover:shadow-lg transition-shadow"
-                            >
-                                <div className="text-4xl mb-4">{method.icon}</div>
-                                <h3 className="text-lg font-bold mb-2">{method.title}</h3>
-                                <p className="text-sm text-[var(--color-neutral-600)]">{method.description}</p>
-                            </div>
-                        ))}
+                        {monetizationMethods.map((method, index) => {
+                            const IconComponent = method.icon;
+                            return (
+                                <div
+                                    key={index}
+                                    className="p-6 rounded-2xl bg-[var(--background-elevated)] border border-[var(--color-neutral-200)] hover:shadow-lg transition-shadow"
+                                >
+                                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-primary-100)] to-[var(--color-primary-50)] flex items-center justify-center mb-4">
+                                        <IconComponent className="w-6 h-6 text-[var(--color-primary-600)]" />
+                                    </div>
+                                    <h3 className="text-lg font-bold mb-2">{method.title}</h3>
+                                    <p className="text-sm text-[var(--color-neutral-600)]">{method.description}</p>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -247,21 +263,24 @@ export default function CreatorsPage() {
                     </div>
 
                     <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-                        {[
-                            { step: "01", title: "Download", description: "Get Flav free on iOS or Android", icon: "📱" },
-                            { step: "02", title: "Create Profile", description: "Set up your creator bio and photo", icon: "👤" },
-                            { step: "03", title: "Upload Recipes", description: "Share your first recipe video", icon: "🍳" },
-                            { step: "04", title: "Start Earning", description: "Enable tips once you hit 100 followers", icon: "💵" },
-                        ].map((item, index) => (
-                            <div key={index} className="text-center">
-                                <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white shadow-lg mb-4 text-3xl">
-                                    {item.icon}
+                        {([
+                            { step: "01", title: "Download", description: "Get Flav free on iOS or Android", icon: Smartphone },
+                            { step: "02", title: "Create Profile", description: "Set up your creator bio and photo", icon: User },
+                            { step: "03", title: "Upload Recipes", description: "Share your first recipe video", icon: ChefHat },
+                            { step: "04", title: "Start Earning", description: "Enable tips once you hit 100 followers", icon: Wallet },
+                        ] as { step: string; title: string; description: string; icon: LucideIcon }[]).map((item, index) => {
+                            const IconComponent = item.icon;
+                            return (
+                                <div key={index} className="text-center">
+                                    <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white shadow-lg mb-4">
+                                        <IconComponent className="w-8 h-8 text-orange-500" />
+                                    </div>
+                                    <div className="text-sm font-bold text-[var(--color-primary-500)] mb-2">{item.step}</div>
+                                    <h3 className="text-lg font-bold mb-1">{item.title}</h3>
+                                    <p className="text-sm text-[var(--color-neutral-600)]">{item.description}</p>
                                 </div>
-                                <div className="text-sm font-bold text-[var(--color-primary-500)] mb-2">{item.step}</div>
-                                <h3 className="text-lg font-bold mb-1">{item.title}</h3>
-                                <p className="text-sm text-[var(--color-neutral-600)]">{item.description}</p>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             </section>

@@ -5,6 +5,14 @@ import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { Badge } from "@/components/ui/Badge";
 import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
+import {
+  UtensilsCrossed,
+  Clock,
+  Sparkles,
+  DollarSign,
+  BarChart3,
+  type LucideIcon,
+} from "lucide-react";
 
 const features = [
   {
@@ -27,24 +35,24 @@ const features = [
   },
 ];
 
-const howItWorks = [
+const howItWorks: { step: string; title: string; description: string; icon: LucideIcon }[] = [
   {
     step: "01",
     title: "Discover",
     description: "Swipe through personalized recipe videos tailored to your taste",
-    icon: "🍝",
+    icon: UtensilsCrossed,
   },
   {
     step: "02",
     title: "Save & Cook",
     description: "Save recipes and cook with step-by-step guidance and timers",
-    icon: "⏱️",
+    icon: Clock,
   },
   {
     step: "03",
     title: "Create & Share",
     description: "Upload your own recipes and grow your following",
-    icon: "✨",
+    icon: Sparkles,
   },
 ];
 
@@ -226,70 +234,76 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Creator Economy Section - Dark Mode Contrast */}
-      <section className="section bg-gradient-to-b from-neutral-900 to-neutral-800 text-white overflow-hidden relative">
+      {/* Creator Economy Section - Warm Light Design */}
+      <section className="section bg-gradient-to-br from-orange-200/80 via-orange-100 to-orange-50 dark:from-neutral-900 dark:via-neutral-900 dark:to-neutral-800 overflow-hidden relative">
         {/* Background glow */}
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-orange-500/20 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute top-20 left-20 w-[500px] h-[500px] bg-orange-300/70 dark:bg-orange-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-orange-200/80 dark:bg-orange-500/5 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="container-main relative z-10">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="order-2 md:order-1">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-800 text-orange-400 text-sm font-medium mb-6 border border-neutral-700">
-                <span className="w-2 h-2 rounded-full bg-orange-500"></span>
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Left: Phone Mockup */}
+            <div className="flex justify-center perspective-1000">
+              <div className="relative transform hover:scale-[1.02] transition-transform duration-500">
+                <div className="absolute -inset-8 bg-gradient-to-tr from-orange-300/40 to-orange-200/30 dark:from-orange-600/20 dark:to-orange-400/10 rounded-[4rem] blur-3xl" />
+                <div className="relative drop-shadow-2xl">
+                  <IPhoneMockup
+                    src="/screenshots/import-recipe-v2.png"
+                    alt="Import recipe from Instagram, TikTok, or Facebook"
+                    size="lg"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Content */}
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100 dark:bg-neutral-800 text-orange-600 dark:text-orange-400 text-sm font-semibold mb-6 border border-orange-200 dark:border-neutral-700">
+                <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
                 For Creators
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-neutral-900 dark:text-white">
                 Turn your passion into <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-200">a career.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">a career.</span>
               </h2>
 
-              <p className="text-xl text-neutral-400 mb-8 leading-relaxed">
+              <p className="text-xl text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed">
                 Flav isn't just for sharing—it's for earning. Build your brand with professional tools designed for food creators.
               </p>
 
-              <ul className="space-y-6 mb-10">
-                {[
-                  { icon: "💰", title: "Monetize Directly", desc: "Earn from tips and premium recipe subscriptions." },
-                  { icon: "✨", title: " AI-Powered Creation", desc: "Turn a video into a structured recipe in seconds." },
-                  { icon: "📈", title: "Detailed Analytics", desc: "Understand your audience with pro-level insights." },
-                ].map((item, i) => (
-                  <li key={i} className="group flex gap-5 items-start p-4 rounded-2xl hover:bg-white/5 transition-colors border border-transparent hover:border-white/10">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-neutral-800 to-neutral-900 flex items-center justify-center text-2xl border border-neutral-700/50 group-hover:border-orange-500/30 shadow-lg shrink-0 transition-colors">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-lg mb-1 text-white group-hover:text-orange-100 transition-colors">{item.title}</h4>
-                      <p className="text-neutral-400 text-base leading-relaxed">{item.desc}</p>
-                    </div>
-                  </li>
-                ))}
+              <ul className="space-y-5 mb-10">
+                {([
+                  { icon: DollarSign, title: "Monetize Directly", desc: "Earn from tips and premium recipe subscriptions." },
+                  { icon: Sparkles, title: "AI-Powered Creation", desc: "Turn a video into a structured recipe in seconds." },
+                  { icon: BarChart3, title: "Detailed Analytics", desc: "Understand your audience with pro-level insights." },
+                ] as { icon: LucideIcon; title: string; desc: string }[]).map((item, i) => {
+                  const IconComponent = item.icon;
+                  return (
+                    <li key={i} className="group flex gap-4 items-start p-4 rounded-2xl bg-white/60 dark:bg-white/5 hover:bg-white dark:hover:bg-white/10 transition-all border border-neutral-100 dark:border-transparent hover:border-orange-200 dark:hover:border-orange-500/20 hover:shadow-lg hover:shadow-orange-100/50 dark:hover:shadow-none">
+                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-100 to-amber-100 dark:from-neutral-800 dark:to-neutral-900 flex items-center justify-center border border-orange-200/50 dark:border-neutral-700/50 group-hover:scale-110 transition-transform shrink-0">
+                        <IconComponent className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-lg mb-1 text-neutral-900 dark:text-white">{item.title}</h4>
+                        <p className="text-neutral-600 dark:text-neutral-400 text-base">{item.desc}</p>
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/signup">
-                  <Button size="lg" className="bg-white text-neutral-900 hover:bg-neutral-100 border-none w-full sm:w-auto">
+                  <Button size="lg" className="bg-neutral-900 dark:bg-white text-white dark:text-neutral-900 hover:bg-neutral-800 dark:hover:bg-neutral-100 border-none w-full sm:w-auto shadow-lg shadow-neutral-900/10">
                     Join as Creator
                   </Button>
                 </Link>
                 <Link href="/creators">
-                  <Button size="lg" variant="outline" className="border-neutral-700 text-white hover:bg-neutral-800 hover:text-white w-full sm:w-auto">
+                  <Button size="lg" variant="outline" className="border-neutral-300 dark:border-neutral-700 text-neutral-900 dark:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 w-full sm:w-auto">
                     View Creator Tools
                   </Button>
                 </Link>
-              </div>
-            </div>
-
-            <div className="order-1 md:order-2 flex justify-center perspective-1000">
-              <div className="relative transform rotate-y-[-10deg] rotate-x-[5deg] hover:rotate-0 transition-transform duration-700">
-                <div className="absolute -inset-4 bg-gradient-to-tr from-orange-600/20 to-amber-200/10 rounded-[3rem] blur-2xl group-hover:blur-3xl transition-all duration-700 opacity-70" />
-                <div className="relative drop-shadow-2xl">
-                  <IPhoneMockup
-                    src="/screenshots/create-recipe-sharp.png"
-                    alt="Creator tools interface"
-                    size="lg"
-                  />
-                </div>
               </div>
             </div>
           </div>
@@ -309,16 +323,19 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {howItWorks.map((item, index) => (
-              <div key={index} className="text-center group">
-                <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white shadow-lg mb-4 text-4xl group-hover:scale-110 transition-transform">
-                  {item.icon}
+            {howItWorks.map((item, index) => {
+              const IconComponent = item.icon;
+              return (
+                <div key={index} className="text-center group">
+                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white shadow-lg mb-4 group-hover:scale-110 transition-transform">
+                    <IconComponent className="w-10 h-10 text-orange-500" />
+                  </div>
+                  <div className="text-sm font-bold text-[var(--color-primary-500)] mb-2">{item.step}</div>
+                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                  <p className="text-[var(--color-neutral-600)]">{item.description}</p>
                 </div>
-                <div className="text-sm font-bold text-[var(--color-primary-500)] mb-2">{item.step}</div>
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p className="text-[var(--color-neutral-600)]">{item.description}</p>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

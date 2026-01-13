@@ -5,20 +5,26 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import {
+    Smartphone,
+    Handshake,
+    Star,
+    type LucideIcon,
+} from "lucide-react";
 
-const adFormats = [
+const adFormats: { icon: LucideIcon; title: string; description: string }[] = [
     {
-        icon: "📱",
+        icon: Smartphone,
         title: "In-Feed Promoted Recipes",
         description: "Native video ads that appear seamlessly in user feeds. Your content looks and feels like organic recipes.",
     },
     {
-        icon: "🤝",
+        icon: Handshake,
         title: "Creator Partnerships",
         description: "Collaborate with Flav creators for authentic branded content that resonates with their audience.",
     },
     {
-        icon: "⭐",
+        icon: Star,
         title: "Sponsored Placements",
         description: "Premium placement in search results and category pages for maximum visibility.",
     },
@@ -76,11 +82,9 @@ export default function AdvertisePage() {
                                 <Button size="lg" asChild>
                                     <Link href="#contact">Request Advertiser Access</Link>
                                 </Button>
-                                <Button variant="outline" size="lg" asChild>
-                                    <Link href="/ads/login" className="!text-white !border-white/30 hover:!bg-white/10">
-                                        Ads Manager Login
-                                    </Link>
-                                </Button>
+                                <span className="inline-flex items-center px-6 py-3 rounded-full border border-white/30 text-white/50 text-base font-medium cursor-default">
+                                    Ads Manager <span className="text-sm ml-1">(Coming Soon)</span>
+                                </span>
                             </div>
 
                             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-[var(--color-neutral-400)]">
@@ -145,16 +149,21 @@ export default function AdvertisePage() {
                     </div>
 
                     <div className="grid md:grid-cols-3 gap-8">
-                        {adFormats.map((format, index) => (
-                            <div
-                                key={index}
-                                className="p-6 md:p-8 rounded-2xl bg-[var(--background-elevated)] border border-[var(--color-neutral-200)] hover:border-[var(--color-primary-300)] transition-colors"
-                            >
-                                <span className="text-4xl mb-4 block">{format.icon}</span>
-                                <h3 className="text-xl font-bold mb-2">{format.title}</h3>
-                                <p className="text-[var(--color-neutral-600)]">{format.description}</p>
-                            </div>
-                        ))}
+                        {adFormats.map((format, index) => {
+                            const IconComponent = format.icon;
+                            return (
+                                <div
+                                    key={index}
+                                    className="p-6 md:p-8 rounded-2xl bg-[var(--background-elevated)] border border-[var(--color-neutral-200)] hover:border-[var(--color-primary-300)] transition-colors"
+                                >
+                                    <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-[var(--color-primary-100)] to-[var(--color-primary-50)] flex items-center justify-center mb-4">
+                                        <IconComponent className="w-7 h-7 text-[var(--color-primary-600)]" />
+                                    </div>
+                                    <h3 className="text-xl font-bold mb-2">{format.title}</h3>
+                                    <p className="text-[var(--color-neutral-600)]">{format.description}</p>
+                                </div>
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -431,11 +440,11 @@ export default function AdvertisePage() {
             {/* Already an advertiser? */}
             <section className="py-12 border-t border-[var(--color-neutral-200)]">
                 <div className="container-main text-center">
-                    <p className="text-[var(--color-neutral-600)]">
+                    <p className="text-[var(--color-neutral-400)]">
                         Already have an advertiser account?{" "}
-                        <Link href="/ads/login" className="text-[var(--color-primary-600)] font-semibold hover:underline">
-                            Sign in to Ads Manager →
-                        </Link>
+                        <span className="text-[var(--color-neutral-500)] font-medium">
+                            Ads Manager coming soon
+                        </span>
                     </p>
                 </div>
             </section>
