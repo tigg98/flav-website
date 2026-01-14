@@ -119,15 +119,15 @@ export function Header() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="px-4 py-3 rounded-lg text-[var(--color-neutral-600)] hover:text-[var(--foreground)] hover:bg-[var(--color-neutral-100)] transition-colors font-medium"
+                                className="px-4 py-3 rounded-lg text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors font-medium"
                                 onClick={() => setIsMenuOpen(false)}
                             >
                                 {link.label}
                             </Link>
                         ))}
-                        <div className="flex flex-col gap-2 pt-2 mt-2 border-t border-[var(--color-neutral-200)]">
+                        <div className="flex flex-col gap-2 pt-2 mt-2 border-t border-neutral-200 dark:border-neutral-700">
                             <span
-                                className="px-4 py-3 rounded-lg text-center font-medium text-[var(--color-neutral-400)] cursor-default"
+                                className="px-4 py-3 rounded-lg text-center font-medium text-neutral-400 cursor-default"
                             >
                                 Advertiser Dashboard <span className="text-xs">(Coming Soon)</span>
                             </span>
