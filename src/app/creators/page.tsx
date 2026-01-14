@@ -51,12 +51,7 @@ const monetizationMethods: { icon: LucideIcon; title: string; description: strin
     },
 ];
 
-const stats = [
-    { value: "50K+", label: "Active Creators" },
-    { value: "$1M+", label: "Paid to Creators" },
-    { value: "10M+", label: "Recipes Saved" },
-    { value: "4.8★", label: "App Store Rating" },
-];
+
 
 export default function CreatorsPage() {
     return (
@@ -122,19 +117,7 @@ export default function CreatorsPage() {
                 </div>
             </section>
 
-            {/* Stats */}
-            <section className="py-12 border-y border-[var(--color-neutral-200)] bg-[var(--background-subtle)]">
-                <div className="container-main">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                        {stats.map((stat, index) => (
-                            <div key={index} className="text-center">
-                                <p className="text-3xl md:text-4xl font-bold gradient-text">{stat.value}</p>
-                                <p className="text-sm text-[var(--color-neutral-500)] mt-1">{stat.label}</p>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
+
 
             {/* Multiple Ways to Earn */}
             <section className="section">
