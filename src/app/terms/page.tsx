@@ -13,10 +13,15 @@ export default function TermsPage() {
                 <p className="text-[var(--color-neutral-500)] mb-8">Last updated: January 8, 2026</p>
 
                 <p>
-                    Welcome to Flav! These Terms of Service ("Terms") govern your access to and use of the Flav mobile
-                    application and website (collectively, the "Service"). By accessing or using the Service, you agree
-                    to be bound by these Terms.
+                    These Terms of Service are a legal agreement between you and Tig Tech LLC, the owner and operator of
+                    the Flav application ("we", "us", "our", or "Flav"). These Terms govern your access to and use of the
+                    Flav mobile application and website (collectively, the "Service"). By accessing or using the Service,
+                    you agree to be bound by these Terms.
                 </p>
+
+                <div className="bg-[var(--color-neutral-100)] dark:bg-[var(--color-neutral-800)] p-4 rounded-lg mb-6">
+                    <p className="text-sm"><strong>Operating Entity:</strong> Tig Tech LLC</p>
+                </div>
 
                 <h2>1. Acceptance of Terms</h2>
                 <p>
@@ -149,7 +154,7 @@ export default function TermsPage() {
                 </p>
                 <ul>
                     <li>Email: legal@flav.app</li>
-                    <li>Address: Flav Inc., [Address]</li>
+                    <li>Company: Tig Tech LLC</li>
                 </ul>
             </div>
         </div>

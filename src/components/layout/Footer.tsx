@@ -144,9 +144,14 @@ export function Footer() {
 
                 {/* Bottom Bar */}
                 <div className="border-t border-[var(--color-neutral-800)] mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-[var(--color-neutral-500)] text-sm">
-                        © {new Date().getFullYear()} Flav Inc. All rights reserved.
-                    </p>
+                    <div className="text-center md:text-left">
+                        <p className="text-[var(--color-neutral-500)] text-sm">
+                            © {new Date().getFullYear()} Tig Tech LLC. All rights reserved.
+                        </p>
+                        <p className="text-[var(--color-neutral-600)] text-xs mt-1">
+                            Flav is a product of Tig Tech LLC.
+                        </p>
+                    </div>
                     <p className="text-[var(--color-neutral-500)] text-sm">
                         Made with ❤️ for food lovers everywhere
                     </p>

@@ -13,10 +13,14 @@ export default function PrivacyPage() {
                 <p className="text-[var(--color-neutral-500)] mb-8">Last updated: January 8, 2026</p>
 
                 <p>
-                    At Flav ("we," "us," or "our"), we are committed to protecting your privacy. This Privacy Policy explains
-                    how we collect, use, disclose, and safeguard your information when you use our mobile application and
-                    website (collectively, the "Service").
+                    This Privacy Policy describes how Tig Tech LLC ("Company", "we", "us", or "our") collects, uses, and shares
+                    information in connection with the Flav application and website (collectively, the "Service").
                 </p>
+
+                <div className="bg-[var(--color-neutral-100)] dark:bg-[var(--color-neutral-800)] p-4 rounded-lg mb-6">
+                    <p className="text-sm mb-2"><strong>Legal Entity:</strong> Tig Tech LLC</p>
+                    <p className="text-sm"><strong>Contact:</strong> privacy@flav.app</p>
+                </div>
 
                 <h2>1. Information We Collect</h2>
 
@@ -116,7 +120,7 @@ export default function PrivacyPage() {
                 </p>
                 <ul>
                     <li>Email: privacy@flav.app</li>
-                    <li>Address: Flav Inc., [Address]</li>
+                    <li>Company: Tig Tech LLC</li>
                 </ul>
             </div>
         </div>
