@@ -108,12 +108,44 @@ async function handleCheckoutCompleted(
     supabase: ReturnType<typeof getAdminClient>
 ) {
     const userId = session.metadata?.user_id;
+    const checkoutType = session.metadata?.type;
+
+    if (!userId) {
+        console.error('Missing user_id in checkout session metadata');
+        return;
+    }
+
+    // Handle advertiser deposit (one-time payment)
+    if (checkoutType === 'advertiser_deposit') {
+        const amount = parseFloat(session.metadata?.amount || '0');
+        if (amount > 0) {
+            // Add funds to advertiser balance using the add_funds RPC
+            const { error: rpcError } = await supabase.rpc('add_funds', {
+                p_user_id: userId,
+                p_amount: amount,
+                p_description: `Added $${amount.toFixed(2)} via Stripe`,
+                p_reference_id: session.payment_intent as string
+            });
+
+            if (rpcError) {
+                console.error('Error adding funds:', rpcError);
+            } else {
+                await logAudit(supabase, userId, 'advertiser_deposit', {
+                    amount,
+                    payment_intent: session.payment_intent,
+                });
+            }
+        }
+        return;
+    }
+
+    // Handle subscription checkout
     const tier = session.metadata?.tier as 'verified' | 'pro';
     const customerId = session.customer as string;
     const subscriptionId = session.subscription as string;
 
-    if (!userId || !tier) {
-        console.error('Missing user_id or tier in checkout session metadata');
+    if (!tier) {
+        console.error('Missing tier in subscription checkout metadata');
         return;
     }
 

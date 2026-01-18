@@ -43,6 +43,20 @@ export default function BillingPage() {
 
     useEffect(() => {
         fetchBillingData();
+
+        // Handle Stripe checkout redirect
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("success") === "true") {
+            const amount = params.get("amount");
+            setSuccessMessage(`Successfully added $${amount || "funds"} to your account!`);
+            setShowSuccess(true);
+            window.history.replaceState({}, "", "/ads/billing");
+            setTimeout(() => setShowSuccess(false), 5000);
+        }
+        if (params.get("canceled") === "true") {
+            setError("Checkout was canceled. No charges were made.");
+            window.history.replaceState({}, "", "/ads/billing");
+        }
     }, [fetchBillingData]);
 
     const handleAddFunds = async () => {
@@ -62,7 +76,8 @@ export default function BillingPage() {
         setError("");
 
         try {
-            const res = await fetch("/api/billing", {
+            // Call Stripe checkout endpoint
+            const res = await fetch("/api/ads/billing/checkout", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ amount }),
@@ -71,20 +86,15 @@ export default function BillingPage() {
             const data = await res.json();
 
             if (!res.ok) {
-                throw new Error(data.error || "Failed to add funds");
+                throw new Error(data.error || "Failed to create checkout");
             }
 
-            setSuccessMessage(`Successfully added $${amount.toFixed(2)} to your account`);
-            setShowSuccess(true);
-            setSelectedAmount(null);
-            setCustomAmount("");
-
-            await fetchBillingData();
-
-            setTimeout(() => setShowSuccess(false), 5000);
+            // Redirect to Stripe Checkout
+            if (data.url) {
+                window.location.href = data.url;
+            }
         } catch (err: any) {
-            setError(err.message || "Failed to add funds. Please try again.");
-        } finally {
+            setError(err.message || "Failed to start checkout. Please try again.");
             setIsAddingFunds(false);
         }
     };
