@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AdsNav } from "@/components/ads/AdsNav";
@@ -30,6 +30,7 @@ export default function NewCampaignPage() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [step, setStep] = useState(1);
+    const [availableBalance, setAvailableBalance] = useState<number | null>(null);
 
     const [formData, setFormData] = useState({
         name: "",
@@ -39,6 +40,22 @@ export default function NewCampaignPage() {
         end_date: "",
     });
     const [selectedTargeting, setSelectedTargeting] = useState<string[]>([]);
+
+    // Fetch available balance on load
+    useEffect(() => {
+        async function fetchBalance() {
+            try {
+                const res = await fetch("/api/billing");
+                if (res.ok) {
+                    const data = await res.json();
+                    setAvailableBalance(data.balance || 0);
+                }
+            } catch (e) {
+                console.error("Failed to fetch balance:", e);
+            }
+        }
+        fetchBalance();
+    }, []);
 
     const updateFormData = (field: string, value: string) => {
         setFormData(prev => ({ ...prev, [field]: value }));
@@ -203,20 +220,37 @@ export default function NewCampaignPage() {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label htmlFor="budget_total" className="text-sm font-medium text-neutral-500">
-                                    Total Budget ($) *
-                                </label>
+                                <div className="flex items-center justify-between">
+                                    <label htmlFor="budget_total" className="text-sm font-medium text-neutral-500">
+                                        Total Budget ($) *
+                                    </label>
+                                    {availableBalance !== null && (
+                                        <span className="text-xs text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-500/10 px-2 py-0.5 rounded-full">
+                                            Available: ${availableBalance.toFixed(2)}
+                                        </span>
+                                    )}
+                                </div>
                                 <input
                                     id="budget_total"
                                     type="number"
                                     min="50"
+                                    max={availableBalance || undefined}
                                     step="0.01"
                                     value={formData.budget_total}
                                     onChange={(e) => updateFormData("budget_total", e.target.value)}
                                     placeholder="1000.00"
-                                    className="w-full px-4 py-3 rounded-xl bg-background border border-neutral-200 dark:border-neutral-800 placeholder-neutral-400 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-colors"
+                                    className={`w-full px-4 py-3 rounded-xl bg-background border placeholder-neutral-400 focus:ring-2 outline-none transition-colors ${availableBalance !== null && parseFloat(formData.budget_total) > availableBalance
+                                            ? "border-red-500 focus:border-red-500 focus:ring-red-500/20"
+                                            : "border-neutral-200 dark:border-neutral-800 focus:border-primary-500 focus:ring-primary-500/20"
+                                        }`}
                                 />
-                                <p className="text-xs text-neutral-500">Minimum $50</p>
+                                {availableBalance !== null && parseFloat(formData.budget_total) > availableBalance ? (
+                                    <p className="text-xs text-red-600 dark:text-red-400">
+                                        Exceeds available balance. <Link href="/ads/billing" className="underline">Add funds →</Link>
+                                    </p>
+                                ) : (
+                                    <p className="text-xs text-neutral-500">Minimum $50</p>
+                                )}
                             </div>
                             <div className="space-y-2">
                                 <label htmlFor="budget_daily" className="text-sm font-medium text-neutral-500">

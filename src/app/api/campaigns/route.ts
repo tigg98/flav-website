@@ -38,6 +38,34 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
         }
 
+        // Check user's available balance
+        const { data: balanceData } = await supabase
+            .from('advertiser_balances')
+            .select('balance')
+            .eq('id', user.id)
+            .single()
+
+        const availableBalance = parseFloat(balanceData?.balance) || 0
+        const requestedBudget = parseFloat(budget_total)
+
+        // Get total budget already committed to active/draft campaigns
+        const { data: existingCampaigns } = await supabase
+            .from('campaigns')
+            .select('budget_total')
+            .eq('advertiser_id', user.id)
+            .in('status', ['draft', 'active', 'paused'])
+
+        const committedBudget = existingCampaigns?.reduce((sum, c) => sum + (parseFloat(c.budget_total) || 0), 0) || 0
+        const remainingBalance = availableBalance - committedBudget
+
+        if (requestedBudget > remainingBalance) {
+            return NextResponse.json({
+                error: `Insufficient balance. Available: $${remainingBalance.toFixed(2)}, Requested: $${requestedBudget.toFixed(2)}. Add funds to continue.`,
+                available_balance: remainingBalance,
+                requested: requestedBudget
+            }, { status: 400 })
+        }
+
         const { data: campaign, error } = await supabase
             .from('campaigns')
             .insert({
