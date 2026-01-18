@@ -63,8 +63,8 @@ const tiers = [
             { label: "Advanced analytics", included: true },
             { label: "Priority support", included: false },
         ],
-        cta: "Unlock Monetization",
-        href: "#download",
+        cta: "Subscribe on Web",
+        href: "/account/billing",
         highlight: true,
     },
     {
@@ -83,8 +83,8 @@ const tiers = [
             { label: "Advanced analytics", included: true },
             { label: "Priority support", included: true },
         ],
-        cta: "Go Pro",
-        href: "#download",
+        cta: "Subscribe on Web",
+        href: "/account/billing",
         highlight: false,
     },
 ];
