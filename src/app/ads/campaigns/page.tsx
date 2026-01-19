@@ -3,6 +3,8 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { AdsNav } from "@/components/ads/AdsNav";
 import { Button } from "@/components/ui/Button";
+import { CampaignStatusToggle } from "@/components/ads/CampaignStatusToggle";
+import { LowBalanceWarning } from "@/components/ads/LowBalanceWarning";
 
 const statusColors: Record<string, string> = {
     draft: "bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400",
@@ -36,6 +38,15 @@ export default async function CampaignsPage() {
         .select("*")
         .eq("advertiser_id", user.id)
         .order("created_at", { ascending: false });
+
+    // Get user's balance
+    const { data: balanceData } = await supabase
+        .from("advertiser_balances")
+        .select("balance")
+        .eq("id", user.id)
+        .single();
+
+    const balance = parseFloat(balanceData?.balance) || 0;
 
     // Get ad events for each campaign
     const campaignIds = campaigns?.map((c) => c.id) || [];
@@ -97,6 +108,9 @@ export default async function CampaignsPage() {
                         <p className="text-2xl font-bold">{formatNumber(totalClicks)}</p>
                     </div>
                 </div>
+
+                {/* Low Balance Warning */}
+                <LowBalanceWarning balance={balance} />
 
                 {/* Campaigns */}
                 {!campaigns || campaigns.length === 0 ? (
@@ -168,12 +182,18 @@ export default async function CampaignsPage() {
                                                     ${campaign.budget_total?.toLocaleString() || 0}
                                                 </td>
                                                 <td className="px-6 py-4 text-right">
-                                                    <Link
-                                                        href={`/ads/campaigns/${campaign.id}`}
-                                                        className="text-sm text-primary-500 hover:text-primary-600"
-                                                    >
-                                                        Edit →
-                                                    </Link>
+                                                    <div className="flex items-center justify-end gap-2">
+                                                        <CampaignStatusToggle
+                                                            campaignId={campaign.id}
+                                                            currentStatus={campaign.status}
+                                                        />
+                                                        <Link
+                                                            href={`/ads/campaigns/${campaign.id}`}
+                                                            className="text-sm text-primary-500 hover:text-primary-600"
+                                                        >
+                                                            Edit →
+                                                        </Link>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         );

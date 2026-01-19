@@ -5,6 +5,7 @@ import { AdsNav } from '@/components/ads/AdsNav'
 import { Button } from '@/components/ui/Button'
 import { MetricsChart } from '@/components/ads/MetricsChart'
 import { DateRangeFilter } from '@/components/ads/DateRangeFilter'
+import { LowBalanceWarning } from '@/components/ads/LowBalanceWarning'
 
 interface DashboardPageProps {
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>
@@ -22,6 +23,15 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
     if (!user) {
         redirect('/login')
     }
+
+    // Get user's balance
+    const { data: balanceData } = await supabase
+        .from('advertiser_balances')
+        .select('balance')
+        .eq('id', user.id)
+        .single()
+
+    const balance = parseFloat(balanceData?.balance) || 0
 
     // Get user's campaigns
     const { data: campaigns } = await supabase
@@ -180,6 +190,11 @@ export default async function DashboardPage({ searchParams }: DashboardPageProps
                             <Button>+ New Campaign</Button>
                         </Link>
                     </div>
+                </div>
+
+                {/* Low Balance Warning */}
+                <div className="mb-6">
+                    <LowBalanceWarning balance={balance} />
                 </div>
 
                 {/* Top Metrics Row */}
