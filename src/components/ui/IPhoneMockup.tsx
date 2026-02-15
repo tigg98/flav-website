@@ -7,6 +7,7 @@ interface IPhoneMockupProps {
     className?: string;
     imageClassName?: string;
     size?: "sm" | "md" | "lg";
+    showBackdrop?: boolean;
 }
 
 export function IPhoneMockup({
@@ -15,7 +16,8 @@ export function IPhoneMockup({
     priority = false,
     className = "",
     imageClassName = "",
-    size = "md"
+    size = "md",
+    showBackdrop = false
 }: IPhoneMockupProps) {
     const sizeClasses = {
         sm: "w-48 md:w-56",
@@ -25,116 +27,76 @@ export function IPhoneMockup({
 
     return (
         <div className={`relative ${sizeClasses[size]} ${className}`}>
+            {/* Frosted Glass Backdrop */}
+            {showBackdrop && (
+                <div className="absolute -inset-4 bg-white/10 dark:bg-black/20 backdrop-blur-xl rounded-[3.5rem] -z-10 border border-white/20 dark:border-white/5 shadow-2xl" />
+            )}
+
             {/* iPhone Frame */}
-            <div className="relative">
-                {/* Outer frame - titanium/stainless steel look */}
+            <div className="relative z-10">
+                {/* Outer frame - titanium/stainless steel look - Natural Titanium Color */}
                 <div
-                    className="relative rounded-[3rem] p-[3px]"
+                    className="relative rounded-[3.5rem] p-[4px]"
                     style={{
-                        background: "linear-gradient(145deg, #2a2a2e 0%, #1a1a1c 50%, #2a2a2e 100%)",
+                        background: "linear-gradient(145deg, #787672 0%, #ddddda 30%, #a4a29e 50%, #686663 100%)",
                         boxShadow: `
-                            0 25px 50px -12px rgba(0, 0, 0, 0.5),
-                            0 0 0 1px rgba(255, 255, 255, 0.05),
-                            inset 0 1px 0 rgba(255, 255, 255, 0.1)
+                            0 25px 50px -12px rgba(0, 0, 0, 0.4),
+                            inset 0 0 4px rgba(255, 255, 255, 0.3)
                         `
                     }}
                 >
-                    {/* Inner bezel */}
-                    <div
-                        className="relative rounded-[2.8rem] p-[2px]"
-                        style={{
-                            background: "linear-gradient(180deg, #1a1a1c 0%, #0a0a0a 100%)"
-                        }}
-                    >
-                        {/* Screen area */}
-                        <div className="relative rounded-[2.6rem] overflow-hidden bg-black">
-                            {/* Screen content */}
-                            <div className="relative w-full aspect-[9/19.5]">
-                                <Image
-                                    src={src}
-                                    alt={alt}
-                                    fill
-                                    className={`object-cover ${imageClassName}`}
-                                    priority={priority}
-                                    sizes="(max-width: 768px) 300px, 500px"
-                                    quality={100}
-                                />
+                    {/* Inner titanium ring */}
+                    <div className="absolute inset-[1px] rounded-[3.4rem] bg-[#2a2a2a] z-0" />
 
-                                {/* Dynamic Island - iPhone 17 Pro (compact) */}
-                                <div className="absolute top-2.5 left-1/2 -translate-x-1/2 z-10">
-                                    <div
-                                        className="relative flex items-center justify-center"
-                                        style={{
-                                            width: "85px",
-                                            height: "25px",
-                                            background: "#000000",
-                                            borderRadius: "14px",
-                                            boxShadow: "inset 0 0 2px rgba(0,0,0,0.8)"
-                                        }}
-                                    >
-                                        {/* Front camera */}
-                                        <div
-                                            className="absolute right-2.5 w-2 h-2 rounded-full"
-                                            style={{
-                                                background: "radial-gradient(circle at 30% 30%, #1a1a2e, #0a0a0e)",
-                                                boxShadow: "inset 0 0 1px rgba(100, 100, 150, 0.3)"
-                                            }}
-                                        />
+                    {/* Screen bezel */}
+                    <div className="relative rounded-[3.2rem] bg-black p-[6px] overflow-hidden z-10 border-[3px] border-black">
+                        {/* Screen content */}
+                        <div className="relative w-full aspect-[9/19.5] rounded-[2.8rem] overflow-hidden bg-black">
+                            <Image
+                                src={src}
+                                alt={alt}
+                                fill
+                                className={`object-cover ${imageClassName}`}
+                                priority={priority}
+                                sizes="(max-width: 768px) 300px, 500px"
+                                quality={100}
+                            />
+
+                            {/* Dynamic Island - iPhone 16 Pro */}
+                            <div className="absolute top-3 left-1/2 -translate-x-1/2 z-20">
+                                <div
+                                    className="relative flex items-center justify-center transition-all duration-300 ease-spring"
+                                    style={{
+                                        width: "90px",
+                                        height: "26px",
+                                        background: "#000000",
+                                        borderRadius: "20px",
+                                    }}
+                                >
+                                    {/* Camera lens reflection */}
+                                    <div className="absolute right-3 w-3 h-3 rounded-full bg-[#1a1a1a] flex items-center justify-center">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-[#0d0d29]/60 backdrop-blur-sm" />
+                                        <div className="absolute top-0.5 right-0.5 w-0.5 h-0.5 bg-blue-400/30 rounded-full" />
                                     </div>
                                 </div>
-
-                                {/* Home indicator */}
-                                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10">
-                                    <div
-                                        className="w-32 h-1 rounded-full"
-                                        style={{
-                                            background: "rgba(255, 255, 255, 0.3)"
-                                        }}
-                                    />
-                                </div>
                             </div>
+
+                            {/* Home indicator */}
+                            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-20">
+                                <div className="w-32 h-1.5 rounded-full bg-white/40 backdrop-blur-md" />
+                            </div>
+
+                            {/* Screen gloss/reflection */}
+                            <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-20 pointer-events-none" />
                         </div>
                     </div>
                 </div>
 
-                {/* Side buttons - Left */}
-                {/* Silent switch */}
-                <div
-                    className="absolute left-[-2px] top-[85px] w-[3px] h-[18px] rounded-l-sm"
-                    style={{
-                        background: "linear-gradient(90deg, #1a1a1c 0%, #2a2a2e 100%)"
-                    }}
-                />
-                {/* Volume Up */}
-                <div
-                    className="absolute left-[-2px] top-[120px] w-[3px] h-[32px] rounded-l-sm"
-                    style={{
-                        background: "linear-gradient(90deg, #1a1a1c 0%, #2a2a2e 100%)"
-                    }}
-                />
-                {/* Volume Down */}
-                <div
-                    className="absolute left-[-2px] top-[160px] w-[3px] h-[32px] rounded-l-sm"
-                    style={{
-                        background: "linear-gradient(90deg, #1a1a1c 0%, #2a2a2e 100%)"
-                    }}
-                />
-
-                {/* Side button - Right (Power) */}
-                <div
-                    className="absolute right-[-2px] top-[130px] w-[3px] h-[48px] rounded-r-sm"
-                    style={{
-                        background: "linear-gradient(270deg, #1a1a1c 0%, #2a2a2e 100%)"
-                    }}
-                />
-
-                {/* Subtle screen reflection */}
-                <div
-                    className="absolute inset-[5px] rounded-[2.5rem] pointer-events-none"
-                    style={{
-                        background: "linear-gradient(135deg, rgba(255,255,255,0.03) 0%, transparent 50%)"
-                    }}
-                />
+                {/* Side buttons - Action Button + Vol */}
+                <div className="absolute left-[-2px] top-[100px] w-[3px] h-[24px] bg-[#686663] rounded-l-sm" /> {/* Action Btn */}
+                <div className="absolute left-[-2px] top-[140px] w-[3px] h-[40px] bg-[#686663] rounded-l-sm" /> {/* Vol Up */}
+                <div className="absolute left-[-2px] top-[190px] w-[3px] h-[40px] bg-[#686663] rounded-l-sm" /> {/* Vol Down */}
+                <div className="absolute right-[-2px] top-[130px] w-[3px] h-[65px] bg-[#686663] rounded-r-sm" /> {/* Power */}
             </div>
         </div>
     );

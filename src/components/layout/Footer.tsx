@@ -5,6 +5,7 @@ const footerLinks = {
         { href: "/creators", label: "For Creators" },
         { href: "/verified", label: "Verified / Pro" },
         { href: "/advertise", label: "Advertise" },
+        { href: "/ads/dashboard", label: "Advertiser Dashboard" },
         { href: "/blog", label: "Blog" },
     ],
     support: [

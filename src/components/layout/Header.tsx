@@ -61,7 +61,12 @@ export function Header() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="text-[var(--color-neutral-600)] hover:text-[var(--foreground)] transition-colors font-medium"
+                                className={cn(
+                                    "transition-colors font-medium",
+                                    link.href === "/creators"
+                                        ? "px-4 py-2 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 hover:bg-orange-200 dark:hover:bg-orange-900/50"
+                                        : "text-[var(--color-neutral-600)] hover:text-[var(--foreground)]"
+                                )}
                             >
                                 {link.label}
                             </Link>
@@ -70,9 +75,8 @@ export function Header() {
 
                     {/* Desktop CTA */}
                     <div className="hidden md:flex items-center gap-3">
-                        <span className="text-sm font-medium text-[var(--color-neutral-400)] cursor-default">Advertiser Dashboard <span className="text-xs">(Coming Soon)</span></span>
-                        <Button size="sm" asChild>
-                            <Link href="#download">Download App</Link>
+                        <Button size="sm" asChild className="rounded-full">
+                            <Link href="#download">Get Early Access</Link>
                         </Button>
                     </div>
 
@@ -126,13 +130,8 @@ export function Header() {
                             </Link>
                         ))}
                         <div className="flex flex-col gap-2 pt-2 mt-2 border-t border-neutral-200 dark:border-neutral-700">
-                            <span
-                                className="px-4 py-3 rounded-lg text-center font-medium text-neutral-400 cursor-default"
-                            >
-                                Advertiser Dashboard <span className="text-xs">(Coming Soon)</span>
-                            </span>
                             <Button size="md" className="mx-4">
-                                Download App
+                                Get Early Access
                             </Button>
                         </div>
                     </div>
