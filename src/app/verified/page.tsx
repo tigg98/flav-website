@@ -159,21 +159,16 @@ export default function VerifiedPage() {
 
                         {/* Right: Phone with Verified Profile */}
                         <div className="relative flex justify-center lg:justify-end">
-                            <div className="relative w-56 md:w-64">
-                                <div className="relative bg-[var(--color-neutral-900)] rounded-[3rem] p-2 shadow-2xl">
-                                    <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden bg-black">
-                                        <Image
-                                            src="/screenshots/creator-profile.png"
-                                            alt="Verified creator profile"
-                                            fill
-                                            className="object-cover"
-                                            priority
-                                        />
-                                    </div>
-                                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full" />
-                                </div>
+                            <div className="relative">
+                                <IPhoneMockup
+                                    src="/screenshots/creator-profile.png"
+                                    alt="Verified creator profile"
+                                    size="md"
+                                    priority
+                                    className="drop-shadow-2xl"
+                                />
                                 {/* Verified badge floating */}
-                                <div className="absolute -top-2 -right-2 w-16 h-16 bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-primary-600)] rounded-full flex items-center justify-center text-white text-2xl shadow-lg">
+                                <div className="absolute top-10 -right-4 w-16 h-16 bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-primary-600)] rounded-full flex items-center justify-center text-white text-2xl shadow-lg z-20 animate-scale-in">
                                     ✓
                                 </div>
                             </div>
@@ -187,18 +182,12 @@ export default function VerifiedPage() {
                 <div className="container-main">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="flex justify-center">
-                            <div className="relative w-56 md:w-64">
-                                <div className="relative bg-white/10 backdrop-blur rounded-[3rem] p-2">
-                                    <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden">
-                                        <Image
-                                            src="/screenshots/earnings.png"
-                                            alt="Earnings with Flav Pro"
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
+                            <IPhoneMockup
+                                src="/screenshots/earnings.png"
+                                alt="Earnings with Flav Pro"
+                                size="md"
+                                showBackdrop
+                            />
                         </div>
 
                         <div>
