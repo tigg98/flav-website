@@ -97,7 +97,7 @@ export default function CreatorsPage() {
                             {/* Main phone - Creator Profile */}
                             <div className="relative z-20">
                                 <IPhoneMockup
-                                    src="/screenshots/creator-profile.png"
+                                    src="/screenshots/creator-profile-v2.jpg"
                                     alt="Creator profile on Flav"
                                     size="md"
                                     priority
@@ -291,7 +291,7 @@ export default function CreatorsPage() {
                         <div className="hidden md:flex justify-center">
                             <div className="scale-90 origin-center">
                                 <IPhoneMockup
-                                    src="/screenshots/creator-profile.png"
+                                    src="/screenshots/creator-profile-v2.jpg"
                                     alt="Creator profile"
                                     size="md"
                                 />
