@@ -20,7 +20,7 @@ const features = [
   {
     title: "Discover Recipes",
     description: "Swipe through endless cooking inspiration. Every video is a complete recipe you can actually make.",
-    screenshot: "/screenshots/home-feed.png",
+    screenshot: "/screenshots/home-feed-v3.png",
     badge: "For You Feed",
   },
   {
@@ -476,7 +476,7 @@ export default function HomePage() {
                 "Recipe Import Tool",
                 "Creator Monetization"
               ],
-              "screenshot": "https://flav.app/screenshots/home-feed.png",
+              "screenshot": "https://flav.app/screenshots/home-feed-v3.png",
               "downloadUrl": "https://flav.app/download"
             },
             {
