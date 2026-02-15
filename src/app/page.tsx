@@ -147,7 +147,7 @@ export default function HomePage() {
               <div className="relative z-20 transform hover:scale-[1.02] transition-transform duration-500">
                 <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/20 to-amber-500/20 rounded-[3rem] blur-2xl" />
                 <IPhoneMockup
-                  src="/screenshots/home-feed.png"
+                  src="/screenshots/home-feed-v3.png"
                   alt="Flav home feed showing recipe discovery"
                   size="lg"
                   priority
