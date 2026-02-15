@@ -16,20 +16,36 @@ export function WaitlistForm({ className, onSuccess }: WaitlistFormProps) {
     const [isLoading, setIsLoading] = React.useState(false);
     const [isSuccess, setIsSuccess] = React.useState(false);
 
+    const [error, setError] = React.useState("");
+
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!email) return;
 
         setIsLoading(true);
+        setError("");
 
-        // Simulate network request
-        await new Promise((resolve) => setTimeout(resolve, 1500));
+        try {
+            const res = await fetch('/api/waitlist', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email }),
+            });
 
-        setIsLoading(false);
-        setIsSuccess(true);
-        setEmail("");
+            const data = await res.json();
 
-        if (onSuccess) onSuccess();
+            if (!res.ok) {
+                throw new Error(data.error || 'Something went wrong');
+            }
+
+            setIsSuccess(true);
+            setEmail("");
+            if (onSuccess) onSuccess();
+        } catch (err: any) {
+            setError(err.message);
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     if (isSuccess) {
@@ -86,6 +102,12 @@ export function WaitlistForm({ className, onSuccess }: WaitlistFormProps) {
                     </Button>
                 </div>
             </form>
+
+            {error && (
+                <p className="mt-2 text-sm text-red-500 dark:text-red-400 text-center animate-fade-in">
+                    {error}
+                </p>
+            )}
 
             {/* Social Proof */}
             <div className="mt-6 flex items-center justify-center lg:justify-start gap-4 animate-fade-in [animation-delay:200ms]">
