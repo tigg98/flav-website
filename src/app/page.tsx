@@ -428,7 +428,7 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="section bg-gradient-to-br from-orange-500 to-orange-600 text-white overflow-hidden py-32 md:py-40" id="download">
+      <section className="section bg-gradient-to-br from-orange-500 to-amber-500 text-white overflow-hidden py-32 md:py-40" id="download">
         <div className="container-main relative z-10 text-center">
           <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
             Ready to cook?
