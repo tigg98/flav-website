@@ -57,20 +57,23 @@ export function Header() {
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.href}
-                                href={link.href}
-                                className={cn(
-                                    "transition-colors font-medium",
-                                    link.href === "/creators"
-                                        ? "px-4 py-2 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 hover:bg-orange-200 dark:hover:bg-orange-900/50"
-                                        : "text-[var(--color-neutral-600)] hover:text-[var(--foreground)]"
-                                )}
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
+                        {navLinks.map((link) => {
+                            const isActive = pathname === link.href || (pathname?.startsWith(link.href) && link.href !== "/");
+                            return (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    className={cn(
+                                        "transition-all duration-200 font-medium",
+                                        isActive
+                                            ? "px-4 py-2 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 hover:bg-orange-200 dark:hover:bg-orange-900/50"
+                                            : "px-2 py-2 text-[var(--color-neutral-600)] hover:text-[var(--foreground)]"
+                                    )}
+                                >
+                                    {link.label}
+                                </Link>
+                            );
+                        })}
                     </div>
 
                     {/* Desktop CTA */}
