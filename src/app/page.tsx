@@ -270,7 +270,7 @@ export default function HomePage() {
                     src="/screenshots/import-recipe-v2.png"
                     alt="Import recipe from Instagram, TikTok, or Facebook"
                     size="lg"
-                    showBackdrop={true}
+                    priority={false}
                   />
                 </div>
               </div>
