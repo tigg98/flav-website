@@ -107,7 +107,7 @@ export default function CreatorsPage() {
                             {/* Background phone - Earnings */}
                             <div className="absolute -left-12 top-12 z-10 opacity-60 hidden sm:block transform scale-90">
                                 <IPhoneMockup
-                                    src="/screenshots/earnings.png"
+                                    src="/screenshots/earnings-v3.png"
                                     alt="Earnings dashboard"
                                     size="md"
                                 />
@@ -185,7 +185,7 @@ export default function CreatorsPage() {
 
                         <div className="order-1 md:order-2 flex justify-center">
                             <IPhoneMockup
-                                src="/screenshots/earnings.png"
+                                src="/screenshots/earnings-v3.png"
                                 alt="Flav earnings dashboard"
                                 size="md"
                             />

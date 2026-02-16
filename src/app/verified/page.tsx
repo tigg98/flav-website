@@ -183,7 +183,7 @@ export default function VerifiedPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="flex justify-center">
                             <IPhoneMockup
-                                src="/screenshots/earnings.png"
+                                src="/screenshots/earnings-v3.png"
                                 alt="Earnings with Flav Pro"
                                 size="md"
                                 showBackdrop
