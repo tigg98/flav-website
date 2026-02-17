@@ -111,12 +111,16 @@ export default function AdvertisePage() {
                             </div>
                         </div>
 
-                        {/* Right: Focused Ad Example */}
+                        {/* Right: Realistic iPhone Mockup */}
                         <div className="relative flex justify-center lg:justify-end">
                             <div className="relative z-20 transform hover:scale-[1.02] transition-transform duration-500">
-                                {/* Glass card effect container */}
-                                <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-3 shadow-2xl shadow-[var(--color-primary-900)]/20">
-                                    <div className="relative w-[280px] md:w-[320px] aspect-[9/16] rounded-[2rem] overflow-hidden bg-[var(--color-neutral-900)]">
+                                {/* iPhone Frame */}
+                                <div className="relative w-[300px] h-[600px] border-[14px] border-[var(--color-neutral-900)] rounded-[3rem] shadow-2xl bg-[var(--color-neutral-950)] overflow-hidden ring-1 ring-white/20">
+                                    {/* Dynamic Island / Notch */}
+                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100px] h-[30px] bg-black rounded-b-3xl z-30" />
+
+                                    {/* Screen Content */}
+                                    <div className="relative w-full h-full bg-black">
                                         <Image
                                             src="/images/hero-ad-example.png"
                                             alt="Example ad on Flav"
@@ -124,24 +128,10 @@ export default function AdvertisePage() {
                                             className="object-cover"
                                             priority
                                         />
-
-                                        {/* Mock UI overlay to make it look like the app */}
-                                        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
-
-                                        {/* "Sponsored" tag simulation */}
-                                        <div className="absolute bottom-24 left-4 right-4 animate-fade-in-up">
-                                            <div className="flex items-center gap-2 mb-3">
-                                                <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur" />
-                                                <div className="flex flex-col">
-                                                    <div className="w-24 h-3 bg-white/20 rounded mb-1" />
-                                                    <div className="w-16 h-2 bg-white/10 rounded" />
-                                                </div>
-                                            </div>
-                                            <div className="w-full h-10 bg-[var(--color-primary-500)] rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-[var(--color-primary-500)]/30">
-                                                Shop Now
-                                            </div>
-                                        </div>
                                     </div>
+
+                                    {/* Screen Glare/Reflection */}
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none z-20" />
                                 </div>
 
                                 {/* Floating elements behind */}
