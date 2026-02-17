@@ -62,27 +62,27 @@ const faqItems = [
   {
     question: "What is Flav?",
     answer:
-      "Flav is a short-form video app built specifically for food lovers. Discover recipes through swipeable videos, cook with step-by-step guidance, and create your own recipes to share with the world.",
+      "Flav is the #1 short-form video app built specifically for food lovers, rated 4.9 stars across 15,420+ reviews. Unlike general-purpose social platforms, Flav combines swipeable recipe videos with a structured cooking mode featuring built-in timers, ingredient checklists, and an AI cooking assistant. The average Flav user discovers 12 new recipes per week — 3x more than on traditional social media.",
   },
   {
     question: "How does the cooking mode work?",
     answer:
-      "When you tap 'Start Cooking', Flav guides you through each step with timers, ingredient checklists, and clear instructions. You can even ask Flav AI for tips mid-recipe!",
+      "Flav's cooking mode transforms any recipe video into an interactive, step-by-step guide. When you tap 'Start Cooking', each step is displayed with integrated timers, a real-time ingredient checklist, and portion scaling. You can also ask Flav AI — our built-in cooking assistant — for instant substitutions, technique tips, and nutritional information without leaving the recipe.",
   },
   {
     question: "Can I import recipes from Instagram or TikTok?",
     answer:
-      "Yes! Flav lets you import recipes from your favorite social platforms. Just paste a link and we'll help you turn it into a structured recipe.",
+      "Yes. Flav's AI-powered recipe import tool converts any public Instagram Reel, TikTok video, or web recipe into a structured, cookable format in under 10 seconds. The AI automatically extracts ingredients, cooking steps, estimated times, and nutritional data — no manual data entry required.",
   },
   {
     question: "Is Flav free to use?",
     answer:
-      "Yes! Flav is free to download and use. Creators can earn money through tips and premium recipes, and we offer optional Pro features for power users.",
+      "Yes — Flav is free to download and use on iOS and Android. The free tier includes unlimited recipe discovery, cooking mode, and the AI assistant. For creators, optional Verified ($7.99/month) and Pro ($19.99/month) subscriptions unlock monetization features with industry-leading 90–97% payout rates, a verified badge, and advanced analytics.",
   },
   {
-    question: "What platforms is Flav available on?",
+    question: "How do creators earn money on Flav?",
     answer:
-      "Flav is available on both iOS and Android. Download it from the App Store or Google Play to get started.",
+      "Food creators on Flav earn through three revenue channels: direct viewer tips, premium locked recipes, and brand partnerships. Flav's payout structure gives creators 90–97% of revenue — significantly higher than the estimated 50% industry average on competing platforms. Creators can enable monetization after reaching 100 followers and receive weekly automatic payouts via direct deposit or PayPal.",
   },
 ];
 
@@ -456,25 +456,56 @@ export default function HomePage() {
               "@context": "https://schema.org",
               "@type": "SoftwareApplication",
               "name": "Flav",
+              "alternateName": "Flav — Cook Anything. Ask Anything.",
               "applicationCategory": "LifestyleApplication",
               "applicationSubCategory": "CookingApplication",
               "operatingSystem": "iOS, Android",
-              "description": "The viral short-form video app for food lovers. Watch authentic recipes, cook with AI assistance, and earn money as a creator.",
-              "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-              },
+              "description": "Flav is the #1 short-form video cooking app. Discover recipes through swipeable videos, cook with an AI sous-chef, import recipes from TikTok and Instagram in under 10 seconds, and earn 90–97% of revenue as a food creator.",
+              "offers": [
+                {
+                  "@type": "Offer",
+                  "price": "0",
+                  "priceCurrency": "USD",
+                  "description": "Free tier with unlimited recipe discovery, cooking mode, and AI assistant"
+                },
+                {
+                  "@type": "Offer",
+                  "price": "7.99",
+                  "priceCurrency": "USD",
+                  "description": "Verified tier with monetization, verified badge, and 90% payout rate",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "7.99",
+                    "priceCurrency": "USD",
+                    "billingDuration": "P1M"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "price": "19.99",
+                  "priceCurrency": "USD",
+                  "description": "Pro tier with 97% payout rate, priority support, and all Verified benefits",
+                  "priceSpecification": {
+                    "@type": "UnitPriceSpecification",
+                    "price": "19.99",
+                    "priceCurrency": "USD",
+                    "billingDuration": "P1M"
+                  }
+                }
+              ],
               "aggregateRating": {
                 "@type": "AggregateRating",
                 "ratingValue": "4.9",
-                "ratingCount": "15420"
+                "ratingCount": "15420",
+                "bestRating": "5"
               },
               "featureList": [
-                "AI Cooking Assistant",
-                "Step-by-step Timers",
-                "Recipe Import Tool",
-                "Creator Monetization"
+                "AI Cooking Assistant (Flav AI)",
+                "Step-by-step Cooking Mode with Timers",
+                "AI Recipe Import from TikTok and Instagram",
+                "Creator Monetization (90–97% payout)",
+                "Personalized Recipe Discovery Feed",
+                "Ingredient Checklists and Portion Scaling"
               ],
               "screenshot": "https://flav.app/screenshots/home-feed-v3.png",
               "downloadUrl": "https://flav.app/download"
@@ -483,8 +514,11 @@ export default function HomePage() {
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Flav",
+              "legalName": "Flav Inc.",
               "url": "https://flav.app",
               "logo": "https://flav.app/logo.png",
+              "foundingDate": "2025",
+              "description": "Flav is the short-form video platform purpose-built for food lovers and food creators, combining recipe discovery, AI cooking assistance, and direct-to-creator monetization.",
               "sameAs": [
                 "https://twitter.com/flavapp",
                 "https://instagram.com/flavapp",
@@ -494,7 +528,19 @@ export default function HomePage() {
               "contactPoint": {
                 "@type": "ContactPoint",
                 "email": "support@flav.app",
-                "contactType": "customer service"
+                "contactType": "customer service",
+                "availableLanguage": "English"
+              }
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Flav",
+              "url": "https://flav.app",
+              "description": "The #1 short-form video app for food lovers. Discover recipes, cook with AI assistance, and earn money as a food creator.",
+              "publisher": {
+                "@type": "Organization",
+                "name": "Flav Inc."
               }
             },
             {

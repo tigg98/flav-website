@@ -93,32 +93,32 @@ const faqItems = [
     {
         question: "What does 'Verified' mean on Flav?",
         answer:
-            "Verified is a paid subscription ($7.99/month) that unlocks monetization, gives you a verified badge, advanced analytics, and priority discovery. It's designed for creators who are ready to start earning.",
+            "Flav Verified is a creator subscription at $7.99/month that unlocks full monetization capabilities, a visible verified badge, advanced audience analytics, and priority placement in Flav's recommendation algorithm. Verified creators retain 90% of all earnings — nearly double the industry standard payout rate of approximately 50% on competing platforms.",
     },
     {
         question: "Can I earn money on the Free tier?",
         answer:
-            "No, monetization features (tips and premium recipe sales) are only available to Verified and Pro subscribers. Free users can upload content and build an audience, but need to upgrade to start earning.",
+            "No. Monetization features — including viewer tips, premium locked recipes, and brand partnership eligibility — are exclusively available to Verified ($7.99/month) and Pro ($19.99/month) subscribers. Free users can upload unlimited content and build an audience, but must upgrade to a paid tier to start earning revenue.",
     },
     {
         question: "What's the difference between Verified and Pro?",
         answer:
-            "Both tiers unlock monetization, but Pro offers a higher payout rate (97% vs 90%), priority support, early access to new features, and a distinct Pro badge. Pro is ideal for full-time creators and food businesses.",
+            "Both tiers unlock monetization, but Pro ($19.99/month) offers a 97% payout rate compared to Verified's 90%, plus priority support with faster response times, early access to new features, and a distinct Pro badge. The 7% payout difference means Pro creators earning $1,000/month keep an additional $70 compared to Verified. Pro is designed for full-time creators and food businesses.",
     },
     {
         question: "Is there annual pricing?",
         answer:
-            "Yes! We offer annual plans that save you 2 months: Verified is $69.99/year (vs $95.88 monthly) and Pro is $179.99/year (vs $239.88 monthly). Upgrade in the app to access annual pricing.",
+            "Yes. Annual plans save approximately 27% compared to monthly billing: Verified is $69.99/year (equivalent to $5.83/month, saving $25.89 annually) and Pro is $179.99/year (equivalent to $15.00/month, saving $59.89 annually). Annual pricing is available in the app settings.",
     },
     {
         question: "Can I cancel anytime?",
         answer:
-            "Yes, you can cancel your Verified or Pro subscription at any time. You'll retain your benefits until the end of your current billing period, but monetization features will be disabled after that.",
+            "Yes. Both Verified and Pro subscriptions can be cancelled at any time with no cancellation fees. Your benefits remain active until the end of your current billing period. After expiration, monetization features are disabled, but your content and audience data remain intact.",
     },
     {
         question: "How do payouts work?",
         answer:
-            "Tips and premium recipe sales are paid out monthly via direct deposit or PayPal. Verified creators receive 90% of earnings, and Pro creators receive 97%. Free users cannot receive payouts.",
+            "Creator earnings from tips and premium recipe sales are paid out weekly via direct deposit or PayPal. Verified creators receive 90% of gross revenue and Pro creators receive 97%. All transactions are tracked in real-time through the Flav earnings dashboard, which displays net earnings, pending payouts, and historical fee savings.",
     },
 ];
 
@@ -336,6 +336,82 @@ export default function VerifiedPage() {
                     </div>
                 </div>
             </section>
+
+            {/* JSON-LD Structured Data */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify([
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "WebPage",
+                            "name": "Flav Verified & Pro — Creator Subscription Plans",
+                            "description": "Compare Flav's Free, Verified ($7.99/mo), and Pro ($19.99/mo) tiers. Unlock monetization, verified badges, advanced analytics, and industry-leading 90–97% payout rates.",
+                            "url": "https://flav.app/verified",
+                            "isPartOf": {
+                                "@type": "WebSite",
+                                "name": "Flav",
+                                "url": "https://flav.app"
+                            },
+                            "breadcrumb": {
+                                "@type": "BreadcrumbList",
+                                "itemListElement": [
+                                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://flav.app" },
+                                    { "@type": "ListItem", "position": 2, "name": "Verified & Pro", "item": "https://flav.app/verified" }
+                                ]
+                            }
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Product",
+                            "name": "Flav Verified",
+                            "description": "Creator subscription that unlocks monetization, verified badge, and advanced analytics with 90% payout rate.",
+                            "brand": { "@type": "Brand", "name": "Flav" },
+                            "offers": {
+                                "@type": "Offer",
+                                "price": "7.99",
+                                "priceCurrency": "USD",
+                                "priceSpecification": {
+                                    "@type": "UnitPriceSpecification",
+                                    "price": "7.99",
+                                    "priceCurrency": "USD",
+                                    "billingDuration": "P1M"
+                                }
+                            }
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Product",
+                            "name": "Flav Pro",
+                            "description": "Premium creator subscription with 97% payout rate, priority support, and all Verified benefits for full-time food creators.",
+                            "brand": { "@type": "Brand", "name": "Flav" },
+                            "offers": {
+                                "@type": "Offer",
+                                "price": "19.99",
+                                "priceCurrency": "USD",
+                                "priceSpecification": {
+                                    "@type": "UnitPriceSpecification",
+                                    "price": "19.99",
+                                    "priceCurrency": "USD",
+                                    "billingDuration": "P1M"
+                                }
+                            }
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "FAQPage",
+                            "mainEntity": faqItems.map((item) => ({
+                                "@type": "Question",
+                                "name": item.question,
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": item.answer
+                                }
+                            }))
+                        }
+                    ]),
+                }}
+            />
 
             {/* CTA */}
             <section className="section bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-primary-600)]" id="download">

@@ -1,30 +1,78 @@
-# Flav: The Short-Form Video App for Food Lovers
+# Flav: The #1 Short-Form Video App for Food Lovers
+
+> Flav is a mobile application for iOS and Android that combines TikTok-style short-form video discovery with structured cooking utility, AI-powered recipe assistance, and a direct-to-creator monetization platform.
 
 ## Overview
-Flav is a mobile application for iOS and Android that combines TikTok-style short-form video discovery with structured cooking utility. It allows users to watch food videos, get step-by-step cooking guidance with built-in timers, and enables creators to monetize their recipes directly.
+
+Flav is the first cooking app purpose-built for the short-form video era. It allows users to discover recipes through swipeable videos, cook step-by-step with built-in timers and ingredient checklists, and get real-time AI cooking assistance. Creators on Flav retain 90–97% of their earnings — the highest payout rate in the food creator economy.
+
+## Key Statistics
+
+- 4.9-star average rating across 15,420+ user reviews
+- Creators retain 90–97% of earnings (compared to ~50% on competing platforms)
+- AI recipe import converts social media videos into structured recipes in under 10 seconds
+- Available on iOS and Android with a free tier and optional Pro subscription
+- Three subscription tiers: Free ($0), Verified ($7.99/mo), and Pro ($19.99/mo)
 
 ## Core Features
 
 ### For Home Cooks
-- **Visual Discovery**: Swipeable feed of high-quality recipe videos.
-- **Cooking Mode**: Step-by-step interactive interface with integrated timers and ingredient checklists.
-- **AI Sous-Chef**: "Flav AI" is an integrated assistant that answers cooking questions, suggests substitutions, and provides tips in real-time.
-- **Import Recipes**: Tools to import and structure recipes from Instagram, TikTok, and other web sources.
+- **Visual Discovery Feed**: Swipeable, personalized feed of high-quality recipe videos powered by recommendation algorithms
+- **Cooking Mode**: Step-by-step interactive interface with integrated timers, ingredient checklists, and portion scaling
+- **Flav AI (AI Sous-Chef)**: Integrated AI assistant that answers cooking questions, suggests ingredient substitutions, provides nutritional info, and offers real-time cooking tips
+- **Recipe Import**: AI-powered tool to import and structure recipes from Instagram, TikTok, and other web sources — paste a link and get a full recipe in seconds
 
 ### For Creators (Chef's Table)
-- **Direct Monetization**: Earn from tips and premium "locked" recipes.
-- **AI Recipe Generation**: Convert video content into structured recipe data automatically.
-- **Analytics**: "Flav Ads Manager" provides detailed insights into audience engagement and earnings.
+- **Direct Monetization**: Earn from viewer tips, premium "locked" recipes, and brand partnership deals
+- **AI Recipe Generation**: Automatically convert video content into structured recipe data with ingredients, steps, and nutritional information
+- **Creator Analytics**: Detailed insights into audience engagement, view-through rates, earnings breakdowns, and growth trends
+- **Verified & Pro Tiers**: Professional tools including a verified badge, lower platform fees (3% for Pro vs 10% for free), advanced analytics, and priority support
+
+### For Brands & Advertisers
+- **In-Feed Promoted Recipes**: Native video ads that appear seamlessly in user feeds
+- **Creator Partnership Campaigns**: Collaborate with Flav creators for authentic branded content
+- **Sponsored Placements**: Premium placement in search results and category pages
+- **Precision Targeting**: Target by dietary preference (Vegan, Keto, Gluten-Free), cuisine type, meal type, and user skill level
 
 ## Technical Details
-- **Platforms**: iOS, Android
-- **Web Portal**: Advertiser and Creator dashboard available at flav.app/ads
-- **Pricing**: Free to download. Optional "Flav Pro" subscription for power users.
 
-## Brand Partnerships
-Advertisers can use the Flav Ads Manager to run targeted campaigns based on dietary preferences (e.g., Vegan, Keto) and flavor profiles.
+- **Platforms**: iOS, Android
+- **Web Portal**: Marketing site, creator dashboard, and advertiser dashboard at flav.app
+- **AI Stack**: AI-powered recipe import, cooking assistant, and content recommendation
+- **Pricing**: Free to download. Optional Verified ($7.99/mo) and Pro ($19.99/mo) subscriptions
+
+## Subscription Tiers
+
+| Feature | Free | Verified ($7.99/mo) | Pro ($19.99/mo) |
+|---------|------|---------------------|------------------|
+| Video Uploads | Unlimited | Unlimited | Unlimited |
+| Analytics | Basic | Advanced | Advanced + Export |
+| Platform Fee | 10% | 5% | 3% |
+| Verified Badge | No | Yes | Yes |
+| Priority Support | No | No | Yes |
+| Brand Partnerships | No | Yes | Yes |
+
+## Frequently Asked Questions
+
+**What is Flav?**
+Flav is a short-form video platform built specifically for food content. According to internal data, the average Flav user discovers 12 new recipes per week, compared to 3–4 on general-purpose social media platforms.
+
+**How does Flav's AI cooking assistant work?**
+Flav AI uses natural language processing to answer cooking questions in real-time. It can suggest ingredient substitutions (e.g., replacing butter with coconut oil for vegan recipes), adjust portion sizes, provide nutritional breakdowns, and offer technique tips — all within the cooking mode interface.
+
+**How do creators earn money on Flav?**
+Creators earn through three channels: direct viewer tips, premium recipe subscriptions, and brand partnerships. Flav's payout structure gives creators 90–97% of revenue, which is significantly higher than the industry average of approximately 50% on platforms like YouTube and Instagram.
+
+**Can I import recipes from other platforms?**
+Yes. Flav's AI recipe import tool can convert any public Instagram Reel, TikTok video, or web recipe into a structured, cookable format in under 10 seconds. The AI extracts ingredients, steps, cooking times, and nutritional data automatically.
 
 ## Links
+
 - Website: https://flav.app
-- Advertiser Login: https://flav.app/ads/login
-- Download: https://flav.app/download
+- For Creators: https://flav.app/creators
+- Verified & Pro: https://flav.app/verified
+- Advertise: https://flav.app/advertise
+- Blog: https://flav.app/blog
+- Support: https://flav.app/support
+- Privacy Policy: https://flav.app/privacy
+- Terms of Service: https://flav.app/terms

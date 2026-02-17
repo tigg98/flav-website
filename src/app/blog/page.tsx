@@ -40,6 +40,47 @@ const blogPosts = [
 export default function BlogPage() {
     return (
         <>
+            {/* JSON-LD Structured Data */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify([
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "Blog",
+                            "name": "The Flav Blog",
+                            "description": "Tips, recipes, and insights for food creators building their audience and monetizing cooking content on Flav.",
+                            "url": "https://flav.app/blog",
+                            "publisher": {
+                                "@type": "Organization",
+                                "name": "Flav",
+                                "url": "https://flav.app",
+                                "logo": "https://flav.app/logo.png"
+                            },
+                            "blogPost": blogPosts.map((post) => ({
+                                "@type": "BlogPosting",
+                                "headline": post.title,
+                                "description": post.excerpt,
+                                "datePublished": post.date,
+                                "url": `https://flav.app/blog/${post.slug}`,
+                                "author": {
+                                    "@type": "Organization",
+                                    "name": "Flav Team"
+                                }
+                            }))
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "BreadcrumbList",
+                            "itemListElement": [
+                                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://flav.app" },
+                                { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://flav.app/blog" }
+                            ]
+                        }
+                    ]),
+                }}
+            />
+
             {/* Hero */}
             <section className="section bg-[var(--background-subtle)]">
                 <div className="container-main">

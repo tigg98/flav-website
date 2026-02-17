@@ -268,6 +268,64 @@ export default function CreatorsPage() {
                 </div>
             </section>
 
+            {/* JSON-LD Structured Data */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify([
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "WebPage",
+                            "name": "Flav for Creators — Monetize Your Cooking Content",
+                            "description": "Turn your recipes into real income. Flav creators retain 90–97% of earnings through tips, premium recipes, and brand partnerships.",
+                            "url": "https://flav.app/creators",
+                            "isPartOf": {
+                                "@type": "WebSite",
+                                "name": "Flav",
+                                "url": "https://flav.app"
+                            },
+                            "breadcrumb": {
+                                "@type": "BreadcrumbList",
+                                "itemListElement": [
+                                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://flav.app" },
+                                    { "@type": "ListItem", "position": 2, "name": "For Creators", "item": "https://flav.app/creators" }
+                                ]
+                            }
+                        },
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "FAQPage",
+                            "mainEntity": [
+                                {
+                                    "@type": "Question",
+                                    "name": "How do food creators earn money on Flav?",
+                                    "acceptedAnswer": {
+                                        "@type": "Answer",
+                                        "text": "Flav creators earn through three revenue channels: direct viewer tips, premium locked recipes, and brand partnership deals. Creators retain 90% of earnings on the Verified plan ($7.99/month) and 97% on the Pro plan ($19.99/month) — the highest payout rates in the food creator economy."
+                                    }
+                                },
+                                {
+                                    "@type": "Question",
+                                    "name": "What tools does Flav provide for food creators?",
+                                    "acceptedAnswer": {
+                                        "@type": "Answer",
+                                        "text": "Flav provides AI-powered recipe generation that converts video content into structured recipes in under 10 seconds, a step-by-step recipe editor with timers and tips, real-time earnings dashboard, advanced audience analytics, and the ability to import recipes from Instagram and TikTok."
+                                    }
+                                },
+                                {
+                                    "@type": "Question",
+                                    "name": "How do I get started as a creator on Flav?",
+                                    "acceptedAnswer": {
+                                        "@type": "Answer",
+                                        "text": "Getting started is simple: download Flav for free on iOS or Android, create your creator profile, upload your first recipe video, and enable monetization once you reach 100 followers. Upgrade to Verified ($7.99/month) or Pro ($19.99/month) to unlock tips, premium recipes, and brand partnerships."
+                                    }
+                                }
+                            ]
+                        }
+                    ]),
+                }}
+            />
+
             {/* CTA */}
             <section className="section bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-primary-600)]" id="download">
                 <div className="container-main">
