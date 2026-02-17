@@ -60,75 +60,93 @@ export default function AdvertisePage() {
     return (
         <>
             {/* Hero */}
-            <section className="relative overflow-hidden min-h-[80vh] flex items-center">
-                <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-neutral-900)] to-[var(--color-neutral-950)]" />
+            {/* Hero */}
+            <section className="relative overflow-hidden min-h-[85vh] flex items-center">
+                <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-neutral-900)] via-[var(--color-neutral-950)] to-black" />
 
-                <div className="container-main relative z-10 py-12 md:py-20">
-                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                {/* Background decorative elements */}
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--color-primary-500)]/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[var(--color-secondary-500)]/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/2" />
+
+                <div className="container-main relative z-10 py-12 md:py-24">
+                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
                         {/* Left: Text Content */}
                         <div className="text-center lg:text-left text-white">
-                            <Badge variant="beta" className="mb-6" />
+                            <Badge variant="beta" className="mb-8" />
 
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-                                Reach food lovers where they're{" "}
-                                <span className="text-[var(--color-primary-400)]">hungry to discover</span>
+                            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight tracking-tight">
+                                Turn engagement into <br className="hidden lg:block" />
+                                <span className="bg-gradient-to-r from-[var(--color-primary-400)] to-[var(--color-secondary-400)] bg-clip-text text-transparent">
+                                    delicious results
+                                </span>
                             </h1>
 
-                            <p className="text-lg md:text-xl text-[var(--color-neutral-300)] mb-8 max-w-xl">
-                                Advertise on Flav to connect with millions of home cooks actively looking for their next meal.
+                            <p className="text-xl md:text-2xl text-[var(--color-neutral-300)] mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                                Connect with millions of passionate home cooks on the world's most engaging food platform.
                             </p>
 
-                            <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-8">
-                                <Button size="lg" asChild>
-                                    <Link href="#contact">Request Advertiser Access</Link>
+                            <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-12">
+                                <Button size="lg" className="w-full sm:w-auto text-lg px-8 py-6 h-auto" asChild>
+                                    <Link href="#contact">Start Advertising</Link>
                                 </Button>
-                                <span className="inline-flex items-center px-6 py-3 rounded-full border border-white/30 text-white/50 text-base font-medium cursor-default">
-                                    Ads Manager <span className="text-sm ml-1">(Coming Soon)</span>
-                                </span>
+                                <div className="flex flex-col items-center sm:items-start">
+                                    <span className="text-[var(--color-neutral-400)] text-sm font-medium">
+                                        Ads Manager
+                                    </span>
+                                    <span className="text-[var(--color-neutral-500)] text-xs">
+                                        Coming Soon
+                                    </span>
+                                </div>
                             </div>
 
-                            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-[var(--color-neutral-400)]">
-                                <div className="flex items-center gap-2">
-                                    <span className="text-lg">✓</span>
-                                    <span>Intent-based targeting</span>
+                            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-8 text-[var(--color-neutral-400)] font-medium">
+                                <div className="flex items-center gap-2.5">
+                                    <div className="w-5 h-5 rounded-full bg-[var(--color-primary-500)]/20 flex items-center justify-center text-[var(--color-primary-400)]">✓</div>
+                                    <span>High intent audience</span>
                                 </div>
-                                <div className="flex items-center gap-2">
-                                    <span className="text-lg">✓</span>
-                                    <span>Brand-safe environment</span>
+                                <div className="flex items-center gap-2.5">
+                                    <div className="w-5 h-5 rounded-full bg-[var(--color-primary-500)]/20 flex items-center justify-center text-[var(--color-primary-400)]">✓</div>
+                                    <span>Brand-safe content</span>
                                 </div>
                             </div>
                         </div>
 
-                        {/* Right: Phone Mockups */}
+                        {/* Right: Focused Ad Example */}
                         <div className="relative flex justify-center lg:justify-end">
-                            {/* Main phone - Feed */}
-                            <div className="relative w-56 md:w-64 z-20">
-                                <div className="relative bg-white/10 backdrop-blur rounded-[3rem] p-2">
-                                    <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden">
+                            <div className="relative z-20 transform hover:scale-[1.02] transition-transform duration-500">
+                                {/* Glass card effect container */}
+                                <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-3 shadow-2xl shadow-[var(--color-primary-900)]/20">
+                                    <div className="relative w-[280px] md:w-[320px] aspect-[9/16] rounded-[2rem] overflow-hidden bg-[var(--color-neutral-900)]">
                                         <Image
-                                            src="/screenshots/feed-video.png"
-                                            alt="Flav feed with promoted content"
+                                            src="/images/hero-ad-example.png"
+                                            alt="Example ad on Flav"
                                             fill
                                             className="object-cover"
                                             priority
                                         />
-                                    </div>
-                                    <div className="absolute top-4 left-1/2 -translate-x-1/2 w-20 h-6 bg-black rounded-full" />
-                                </div>
-                            </div>
 
-                            {/* Background phone - Explore */}
-                            <div className="absolute -left-4 md:left-0 top-12 w-44 md:w-52 z-10 opacity-70 hidden sm:block">
-                                <div className="relative bg-white/5 backdrop-blur rounded-[2.5rem] p-1.5">
-                                    <div className="relative w-full aspect-[9/19.5] rounded-[2rem] overflow-hidden">
-                                        <Image
-                                            src="/screenshots/explore.png"
-                                            alt="Explore page with sponsored placements"
-                                            fill
-                                            className="object-cover"
-                                        />
+                                        {/* Mock UI overlay to make it look like the app */}
+                                        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
+
+                                        {/* "Sponsored" tag simulation */}
+                                        <div className="absolute bottom-24 left-4 right-4 animate-fade-in-up">
+                                            <div className="flex items-center gap-2 mb-3">
+                                                <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur" />
+                                                <div className="flex flex-col">
+                                                    <div className="w-24 h-3 bg-white/20 rounded mb-1" />
+                                                    <div className="w-16 h-2 bg-white/10 rounded" />
+                                                </div>
+                                            </div>
+                                            <div className="w-full h-10 bg-[var(--color-primary-500)] rounded-xl flex items-center justify-center text-white font-bold text-sm shadow-lg shadow-[var(--color-primary-500)]/30">
+                                                Shop Now
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+
+                                {/* Floating elements behind */}
+                                <div className="absolute -z-10 top-10 -right-10 w-32 h-32 bg-gradient-to-br from-[var(--color-secondary-400)] to-[var(--color-secondary-600)] rounded-full blur-2xl opacity-40 animate-pulse-slow" />
+                                <div className="absolute -z-10 -bottom-5 -left-5 w-40 h-40 bg-gradient-to-br from-[var(--color-primary-400)] to-[var(--color-primary-600)] rounded-full blur-2xl opacity-30 animate-pulse-slow delay-700" />
                             </div>
                         </div>
                     </div>
