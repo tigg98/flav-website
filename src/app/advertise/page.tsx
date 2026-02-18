@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
+import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
 import {
     Smartphone,
     Handshake,
@@ -114,25 +115,12 @@ export default function AdvertisePage() {
                         {/* Right: Realistic iPhone Mockup */}
                         <div className="relative flex justify-center lg:justify-end">
                             <div className="relative z-20 transform hover:scale-[1.02] transition-transform duration-500">
-                                {/* iPhone Frame */}
-                                <div className="relative w-[300px] h-[600px] border-[14px] border-[var(--color-neutral-900)] rounded-[3rem] shadow-2xl bg-[var(--color-neutral-950)] overflow-hidden ring-1 ring-white/20">
-                                    {/* Dynamic Island / Notch */}
-                                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[100px] h-[30px] bg-black rounded-b-3xl z-30" />
-
-                                    {/* Screen Content */}
-                                    <div className="relative w-full h-full bg-black">
-                                        <Image
-                                            src="/images/hero-ad-example.png"
-                                            alt="Example ad on Flav"
-                                            fill
-                                            className="object-cover"
-                                            priority
-                                        />
-                                    </div>
-
-                                    {/* Screen Glare/Reflection */}
-                                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent pointer-events-none z-20" />
-                                </div>
+                                <IPhoneMockup
+                                    src="/images/hero-ad-example.png"
+                                    alt="Example ad on Flav"
+                                    size="lg"
+                                    priority
+                                />
 
                                 {/* Floating elements behind */}
                                 <div className="absolute -z-10 top-10 -right-10 w-32 h-32 bg-gradient-to-br from-[var(--color-secondary-400)] to-[var(--color-secondary-600)] rounded-full blur-2xl opacity-40 animate-pulse-slow" />
