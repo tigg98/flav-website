@@ -1,13 +1,14 @@
 import Image from "next/image";
 
 interface IPhoneMockupProps {
-    src: string;
-    alt: string;
+    src?: string;
+    alt?: string;
     priority?: boolean;
     className?: string;
     imageClassName?: string;
     size?: "sm" | "md" | "lg";
     showBackdrop?: boolean;
+    children?: React.ReactNode;
 }
 
 export function IPhoneMockup({
@@ -17,7 +18,8 @@ export function IPhoneMockup({
     className = "",
     imageClassName = "",
     size = "md",
-    showBackdrop = false
+    showBackdrop = false,
+    children
 }: IPhoneMockupProps) {
     const sizeClasses = {
         sm: "w-48 md:w-56",
@@ -52,15 +54,21 @@ export function IPhoneMockup({
                     <div className="relative rounded-[2.9rem] bg-black p-[3px] overflow-hidden z-10">
                         {/* Screen content */}
                         <div className="relative w-full aspect-[9/19.5] rounded-[2.7rem] overflow-hidden bg-black">
-                            <Image
-                                src={src}
-                                alt={alt}
-                                fill
-                                className={`object-cover ${imageClassName}`}
-                                priority={priority}
-                                sizes="(max-width: 768px) 300px, 500px"
-                                quality={100}
-                            />
+                            {src ? (
+                                <Image
+                                    src={src}
+                                    alt={alt || "App Screenshot"}
+                                    fill
+                                    className={`object-cover ${imageClassName}`}
+                                    priority={priority}
+                                    sizes="(max-width: 768px) 300px, 500px"
+                                    quality={100}
+                                />
+                            ) : (
+                                <div className="w-full h-full overflow-y-auto no-scrollbar bg-white dark:bg-neutral-900 scroll-smooth">
+                                    {children}
+                                </div>
+                            )}
 
                             {/* Dynamic Island - Smaller/Sleeker */}
                             <div className="absolute top-2.5 left-1/2 -translate-x-1/2 z-20">

@@ -4,6 +4,7 @@ import * as React from "react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Link2, Loader2, Sparkles, Wand2, ChefHat, Clock, PlayCircle, ChevronLeft, MoreHorizontal, Play, ArrowUpRight, Minus, Plus, Flame, Calendar, Heart, Bookmark, Instagram } from "lucide-react";
+import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
 import { cn } from "@/lib/utils";
 
 export function ImportDemo() {
@@ -162,190 +163,179 @@ export function ImportDemo() {
                         </div>
                     </div>
 
-                    {/* Right Panel: Result Preview */}
-                    <div className="bg-neutral-50 dark:bg-neutral-950/50 p-8 md:p-12 flex items-center justify-center border-t md:border-t-0 md:border-l border-neutral-200 dark:border-neutral-800 relative overflow-hidden">
-
-                        {/* Empty/Idle State */}
-                        <div className={cn(
-                            "absolute inset-0 flex flex-col items-center justify-center p-8 text-center transition-all duration-500",
-                            state !== "idle" ? "opacity-0 scale-95 pointer-events-none" : "opacity-100 scale-100"
-                        )}>
-                            <div className="w-16 h-16 rounded-2xl bg-white dark:bg-neutral-800 shadow-xl flex items-center justify-center mb-6">
-                                <Wand2 className="w-8 h-8 text-neutral-400" />
-                            </div>
-                            <p className="text-sm font-medium text-neutral-400">Result will appear here</p>
-                        </div>
-
-                        {/* Processing State */}
-                        <div className={cn(
-                            "absolute inset-0 flex flex-col items-center justify-center p-8 text-center transition-all duration-500",
-                            state === "importing" ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
-                        )}>
-                            <div className="w-full max-w-[200px] space-y-4">
-                                <div className="flex justify-between text-xs font-semibold text-blue-500 mb-1">
-                                    <span>Analyzing video...</span>
-                                    <span>{Math.round(progress)}%</span>
-                                </div>
-                                <div className="h-2 w-full bg-neutral-200 dark:bg-neutral-800 rounded-full overflow-hidden">
-                                    <div
-                                        className="h-full bg-blue-500 transition-all duration-100 ease-linear rounded-full"
-                                        style={{ width: `${progress}%` }}
-                                    />
-                                </div>
-                                <div className="space-y-2 pt-4">
-                                    <div className="h-2 w-3/4 mx-auto bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
-                                    <div className="h-2 w-1/2 mx-auto bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse delay-75" />
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Complete State - Recipe Card */}
-                        <div className={cn(
-                            "w-full max-w-xs bg-white dark:bg-neutral-900 rounded-2xl shadow-xl border border-neutral-100 dark:border-neutral-800 overflow-hidden transition-all duration-700 transform",
-                            state === "complete" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"
-                        )}>
-                            {/* Card Header Image - Video Preview Style */}
-                            <div className="relative aspect-[4/5] w-full bg-neutral-200 dark:bg-neutral-800 bg-cover bg-center group" style={{ backgroundImage: recipeData?.image ? `url(${recipeData.image})` : undefined }}>
-                                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
-
-                                {/* Top Overlay Controls */}
-                                <div className="absolute top-4 left-4 right-4 flex justify-between items-center text-white">
-                                    <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
-                                        <ChevronLeft className="w-5 h-5" />
+                    {/* Right Panel: Result Preview (Phone Mockup) */}
+                    <div className="bg-neutral-50 dark:bg-neutral-950/50 p-8 md:p-12 flex items-center justify-center border-t md:border-t-0 md:border-l border-neutral-200 dark:border-neutral-800">
+                        <IPhoneMockup size="md" showBackdrop>
+                            {/* Empty/Idle State */}
+                            {state === "idle" && (
+                                <div className="h-full flex flex-col items-center justify-center p-8 text-center">
+                                    <div className="w-16 h-16 rounded-2xl bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center mb-6">
+                                        <Wand2 className="w-8 h-8 text-neutral-400" />
                                     </div>
-                                    <div className="flex gap-2">
-                                        <MoreHorizontal className="w-6 h-6" />
-                                    </div>
+                                    <p className="text-sm font-medium text-neutral-400">Paste a link to see the magic</p>
                                 </div>
+                            )}
 
-                                {/* Play Button Overlay */}
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="w-16 h-16 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center cursor-pointer transition-transform hover:scale-105">
-                                        <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center pl-1">
-                                            <Play className="w-5 h-5 text-black fill-black" />
+                            {/* Processing State */}
+                            {state === "importing" && (
+                                <div className="h-full flex flex-col items-center justify-center p-8 text-center bg-white dark:bg-neutral-900">
+                                    <div className="w-full max-w-[200px] space-y-4">
+                                        <div className="flex justify-between text-xs font-semibold text-blue-500 mb-1">
+                                            <span>Analyzing video...</span>
+                                            <span>{Math.round(progress)}%</span>
+                                        </div>
+                                        <div className="h-2 w-full bg-neutral-200 dark:bg-neutral-800 rounded-full overflow-hidden">
+                                            <div
+                                                className="h-full bg-blue-500 transition-all duration-100 ease-linear rounded-full"
+                                                style={{ width: `${progress}%` }}
+                                            />
+                                        </div>
+                                        <div className="space-y-2 pt-4">
+                                            <div className="h-2 w-3/4 mx-auto bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse" />
+                                            <div className="h-2 w-1/2 mx-auto bg-neutral-200 dark:bg-neutral-800 rounded animate-pulse delay-75" />
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            )}
 
-                            {/* Card Content using App Design */}
-                            <div className="p-4 bg-white dark:bg-neutral-900">
-                                <h1 className="text-xl font-bold text-neutral-900 dark:text-white mb-4 leading-tight">
-                                    {recipeData?.title || "Bacon Cheeseburger Hot Pockets"}
-                                </h1>
+                            {/* Complete State - Recipe Content */}
+                            {state === "complete" && (
+                                <div className="min-h-full bg-white dark:bg-neutral-900 pb-8">
+                                    {/* Card Header Image - Video Preview Style */}
+                                    <div className="relative aspect-[4/5] w-full bg-neutral-200 dark:bg-neutral-800 bg-cover bg-center group" style={{ backgroundImage: recipeData?.image ? `url(${recipeData.image})` : undefined }}>
+                                        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
 
-                                {/* Creator Row */}
-                                <div className="flex justify-between items-center mb-4">
-                                    <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-full bg-neutral-200 overflow-hidden border border-neutral-100 dark:border-neutral-800 flex items-center justify-center">
-                                            <span className="font-bold text-lg text-neutral-500">F</span>
+                                        {/* Top Overlay Controls */}
+                                        <div className="absolute top-12 left-4 right-4 flex justify-between items-center text-white z-20">
+                                            <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
+                                                <ChevronLeft className="w-5 h-5" />
+                                            </div>
+                                            <div className="flex gap-2">
+                                                <MoreHorizontal className="w-6 h-6" />
+                                            </div>
                                         </div>
-                                        <div>
-                                            <div className="text-sm font-bold text-neutral-900 dark:text-white">Flav</div>
-                                            <div className="text-xs text-neutral-500">@Flav</div>
-                                        </div>
-                                    </div>
-                                    <Button size="sm" variant="outline" className="h-8 rounded-full px-4 text-xs font-semibold">
-                                        Follow
-                                    </Button>
-                                </div>
 
-                                {/* Source Attribution */}
-                                <div className="flex items-center justify-between bg-neutral-50 dark:bg-neutral-800/50 rounded-lg p-2.5 mb-5 px-3">
-                                    <div className="flex items-center gap-2.5">
-                                        <div className="w-6 h-6 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 flex items-center justify-center text-white">
-                                            <Instagram className="w-3.5 h-3.5" />
-                                        </div>
-                                        <div className="flex flex-col">
-                                            <span className="text-[10px] text-neutral-500 font-medium leading-none mb-0.5">Created by</span>
-                                            <span className="text-xs font-semibold text-neutral-900 dark:text-white leading-none">@fairfiteats</span>
+                                        {/* Play Button Overlay */}
+                                        <div className="absolute inset-0 flex items-center justify-center">
+                                            <div className="w-16 h-16 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center cursor-pointer transition-transform hover:scale-105">
+                                                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center pl-1">
+                                                    <Play className="w-5 h-5 text-black fill-black" />
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <ArrowUpRight className="w-4 h-4 text-neutral-400" />
-                                </div>
 
-                                {/* Stats Row */}
-                                <div className="flex items-center gap-4 text-xs text-neutral-500 mb-6">
-                                    <div className="flex items-center gap-1.5">
-                                        <Clock className="w-4 h-4" />
-                                        <span>240 min</span>
+                                    {/* Card Content using App Design */}
+                                    <div className="p-4 bg-white dark:bg-neutral-900 -mt-4 relative rounded-t-3xl z-10">
+                                        <div className="w-12 h-1 bg-neutral-200 dark:bg-neutral-800 rounded-full mx-auto mb-6" />
+
+                                        <h1 className="text-xl font-bold text-neutral-900 dark:text-white mb-4 leading-tight">
+                                            {recipeData?.title || "Bacon Cheeseburger Hot Pockets"}
+                                        </h1>
+
+                                        {/* Creator Row */}
+                                        <div className="flex justify-between items-center mb-4">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-10 h-10 rounded-full bg-neutral-200 overflow-hidden border border-neutral-100 dark:border-neutral-800 flex items-center justify-center">
+                                                    <span className="font-bold text-lg text-neutral-500">F</span>
+                                                </div>
+                                                <div>
+                                                    <div className="text-sm font-bold text-neutral-900 dark:text-white">Flav</div>
+                                                    <div className="text-xs text-neutral-500">@Flav</div>
+                                                </div>
+                                            </div>
+                                            <Button size="sm" variant="outline" className="h-8 rounded-full px-4 text-xs font-semibold">
+                                                Follow
+                                            </Button>
+                                        </div>
+
+                                        {/* Source Attribution */}
+                                        <div className="flex items-center justify-between bg-neutral-50 dark:bg-neutral-800/50 rounded-lg p-2.5 mb-5 px-3">
+                                            <div className="flex items-center gap-2.5">
+                                                <div className="w-6 h-6 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 flex items-center justify-center text-white">
+                                                    <Instagram className="w-3.5 h-3.5" />
+                                                </div>
+                                                <div className="flex flex-col">
+                                                    <span className="text-[10px] text-neutral-500 font-medium leading-none mb-0.5">Created by</span>
+                                                    <span className="text-xs font-semibold text-neutral-900 dark:text-white leading-none">@fairfiteats</span>
+                                                </div>
+                                            </div>
+                                            <ArrowUpRight className="w-4 h-4 text-neutral-400" />
+                                        </div>
+
+                                        {/* Stats Row */}
+                                        <div className="flex items-center gap-4 text-xs text-neutral-500 mb-6">
+                                            <div className="flex items-center gap-1.5">
+                                                <Clock className="w-4 h-4" />
+                                                <span>240 min</span>
+                                            </div>
+                                            <span className="text-neutral-300">•</span>
+                                            <div className="flex items-center bg-neutral-100 dark:bg-neutral-800 rounded-full px-1 py-0.5">
+                                                <button className="w-6 h-6 flex items-center justify-center rounded-full bg-rose-400 text-white hover:bg-rose-500 transition-colors">
+                                                    <Minus className="w-3 h-3" />
+                                                </button>
+                                                <span className="font-semibold text-neutral-900 dark:text-white px-3 w-8 text-center">10</span>
+                                                <button className="w-6 h-6 flex items-center justify-center rounded-full bg-rose-400 text-white hover:bg-rose-500 transition-colors">
+                                                    <Plus className="w-3 h-3" />
+                                                </button>
+                                                <span className="ml-1 pr-2 text-[10px] uppercase font-medium tracking-wide">servings</span>
+                                            </div>
+                                            <span className="text-neutral-300">•</span>
+                                            <div className="flex items-center gap-1.5">
+                                                <span>Easy</span>
+                                            </div>
+                                        </div>
+
+                                        {/* Action Buttons Row */}
+                                        <div className="flex gap-3 mb-8">
+                                            <Button className="flex-1 bg-orange-100 hover:bg-orange-200 text-orange-600 border border-orange-200 rounded-2xl h-12 gap-2 shadow-sm font-bold text-sm">
+                                                <Flame className="w-4 h-4" />
+                                                Start Cooking
+                                            </Button>
+                                            <div className="flex gap-2">
+                                                <Button variant="outline" size="sm" className="h-12 w-12 rounded-2xl border-neutral-200 bg-neutral-50 p-0">
+                                                    <Calendar className="w-5 h-5 text-neutral-700" />
+                                                </Button>
+                                                <Button variant="outline" size="sm" className="h-12 w-12 rounded-2xl border-neutral-200 bg-neutral-50 p-0">
+                                                    <Heart className="w-5 h-5 text-neutral-700" />
+                                                </Button>
+                                                <Button variant="outline" size="sm" className="h-12 w-12 rounded-2xl border-neutral-200 bg-neutral-50 p-0">
+                                                    <Bookmark className="w-5 h-5 text-neutral-700" />
+                                                </Button>
+                                            </div>
+                                        </div>
+
+                                        <div className="space-y-4">
+                                            <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-widest">Ingredients</h3>
+                                            <ul className="space-y-3">
+                                                {recipeData?.ingredients?.length ? (
+                                                    recipeData.ingredients.map((ing, i) => (
+                                                        <li key={i} className="flex items-start gap-3 group cursor-pointer">
+                                                            <div className="mt-0.5 w-5 h-5 rounded-full border-2 border-neutral-300 group-hover:border-blue-500 transition-colors flex-shrink-0" />
+                                                            <span className="text-sm text-neutral-700 dark:text-neutral-300 font-medium leading-normal">{ing}</span>
+                                                        </li>
+                                                    ))
+                                                ) : (
+                                                    <li className="text-sm text-neutral-500">No ingredients extracted.</li>
+                                                )}
+                                            </ul>
+                                        </div>
+
+                                        <div className="mt-12 mb-8 bg-neutral-50 dark:bg-neutral-800/50 rounded-xl p-4 text-center">
+                                            <p className="text-xs text-neutral-500 mb-2">Want to import another?</p>
+                                            <Button
+                                                size="sm"
+                                                variant="outline"
+                                                className="w-full text-xs h-8"
+                                                onClick={reset}
+                                            >
+                                                Reset
+                                            </Button>
+                                        </div>
                                     </div>
-                                    <span className="text-neutral-300">•</span>
-                                    <div className="flex items-center bg-neutral-100 dark:bg-neutral-800 rounded-full px-1 py-0.5">
-                                        <button className="w-6 h-6 flex items-center justify-center rounded-full bg-rose-400 text-white hover:bg-rose-500 transition-colors">
-                                            <Minus className="w-3 h-3" />
-                                        </button>
-                                        <span className="font-semibold text-neutral-900 dark:text-white px-3 w-8 text-center">10</span>
-                                        <button className="w-6 h-6 flex items-center justify-center rounded-full bg-rose-400 text-white hover:bg-rose-500 transition-colors">
-                                            <Plus className="w-3 h-3" />
-                                        </button>
-                                        <span className="ml-1 pr-2 text-[10px] uppercase font-medium tracking-wide">servings</span>
-                                    </div>
-                                    <span className="text-neutral-300">•</span>
-                                    <div className="flex items-center gap-1.5">
-                                        <span>Easy</span>
-                                    </div>
                                 </div>
-
-                                {/* Action Buttons Row */}
-                                <div className="flex gap-3 mb-8">
-                                    <Button className="flex-1 bg-orange-100 hover:bg-orange-200 text-orange-600 border border-orange-200 rounded-2xl h-12 gap-2 shadow-sm font-bold text-sm">
-                                        <Flame className="w-4 h-4" />
-                                        Start Cooking
-                                    </Button>
-                                    <div className="flex gap-2">
-                                        <Button variant="outline" size="sm" className="h-12 w-12 rounded-2xl border-neutral-200 bg-neutral-50 p-0">
-                                            <Calendar className="w-5 h-5 text-neutral-700" />
-                                        </Button>
-                                        <Button variant="outline" size="sm" className="h-12 w-12 rounded-2xl border-neutral-200 bg-neutral-50 p-0">
-                                            <Heart className="w-5 h-5 text-neutral-700" />
-                                        </Button>
-                                        <Button variant="outline" size="sm" className="h-12 w-12 rounded-2xl border-neutral-200 bg-neutral-50 p-0">
-                                            <Bookmark className="w-5 h-5 text-neutral-700" />
-                                        </Button>
-                                    </div>
-                                </div>
-
-                                <div className="space-y-4">
-                                    <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-widest">Ingredients</h3>
-                                    <ul className="space-y-3">
-                                        {recipeData?.ingredients?.length ? (
-                                            recipeData.ingredients.map((ing, i) => (
-                                                <li key={i} className="flex items-start gap-3 group cursor-pointer">
-                                                    <div className="mt-0.5 w-5 h-5 rounded-full border-2 border-neutral-300 group-hover:border-blue-500 transition-colors flex-shrink-0" />
-                                                    <span className="text-sm text-neutral-700 dark:text-neutral-300 font-medium leading-normal">{ing}</span>
-                                                </li>
-                                            ))
-                                        ) : (
-                                            <>
-                                                <li className="flex items-start gap-3 group cursor-pointer">
-                                                    <div className="mt-0.5 w-5 h-5 rounded-full border-2 border-neutral-300 group-hover:border-blue-500 transition-colors flex-shrink-0" />
-                                                    <span className="text-sm text-neutral-700 dark:text-neutral-300 font-medium leading-normal">Self Rising Flour (500g)</span>
-                                                </li>
-                                                <li className="flex items-start gap-3 group cursor-pointer">
-                                                    <div className="mt-0.5 w-5 h-5 rounded-full border-2 border-neutral-300 group-hover:border-blue-500 transition-colors flex-shrink-0" />
-                                                    <span className="text-sm text-neutral-700 dark:text-neutral-300 font-medium leading-normal">Greek Yogurt (0% Fat) (520g)</span>
-                                                </li>
-                                                <li className="flex items-start gap-3 group cursor-pointer">
-                                                    <div className="mt-0.5 w-5 h-5 rounded-full border-2 border-neutral-300 group-hover:border-blue-500 transition-colors flex-shrink-0" />
-                                                    <span className="text-sm text-neutral-700 dark:text-neutral-300 font-medium leading-normal">1 Tbsp Garlic Salt (15g)</span>
-                                                </li>
-                                            </>
-                                        )}
-                                    </ul>
-                                </div>
-
-                                <Button
-                                    size="sm"
-                                    variant="ghost"
-                                    className="w-full mt-8 text-neutral-400 hover:text-neutral-600"
-                                    onClick={reset}
-                                >
-                                    Import Another
-                                </Button>
-                            </div>
-                        </div>
-
+                            )}
+                        </IPhoneMockup>
                     </div>
                 </div>
             </div>
