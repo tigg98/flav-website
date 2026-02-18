@@ -44,15 +44,41 @@ export function ImportDemo() {
 
             const data = await response.json();
 
-            // map description to ingredients list (simple split by newline or comma)
+            // Clean Title
+            let cleanTitle = data.title || "";
+            // Remove " | Creator Name" common pattern
+            cleanTitle = cleanTitle.split('|')[0].trim();
+            // Remove "Ingredients" if it got stuck in the title (common in some og:titles)
+            const ingredientsIndex = cleanTitle.toLowerCase().indexOf("ingredients");
+            if (ingredientsIndex > 0) {
+                cleanTitle = cleanTitle.substring(0, ingredientsIndex).trim();
+            }
+            // Remove trailing " - Instagram" etc
+            cleanTitle = cleanTitle.replace(/ - Instagram.*/, "").replace(/ on TikTok.*/, "");
+
+            // Smart Ingredient Parsing from Description
             const ingredients = data.description
-                ? data.description.split(/,|\n/).filter((i: string) => i.trim().length > 0).slice(0, 5)
+                ? data.description.split(/,|\n/)
+                    .map((i: string) => i.trim())
+                    .filter((i: string) => {
+                        const lower = i.toLowerCase();
+                        // Filter out garbage lines
+                        if (lower.length < 3) return false;
+                        if (lower.includes("likes")) return false;
+                        if (lower.includes("comments")) return false;
+                        if (lower.includes("views")) return false;
+                        if (lower.includes("http")) return false;
+                        if (lower.match(/\d{4}/)) return false; // weird year/date artifacts
+                        if (lower.startsWith("for the")) return false; // section headers
+                        return true;
+                    })
+                    .slice(0, 5)
                 : ["No ingredients found"];
 
             setRecipeData({
-                title: data.title,
+                title: cleanTitle || "Imported Recipe",
                 image: data.image,
-                ingredients: ingredients,
+                ingredients: ingredients.length > 0 ? ingredients : ["1lb Rigatoni", "2 cloves Garlic", "1/4 cup Vodka"],
                 url: data.url
             });
 
@@ -211,12 +237,12 @@ export function ImportDemo() {
                                 {/* Creator Row */}
                                 <div className="flex justify-between items-center mb-4">
                                     <div className="flex items-center gap-3">
-                                        <div className="w-10 h-10 rounded-full bg-neutral-200 overflow-hidden border border-neutral-100 dark:border-neutral-800">
-                                            <img src="/placeholder-avatar.jpg" alt="Creator" className="w-full h-full object-cover opacity-80" />
+                                        <div className="w-10 h-10 rounded-full bg-neutral-200 overflow-hidden border border-neutral-100 dark:border-neutral-800 flex items-center justify-center">
+                                            <span className="font-bold text-lg text-neutral-500">F</span>
                                         </div>
                                         <div>
-                                            <div className="text-sm font-bold text-neutral-900 dark:text-white">Tiger DeStefano</div>
-                                            <div className="text-xs text-neutral-500">@tiger</div>
+                                            <div className="text-sm font-bold text-neutral-900 dark:text-white">Flav</div>
+                                            <div className="text-xs text-neutral-500">@Flav</div>
                                         </div>
                                     </div>
                                     <Button size="sm" variant="outline" className="h-8 rounded-full px-4 text-xs font-semibold">
