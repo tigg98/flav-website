@@ -10,25 +10,63 @@ export function ImportDemo() {
     const [url, setUrl] = React.useState("");
     const [state, setState] = React.useState<"idle" | "importing" | "complete">("idle");
     const [progress, setProgress] = React.useState(0);
+    const [recipeData, setRecipeData] = React.useState<{
+        title: string;
+        image: string;
+        ingredients: string[];
+        url: string;
+    } | null>(null);
 
-    const handleImport = (e: React.FormEvent) => {
+    const handleImport = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!url) return;
 
         setState("importing");
         setProgress(0);
+        setRecipeData(null);
 
-        // Simulate progress
+        // Simulate progress for better UX while fetching
         const interval = setInterval(() => {
-            setProgress(prev => {
-                if (prev >= 100) {
-                    clearInterval(interval);
-                    setTimeout(() => setState("complete"), 200);
-                    return 100;
-                }
-                return prev + 2;
+            setProgress((prev) => {
+                if (prev >= 90) return 90; // Hold at 90% until complete
+                return prev + 10;
             });
-        }, 30);
+        }, 500);
+
+        try {
+            const response = await fetch("/api/extract", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ url }),
+            });
+
+            if (!response.ok) throw new Error("Failed to extract");
+
+            const data = await response.json();
+
+            // map description to ingredients list (simple split by newline or comma)
+            const ingredients = data.description
+                ? data.description.split(/,|\n/).filter((i: string) => i.trim().length > 0).slice(0, 5)
+                : ["No ingredients found"];
+
+            setRecipeData({
+                title: data.title,
+                image: data.image,
+                ingredients: ingredients,
+                url: data.url
+            });
+
+            clearInterval(interval);
+            setProgress(100);
+            setTimeout(() => setState("complete"), 200);
+
+        } catch (err) {
+            console.error(err);
+            clearInterval(interval);
+            setState("idle");
+            setProgress(0);
+            alert("Failed to import recipe. Please try another link.");
+        }
     };
 
     const reset = () => {
@@ -141,9 +179,9 @@ export function ImportDemo() {
                             state === "complete" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"
                         )}>
                             {/* Card Header Image */}
-                            <div className="h-32 bg-neutral-200 dark:bg-neutral-800 relative">
+                            <div className="h-32 bg-neutral-200 dark:bg-neutral-800 relative bg-cover bg-center" style={{ backgroundImage: recipeData?.image ? `url(${recipeData.image})` : undefined }}>
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
-                                    <h4 className="text-white font-bold text-lg leading-tight">Spicy Vodka Pasta</h4>
+                                    <h4 className="text-white font-bold text-lg leading-tight line-clamp-2">{recipeData?.title || "Spicy Vodka Pasta"}</h4>
                                 </div>
                                 <div className="absolute top-3 right-3 w-6 h-6 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center">
                                     <PlayCircle className="w-3 h-3 text-white" />
@@ -169,9 +207,17 @@ export function ImportDemo() {
                                 <div className="space-y-2">
                                     <p className="text-xs font-semibold text-neutral-900 dark:text-white uppercase tracking-wider">Ingredients</p>
                                     <ul className="text-xs text-neutral-600 dark:text-neutral-400 space-y-1">
-                                        <li className="flex gap-2"><span>•</span> 1lb Rigatoni</li>
-                                        <li className="flex gap-2"><span>•</span> 2 cloves Garlic</li>
-                                        <li className="flex gap-2"><span>•</span> 1/4 cup Vodka</li>
+                                        {recipeData?.ingredients?.length ? (
+                                            recipeData.ingredients.map((ing, i) => (
+                                                <li key={i} className="flex gap-2"><span>•</span> {ing}</li>
+                                            ))
+                                        ) : (
+                                            <>
+                                                <li className="flex gap-2"><span>•</span> 1lb Rigatoni</li>
+                                                <li className="flex gap-2"><span>•</span> 2 cloves Garlic</li>
+                                                <li className="flex gap-2"><span>•</span> 1/4 cup Vodka</li>
+                                            </>
+                                        )}
                                     </ul>
                                 </div>
 
