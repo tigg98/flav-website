@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { Link2, Loader2, Sparkles, Wand2, ChefHat, Clock, PlayCircle } from "lucide-react";
+import { Link2, Loader2, Sparkles, Wand2, ChefHat, Clock, PlayCircle, ChevronLeft, MoreHorizontal, Play, ArrowUpRight, Minus, Plus, Flame, Calendar, Heart, Bookmark, Instagram } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function ImportDemo() {
@@ -178,44 +178,132 @@ export function ImportDemo() {
                             "w-full max-w-xs bg-white dark:bg-neutral-900 rounded-2xl shadow-xl border border-neutral-100 dark:border-neutral-800 overflow-hidden transition-all duration-700 transform",
                             state === "complete" ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"
                         )}>
-                            {/* Card Header Image */}
-                            <div className="h-32 bg-neutral-200 dark:bg-neutral-800 relative bg-cover bg-center" style={{ backgroundImage: recipeData?.image ? `url(${recipeData.image})` : undefined }}>
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
-                                    <h4 className="text-white font-bold text-lg leading-tight line-clamp-2">{recipeData?.title || "Spicy Vodka Pasta"}</h4>
+                            {/* Card Header Image - Video Preview Style */}
+                            <div className="relative aspect-[4/5] w-full bg-neutral-200 dark:bg-neutral-800 bg-cover bg-center group" style={{ backgroundImage: recipeData?.image ? `url(${recipeData.image})` : undefined }}>
+                                <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
+
+                                {/* Top Overlay Controls */}
+                                <div className="absolute top-4 left-4 right-4 flex justify-between items-center text-white">
+                                    <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
+                                        <ChevronLeft className="w-5 h-5" />
+                                    </div>
+                                    <div className="flex gap-2">
+                                        <MoreHorizontal className="w-6 h-6" />
+                                    </div>
                                 </div>
-                                <div className="absolute top-3 right-3 w-6 h-6 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center">
-                                    <PlayCircle className="w-3 h-3 text-white" />
+
+                                {/* Play Button Overlay */}
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                    <div className="w-16 h-16 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center cursor-pointer transition-transform hover:scale-105">
+                                        <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center pl-1">
+                                            <Play className="w-5 h-5 text-black fill-black" />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            {/* Card Content */}
-                            <div className="p-4 space-y-4">
-                                <div className="flex gap-4 text-xs text-neutral-500 dark:text-neutral-400">
-                                    <div className="flex items-center gap-1">
-                                        <Clock className="w-3 h-3" />
-                                        <span>20m</span>
+                            {/* Card Content using App Design */}
+                            <div className="p-4 bg-white dark:bg-neutral-900">
+                                <h1 className="text-xl font-bold text-neutral-900 dark:text-white mb-4 leading-tight">
+                                    {recipeData?.title || "Bacon Cheeseburger Hot Pockets"}
+                                </h1>
+
+                                {/* Creator Row */}
+                                <div className="flex justify-between items-center mb-4">
+                                    <div className="flex items-center gap-3">
+                                        <div className="w-10 h-10 rounded-full bg-neutral-200 overflow-hidden border border-neutral-100 dark:border-neutral-800">
+                                            <img src="/placeholder-avatar.jpg" alt="Creator" className="w-full h-full object-cover opacity-80" />
+                                        </div>
+                                        <div>
+                                            <div className="text-sm font-bold text-neutral-900 dark:text-white">Tiger DeStefano</div>
+                                            <div className="text-xs text-neutral-500">@tiger</div>
+                                        </div>
                                     </div>
-                                    <div className="flex items-center gap-1">
-                                        <ChefHat className="w-3 h-3" />
+                                    <Button size="sm" variant="outline" className="h-8 rounded-full px-4 text-xs font-semibold">
+                                        Follow
+                                    </Button>
+                                </div>
+
+                                {/* Source Attribution */}
+                                <div className="flex items-center justify-between bg-neutral-50 dark:bg-neutral-800/50 rounded-lg p-2.5 mb-5 px-3">
+                                    <div className="flex items-center gap-2.5">
+                                        <div className="w-6 h-6 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 flex items-center justify-center text-white">
+                                            <Instagram className="w-3.5 h-3.5" />
+                                        </div>
+                                        <div className="flex flex-col">
+                                            <span className="text-[10px] text-neutral-500 font-medium leading-none mb-0.5">Created by</span>
+                                            <span className="text-xs font-semibold text-neutral-900 dark:text-white leading-none">@fairfiteats</span>
+                                        </div>
+                                    </div>
+                                    <ArrowUpRight className="w-4 h-4 text-neutral-400" />
+                                </div>
+
+                                {/* Stats Row */}
+                                <div className="flex items-center gap-4 text-xs text-neutral-500 mb-6">
+                                    <div className="flex items-center gap-1.5">
+                                        <Clock className="w-4 h-4" />
+                                        <span>240 min</span>
+                                    </div>
+                                    <span className="text-neutral-300">•</span>
+                                    <div className="flex items-center bg-neutral-100 dark:bg-neutral-800 rounded-full px-1 py-0.5">
+                                        <button className="w-6 h-6 flex items-center justify-center rounded-full bg-rose-400 text-white hover:bg-rose-500 transition-colors">
+                                            <Minus className="w-3 h-3" />
+                                        </button>
+                                        <span className="font-semibold text-neutral-900 dark:text-white px-3 w-8 text-center">10</span>
+                                        <button className="w-6 h-6 flex items-center justify-center rounded-full bg-rose-400 text-white hover:bg-rose-500 transition-colors">
+                                            <Plus className="w-3 h-3" />
+                                        </button>
+                                        <span className="ml-1 pr-2 text-[10px] uppercase font-medium tracking-wide">servings</span>
+                                    </div>
+                                    <span className="text-neutral-300">•</span>
+                                    <div className="flex items-center gap-1.5">
                                         <span>Easy</span>
-                                    </div>
-                                    <div className="ml-auto text-orange-500 font-semibold">
-                                        Imported
                                     </div>
                                 </div>
 
-                                <div className="space-y-2">
-                                    <p className="text-xs font-semibold text-neutral-900 dark:text-white uppercase tracking-wider">Ingredients</p>
-                                    <ul className="text-xs text-neutral-600 dark:text-neutral-400 space-y-1">
+                                {/* Action Buttons Row */}
+                                <div className="flex gap-3 mb-8">
+                                    <Button className="flex-1 bg-orange-100 hover:bg-orange-200 text-orange-600 border border-orange-200 rounded-2xl h-12 gap-2 shadow-sm font-bold text-sm">
+                                        <Flame className="w-4 h-4" />
+                                        Start Cooking
+                                    </Button>
+                                    <div className="flex gap-2">
+                                        <Button variant="outline" size="sm" className="h-12 w-12 rounded-2xl border-neutral-200 bg-neutral-50 p-0">
+                                            <Calendar className="w-5 h-5 text-neutral-700" />
+                                        </Button>
+                                        <Button variant="outline" size="sm" className="h-12 w-12 rounded-2xl border-neutral-200 bg-neutral-50 p-0">
+                                            <Heart className="w-5 h-5 text-neutral-700" />
+                                        </Button>
+                                        <Button variant="outline" size="sm" className="h-12 w-12 rounded-2xl border-neutral-200 bg-neutral-50 p-0">
+                                            <Bookmark className="w-5 h-5 text-neutral-700" />
+                                        </Button>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-4">
+                                    <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-widest">Ingredients</h3>
+                                    <ul className="space-y-3">
                                         {recipeData?.ingredients?.length ? (
                                             recipeData.ingredients.map((ing, i) => (
-                                                <li key={i} className="flex gap-2"><span>•</span> {ing}</li>
+                                                <li key={i} className="flex items-start gap-3 group cursor-pointer">
+                                                    <div className="mt-0.5 w-5 h-5 rounded-full border-2 border-neutral-300 group-hover:border-blue-500 transition-colors flex-shrink-0" />
+                                                    <span className="text-sm text-neutral-700 dark:text-neutral-300 font-medium leading-normal">{ing}</span>
+                                                </li>
                                             ))
                                         ) : (
                                             <>
-                                                <li className="flex gap-2"><span>•</span> 1lb Rigatoni</li>
-                                                <li className="flex gap-2"><span>•</span> 2 cloves Garlic</li>
-                                                <li className="flex gap-2"><span>•</span> 1/4 cup Vodka</li>
+                                                <li className="flex items-start gap-3 group cursor-pointer">
+                                                    <div className="mt-0.5 w-5 h-5 rounded-full border-2 border-neutral-300 group-hover:border-blue-500 transition-colors flex-shrink-0" />
+                                                    <span className="text-sm text-neutral-700 dark:text-neutral-300 font-medium leading-normal">Self Rising Flour (500g)</span>
+                                                </li>
+                                                <li className="flex items-start gap-3 group cursor-pointer">
+                                                    <div className="mt-0.5 w-5 h-5 rounded-full border-2 border-neutral-300 group-hover:border-blue-500 transition-colors flex-shrink-0" />
+                                                    <span className="text-sm text-neutral-700 dark:text-neutral-300 font-medium leading-normal">Greek Yogurt (0% Fat) (520g)</span>
+                                                </li>
+                                                <li className="flex items-start gap-3 group cursor-pointer">
+                                                    <div className="mt-0.5 w-5 h-5 rounded-full border-2 border-neutral-300 group-hover:border-blue-500 transition-colors flex-shrink-0" />
+                                                    <span className="text-sm text-neutral-700 dark:text-neutral-300 font-medium leading-normal">1 Tbsp Garlic Salt (15g)</span>
+                                                </li>
                                             </>
                                         )}
                                     </ul>
@@ -223,8 +311,8 @@ export function ImportDemo() {
 
                                 <Button
                                     size="sm"
-                                    variant="outline"
-                                    className="w-full text-xs h-8"
+                                    variant="ghost"
+                                    className="w-full mt-8 text-neutral-400 hover:text-neutral-600"
                                     onClick={reset}
                                 >
                                     Import Another
