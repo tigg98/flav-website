@@ -65,7 +65,12 @@ export function IPhoneMockup({
                                     quality={100}
                                 />
                             ) : (
-                                <div className="w-full h-full overflow-y-auto no-scrollbar bg-white dark:bg-neutral-900 scroll-smooth">
+                                <div className="w-full h-full overflow-y-auto bg-white dark:bg-neutral-900 scroll-smooth overscroll-y-contain pointer-events-auto z-0" style={{ scrollbarWidth: 'none' }}>
+                                    <style jsx>{`
+                                        div::-webkit-scrollbar {
+                                            display: none;
+                                        }
+                                    `}</style>
                                     {children}
                                 </div>
                             )}

@@ -57,6 +57,14 @@ export function ImportDemo() {
             // Remove trailing " - Instagram" etc
             cleanTitle = cleanTitle.replace(/ - Instagram.*/, "").replace(/ on TikTok.*/, "");
 
+            // If title is likely just a name (2 words, both capped) or very short, make it generic
+            // e.g. "Tom Judkins" -> "Delicious Recipe"
+            const words = cleanTitle.split(' ');
+            if (words.length <= 2 && /^[A-Z]/.test(cleanTitle)) {
+                // Check if it looks like a name
+                cleanTitle = "Spicy Chicken Caesar Wrap"; // Better default for demo
+            }
+
             // Smart Ingredient Parsing from Description
             const ingredients = data.description
                 ? data.description.split(/,|\n/)
@@ -225,113 +233,65 @@ export function ImportDemo() {
                                         </div>
                                     </div>
 
-                                    {/* Card Content using App Design */}
-                                    <div className="p-4 bg-white dark:bg-neutral-900 -mt-4 relative rounded-t-3xl z-10">
-                                        <div className="w-12 h-1 bg-neutral-200 dark:bg-neutral-800 rounded-full mx-auto mb-6" />
 
-                                        <h1 className="text-xl font-bold text-neutral-900 dark:text-white mb-4 leading-tight">
-                                            {recipeData?.title || "Bacon Cheeseburger Hot Pockets"}
-                                        </h1>
-
-                                        {/* Creator Row */}
-                                        <div className="flex justify-between items-center mb-4">
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-10 h-10 rounded-full bg-neutral-200 overflow-hidden border border-neutral-100 dark:border-neutral-800 flex items-center justify-center">
-                                                    <span className="font-bold text-lg text-neutral-500">F</span>
-                                                </div>
-                                                <div>
-                                                    <div className="text-sm font-bold text-neutral-900 dark:text-white">Flav</div>
-                                                    <div className="text-xs text-neutral-500">@Flav</div>
-                                                </div>
-                                            </div>
-                                            <Button size="sm" variant="outline" className="h-8 rounded-full px-4 text-xs font-semibold">
-                                                Follow
-                                            </Button>
+                                    {/* Stats Row */}
+                                    <div className="flex items-center gap-4 text-xs text-neutral-500 mb-6 font-medium">
+                                        <div className="flex items-center gap-1.5">
+                                            <Clock className="w-4 h-4 text-neutral-400" />
+                                            <span>240m</span>
                                         </div>
-
-                                        {/* Source Attribution */}
-                                        <div className="flex items-center justify-between bg-neutral-50 dark:bg-neutral-800/50 rounded-lg p-2.5 mb-5 px-3">
-                                            <div className="flex items-center gap-2.5">
-                                                <div className="w-6 h-6 rounded bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 flex items-center justify-center text-white">
-                                                    <Instagram className="w-3.5 h-3.5" />
-                                                </div>
-                                                <div className="flex flex-col">
-                                                    <span className="text-[10px] text-neutral-500 font-medium leading-none mb-0.5">Created by</span>
-                                                    <span className="text-xs font-semibold text-neutral-900 dark:text-white leading-none">@fairfiteats</span>
-                                                </div>
-                                            </div>
-                                            <ArrowUpRight className="w-4 h-4 text-neutral-400" />
+                                        <div className="flex items-center gap-1.5">
+                                            <Flame className="w-4 h-4 text-neutral-400" />
+                                            <span>Easy</span>
                                         </div>
-
-                                        {/* Stats Row */}
-                                        <div className="flex items-center gap-4 text-xs text-neutral-500 mb-6">
-                                            <div className="flex items-center gap-1.5">
-                                                <Clock className="w-4 h-4" />
-                                                <span>240 min</span>
-                                            </div>
-                                            <span className="text-neutral-300">•</span>
-                                            <div className="flex items-center bg-neutral-100 dark:bg-neutral-800 rounded-full px-1 py-0.5">
-                                                <button className="w-6 h-6 flex items-center justify-center rounded-full bg-rose-400 text-white hover:bg-rose-500 transition-colors">
-                                                    <Minus className="w-3 h-3" />
-                                                </button>
-                                                <span className="font-semibold text-neutral-900 dark:text-white px-3 w-8 text-center">10</span>
-                                                <button className="w-6 h-6 flex items-center justify-center rounded-full bg-rose-400 text-white hover:bg-rose-500 transition-colors">
-                                                    <Plus className="w-3 h-3" />
-                                                </button>
-                                                <span className="ml-1 pr-2 text-[10px] uppercase font-medium tracking-wide">servings</span>
-                                            </div>
-                                            <span className="text-neutral-300">•</span>
-                                            <div className="flex items-center gap-1.5">
-                                                <span>Easy</span>
-                                            </div>
+                                        <div className="ml-auto flex items-center bg-neutral-100 dark:bg-neutral-800 rounded-full px-1 py-0.5">
+                                            <button className="w-6 h-6 flex items-center justify-center rounded-full bg-white shadow-sm text-neutral-600">
+                                                <Minus className="w-3 h-3" />
+                                            </button>
+                                            <span className="font-bold text-neutral-900 dark:text-white px-2.5 w-7 text-center">2</span>
+                                            <button className="w-6 h-6 flex items-center justify-center rounded-full bg-white shadow-sm text-neutral-600">
+                                                <Plus className="w-3 h-3" />
+                                            </button>
                                         </div>
+                                    </div>
 
-                                        {/* Action Buttons Row */}
-                                        <div className="flex gap-3 mb-8">
-                                            <Button className="flex-1 bg-orange-100 hover:bg-orange-200 text-orange-600 border border-orange-200 rounded-2xl h-12 gap-2 shadow-sm font-bold text-sm">
-                                                <Flame className="w-4 h-4" />
-                                                Start Cooking
-                                            </Button>
-                                            <div className="flex gap-2">
-                                                <Button variant="outline" size="sm" className="h-12 w-12 rounded-2xl border-neutral-200 bg-neutral-50 p-0">
-                                                    <Calendar className="w-5 h-5 text-neutral-700" />
-                                                </Button>
-                                                <Button variant="outline" size="sm" className="h-12 w-12 rounded-2xl border-neutral-200 bg-neutral-50 p-0">
-                                                    <Heart className="w-5 h-5 text-neutral-700" />
-                                                </Button>
-                                                <Button variant="outline" size="sm" className="h-12 w-12 rounded-2xl border-neutral-200 bg-neutral-50 p-0">
-                                                    <Bookmark className="w-5 h-5 text-neutral-700" />
-                                                </Button>
-                                            </div>
-                                        </div>
+                                    {/* Action Buttons Row */}
+                                    <div className="flex gap-2 mb-8">
+                                        <Button className="flex-1 bg-neutral-900 hover:bg-neutral-800 text-white rounded-2xl h-11 shadow-lg shadow-neutral-500/10 font-bold text-sm">
+                                            Start Cooking
+                                        </Button>
+                                        <Button variant="outline" size="sm" className="h-11 w-11 rounded-2xl border-neutral-200 bg-white p-0">
+                                            <Calendar className="w-5 h-5 text-neutral-600" />
+                                        </Button>
+                                        <Button variant="outline" size="sm" className="h-11 w-11 rounded-2xl border-neutral-200 bg-white p-0">
+                                            <Heart className="w-5 h-5 text-neutral-600" />
+                                        </Button>
+                                    </div>
 
-                                        <div className="space-y-4">
-                                            <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-widest">Ingredients</h3>
-                                            <ul className="space-y-3">
-                                                {recipeData?.ingredients?.length ? (
-                                                    recipeData.ingredients.map((ing, i) => (
-                                                        <li key={i} className="flex items-start gap-3 group cursor-pointer">
-                                                            <div className="mt-0.5 w-5 h-5 rounded-full border-2 border-neutral-300 group-hover:border-blue-500 transition-colors flex-shrink-0" />
-                                                            <span className="text-sm text-neutral-700 dark:text-neutral-300 font-medium leading-normal">{ing}</span>
-                                                        </li>
-                                                    ))
-                                                ) : (
-                                                    <li className="text-sm text-neutral-500">No ingredients extracted.</li>
-                                                )}
-                                            </ul>
-                                        </div>
+                                    <div className="space-y-4">
+                                        <h3 className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest pl-1">Ingredients</h3>
+                                        <ul className="space-y-2.5">
+                                            {recipeData?.ingredients?.length ? (
+                                                recipeData.ingredients.map((ing, i) => (
+                                                    <li key={i} className="flex items-start gap-3 group cursor-pointer p-2 hover:bg-neutral-50 rounded-lg transition-colors -mx-2">
+                                                        <div className="mt-0.5 w-4 h-4 rounded-full border border-neutral-300 group-hover:border-blue-500 transition-colors flex-shrink-0" />
+                                                        <span className="text-sm text-neutral-600 dark:text-neutral-300 font-medium leading-snug">{ing}</span>
+                                                    </li>
+                                                ))
+                                            ) : (
+                                                <li className="text-sm text-neutral-500">No ingredients extracted.</li>
+                                            )}
+                                        </ul>
+                                    </div>
 
-                                        <div className="mt-12 mb-8 bg-neutral-50 dark:bg-neutral-800/50 rounded-xl p-4 text-center">
-                                            <p className="text-xs text-neutral-500 mb-2">Want to import another?</p>
-                                            <Button
-                                                size="sm"
-                                                variant="outline"
-                                                className="w-full text-xs h-8"
-                                                onClick={reset}
-                                            >
-                                                Reset
-                                            </Button>
-                                        </div>
+                                    <div className="mt-8 mb-4">
+                                        <Button
+                                            variant="ghost"
+                                            className="w-full text-xs text-neutral-400 hover:text-neutral-600 font-medium"
+                                            onClick={reset}
+                                        >
+                                            Import another link
+                                        </Button>
                                     </div>
                                 </div>
                             )}
