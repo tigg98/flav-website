@@ -14,6 +14,7 @@ export function ImportDemo() {
     const [recipeData, setRecipeData] = React.useState<{
         title: string;
         image: string;
+        video?: string;
         ingredients: string[];
         url: string;
     } | null>(null);
@@ -87,6 +88,7 @@ export function ImportDemo() {
             setRecipeData({
                 title: cleanTitle || "Imported Recipe",
                 image: data.image,
+                video: data.video,
                 ingredients: ingredients.length > 0 ? ingredients : ["1lb Rigatoni", "2 cloves Garlic", "1/4 cup Vodka"],
                 url: data.url
             });
@@ -210,8 +212,24 @@ export function ImportDemo() {
                             {state === "complete" && (
                                 <div className="min-h-full bg-white dark:bg-neutral-900 pb-8">
                                     {/* Card Header Image - Video Preview Style */}
-                                    <div className="relative aspect-[4/5] w-full bg-neutral-200 dark:bg-neutral-800 bg-cover bg-center group" style={{ backgroundImage: recipeData?.image ? `url(${recipeData.image})` : undefined }}>
-                                        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60" />
+                                    <div className="relative aspect-[4/5] w-full bg-neutral-200 dark:bg-neutral-800 bg-cover bg-center group">
+                                        {recipeData?.video ? (
+                                            <video
+                                                src={recipeData.video}
+                                                className="absolute inset-0 w-full h-full object-cover"
+                                                autoPlay
+                                                muted
+                                                loop
+                                                playsInline
+                                            />
+                                        ) : (
+                                            <div
+                                                className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                                                style={{ backgroundImage: recipeData?.image ? `url(${recipeData.image})` : undefined }}
+                                            />
+                                        )}
+
+                                        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 pointer-events-none" />
 
                                         {/* Top Overlay Controls */}
                                         <div className="absolute top-12 left-4 right-4 flex justify-between items-center text-white z-20">
@@ -223,14 +241,16 @@ export function ImportDemo() {
                                             </div>
                                         </div>
 
-                                        {/* Play Button Overlay */}
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="w-16 h-16 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center cursor-pointer transition-transform hover:scale-105">
-                                                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center pl-1">
-                                                    <Play className="w-5 h-5 text-black fill-black" />
+                                        {/* Play Button Overlay - Only for images or if video is paused (simplified to image for now) */}
+                                        {!recipeData?.video && (
+                                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                                <div className="w-16 h-16 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center cursor-pointer transition-transform group-hover:scale-110">
+                                                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center pl-1 shadow-lg">
+                                                        <Play className="w-5 h-5 text-black fill-black" />
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        )}
                                     </div>
 
 

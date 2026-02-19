@@ -67,8 +67,16 @@ export async function POST(req: Request) {
 
         const getImage = (html: string) => {
             return (
+                getMetaTag(html, "og:image:secure_url") ||
                 getMetaTag(html, "og:image") ||
                 getMetaTag(html, "twitter:image")
+            );
+        };
+
+        const getVideo = (html: string) => {
+            return (
+                getMetaTag(html, "og:video:secure_url") ||
+                getMetaTag(html, "og:video")
             );
         };
 
@@ -76,6 +84,7 @@ export async function POST(req: Request) {
             title: getTitle(html) || "No title found",
             description: getDescription(html) || "No description found",
             image: getImage(html) || null,
+            video: getVideo(html) || null,
             url: url,
         };
 
