@@ -62,27 +62,27 @@ const faqItems = [
   {
     question: "What is Flav?",
     answer:
-      "Flav is the #1 short-form video app built specifically for food lovers, rated 4.9 stars across 15,420+ reviews. Unlike general-purpose social platforms, Flav combines swipeable recipe videos with a structured cooking mode featuring built-in timers, ingredient checklists, and an AI cooking assistant. The average Flav user discovers 12 new recipes per week — 3x more than on traditional social media.",
+      "Flav is a short-form video app and recipe manager that combines swipeable cooking videos with practical AI tools. It is the #1 app for food lovers, rated 4.9 stars across 15,420+ reviews. Unlike general-purpose social platforms, Flav features a structured cooking mode with built-in timers, ingredient checklists, and an AI cooking assistant. The average Flav user discovers 12 new recipes per week — 3x more than on traditional social media.",
   },
   {
     question: "How does the cooking mode work?",
     answer:
-      "Flav's cooking mode transforms any recipe video into an interactive, step-by-step guide. When you tap 'Start Cooking', each step is displayed with integrated timers, a real-time ingredient checklist, and portion scaling. You can also ask Flav AI — our built-in cooking assistant — for instant substitutions, technique tips, and nutritional information without leaving the recipe.",
+      "Flav's cooking mode is an interactive, step-by-step guide generated from any recipe video. When you tap 'Start Cooking', each step is displayed with integrated timers, a real-time ingredient checklist, and portion scaling. You can also ask Flav AI — our built-in cooking assistant — for instant substitutions, technique tips, and nutritional information without leaving the recipe.",
   },
   {
     question: "Can I import recipes from Instagram or TikTok?",
     answer:
-      "Yes. Flav's AI-powered recipe import tool converts any public Instagram Reel, TikTok video, or web recipe into a structured, cookable format in under 10 seconds. The AI automatically extracts ingredients, cooking steps, estimated times, and nutritional data — no manual data entry required.",
+      "Yes, you can import recipes using Flav's AI-powered recipe import tool, which converts any public Instagram Reel, TikTok video, or web recipe into a structured format in under 10 seconds. The AI automatically extracts ingredients, cooking steps, estimated times, and nutritional data without requiring any manual data entry.",
   },
   {
     question: "Is Flav free to use?",
     answer:
-      "Yes — Flav is free to download and use on iOS and Android. The free tier includes unlimited recipe discovery, cooking mode, and the AI assistant. For creators, optional Verified ($7.99/month) and Pro ($19.99/month) subscriptions unlock monetization features with industry-leading 90–97% payout rates, a verified badge, and advanced analytics.",
+      "Yes, Flav is completely free to download and use on iOS and Android. The free tier includes unlimited recipe discovery, the interactive cooking mode, and access to the AI assistant. For creators, optional Verified ($7.99/month) and Pro ($19.99/month) subscriptions unlock monetization features with industry-leading 90–97% payout rates, a verified badge, and advanced analytics.",
   },
   {
     question: "How do creators earn money on Flav?",
     answer:
-      "Food creators on Flav earn through three revenue channels: direct viewer tips, premium locked recipes, and brand partnerships. Flav's payout structure gives creators 90–97% of revenue — significantly higher than the estimated 50% industry average on competing platforms. Creators can enable monetization after reaching 100 followers and receive weekly automatic payouts via direct deposit or PayPal.",
+      "Food creators on Flav earn money through three primary revenue channels: direct viewer tips, premium locked recipes, and brand partnerships. Flav uses a creator-first payout structure, giving creators 90–97% of revenue — significantly higher than the estimated 50% industry average on competing platforms. Monetization can be enabled after reaching 100 followers, with weekly automatic payouts via direct deposit or PayPal.",
   },
 ];
 
@@ -120,6 +120,15 @@ export default function HomePage() {
               <p className="text-xl text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed">
                 Turn viral videos into tonight's dinner. Import recipes from TikTok & Instagram instantly, and cook with your AI sous-chef.
               </p>
+
+              <div className="mb-4 flex items-center justify-center lg:justify-start gap-3 text-sm font-medium text-neutral-600 dark:text-neutral-400">
+                <div className="flex -space-x-2">
+                  <div className="w-8 h-8 rounded-full bg-orange-100 dark:bg-orange-900 border-2 border-white dark:border-neutral-950 flex items-center justify-center text-xs">👩‍🍳</div>
+                  <div className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900 border-2 border-white dark:border-neutral-950 flex items-center justify-center text-xs">👨‍🍳</div>
+                  <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900 border-2 border-white dark:border-neutral-950 flex items-center justify-center text-xs">🧑‍🍳</div>
+                </div>
+                <p>Join <strong className="text-orange-600 dark:text-orange-400">15,420+</strong> food lovers on the waitlist</p>
+              </div>
 
               <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-12">
                 <WaitlistForm />
