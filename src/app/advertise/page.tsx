@@ -240,7 +240,7 @@ export default function AdvertisePage() {
                                 <div className="relative bg-[var(--color-neutral-900)] rounded-[3rem] p-2 shadow-2xl">
                                     <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden bg-black">
                                         <Image
-                                            src="/screenshots/explore.png"
+                                            src="/screenshots/explore-v2.png"
                                             alt="Explore page sponsorship"
                                             fill
                                             className="object-cover"

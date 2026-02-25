@@ -161,7 +161,7 @@ export default function VerifiedPage() {
                         <div className="relative flex justify-center lg:justify-end">
                             <div className="relative">
                                 <IPhoneMockup
-                                    src="/screenshots/creator-profile-v2.png"
+                                    src="/screenshots/creator-profile-v3.png"
                                     alt="Verified creator profile"
                                     size="md"
                                     priority
@@ -429,7 +429,7 @@ export default function VerifiedPage() {
 
                         <div className="hidden md:flex justify-center">
                             <IPhoneMockup
-                                src="/screenshots/creator-profile-v2.png"
+                                src="/screenshots/creator-profile-v3.png"
                                 alt="Verified profile"
                                 size="md"
                             />
