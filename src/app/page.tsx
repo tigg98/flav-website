@@ -565,9 +565,9 @@ export default function HomePage() {
               "foundingDate": "2025",
               "description": "Flav is the short-form video platform purpose-built for food lovers and food creators, combining recipe discovery, AI cooking assistance, and direct-to-creator monetization.",
               "sameAs": [
-                "https://twitter.com/flavapp",
-                "https://instagram.com/flavapp",
-                "https://tiktok.com/@flavapp",
+                "https://twitter.com/cookwithflav",
+                "https://instagram.com/cookwithflav",
+                "https://tiktok.com/@cookwithflav",
                 "https://linkedin.com/company/flav-app"
               ],
               "contactPoint": {

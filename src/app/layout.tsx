@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     description:
       "The #1 short-form video app for food lovers. AI-powered recipe import, step-by-step cooking mode, and 90–97% creator payouts. Free on iOS & Android.",
     images: ["/og-image.png"],
-    creator: "@flavapp",
+    creator: "@cookwithflav",
   },
   robots: {
     index: true,
