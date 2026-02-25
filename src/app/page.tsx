@@ -251,6 +251,51 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Meal Plan Section */}
+      <section className="section bg-white dark:bg-black overflow-hidden relative border-b border-neutral-100 dark:border-neutral-800" id="meal-plan">
+        <div className="container-main relative z-10">
+          <div className="text-center mb-16 lg:mb-24">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-sm font-semibold mb-6">
+              ✨ AI Meal Planning
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
+              Plan your week in <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">seconds.</span>
+            </h2>
+            <p className="text-xl text-[var(--color-neutral-600)] max-w-2xl mx-auto leading-relaxed">
+              Let Flav AI generate the perfect meal plan based on your dietary needs, macros, and preferences. Or simply drag-and-drop your favorite saved recipes.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center max-w-6xl mx-auto">
+            {/* Left Mockup: AI Generation */}
+            <div className="flex justify-center md:justify-end relative group">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-orange-200 dark:bg-orange-900/40 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="relative z-10 transform group-hover:scale-[1.02] group-hover:-rotate-2 transition-all duration-500">
+                <IPhoneMockup
+                  src="/screenshots/meal-plan-generation.png"
+                  alt="AI Meal Plan Generation"
+                  size="lg"
+                />
+              </div>
+            </div>
+
+            {/* Right Mockup: Calendar View */}
+            <div className="flex justify-center md:justify-start relative group">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-amber-200 dark:bg-amber-900/40 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="relative z-10 transform group-hover:scale-[1.02] group-hover:rotate-2 transition-all duration-500 md:-mt-20">
+                <IPhoneMockup
+                  src="/screenshots/meal-plan-calendar.png"
+                  alt="Meal Plan Calendar"
+                  size="lg"
+                  showBackdrop
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Creator Economy Section - Distinct Dark Glassy Look */}
       <section className="section bg-neutral-900 text-white overflow-hidden relative" id="creators">
         {/* Background gradients */}
