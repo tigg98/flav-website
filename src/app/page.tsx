@@ -26,7 +26,7 @@ const features = [
   {
     title: "Cook Step-by-Step",
     description: "Follow along with timers, ingredient lists, and clear instructions. Cooking mode guides you through every dish.",
-    screenshot: "/screenshots/cooking-mode.png",
+    screenshot: "/screenshots/recipe-detail-v2.png",
     badge: "Cooking Mode",
   },
   {
@@ -267,7 +267,7 @@ export default function HomePage() {
                 <div className="absolute -inset-8 bg-gradient-to-tr from-orange-500/30 to-amber-500/20 rounded-[4rem] blur-3xl" />
                 <div className="relative drop-shadow-2xl">
                   <IPhoneMockup
-                    src="/screenshots/import-recipe-v2.png"
+                    src="/screenshots/import-recipe-v3.png"
                     alt="Import recipe from Instagram, TikTok, or Facebook"
                     size="lg"
                     priority={false}
