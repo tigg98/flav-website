@@ -109,24 +109,7 @@ export function WaitlistForm({ className, onSuccess }: WaitlistFormProps) {
                 </p>
             )}
 
-            {/* Social Proof */}
-            <div className="mt-6 flex items-center justify-center lg:justify-start gap-4 animate-fade-in [animation-delay:200ms]">
-                <div className="flex -space-x-3">
-                    {[1, 2, 3].map((i) => (
-                        <div key={i} className="w-8 h-8 rounded-full border-2 border-white dark:border-neutral-900 bg-neutral-200 dark:bg-neutral-800 overflow-hidden relative">
-                            {/* Placeholder avatars using simple colored gradients */}
-                            <div className={`w-full h-full bg-gradient-to-br ${i === 1 ? 'from-blue-400 to-purple-500' : i === 2 ? 'from-orange-400 to-red-500' : 'from-green-400 to-emerald-500'}`} />
-                        </div>
-                    ))}
-                    <div className="w-8 h-8 rounded-full border-2 border-white dark:border-neutral-900 bg-orange-100 dark:bg-orange-500/20 flex items-center justify-center">
-                        <span className="text-[10px] font-bold text-orange-600 dark:text-orange-400 leading-none">+2k</span>
-                    </div>
-                </div>
-                <div className="text-sm">
-                    <p className="font-medium text-neutral-900 dark:text-white">Join 2,000+ others</p>
-                    <p className="text-neutral-500 dark:text-neutral-400 text-xs">waiting for early access</p>
-                </div>
-            </div>
+
         </div>
     );
 }
