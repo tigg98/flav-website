@@ -200,7 +200,7 @@ export default function CreatorsPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="flex justify-center">
                             <IPhoneMockup
-                                src="/screenshots/create-recipe.png"
+                                src="/screenshots/create-recipe-v2.png"
                                 alt="Create recipe screen"
                                 size="md"
                             />
