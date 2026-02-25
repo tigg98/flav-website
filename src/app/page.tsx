@@ -20,7 +20,7 @@ const features = [
   {
     title: "Discover Recipes",
     description: "Swipe through endless cooking inspiration. Every video is a complete recipe you can actually make.",
-    screenshot: "/screenshots/home-feed-v4.png",
+    screenshot: "/screenshots/home-feed-v5.png",
     badge: "For You Feed",
   },
   {
@@ -147,7 +147,7 @@ export default function HomePage() {
               <div className="relative z-20 transform hover:scale-[1.02] transition-transform duration-500">
                 <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/20 to-amber-500/20 rounded-[3rem] blur-2xl" />
                 <IPhoneMockup
-                  src="/screenshots/home-feed-v4.png"
+                  src="/screenshots/home-feed-v5.png"
                   alt="Flav home feed showing recipe discovery"
                   size="lg"
                   priority
@@ -507,7 +507,7 @@ export default function HomePage() {
                 "Personalized Recipe Discovery Feed",
                 "Ingredient Checklists and Portion Scaling"
               ],
-              "screenshot": "https://flav.app/screenshots/home-feed-v4.png",
+              "screenshot": "https://flav.app/screenshots/home-feed-v5.png",
               "downloadUrl": "https://flav.app/download"
             },
             {
