@@ -1,4 +1,4 @@
-import { createAdminClient } from '@/lib/supabase/server';
+import { createClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
@@ -16,8 +16,7 @@ export async function POST(request: Request) {
             );
         }
 
-        // Use admin client to bypass RLS for waitlist insertion
-        const supabase = await createAdminClient();
+        const supabase = await createClient();
 
         const { error } = await supabase
             .from('waitlist')
