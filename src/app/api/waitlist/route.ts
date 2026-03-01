@@ -1,5 +1,9 @@
 import { createAdminClient } from '@/lib/supabase/server';
 import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
+
+// Initialize at module level. Won't break if API key is missing until it's used.
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
     try {
@@ -32,6 +36,27 @@ export async function POST(request: Request) {
                 { error: 'Something went wrong. Please try again.' },
                 { status: 500 }
             );
+        }
+
+        // Send Welcome Email
+        if (process.env.RESEND_API_KEY) {
+            try {
+                const { error: emailError } = await resend.emails.send({
+                    from: 'Flav <welcome@flav.app>',
+                    to: email,
+                    template: {
+                        id: 'vip-waitlist-confirmation'
+                    },
+                });
+
+                if (emailError) {
+                    console.error('Failed to send welcome email:', emailError);
+                }
+            } catch (emailException) {
+                console.error('Exception sending welcome email:', emailException);
+            }
+        } else {
+            console.warn('RESEND_API_KEY is missing. Welcome email was not sent.');
         }
 
         return NextResponse.json(
