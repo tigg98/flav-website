@@ -186,10 +186,10 @@ export default function BillingPage() {
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-4">
                             <div className={`w-14 h-14 rounded-xl flex items-center justify-center ${entitlements?.tier === "pro"
-                                    ? "bg-gradient-to-br from-purple-500 to-pink-500"
-                                    : entitlements?.tier === "verified"
-                                        ? "bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-primary-600)]"
-                                        : "bg-neutral-200 dark:bg-neutral-800"
+                                ? "bg-gradient-to-br from-purple-500 to-pink-500"
+                                : entitlements?.tier === "verified"
+                                    ? "bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-primary-600)]"
+                                    : "bg-neutral-200 dark:bg-neutral-800"
                                 }`}>
                                 {entitlements?.tier === "pro" ? (
                                     <Crown className="w-7 h-7 text-white" />
@@ -226,8 +226,8 @@ export default function BillingPage() {
                                 <p className="text-sm text-neutral-500 mb-1">Status</p>
                                 <div className="flex items-center gap-2">
                                     <span className={`w-2 h-2 rounded-full ${entitlements?.status === "active" ? "bg-green-500" :
-                                            entitlements?.status === "past_due" ? "bg-yellow-500" :
-                                                "bg-neutral-400"
+                                        entitlements?.status === "past_due" ? "bg-yellow-500" :
+                                            "bg-neutral-400"
                                         }`} />
                                     <span className="font-medium capitalize">
                                         {entitlements?.cancel_at_period_end ? "Cancels at period end" : entitlements?.status}
@@ -359,6 +359,8 @@ export default function BillingPage() {
                             { label: "Monetization", enabled: entitlements.features.can_monetize },
                             { label: "Verified Badge", enabled: entitlements.features.verified_badge },
                             { label: "Pro Badge", enabled: entitlements.features.pro_badge },
+                            { label: "Meal Prep Mode", enabled: entitlements.features.can_monetize },
+                            { label: "AI Meal Plans", enabled: entitlements.features.can_monetize },
                             { label: "Advanced Analytics", enabled: entitlements.features.advanced_analytics },
                             { label: "Priority Support", enabled: entitlements.features.priority_support },
                             {
