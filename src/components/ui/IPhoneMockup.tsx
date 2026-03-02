@@ -59,12 +59,12 @@ export function IPhoneMockup({
                             {src ? (
                                 <Image
                                     src={src}
-                                    alt={alt || "App Screenshot"}
+                                    alt={alt || "Flav app screenshot"}
                                     fill
                                     className={`object-cover ${imageClassName}`}
                                     priority={priority}
                                     sizes="(max-width: 768px) 300px, 500px"
-                                    quality={100}
+                                    quality={85}
                                 />
                             ) : (
                                 <div className="w-full h-full overflow-y-auto bg-white dark:bg-neutral-900 scroll-smooth overscroll-y-contain pointer-events-auto z-0" style={{ scrollbarWidth: 'none' }}>

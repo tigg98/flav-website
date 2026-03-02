@@ -97,8 +97,8 @@ export default function CreatorsPage() {
                             {/* Main phone - Creator Profile */}
                             <div className="relative z-20">
                                 <IPhoneMockup
-                                    src="/screenshots/creator-profile-v3.png"
-                                    alt="Creator profile on Flav"
+                                    src="/screenshots/creator-profile-v3.webp"
+                                    alt="Flav creator profile page showing follower count, recipe videos, and verified badge"
                                     size="md"
                                     priority
                                 />
@@ -107,8 +107,8 @@ export default function CreatorsPage() {
                             {/* Background phone - Earnings */}
                             <div className="absolute -left-12 top-12 z-10 opacity-60 hidden sm:block transform scale-90">
                                 <IPhoneMockup
-                                    src="/screenshots/earnings-v3.png"
-                                    alt="Earnings dashboard"
+                                    src="/screenshots/earnings-v3.webp"
+                                    alt="Flav creator earnings dashboard with real-time revenue and payout tracking"
                                     size="md"
                                 />
                             </div>
@@ -185,8 +185,8 @@ export default function CreatorsPage() {
 
                         <div className="order-1 md:order-2 flex justify-center">
                             <IPhoneMockup
-                                src="/screenshots/earnings-v3.png"
-                                alt="Flav earnings dashboard"
+                                src="/screenshots/earnings-v3.webp"
+                                alt="Flav earnings dashboard displaying net earnings, weekly payouts, and fee savings"
                                 size="md"
                             />
                         </div>
@@ -200,8 +200,8 @@ export default function CreatorsPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="flex justify-center">
                             <IPhoneMockup
-                                src="/screenshots/create-recipe-v2.png"
-                                alt="Create recipe screen"
+                                src="/screenshots/create-recipe-v2.webp"
+                                alt="Flav create recipe screen with AI-powered ingredient and step extraction"
                                 size="md"
                             />
                         </div>
@@ -349,8 +349,8 @@ export default function CreatorsPage() {
                         <div className="hidden md:flex justify-center">
                             <div className="scale-90 origin-center">
                                 <IPhoneMockup
-                                    src="/screenshots/creator-profile-v3.png"
-                                    alt="Creator profile"
+                                    src="/screenshots/creator-profile-v3.webp"
+                                    alt="Flav verified creator profile with recipe library and follower engagement"
                                     size="md"
                                 />
                             </div>

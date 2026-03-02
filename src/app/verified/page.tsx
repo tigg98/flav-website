@@ -161,8 +161,8 @@ export default function VerifiedPage() {
                         <div className="relative flex justify-center lg:justify-end">
                             <div className="relative">
                                 <IPhoneMockup
-                                    src="/screenshots/creator-profile-v3.png"
-                                    alt="Verified creator profile"
+                                    src="/screenshots/creator-profile-v3.webp"
+                                    alt="Flav verified creator profile with orange checkmark badge and recipe stats"
                                     size="md"
                                     priority
                                     className="drop-shadow-2xl"
@@ -183,8 +183,8 @@ export default function VerifiedPage() {
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="flex justify-center">
                             <IPhoneMockup
-                                src="/screenshots/earnings-v3.png"
-                                alt="Earnings with Flav Pro"
+                                src="/screenshots/earnings-v3.webp"
+                                alt="Flav Pro earnings dashboard showing 97% payout rate and revenue breakdown"
                                 size="md"
                                 showBackdrop
                             />
@@ -429,8 +429,8 @@ export default function VerifiedPage() {
 
                         <div className="hidden md:flex justify-center">
                             <IPhoneMockup
-                                src="/screenshots/creator-profile-v3.png"
-                                alt="Verified profile"
+                                src="/screenshots/creator-profile-v3.webp"
+                                alt="Flav verified creator profile showcasing premium badge and recipe catalog"
                                 size="md"
                             />
                         </div>

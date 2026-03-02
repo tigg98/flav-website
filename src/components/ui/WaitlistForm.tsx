@@ -73,7 +73,7 @@ export function WaitlistForm({ className, onSuccess }: WaitlistFormProps) {
     return (
         <div className={cn("w-full max-w-md", className)}>
             <form onSubmit={handleSubmit} className="relative group">
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-orange-500 via-amber-500 to-orange-500 rounded-xl opacity-70 blur group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-gradient-xy"></div>
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-[#E07A5F] via-[#e8967d] to-[#E07A5F] rounded-xl opacity-70 blur group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-gradient-xy"></div>
                 <div className="relative flex items-center bg-white dark:bg-neutral-900 rounded-xl p-1.5 shadow-xl ring-1 ring-neutral-900/5 dark:ring-white/10">
                     <div className="relative flex-1">
                         <Input

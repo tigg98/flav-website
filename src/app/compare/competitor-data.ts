@@ -20,7 +20,7 @@ export const competitors: Record<string, CompetitorData> = {
         title: "Flav vs MOB Kitchen: Which Cooking App is Better in 2026?",
         description:
             "Compare Flav and MOB Kitchen. See why food lovers are switching to Flav for interactive cooking modes, AI meal planning, and an incredible creator community.",
-        heroImage: "/screenshots/home-feed-v5.png", // Can be replaced later with specific vs images
+        heroImage: "/screenshots/home-feed-v5.webp", // Can be replaced later with specific vs images
         vsText: "MOB Kitchen is great for static utilitarian meal planning, but Flav brings recipes to life with swipeable video, AI integration, and a creator-centric ecosystem.",
         pros: ["Good for budget meals", "Simple meal planning structure", "Strong UK presence"],
         cons: ["Static recipe formats", "No AI assistance", "Limited creator monetization"],
@@ -48,7 +48,7 @@ export const competitors: Record<string, CompetitorData> = {
         title: "Flav vs Tasty: The Ultimate Recipe App Comparison",
         description:
             "Choosing between Flav and Tasty? Discover why modern home cooks prefer Flav's AI assistant and creator monetization over traditional Tasty videos.",
-        heroImage: "/screenshots/home-feed-v5.png",
+        heroImage: "/screenshots/home-feed-v5.webp",
         vsText: "While Tasty revolutionized top-down cooking videos, Flav is the next evolution: turning every video into a fully interactive, cookable utility powered by AI.",
         pros: ["Massive recipe library", "Entertaining short videos", "High brand recognition"],
         cons: ["Videos lack integrated step-by-step cooking modes", "Ads interrupt the cooking experience", "Not friendly for independent creators to monetize"],

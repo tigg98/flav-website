@@ -116,8 +116,8 @@ export default function AdvertisePage() {
                         <div className="relative flex justify-center lg:justify-end">
                             <div className="relative z-20 transform hover:scale-[1.02] transition-transform duration-500">
                                 <IPhoneMockup
-                                    src="/images/hero-ad-example.png"
-                                    alt="Example ad on Flav"
+                                    src="/images/hero-ad-example.webp"
+                                    alt="Example native in-feed promoted recipe ad on the Flav cooking app"
                                     size="lg"
                                     priority
                                 />
@@ -173,8 +173,8 @@ export default function AdvertisePage() {
                                 <div className="relative bg-[var(--color-neutral-900)] rounded-[3rem] p-2 shadow-2xl">
                                     <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden bg-black">
                                         <Image
-                                            src="/screenshots/feed-video.png"
-                                            alt="In-feed promoted recipe"
+                                            src="/screenshots/home-feed-v5.webp"
+                                            alt="Full-screen in-feed promoted recipe video ad with engagement overlay on Flav"
                                             fill
                                             className="object-cover"
                                         />
@@ -240,8 +240,8 @@ export default function AdvertisePage() {
                                 <div className="relative bg-[var(--color-neutral-900)] rounded-[3rem] p-2 shadow-2xl">
                                     <div className="relative w-full aspect-[9/19.5] rounded-[2.5rem] overflow-hidden bg-black">
                                         <Image
-                                            src="/screenshots/explore-v2.png"
-                                            alt="Explore page sponsorship"
+                                            src="/screenshots/explore-v2.webp"
+                                            alt="Flav explore page showing sponsored recipe placements and category browsing"
                                             fill
                                             className="object-cover"
                                         />

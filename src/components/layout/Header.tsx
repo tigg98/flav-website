@@ -66,7 +66,7 @@ export function Header() {
                                     className={cn(
                                         "transition-all duration-200 font-medium",
                                         isActive
-                                            ? "px-4 py-2 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 hover:bg-orange-200 dark:hover:bg-orange-900/50"
+                                            ? "px-4 py-2 rounded-full bg-[var(--color-primary-100)] dark:bg-[#E07A5F]/15 text-[var(--color-primary-700)] dark:text-[var(--color-primary-300)] hover:bg-[var(--color-primary-200)] dark:hover:bg-[#E07A5F]/25"
                                             : "px-2 py-2 text-[var(--color-neutral-600)] hover:text-[var(--foreground)]"
                                     )}
                                 >

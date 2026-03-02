@@ -20,19 +20,19 @@ const features = [
   {
     title: "Discover Recipes",
     description: "Swipe through endless cooking inspiration. Every video is a complete recipe you can actually make.",
-    screenshot: "/screenshots/home-feed-v5.png",
+    screenshot: "/screenshots/home-feed-v5.webp",
     badge: "For You Feed",
   },
   {
     title: "Cook Step-by-Step",
     description: "Follow along with timers, ingredient lists, and clear instructions. Cooking mode guides you through every dish.",
-    screenshot: "/screenshots/recipe-detail-v2.png",
+    screenshot: "/screenshots/recipe-detail-v2.webp",
     badge: "Cooking Mode",
   },
   {
     title: "Ask Flav AI",
     description: "Stuck on a step? Get instant tips, substitutions, and answers from our AI cooking assistant.",
-    screenshot: "/screenshots/ask-flav.png",
+    screenshot: "/screenshots/ask-flav.webp",
     badge: "AI Assistant",
   },
 ];
@@ -92,7 +92,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden min-h-screen flex items-center pt-20 pb-16">
         {/* Background gradient */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-orange-100/40 via-background to-background dark:from-orange-900/20" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[var(--color-primary-100)]/40 via-background to-background dark:from-[var(--color-primary-900)]/20" />
 
         {/* Decorative blobs */}
         <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-primary-500/10 rounded-full blur-[100px] animate-pulse-subtle" />
@@ -102,17 +102,17 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left: Text Content */}
             <div className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0 animate-fade-in">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400 text-sm font-medium mb-8 border border-orange-200 dark:border-orange-500/20">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-primary-100)] dark:bg-[#E07A5F]/10 text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)] text-sm font-medium mb-8 border border-[var(--color-primary-200)] dark:border-[#E07A5F]/20">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-primary-400)] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-primary-500)]"></span>
                 </span>
                 The #1 Food App for 2026
               </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight">
                 Stop Scrolling. <br className="hidden lg:block" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E07A5F] to-[#e8967d]">
                   Start Cooking.
                 </span>
               </h1>
@@ -123,11 +123,11 @@ export default function HomePage() {
 
               <div className="mb-4 flex items-center justify-center lg:justify-start gap-3 text-sm font-medium text-neutral-600 dark:text-neutral-400">
                 <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-orange-100 dark:bg-orange-900 border-2 border-white dark:border-neutral-950 flex items-center justify-center text-xs">👩‍🍳</div>
+                  <div className="w-8 h-8 rounded-full bg-[var(--color-primary-100)] dark:bg-[var(--color-primary-900)] border-2 border-white dark:border-neutral-950 flex items-center justify-center text-xs">👩‍🍳</div>
                   <div className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900 border-2 border-white dark:border-neutral-950 flex items-center justify-center text-xs">👨‍🍳</div>
                   <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900 border-2 border-white dark:border-neutral-950 flex items-center justify-center text-xs">🧑‍🍳</div>
                 </div>
-                <p>Join <strong className="text-orange-600 dark:text-orange-400">15,420+</strong> food lovers on the waitlist</p>
+                <p>Join <strong className="text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)]">15,420+</strong> food lovers on the waitlist</p>
               </div>
 
               <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-12">
@@ -154,9 +154,9 @@ export default function HomePage() {
             <div className="relative flex justify-center lg:justify-end animate-slide-up" style={{ animationDelay: '0.2s' }}>
               {/* Main phone */}
               <div className="relative z-20 transform hover:scale-[1.02] transition-transform duration-500">
-                <div className="absolute -inset-4 bg-gradient-to-tr from-orange-500/20 to-amber-500/20 rounded-[3rem] blur-2xl" />
+                <div className="absolute -inset-4 bg-gradient-to-tr from-[#E07A5F]/20 to-[#e8967d]/20 rounded-[3rem] blur-2xl" />
                 <IPhoneMockup
-                  src="/screenshots/home-feed-v5.png"
+                  src="/screenshots/home-feed-v5.webp"
                   alt="Flav home feed showing recipe discovery"
                   size="lg"
                   priority
@@ -202,7 +202,7 @@ export default function HomePage() {
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
               Everything you need to <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">cook confidently</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E07A5F] to-[#e8967d]">cook confidently</span>
             </h2>
             <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto leading-relaxed">
               From the first spark of inspiration to the final garnish—Flav is your sous-chef for every step of the journey.
@@ -213,13 +213,13 @@ export default function HomePage() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className={`group bg-white dark:bg-neutral-900 rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-neutral-100 dark:border-neutral-800 transition-all duration-500 hover:shadow-xl hover:border-orange-100 dark:hover:border-orange-900/30 overflow-hidden relative`}
+                className={`group bg-white dark:bg-neutral-900 rounded-[2.5rem] p-8 md:p-12 shadow-sm border border-neutral-100 dark:border-neutral-800 transition-all duration-500 hover:shadow-xl hover:border-[var(--color-primary-100)] dark:hover:border-[#E07A5F]/20 overflow-hidden relative`}
               >
                 <div className={`grid md:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}>
                   {/* Phone mockup */}
                   <div className={`flex justify-center relative ${index % 2 === 1 ? "md:order-2" : ""}`}>
                     {/* Blob behind phone */}
-                    <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 ${index === 0 ? 'bg-orange-200 dark:bg-orange-900/40' :
+                    <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 ${index === 0 ? 'bg-[var(--color-primary-200)] dark:bg-[#E07A5F]/25' :
                       index === 1 ? 'bg-green-200 dark:bg-green-900/40' :
                         'bg-blue-200 dark:bg-blue-900/40'
                       }`} />
@@ -227,7 +227,7 @@ export default function HomePage() {
                     <div className="relative z-10 transform group-hover:scale-[1.02] transition-transform duration-500">
                       <IPhoneMockup
                         src={feature.screenshot}
-                        alt={feature.title}
+                        alt={`Flav app ${feature.title.toLowerCase()} screenshot showing ${feature.description.split('.')[0].toLowerCase()}`}
                         size="md"
                       />
                     </div>
@@ -235,7 +235,7 @@ export default function HomePage() {
 
                   {/* Content */}
                   <div className={`text-center md:text-left ${index % 2 === 1 ? "md:order-1" : ""}`}>
-                    <div className={`inline-flex px-4 py-1.5 rounded-full text-sm font-semibold mb-6 ${index === 0 ? 'bg-orange-50 text-orange-600 dark:bg-orange-900/30 dark:text-orange-300' :
+                    <div className={`inline-flex px-4 py-1.5 rounded-full text-sm font-semibold mb-6 ${index === 0 ? 'bg-[var(--color-primary-50)] text-[var(--color-primary-600)] dark:bg-[#E07A5F]/15 dark:text-[var(--color-primary-300)]' :
                       index === 1 ? 'bg-green-50 text-green-600 dark:bg-green-900/30 dark:text-green-300' :
                         'bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-300'
                       }`}>
@@ -247,7 +247,7 @@ export default function HomePage() {
                     </p>
 
                     <div className="mt-8">
-                      <Button variant="ghost" className="group/btn text-lg px-0 hover:bg-transparent hover:text-orange-600 dark:hover:text-orange-400">
+                      <Button variant="ghost" className="group/btn text-lg px-0 hover:bg-transparent hover:text-[var(--color-primary-600)] dark:hover:text-[var(--color-primary-400)]">
                         Learn more
                         <span className="inline-block transition-transform group-hover/btn:translate-x-1">→</span>
                       </Button>
@@ -264,12 +264,12 @@ export default function HomePage() {
       <section className="section bg-white dark:bg-black overflow-hidden relative border-b border-neutral-100 dark:border-neutral-800" id="meal-plan">
         <div className="container-main relative z-10">
           <div className="text-center mb-16 lg:mb-24">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-50 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 text-sm font-semibold mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-primary-50)] dark:bg-[#E07A5F]/15 text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)] text-sm font-semibold mb-6">
               ✨ AI Meal Planning
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
               Plan your week in <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">seconds.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E07A5F] to-[#e8967d]">seconds.</span>
             </h2>
             <p className="text-xl text-[var(--color-neutral-600)] max-w-2xl mx-auto leading-relaxed">
               Let Flav AI generate the perfect meal plan based on your dietary needs, macros, and preferences. Or simply drag-and-drop your favorite saved recipes.
@@ -279,11 +279,11 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center max-w-6xl mx-auto">
             {/* Left Mockup: AI Generation */}
             <div className="flex justify-center md:justify-end relative group">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-orange-200 dark:bg-orange-900/40 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-[var(--color-primary-200)] dark:bg-[#E07A5F]/25 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <div className="relative z-10 transform group-hover:scale-[1.02] group-hover:-rotate-2 transition-all duration-500">
                 <IPhoneMockup
-                  src="/screenshots/meal-plan-generation.png"
-                  alt="AI Meal Plan Generation"
+                  src="/screenshots/meal-plan-generation.webp"
+                  alt="Flav AI generating a personalized weekly meal plan based on dietary preferences"
                   size="lg"
                 />
               </div>
@@ -291,11 +291,11 @@ export default function HomePage() {
 
             {/* Right Mockup: Calendar View */}
             <div className="flex justify-center md:justify-start relative group">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-amber-200 dark:bg-amber-900/40 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-[var(--color-primary-300)] dark:bg-[#E07A5F]/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <div className="relative z-10 transform group-hover:scale-[1.02] group-hover:rotate-2 transition-all duration-500 md:-mt-20">
                 <IPhoneMockup
-                  src="/screenshots/meal-plan-calendar.png"
-                  alt="Meal Plan Calendar"
+                  src="/screenshots/meal-plan-calendar.webp"
+                  alt="Flav weekly meal plan calendar view with scheduled breakfast, lunch, and dinner recipes"
                   size="lg"
                   showBackdrop
                 />
@@ -309,8 +309,8 @@ export default function HomePage() {
       <section className="section bg-neutral-900 text-white overflow-hidden relative" id="creators">
         {/* Background gradients */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-orange-600/20 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-amber-600/20 rounded-full blur-[120px]" />
+          <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-[#E07A5F]/20 rounded-full blur-[120px]" />
+          <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#e8967d]/20 rounded-full blur-[120px]" />
         </div>
 
         <div className="container-main relative z-10">
@@ -318,10 +318,10 @@ export default function HomePage() {
             {/* Left: Phone Mockup */}
             <div className="flex justify-center perspective-1000 order-2 md:order-1">
               <div className="relative transform hover:scale-[1.02] transition-transform duration-500">
-                <div className="absolute -inset-8 bg-gradient-to-tr from-orange-500/30 to-amber-500/20 rounded-[4rem] blur-3xl" />
+                <div className="absolute -inset-8 bg-gradient-to-tr from-[#E07A5F]/30 to-[#e8967d]/20 rounded-[4rem] blur-3xl" />
                 <div className="relative drop-shadow-2xl">
                   <IPhoneMockup
-                    src="/screenshots/import-recipe-v3.png"
+                    src="/screenshots/import-recipe-v3.webp"
                     alt="Import recipe from Instagram, TikTok, or Facebook"
                     size="lg"
                     priority={false}
@@ -332,14 +332,14 @@ export default function HomePage() {
 
             {/* Right: Content */}
             <div className="order-1 md:order-2">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-orange-300 text-sm font-semibold mb-6 border border-white/10 backdrop-blur-md">
-                <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse"></span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[var(--color-primary-300)] text-sm font-semibold mb-6 border border-white/10 backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-[var(--color-primary-500)] animate-pulse"></span>
                 For Creators
               </div>
 
               <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-white">
                 Turn your passion into <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">a career.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary-400)] to-[var(--color-primary-200)]">a career.</span>
               </h2>
 
               <p className="text-xl text-neutral-300 mb-10 leading-relaxed">
@@ -354,9 +354,9 @@ export default function HomePage() {
                 ] as { icon: LucideIcon; title: string; desc: string }[]).map((item, i) => {
                   const IconComponent = item.icon;
                   return (
-                    <li key={i} className="group flex gap-4 items-start p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-all border border-white/5 hover:border-orange-500/30">
+                    <li key={i} className="group flex gap-4 items-start p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-all border border-white/5 hover:border-[#E07A5F]/30">
                       <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-neutral-800 to-neutral-900 flex items-center justify-center border border-white/10 group-hover:scale-110 transition-transform shrink-0 shadow-lg">
-                        <IconComponent className="w-6 h-6 text-orange-400" />
+                        <IconComponent className="w-6 h-6 text-[var(--color-primary-400)]" />
                       </div>
                       <div>
                         <h4 className="font-bold text-lg mb-1 text-white">{item.title}</h4>
@@ -405,8 +405,8 @@ export default function HomePage() {
                   className="text-center group p-6 rounded-3xl hover:bg-white dark:hover:bg-neutral-800/50 transition-all duration-300 hover:shadow-xl hover:-translate-y-1"
                 >
                   <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-white dark:bg-neutral-800 shadow-lg mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300 relative">
-                    <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-amber-500/10 rounded-2xl" />
-                    <IconComponent className="w-10 h-10 text-orange-500 relative z-10" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#E07A5F]/10 to-[#e8967d]/10 rounded-2xl" />
+                    <IconComponent className="w-10 h-10 text-[var(--color-primary-500)] relative z-10" />
                   </div>
                   <div className="text-sm font-bold text-[var(--color-primary-500)] mb-2 uppercase tracking-wide">Step {item.step}</div>
                   <h3 className="text-xl font-bold mb-3">{item.title}</h3>
@@ -452,8 +452,8 @@ export default function HomePage() {
             <div className="hidden md:flex justify-center">
               <div className="relative w-96 h-80 rounded-3xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/advertiser-dashboard.png"
-                  alt="Flav advertiser analytics dashboard"
+                  src="/images/advertiser-dashboard.webp"
+                  alt="Flav advertiser analytics dashboard showing impressions, clicks, and campaign performance"
                   fill
                   className="object-cover"
                 />
@@ -482,12 +482,12 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="section bg-gradient-to-br from-orange-500 to-amber-500 text-white overflow-hidden py-32 md:py-40" id="download">
+      <section className="section bg-gradient-to-br from-[#E07A5F] to-[#e8967d] text-white overflow-hidden py-32 md:py-40" id="download">
         <div className="container-main relative z-10 text-center">
           <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
             Ready to cook?
           </h2>
-          <p className="text-xl md:text-2xl text-orange-50 mb-12 max-w-2xl mx-auto font-medium">
+          <p className="text-xl md:text-2xl text-[var(--color-primary-50)] mb-12 max-w-2xl mx-auto font-medium">
             Join millions of food lovers and start your journey today.
           </p>
           <div className="flex justify-center transform hover:scale-105 transition-transform duration-300">
@@ -561,7 +561,7 @@ export default function HomePage() {
                 "Personalized Recipe Discovery Feed",
                 "Ingredient Checklists and Portion Scaling"
               ],
-              "screenshot": "https://flav.app/screenshots/home-feed-v5.png",
+              "screenshot": "https://flav.app/screenshots/home-feed-v5.webp",
               "downloadUrl": "https://flav.app/download"
             },
             {

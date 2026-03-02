@@ -5,17 +5,17 @@
    ========================================================================== */
 
 :root {
-  /* Primary - Warm, appetizing amber */
-  --color-primary-50: #fef7ed;
-  --color-primary-100: #fdecd3;
-  --color-primary-200: #f9d5a5;
-  --color-primary-300: #f5b96d;
-  --color-primary-400: #f09332;
-  --color-primary-500: #eb7711;
-  --color-primary-600: #dc5c07;
-  --color-primary-700: #b64409;
-  --color-primary-800: #91350f;
-  --color-primary-900: #762e10;
+  /* Primary - Brand terra cotta #E07A5F */
+  --color-primary-50: #fdf3f0;
+  --color-primary-100: #fbe4dd;
+  --color-primary-200: #f6c6b9;
+  --color-primary-300: #efa28e;
+  --color-primary-400: #e88e76;
+  --color-primary-500: #E07A5F;
+  --color-primary-600: #c9614a;
+  --color-primary-700: #a84c39;
+  --color-primary-800: #8a3e30;
+  --color-primary-900: #72352b;
 
   /* Secondary - Fresh green */
   --color-secondary-50: #ecfdf5;
