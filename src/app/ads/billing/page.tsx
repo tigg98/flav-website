@@ -203,7 +203,7 @@ export default function BillingPage() {
                                     setError("");
                                 }}
                                 className={`py-4 px-4 rounded-xl border-2 font-semibold transition-all ${selectedAmount === amount
-                                    ? "border-orange-500 bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-400"
+                                    ? "border-[var(--color-primary-500)] bg-[var(--color-primary-50)] dark:bg-[#E07A5F]/10 text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)]"
                                     : "border-neutral-200 dark:border-neutral-800 text-foreground hover:border-neutral-300 dark:hover:border-neutral-700"
                                     }`}
                             >

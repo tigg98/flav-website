@@ -108,9 +108,9 @@ export default function SupportPage() {
             {/* Hero with Search */}
             <section className="relative overflow-hidden py-16 md:py-24">
                 {/* Background gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-100 via-orange-50 to-white dark:from-neutral-900 dark:via-neutral-900 dark:to-neutral-800" />
-                <div className="absolute top-10 right-20 w-[400px] h-[400px] bg-orange-200/50 dark:bg-orange-500/10 rounded-full blur-[100px] pointer-events-none" />
-                <div className="absolute bottom-0 left-10 w-[300px] h-[300px] bg-orange-100/60 dark:bg-orange-500/5 rounded-full blur-[80px] pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-100)] via-[var(--color-primary-50)] to-white dark:from-neutral-900 dark:via-neutral-900 dark:to-neutral-800" />
+                <div className="absolute top-10 right-20 w-[400px] h-[400px] bg-[var(--color-primary-200)]/50 dark:bg-[#E07A5F]/10 rounded-full blur-[100px] pointer-events-none" />
+                <div className="absolute bottom-0 left-10 w-[300px] h-[300px] bg-[var(--color-primary-100)]/60 dark:bg-[#E07A5F]/5 rounded-full blur-[80px] pointer-events-none" />
 
                 <div className="container-main relative z-10">
                     <div className="max-w-3xl mx-auto text-center">

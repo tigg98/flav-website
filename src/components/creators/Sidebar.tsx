@@ -22,7 +22,7 @@ export function Sidebar() {
             {/* Logo Area */}
             <div className="flex h-16 items-center px-6">
                 <Link href="/" className="flex items-center gap-2 font-bold text-xl tracking-tighter hover:opacity-80 transition-opacity">
-                    <span className="text-orange-600 dark:text-orange-500">Flav</span>
+                    <span className="text-[var(--color-primary-600)] dark:text-[var(--color-primary-500)]">Flav</span>
                     <span className="text-neutral-500 dark:text-neutral-400 font-normal text-sm border-l border-neutral-300 dark:border-neutral-700 pl-2 ml-2">Studio</span>
                 </Link>
             </div>
@@ -38,14 +38,14 @@ export function Sidebar() {
                             className={cn(
                                 "group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200",
                                 isActive
-                                    ? "bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-500"
+                                    ? "bg-[var(--color-primary-50)] dark:bg-[#E07A5F]/10 text-[var(--color-primary-600)] dark:text-[var(--color-primary-500)]"
                                     : "text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-black dark:hover:text-white"
                             )}
                         >
                             <item.icon
                                 className={cn(
                                     "h-5 w-5 flex-shrink-0 transition-colors",
-                                    isActive ? "text-orange-600 dark:text-orange-500" : "text-neutral-500 group-hover:text-black dark:group-hover:text-white"
+                                    isActive ? "text-[var(--color-primary-600)] dark:text-[var(--color-primary-500)]" : "text-neutral-500 group-hover:text-black dark:group-hover:text-white"
                                 )}
                             />
                             {item.name}
@@ -60,7 +60,7 @@ export function Sidebar() {
                     <button className="flex-1 group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 hover:text-black dark:hover:text-white transition-all text-left">
                         <div className="h-8 w-8 rounded-full bg-neutral-200 dark:bg-neutral-800 overflow-hidden border border-neutral-300 dark:border-neutral-700">
                             {/* Placeholder Avatar */}
-                            <div className="w-full h-full bg-gradient-to-tr from-orange-400 to-rose-400" />
+                            <div className="w-full h-full bg-gradient-to-tr from-[var(--color-primary-400)] to-rose-400" />
                         </div>
                         <div className="flex flex-col items-start text-xs">
                             <span className="font-semibold text-neutral-900 dark:text-white">Chef Ty</span>

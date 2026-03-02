@@ -48,8 +48,8 @@ export function CampaignStatusToggle({ campaignId, currentStatus }: CampaignStat
             onClick={toggleStatus}
             disabled={isUpdating}
             className={`px-2 py-1 text-xs font-medium rounded transition-colors ${status === "active"
-                    ? "bg-orange-100 dark:bg-orange-500/20 text-orange-600 dark:text-orange-400 hover:bg-orange-200 dark:hover:bg-orange-500/30"
-                    : "bg-green-100 dark:bg-green-500/20 text-green-600 dark:text-green-400 hover:bg-green-200 dark:hover:bg-green-500/30"
+                ? "bg-[var(--color-primary-100)] dark:bg-[#E07A5F]/20 text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)] hover:bg-[var(--color-primary-200)] dark:hover:bg-[#E07A5F]/30"
+                : "bg-green-100 dark:bg-green-500/20 text-green-600 dark:text-green-400 hover:bg-green-200 dark:hover:bg-green-500/30"
                 } ${isUpdating ? "opacity-50 cursor-not-allowed" : ""}`}
         >
             {isUpdating ? "..." : status === "active" ? "Pause" : "Activate"}

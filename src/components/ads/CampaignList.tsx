@@ -17,7 +17,7 @@ interface Campaign {
 const statusColors: Record<string, string> = {
     draft: 'bg-gray-100 text-gray-700',
     active: 'bg-green-100 text-green-700',
-    paused: 'bg-orange-100 text-orange-700',
+    paused: 'bg-[var(--color-primary-100)] text-[var(--color-primary-700)]',
     completed: 'bg-blue-100 text-blue-700',
 }
 

@@ -25,7 +25,7 @@ export default function EarningsPage() {
             {/* Hero Stats */}
             <div className="grid md:grid-cols-3 gap-6">
                 <div className="p-6 rounded-2xl bg-white dark:bg-gradient-to-br dark:from-neutral-900 dark:to-neutral-800 border border-neutral-200 dark:border-neutral-800 shadow-xl dark:shadow-none relative overflow-hidden group transition-colors">
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 dark:bg-orange-500/10 rounded-full blur-3xl group-hover:bg-orange-500/10 dark:group-hover:bg-orange-500/20 transition-all duration-500" />
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#E07A5F]/5 dark:bg-[#E07A5F]/10 rounded-full blur-3xl group-hover:bg-[#E07A5F]/10 dark:group-hover:bg-[#E07A5F]/20 transition-all duration-500" />
                     <div className="relative">
                         <div className="text-neutral-500 dark:text-neutral-400 font-medium mb-1 flex items-center gap-2">
                             <Wallet className="w-4 h-4" /> Available Balance
@@ -81,7 +81,7 @@ export default function EarningsPage() {
                                             <span className="font-bold text-neutral-900 dark:text-white">{item.value}</span>
                                         </div>
                                         <div className="h-2 w-full bg-neutral-100 dark:bg-neutral-800 rounded-full overflow-hidden">
-                                            <div className="h-full bg-orange-500" style={{ width: item.percent }} />
+                                            <div className="h-full bg-[var(--color-primary-500)]" style={{ width: item.percent }} />
                                         </div>
                                     </div>
                                 ))}
@@ -132,7 +132,7 @@ export default function EarningsPage() {
                         </button>
                     </div>
 
-                    <div className="p-6 rounded-2xl bg-gradient-to-br from-orange-500 to-rose-600 text-white shadow-lg">
+                    <div className="p-6 rounded-2xl bg-gradient-to-br from-[#E07A5F] to-rose-600 text-white shadow-lg">
                         <h2 className="text-xl font-bold mb-2">Flav Pro</h2>
                         <p className="text-white/90 text-sm mb-4">
                             You're saving 0% in platform fees because you are a Pro member.

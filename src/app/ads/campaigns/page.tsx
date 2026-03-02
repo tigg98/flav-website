@@ -11,7 +11,7 @@ const statusColors: Record<string, string> = {
     submitted: "bg-yellow-100 dark:bg-yellow-500/20 text-yellow-700 dark:text-yellow-400",
     approved: "bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-400",
     active: "bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400",
-    paused: "bg-orange-100 dark:bg-orange-500/20 text-orange-700 dark:text-orange-400",
+    paused: "bg-[var(--color-primary-100)] dark:bg-[#E07A5F]/20 text-[var(--color-primary-700)] dark:text-[var(--color-primary-400)]",
     ended: "bg-neutral-100 dark:bg-neutral-800 text-neutral-500 dark:text-neutral-400",
 };
 

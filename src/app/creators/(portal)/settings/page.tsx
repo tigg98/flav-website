@@ -23,7 +23,7 @@ export default function SettingsPage() {
                         <div className="flex-shrink-0 relative group cursor-pointer">
                             <div className="w-24 h-24 rounded-full bg-neutral-100 dark:bg-neutral-800 overflow-hidden border-2 border-dashed border-neutral-300 dark:border-neutral-700 flex items-center justify-center relative">
                                 {/* Placeholder for no image, or actual image */}
-                                <div className="absolute inset-0 bg-gradient-to-tr from-orange-400 to-rose-400 opacity-100" />
+                                <div className="absolute inset-0 bg-gradient-to-tr from-[var(--color-primary-400)] to-rose-400 opacity-100" />
                                 <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                                     <Camera className="w-8 h-8 text-white" />
                                 </div>
@@ -38,7 +38,7 @@ export default function SettingsPage() {
                                     <input
                                         type="text"
                                         defaultValue="Chef Ty"
-                                        className="w-full px-4 py-2 rounded-xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 focus:outline-none focus:ring-2 focus:ring-orange-500 text-neutral-900 dark:text-white"
+                                        className="w-full px-4 py-2 rounded-xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-500)] text-neutral-900 dark:text-white"
                                     />
                                 </div>
                                 <div className="space-y-2">
@@ -48,7 +48,7 @@ export default function SettingsPage() {
                                         <input
                                             type="text"
                                             defaultValue="chefty"
-                                            className="w-full pl-8 pr-4 py-2 rounded-xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 focus:outline-none focus:ring-2 focus:ring-orange-500 text-neutral-900 dark:text-white"
+                                            className="w-full pl-8 pr-4 py-2 rounded-xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-500)] text-neutral-900 dark:text-white"
                                         />
                                     </div>
                                 </div>
@@ -59,7 +59,7 @@ export default function SettingsPage() {
                                 <textarea
                                     rows={3}
                                     defaultValue="Professional chef creating easy weeknight recipes. Love spicy food and ramen! 🍜"
-                                    className="w-full px-4 py-2 rounded-xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 focus:outline-none focus:ring-2 focus:ring-orange-500 text-neutral-900 dark:text-white resize-none"
+                                    className="w-full px-4 py-2 rounded-xl bg-neutral-50 dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary-500)] text-neutral-900 dark:text-white resize-none"
                                 />
                                 <div className="text-xs text-neutral-400 text-right">84 / 150</div>
                             </div>
@@ -82,7 +82,7 @@ export default function SettingsPage() {
                     <div className="space-y-4">
                         <div className="flex items-center justify-between p-4 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-700">
                             <div className="flex items-center gap-4">
-                                <div className="p-2 bg-orange-100 dark:bg-orange-500/10 text-orange-600 dark:text-orange-500 rounded-lg">
+                                <div className="p-2 bg-[var(--color-primary-100)] dark:bg-[#E07A5F]/10 text-[var(--color-primary-600)] dark:text-[var(--color-primary-500)] rounded-lg">
                                     <Mail className="w-5 h-5" />
                                 </div>
                                 <div>
@@ -90,7 +90,7 @@ export default function SettingsPage() {
                                     <div className="text-sm text-neutral-500">tiger@flav.app</div>
                                 </div>
                             </div>
-                            <button className="text-sm font-medium text-orange-600 dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400">Update</button>
+                            <button className="text-sm font-medium text-[var(--color-primary-600)] dark:text-[var(--color-primary-500)] hover:text-[var(--color-primary-700)] dark:hover:text-[var(--color-primary-400)]">Update</button>
                         </div>
 
                         <div className="flex items-center justify-between p-4 rounded-xl bg-neutral-50 dark:bg-neutral-800/50 border border-neutral-200 dark:border-neutral-700">
@@ -126,7 +126,7 @@ export default function SettingsPage() {
                                 </div>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" className="sr-only peer" defaultChecked={pref.default} />
-                                    <div className="w-11 h-6 bg-neutral-200 peer-focus:outline-none rounded-full peer dark:bg-neutral-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-orange-500"></div>
+                                    <div className="w-11 h-6 bg-neutral-200 peer-focus:outline-none rounded-full peer dark:bg-neutral-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[var(--color-primary-500)]"></div>
                                 </label>
                             </div>
                         ))}

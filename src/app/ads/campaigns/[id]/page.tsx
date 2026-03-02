@@ -35,7 +35,7 @@ const statusOptions = ["draft", "active", "paused", "completed"];
 const statusColors: Record<string, string> = {
     draft: "bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400",
     active: "bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-400",
-    paused: "bg-orange-100 dark:bg-orange-500/20 text-orange-700 dark:text-orange-400",
+    paused: "bg-[var(--color-primary-100)] dark:bg-[#E07A5F]/20 text-[var(--color-primary-700)] dark:text-[var(--color-primary-400)]",
     completed: "bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-400",
 };
 

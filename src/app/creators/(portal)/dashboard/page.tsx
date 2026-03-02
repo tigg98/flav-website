@@ -17,9 +17,9 @@ export default function DashboardPage() {
                     { label: "Recipes", value: "48", change: "+2", icon: Video },
                     { label: "Earnings", value: "$1,240", change: "+18%", icon: DollarSign, highlight: true },
                 ].map((stat, i) => (
-                    <div key={i} className="p-5 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:border-orange-500 dark:hover:border-neutral-700 transition-colors">
+                    <div key={i} className="p-5 rounded-2xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 hover:border-[var(--color-primary-500)] dark:hover:border-neutral-700 transition-colors">
                         <div className="flex items-center justify-between mb-4">
-                            <div className={`p-2 rounded-lg ${stat.highlight ? 'bg-orange-50 dark:bg-orange-500/10 text-orange-600 dark:text-orange-500' : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400'}`}>
+                            <div className={`p-2 rounded-lg ${stat.highlight ? 'bg-[var(--color-primary-50)] dark:bg-[#E07A5F]/10 text-[var(--color-primary-600)] dark:text-[var(--color-primary-500)]' : 'bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400'}`}>
                                 <stat.icon className="w-5 h-5" />
                             </div>
                             <span className="text-xs font-medium text-emerald-600 dark:text-emerald-500 flex items-center gap-1 bg-emerald-100 dark:bg-emerald-500/10 px-2 py-1 rounded-full">
@@ -37,7 +37,7 @@ export default function DashboardPage() {
                 <div className="lg:col-span-2 space-y-4">
                     <div className="flex items-center justify-between">
                         <h2 className="text-xl font-bold text-neutral-900 dark:text-white">Recent Uploads</h2>
-                        <button className="text-sm text-orange-600 dark:text-orange-500 hover:text-orange-700 dark:hover:text-orange-400 font-medium">View All</button>
+                        <button className="text-sm text-[var(--color-primary-600)] dark:text-[var(--color-primary-500)] hover:text-[var(--color-primary-700)] dark:hover:text-[var(--color-primary-400)] font-medium">View All</button>
                     </div>
 
                     <div className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl overflow-hidden">

@@ -16,7 +16,7 @@ export default function CreatorDashboardLayout({
             <main className="flex-1 overflow-y-auto relative">
                 {/* Mobile Header (placeholder) */}
                 <div className="md:hidden flex items-center justify-between p-4 border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 transition-colors">
-                    <span className="font-bold text-orange-600 dark:text-orange-500">Flav Studio</span>
+                    <span className="font-bold text-[var(--color-primary-600)] dark:text-[var(--color-primary-500)]">Flav Studio</span>
                     {/* Mobile menu trigger would go here */}
                 </div>
 

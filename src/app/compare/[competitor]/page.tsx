@@ -39,9 +39,9 @@ export default function ComparePage({ params }: Props) {
         <div className="min-h-screen bg-neutral-50 dark:bg-neutral-950 pb-20">
             {/* Hero Section */}
             <section className="pt-32 pb-16 px-6 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-orange-500/5 to-amber-500/5" />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#E07A5F]/5 to-[#e8967d]/5" />
                 <div className="max-w-4xl mx-auto relative z-10 text-center">
-                    <Link href="/" className="inline-flex items-center text-sm font-medium text-orange-600 dark:text-orange-400 mb-8 hover:underline">
+                    <Link href="/" className="inline-flex items-center text-sm font-medium text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)] mb-8 hover:underline">
                         ← Back to Flav
                     </Link>
                     <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
@@ -93,12 +93,12 @@ export default function ComparePage({ params }: Props) {
                         </div>
 
                         {/* Flav Card */}
-                        <div className="bg-gradient-to-br from-orange-500 to-amber-500 rounded-[2.5rem] p-8 text-white shadow-2xl relative overflow-hidden transform md:-translate-y-4">
+                        <div className="bg-gradient-to-br from-[#E07A5F] to-[#e8967d] rounded-[2.5rem] p-8 text-white shadow-2xl relative overflow-hidden transform md:-translate-y-4">
                             {/* Decorative background */}
                             <div className="absolute top-[-20%] right-[-10%] w-64 h-64 bg-white/10 rounded-full blur-3xl pointer-events-none" />
 
                             <h2 className="text-3xl font-bold mb-2">Flav</h2>
-                            <p className="text-orange-100 mb-6 font-medium">The modern alternative</p>
+                            <p className="text-[var(--color-primary-50)] mb-6 font-medium">The modern alternative</p>
 
                             <ul className="space-y-5">
                                 {data.flavAdvantages.map((adv, i) => (

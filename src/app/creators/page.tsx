@@ -256,7 +256,7 @@ export default function CreatorsPage() {
                             return (
                                 <div key={index} className="text-center">
                                     <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white shadow-lg mb-4">
-                                        <IconComponent className="w-8 h-8 text-orange-500" />
+                                        <IconComponent className="w-8 h-8 text-[var(--color-primary-500)]" />
                                     </div>
                                     <div className="text-sm font-bold text-[var(--color-primary-500)] mb-2">{item.step}</div>
                                     <h3 className="text-lg font-bold mb-1">{item.title}</h3>

@@ -17,7 +17,7 @@ export function ThemeToggle({ className }: { className?: string }) {
             )}
             aria-label="Toggle theme"
         >
-            <Sun className="h-5 w-5 scale-100 transition-all dark:scale-0 dark:absolute text-orange-500" />
+            <Sun className="h-5 w-5 scale-100 transition-all dark:scale-0 dark:absolute text-[var(--color-primary-500)]" />
             <Moon className="h-5 w-5 scale-0 transition-all dark:scale-100 absolute dark:static text-neutral-400" />
             <span className="sr-only">Toggle theme</span>
         </button>

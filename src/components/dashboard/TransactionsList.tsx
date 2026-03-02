@@ -20,7 +20,7 @@ export function TransactionsList() {
                     <div key={tx.id} className="flex items-center justify-between p-4 border-b border-neutral-200 dark:border-neutral-800 last:border-0 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors">
                         <div className="flex items-center gap-4">
                             <div className={`w-10 h-10 rounded-full flex items-center justify-center ${tx.type === 'payout' ? 'bg-emerald-100 text-emerald-600 dark:bg-emerald-500/10 dark:text-emerald-500' :
-                                    tx.status === 'pending' ? 'bg-amber-100 text-amber-600 dark:bg-amber-500/10 dark:text-amber-500' : 'bg-orange-100 text-orange-600 dark:bg-orange-500/10 dark:text-orange-500'
+                                tx.status === 'pending' ? 'bg-[var(--color-primary-100)] text-[var(--color-primary-600)] dark:bg-[#E07A5F]/10 dark:text-[var(--color-primary-500)]' : 'bg-[var(--color-primary-100)] text-[var(--color-primary-600)] dark:bg-[#E07A5F]/10 dark:text-[var(--color-primary-500)]'
                                 }`}>
                                 {tx.type === 'payout' ? <ArrowUpRight className="w-5 h-5" /> :
                                     tx.status === 'pending' ? <Clock className="w-5 h-5" /> : <ArrowDownLeft className="w-5 h-5" />}
