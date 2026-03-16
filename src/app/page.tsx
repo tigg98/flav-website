@@ -121,14 +121,6 @@ export default function HomePage() {
                 Turn viral videos into tonight's dinner. Import recipes from TikTok & Instagram instantly, and cook with your AI sous-chef.
               </p>
 
-              <div className="mb-4 flex items-center justify-center lg:justify-start gap-3 text-sm font-medium text-neutral-600 dark:text-neutral-400">
-                <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-[var(--color-primary-100)] dark:bg-[var(--color-primary-900)] border-2 border-white dark:border-neutral-950 flex items-center justify-center text-xs">👩‍🍳</div>
-                  <div className="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900 border-2 border-white dark:border-neutral-950 flex items-center justify-center text-xs">👨‍🍳</div>
-                  <div className="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900 border-2 border-white dark:border-neutral-950 flex items-center justify-center text-xs">🧑‍🍳</div>
-                </div>
-                <p>Join <strong className="text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)]">15,420+</strong> food lovers on the waitlist</p>
-              </div>
 
               <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-12">
                 <WaitlistForm />
