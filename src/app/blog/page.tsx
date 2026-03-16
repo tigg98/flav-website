@@ -1,41 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
+import { blogPosts } from "./blog-data";
 
 export const metadata: Metadata = {
     title: "Blog",
     description: "Tips, recipes, and insights for food creators. Learn how to grow your audience and monetize your cooking content.",
 };
-
-const blogPosts = [
-    {
-        slug: "best-high-protein-meal-prep-recipes-2026",
-        title: "Best High-Protein Meal Prep Recipes for 2026",
-        excerpt: "Looking to build muscle or just stay full longer? Here are our top picks for high-protein meal prep that tastes amazing and saves you time.",
-        category: "Recipes",
-        date: "January 5, 2026",
-        readTime: "5 min read",
-        image: "🥗",
-    },
-    {
-        slug: "how-to-monetize-recipes-food-creator",
-        title: "How to Monetize Your Recipes as a Food Creator",
-        excerpt: "From tips to premium content to brand deals, here's everything you need to know about turning your cooking passion into income.",
-        category: "Creator Tips",
-        date: "January 2, 2026",
-        readTime: "8 min read",
-        image: "💰",
-    },
-    {
-        slug: "grow-as-food-creator-2026",
-        title: "10 Tips to Grow as a Food Creator in 2026",
-        excerpt: "The creator economy is booming. Here are proven strategies to stand out, build your audience, and create content that converts.",
-        category: "Growth",
-        date: "December 28, 2025",
-        readTime: "7 min read",
-        image: "🚀",
-    },
-];
 
 export default function BlogPage() {
     return (

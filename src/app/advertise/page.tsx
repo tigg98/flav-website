@@ -286,12 +286,12 @@ export default function AdvertisePage() {
 
                     <div className="mt-12 grid sm:grid-cols-3 gap-6 text-center max-w-3xl mx-auto">
                         <div>
-                            <p className="text-4xl font-bold text-[var(--color-primary-400)]">85%</p>
-                            <p className="text-sm text-[var(--color-neutral-400)]">of saves convert to cooking</p>
+                            <p className="text-4xl font-bold text-[var(--color-primary-400)]">4+</p>
+                            <p className="text-sm text-[var(--color-neutral-400)]">targeting categories</p>
                         </div>
                         <div>
-                            <p className="text-4xl font-bold text-[var(--color-primary-400)]">10M+</p>
-                            <p className="text-sm text-[var(--color-neutral-400)]">monthly active users</p>
+                            <p className="text-4xl font-bold text-[var(--color-primary-400)]">100%</p>
+                            <p className="text-sm text-[var(--color-neutral-400)]">food-focused audience</p>
                         </div>
                         <div>
                             <p className="text-4xl font-bold text-[var(--color-primary-400)]">100%</p>

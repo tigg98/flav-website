@@ -8,7 +8,6 @@ Flav is the first cooking app purpose-built for the short-form video era. It all
 
 ## Key Statistics
 
-- 4.9-star average rating across 15,420+ user reviews
 - Creators retain 90–97% of earnings (compared to ~50% on competing platforms)
 - AI recipe import converts social media videos into structured recipes in under 10 seconds
 - Available on iOS and Android with a free tier and optional Pro subscription

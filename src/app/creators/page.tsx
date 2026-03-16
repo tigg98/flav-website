@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
+import { CreatorWaitlistForm } from "@/components/ui/CreatorWaitlistForm";
+import { WaitlistForm } from "@/components/ui/WaitlistForm";
 import { Badge } from "@/components/ui/Badge";
 import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
 import {
@@ -77,7 +77,7 @@ export default function CreatorsPage() {
                             </p>
 
                             <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-8">
-                                <AppStoreButtons size="lg" utmSource="creators_hero" />
+                                <CreatorWaitlistForm />
                             </div>
 
                             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-[var(--color-neutral-500)]">
@@ -227,7 +227,7 @@ export default function CreatorsPage() {
                                     </li>
                                 ))}
                             </ul>
-                            <AppStoreButtons utmSource="creators_create" />
+                            <WaitlistForm />
                         </div>
                     </div>
                 </div>
@@ -335,13 +335,13 @@ export default function CreatorsPage() {
                                 Start your creator journey today
                             </h2>
                             <p className="text-lg text-white/80 mb-8 max-w-xl">
-                                Download Flav and join thousands of creators earning from their recipes.
+                                Join the waitlist and be first to access creator tools when we launch.
                             </p>
-                            <AppStoreButtons size="lg" utmSource="creators_cta" />
+                            <CreatorWaitlistForm />
                             <p className="mt-6 text-white/60 text-sm">
-                                Already a creator?{" "}
+                                Want to learn about plans?{" "}
                                 <Link href="/verified" className="underline hover:text-white">
-                                    Upgrade to Verified →
+                                    View Verified & Pro →
                                 </Link>
                             </p>
                         </div>

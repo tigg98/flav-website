@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { WaitlistForm } from "@/components/ui/WaitlistForm";
+import { StickyMobileCTA } from "@/components/ui/StickyMobileCTA";
 import { ImportDemo } from "@/components/marketing/ImportDemo";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { Badge } from "@/components/ui/Badge";
@@ -62,7 +62,7 @@ const faqItems = [
   {
     question: "What is Flav?",
     answer:
-      "Flav is a short-form video app and recipe manager that combines swipeable cooking videos with practical AI tools. It is the #1 app for food lovers, rated 4.9 stars across 15,420+ reviews. Unlike general-purpose social platforms, Flav features a structured cooking mode with built-in timers, ingredient checklists, and an AI cooking assistant. The average Flav user discovers 12 new recipes per week — 3x more than on traditional social media.",
+      "Flav is a short-form video app and recipe manager that combines swipeable cooking videos with practical AI tools. Unlike general-purpose social platforms, Flav features a structured cooking mode with built-in timers, ingredient checklists, and an AI cooking assistant — purpose-built for food content.",
   },
   {
     question: "How does the cooking mode work?",
@@ -83,6 +83,21 @@ const faqItems = [
     question: "How do creators earn money on Flav?",
     answer:
       "Food creators on Flav earn money through three primary revenue channels: direct viewer tips, premium locked recipes, and brand partnerships. Flav uses a creator-first payout structure, giving creators 90–97% of revenue — significantly higher than the estimated 50% industry average on competing platforms. Monetization can be enabled after reaching 100 followers, with weekly automatic payouts via direct deposit or PayPal.",
+  },
+  {
+    question: "When does Flav launch?",
+    answer:
+      "Flav is launching soon. Join the waitlist to get early access before the public launch. Waitlist members who refer friends get priority access and can unlock rewards like a creator badge and free premium features.",
+  },
+  {
+    question: "How is Flav different from saving recipes on TikTok?",
+    answer:
+      "TikTok is for watching. Flav is for cooking. We turn any video into a structured recipe with ingredients, steps, timers, and nutrition info — then help you actually cook it with a hands-free cooking mode. No more pausing videos or writing things down.",
+  },
+  {
+    question: "Do I need followers to join as a creator?",
+    answer:
+      "Nope. Anyone can create and share recipes on Flav. Monetization features unlock at 100 followers — which most active creators reach within their first month on the platform.",
   },
 ];
 
@@ -107,37 +122,36 @@ export default function HomePage() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-primary-400)] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-primary-500)]"></span>
                 </span>
-                The #1 Food App for 2026
+                Launching Soon — Join the Waitlist
               </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight">
-                Stop Scrolling. <br className="hidden lg:block" />
+                Import Any Recipe <br className="hidden lg:block" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E07A5F] to-[#e8967d]">
-                  Start Cooking.
+                  in 10 Seconds.
                 </span>
               </h1>
 
               <p className="text-xl text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed">
-                Turn viral videos into tonight's dinner. Import recipes from TikTok & Instagram instantly, and cook with your AI sous-chef.
+                Paste a TikTok or Instagram link. Get a full recipe — ingredients, steps, nutrition, and timers. Then cook it hands-free with Flav's AI cooking mode.
               </p>
 
-
-              <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-12">
+              <div id="waitlist" className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-8 scroll-mt-24">
                 <WaitlistForm />
               </div>
 
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 text-sm font-medium text-neutral-500 dark:text-neutral-400">
                 <div className="flex items-center gap-2">
                   <div className="w-5 h-5 rounded-full bg-green-100 dark:bg-green-500/20 text-green-600 dark:text-green-400 flex items-center justify-center text-xs">✓</div>
-                  <span>Free to join</span>
+                  <span>Free forever</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-5 h-5 rounded-full bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs">✓</div>
-                  <span>AI Powered</span>
+                  <span>No credit card required</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <div className="w-5 h-5 rounded-full bg-purple-100 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xs">✓</div>
-                  <span>Creator Economy</span>
+                  <span>iOS & Android</span>
                 </div>
               </div>
             </div>
@@ -170,6 +184,71 @@ export default function HomePage() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Social Proof / Trust Bar */}
+      <section className="py-8 border-y border-neutral-100 dark:border-neutral-800 bg-white dark:bg-neutral-950">
+        <div className="container-main">
+          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 text-neutral-400 dark:text-neutral-500">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-1 text-[var(--color-primary-500)]">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+              </div>
+              <span className="text-sm font-medium text-neutral-600 dark:text-neutral-400">Loved by beta testers</span>
+            </div>
+            <div className="h-4 w-px bg-neutral-200 dark:bg-neutral-700 hidden sm:block" />
+            <span className="text-sm font-medium">90-97% creator payouts</span>
+            <div className="h-4 w-px bg-neutral-200 dark:bg-neutral-700 hidden sm:block" />
+            <span className="text-sm font-medium">AI-powered recipe import</span>
+            <div className="h-4 w-px bg-neutral-200 dark:bg-neutral-700 hidden sm:block" />
+            <span className="text-sm font-medium">iOS & Android</span>
+          </div>
+        </div>
+      </section>
+
+      {/* Problem Section */}
+      <section className="py-20 md:py-28 bg-white dark:bg-neutral-950">
+        <div className="container-main">
+          <div className="text-center mb-16">
+            <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary-500)] mb-4">The Problem</p>
+            <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
+              Your favorite recipes are <br className="hidden md:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E07A5F] to-[#e8967d]">trapped in your feed</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            <div className="text-center p-8 rounded-3xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800">
+              <div className="text-4xl mb-5">📱</div>
+              <h3 className="text-xl font-bold mb-3">Lost in the Scroll</h3>
+              <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                You saved that amazing pasta recipe on TikTok. Good luck finding it in 3,000 saved videos.
+              </p>
+            </div>
+            <div className="text-center p-8 rounded-3xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800">
+              <div className="text-4xl mb-5">📝</div>
+              <h3 className="text-xl font-bold mb-3">Manual Ingredient Lists</h3>
+              <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                Pausing a video 47 times to write down ingredients is not a grocery list.
+              </p>
+            </div>
+            <div className="text-center p-8 rounded-3xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800">
+              <div className="text-4xl mb-5">🍳</div>
+              <h3 className="text-xl font-bold mb-3">No Way to Actually Cook</h3>
+              <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                Social media shows you what to cook. It never helps you actually cook it.
+              </p>
+            </div>
+          </div>
+
+          <p className="text-center mt-12 text-lg font-medium text-neutral-500 dark:text-neutral-400">
+            Flav fixes all three. Here&apos;s how &darr;
+          </p>
         </div>
       </section>
 
@@ -310,15 +389,16 @@ export default function HomePage() {
         </div>
 
         <div className="container-main relative z-10">
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Top: Content + Phone side by side */}
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center mb-16 lg:mb-24">
             {/* Left: Phone Mockup */}
             <div className="flex justify-center perspective-1000 order-2 md:order-1">
               <div className="relative transform hover:scale-[1.02] transition-transform duration-500">
                 <div className="absolute -inset-8 bg-gradient-to-tr from-[#E07A5F]/30 to-[#e8967d]/20 rounded-[4rem] blur-3xl" />
                 <div className="relative drop-shadow-2xl">
                   <IPhoneMockup
-                    src="/screenshots/import-recipe-v3.webp"
-                    alt="Import recipe from Instagram, TikTok, or Facebook"
+                    src="/screenshots/earnings-v3.webp"
+                    alt="Flav creator earnings dashboard showing revenue analytics"
                     size="lg"
                     priority={false}
                   />
@@ -334,19 +414,19 @@ export default function HomePage() {
               </div>
 
               <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-white">
-                Turn your passion into <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary-400)] to-[var(--color-primary-200)]">a career.</span>
+                The only platform where food creators{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary-400)] to-[var(--color-primary-200)]">keep 93%.</span>
               </h2>
 
               <p className="text-xl text-neutral-300 mb-10 leading-relaxed">
-                Flav isn't just for sharing—it's for earning. Build your brand with professional tools designed for food creators.
+                Instagram pays you nothing. TikTok&apos;s Creator Fund pays pennies. Flav was built to make food creators real money — from day one.
               </p>
 
               <ul className="space-y-5 mb-10">
                 {([
-                  { icon: DollarSign, title: "Monetize Directly", desc: "Earn from tips and premium recipe subscriptions." },
-                  { icon: Sparkles, title: "AI-Powered Creation", desc: "Turn a video into a structured recipe in seconds." },
-                  { icon: BarChart3, title: "Detailed Analytics", desc: "Understand your audience with pro-level insights." },
+                  { icon: DollarSign, title: "Tips & Premium Recipes", desc: "Fans pay you directly. You keep 90-97%. No middleman." },
+                  { icon: Sparkles, title: "Built-in Audience Growth", desc: "Flav's food-first algorithm reaches people who actually cook your recipes." },
+                  { icon: BarChart3, title: "Brand Partnerships", desc: "Get matched with food brands for sponsored content. Set your own rates." },
                 ] as { icon: LucideIcon; title: string; desc: string }[]).map((item, i) => {
                   const IconComponent = item.icon;
                   return (
@@ -364,17 +444,65 @@ export default function HomePage() {
               </ul>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/signup">
+                <Link href="/creators">
                   <Button size="lg" className="bg-white text-neutral-900 hover:bg-neutral-200 border-none w-full sm:w-auto shadow-lg shadow-white/5">
-                    Join as Creator
+                    Apply as Creator
                   </Button>
                 </Link>
-                <Link href="/creators">
+                <Link href="/verified">
                   <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 w-full sm:w-auto">
-                    View Creator Tools
+                    View Plans
                   </Button>
                 </Link>
               </div>
+            </div>
+          </div>
+
+          {/* Bottom: Platform Comparison Table */}
+          <div className="max-w-4xl mx-auto">
+            <h3 className="text-2xl font-bold text-center mb-8 text-white">How Flav compares</h3>
+            <div className="overflow-x-auto rounded-2xl border border-white/10">
+              <table className="w-full text-left">
+                <thead>
+                  <tr className="border-b border-white/10">
+                    <th className="p-4 text-sm font-semibold text-neutral-400"></th>
+                    <th className="p-4 text-sm font-semibold text-neutral-400">Instagram</th>
+                    <th className="p-4 text-sm font-semibold text-neutral-400">TikTok</th>
+                    <th className="p-4 text-sm font-semibold text-neutral-400">YouTube</th>
+                    <th className="p-4 text-sm font-semibold text-[var(--color-primary-400)]">Flav</th>
+                  </tr>
+                </thead>
+                <tbody className="text-sm">
+                  <tr className="border-b border-white/5">
+                    <td className="p-4 font-medium text-neutral-300">Creator payout</td>
+                    <td className="p-4 text-neutral-500">0%</td>
+                    <td className="p-4 text-neutral-500">~2-4%</td>
+                    <td className="p-4 text-neutral-500">~45%</td>
+                    <td className="p-4 font-bold text-[var(--color-primary-400)]">90-97%</td>
+                  </tr>
+                  <tr className="border-b border-white/5">
+                    <td className="p-4 font-medium text-neutral-300">Food-specific algorithm</td>
+                    <td className="p-4 text-neutral-500">&#x2717;</td>
+                    <td className="p-4 text-neutral-500">&#x2717;</td>
+                    <td className="p-4 text-neutral-500">&#x2717;</td>
+                    <td className="p-4 font-bold text-[var(--color-primary-400)]">&#x2713;</td>
+                  </tr>
+                  <tr className="border-b border-white/5">
+                    <td className="p-4 font-medium text-neutral-300">Recipe monetization</td>
+                    <td className="p-4 text-neutral-500">&#x2717;</td>
+                    <td className="p-4 text-neutral-500">&#x2717;</td>
+                    <td className="p-4 text-neutral-500">&#x2717;</td>
+                    <td className="p-4 font-bold text-[var(--color-primary-400)]">&#x2713;</td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 font-medium text-neutral-300">Built-in cooking tools</td>
+                    <td className="p-4 text-neutral-500">&#x2717;</td>
+                    <td className="p-4 text-neutral-500">&#x2717;</td>
+                    <td className="p-4 text-neutral-500">&#x2717;</td>
+                    <td className="p-4 font-bold text-[var(--color-primary-400)]">&#x2713;</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -478,17 +606,20 @@ export default function HomePage() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="section bg-gradient-to-br from-[#E07A5F] to-[#e8967d] text-white overflow-hidden py-32 md:py-40" id="download">
+      <section className="section bg-gradient-to-br from-[#E07A5F] to-[#e8967d] text-white overflow-hidden py-32 md:py-40 relative" id="download">
         <div className="container-main relative z-10 text-center">
           <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
             Ready to cook?
           </h2>
           <p className="text-xl md:text-2xl text-[var(--color-primary-50)] mb-12 max-w-2xl mx-auto font-medium">
-            Join millions of food lovers and start your journey today.
+            Join the waitlist and be first in line when we launch.
           </p>
-          <div className="flex justify-center transform hover:scale-105 transition-transform duration-300">
-            <AppStoreButtons size="lg" utmSource="homepage_cta_bottom" />
+          <div className="flex justify-center max-w-md mx-auto">
+            <WaitlistForm className="w-full [&_form_.absolute]:!bg-gradient-to-r [&_form_.absolute]:!from-white/30 [&_form_.absolute]:!via-white/20 [&_form_.absolute]:!to-white/30" />
           </div>
+          <p className="text-sm text-white/70 mt-6 font-medium">
+            Free to join. No credit card required.
+          </p>
         </div>
 
         {/* Background decorative circles */}
@@ -543,12 +674,6 @@ export default function HomePage() {
                   }
                 }
               ],
-              "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.9",
-                "ratingCount": "15420",
-                "bestRating": "5"
-              },
               "featureList": [
                 "AI Cooking Assistant (Flav AI)",
                 "Step-by-step Cooking Mode with Timers",
@@ -564,7 +689,7 @@ export default function HomePage() {
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Flav",
-              "legalName": "Flav Inc.",
+              "legalName": "Tig Tech LLC",
               "url": "https://flav.app",
               "logo": "https://flav.app/logo.png",
               "foundingDate": "2025",
@@ -608,6 +733,9 @@ export default function HomePage() {
           ]),
         }}
       />
+
+      {/* Sticky mobile CTA bar */}
+      <StickyMobileCTA />
     </>
   );
 }

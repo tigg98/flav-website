@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s | Flav",
   },
   description:
-    "Flav is the #1 short-form video app for food lovers. Discover recipes through swipeable videos, cook step-by-step with an AI sous-chef, import recipes from TikTok and Instagram in seconds, and earn 90–97% of revenue as a food creator. Rated 4.9 stars by 15,000+ users.",
+    "Flav is the short-form video app for food lovers. Discover recipes through swipeable videos, cook step-by-step with an AI sous-chef, import recipes from TikTok and Instagram in seconds, and earn 90–97% of revenue as a food creator. Free on iOS and Android.",
   keywords: [
     "best cooking app 2026",
     "how to monetize food videos",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     siteName: "Flav",
     title: "Flav — The #1 Short-Form Video App for Food Lovers",
     description:
-      "Discover viral recipes, cook step-by-step with an AI sous-chef, and earn 90–97% of revenue as a food creator. Rated 4.9 stars. Free on iOS and Android.",
+      "Discover viral recipes, cook step-by-step with an AI sous-chef, and earn 90–97% of revenue as a food creator. Import recipes from TikTok and Instagram. Free on iOS and Android.",
     images: [
       {
         url: "/og-image.png",

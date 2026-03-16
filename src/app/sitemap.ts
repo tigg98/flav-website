@@ -1,9 +1,11 @@
 import type { MetadataRoute } from 'next';
+import { blogPosts } from './blog/blog-data';
+import { competitors } from './compare/competitor-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://flav.app';
 
-    const pages: {
+    const staticPages: {
         route: string;
         changeFrequency: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
         priority: number;
@@ -18,10 +20,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { route: '/terms', changeFrequency: 'yearly', priority: 0.3 },
     ];
 
-    return pages.map((page) => ({
-        url: `${baseUrl}${page.route}`,
+    const blogPages = blogPosts.map((post) => ({
+        url: `${baseUrl}/blog/${post.slug}`,
         lastModified: new Date(),
-        changeFrequency: page.changeFrequency,
-        priority: page.priority,
+        changeFrequency: 'monthly' as const,
+        priority: 0.7,
     }));
+
+    const comparePages = Object.keys(competitors).map((slug) => ({
+        url: `${baseUrl}/compare/${slug}`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly' as const,
+        priority: 0.6,
+    }));
+
+    return [
+        ...staticPages.map((page) => ({
+            url: `${baseUrl}${page.route}`,
+            lastModified: new Date(),
+            changeFrequency: page.changeFrequency,
+            priority: page.priority,
+        })),
+        ...blogPages,
+        ...comparePages,
+    ];
 }

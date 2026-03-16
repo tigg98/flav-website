@@ -56,7 +56,7 @@ export default function ComparePage({ params }: Props) {
                         <div className="w-full">
                             <WaitlistForm />
                         </div>
-                        <p className="text-sm text-neutral-500 mt-2">Join 15,420+ food lovers switching to Flav.</p>
+                        <p className="text-sm text-neutral-500 mt-2">Join the waitlist and be first to try Flav.</p>
                     </div>
                 </div>
             </section>
