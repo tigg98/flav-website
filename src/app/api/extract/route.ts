@@ -20,11 +20,13 @@ export async function POST(req: Request) {
             );
         }
 
-        // Fetch the page content
+        // Fetch the page content — use a real browser UA so Instagram/TikTok serve full metadata
         const response = await fetch(url, {
             headers: {
                 "User-Agent":
-                    "Mozilla/5.0 (compatible; FlavBot/1.0; +https://flav.app)",
+                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+                "Accept-Language": "en-US,en;q=0.9",
             },
         });
 
@@ -37,16 +39,36 @@ export async function POST(req: Request) {
 
         const html = await response.text();
 
-        // specific parsers for known problematic sites could go here
-        // but for now we use a generic meta tag parser
+        // Decode HTML entities (&#064; &quot; &#x2728; &amp; etc.)
+        const decodeEntities = (s: string): string => {
+            return s
+                .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+                .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCharCode(parseInt(h, 16)))
+                .replace(/&quot;/g, '"')
+                .replace(/&apos;/g, "'")
+                .replace(/&lt;/g, '<')
+                .replace(/&gt;/g, '>')
+                .replace(/&amp;/g, '&');
+        };
 
         const getMetaTag = (html: string, name: string) => {
-            const regex = new RegExp(
+            // Try property/name THEN content (standard order)
+            const regex1 = new RegExp(
                 `<meta\\s+(?:name|property)=["']${name}["']\\s+content=["']([^"']*)["']`,
                 "i"
             );
-            const match = html.match(regex);
-            return match ? match[1] : null;
+            const match1 = html.match(regex1);
+            if (match1) return decodeEntities(match1[1]);
+
+            // Try content THEN property/name (Instagram order)
+            const regex2 = new RegExp(
+                `<meta\\s+content=["']([^"']*)["']\\s+(?:name|property)=["']${name}["']`,
+                "i"
+            );
+            const match2 = html.match(regex2);
+            if (match2) return decodeEntities(match2[1]);
+
+            return null;
         };
 
         const getTitle = (html: string) => {
@@ -55,7 +77,7 @@ export async function POST(req: Request) {
 
             const titleRegex = /<title>([^<]*)<\/title>/i;
             const match = html.match(titleRegex);
-            return match ? match[1] : null;
+            return match ? decodeEntities(match[1]) : null;
         };
 
         const getDescription = (html: string) => {
@@ -80,11 +102,90 @@ export async function POST(req: Request) {
             );
         };
 
+        let title = getTitle(html) || "No title found";
+        let description = getDescription(html) || "No description found";
+        let image = getImage(html) || null;
+        const video = getVideo(html) || null;
+
+        // JSON-LD fallback — some sites embed structured data this way
+        if (!image || title === "Instagram" || title === "No title found") {
+            const jsonLdRegex = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+            let jsonLdMatch;
+            while ((jsonLdMatch = jsonLdRegex.exec(html)) !== null) {
+                try {
+                    const ld = JSON.parse(jsonLdMatch[1]);
+                    if (!image && (ld.image || ld.thumbnailUrl)) {
+                        const img = ld.image || ld.thumbnailUrl;
+                        image = Array.isArray(img) ? img[0] : (typeof img === 'string' ? img : img?.url || null);
+                    }
+                    if ((title === "Instagram" || title === "No title found") && ld.name) {
+                        title = decodeEntities(ld.name);
+                    }
+                    if (description === "No description found" && (ld.description || ld.caption)) {
+                        description = decodeEntities(ld.description || ld.caption);
+                    }
+                } catch { /* malformed JSON-LD, skip */ }
+            }
+        }
+
+        // Platform-specific fallbacks when meta tags fail
+        const isInstagram = url.includes("instagram.com");
+        const isTikTok = url.includes("tiktok.com");
+
+        if (isInstagram && (!image || title === "Instagram" || title === "No title found")) {
+            try {
+                // Instagram's /embed/ endpoint is publicly accessible and contains post images
+                const shortcodeMatch = url.match(/\/(p|reel|reels|tv)\/([A-Za-z0-9_-]+)/);
+                if (shortcodeMatch) {
+                    const embedUrl = `https://www.instagram.com/p/${shortcodeMatch[2]}/embed/`;
+                    const embedRes = await fetch(embedUrl, {
+                        headers: {
+                            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+                        },
+                        signal: AbortSignal.timeout(8000),
+                    });
+                    if (embedRes.ok) {
+                        const embedHtml = await embedRes.text();
+                        // Extract image from embed page
+                        if (!image) {
+                            const imgMatch = embedHtml.match(/class="[^"]*EmbeddedMediaImage[^"]*"[^>]*src="([^"]+)"/);
+                            if (imgMatch) image = decodeEntities(imgMatch[1]);
+                            // Fallback: any instagram CDN image in the embed
+                            if (!image) {
+                                const cdnMatch = embedHtml.match(/src="(https:\/\/[^"]*(?:cdninstagram|fbcdn)[^"]*\.jpg[^"]*)"/);
+                                if (cdnMatch) image = decodeEntities(cdnMatch[1]);
+                            }
+                        }
+                        // Extract caption/title from embed
+                        if (title === "Instagram" || title === "No title found") {
+                            const captionMatch = embedHtml.match(/class="[^"]*Caption[^"]*"[^>]*>[\s\S]*?<[^>]*>([^<]{5,80})/);
+                            if (captionMatch) {
+                                title = decodeEntities(captionMatch[1].trim());
+                            }
+                        }
+                    }
+                }
+            } catch { /* embed fetch failed */ }
+        }
+
+        if (isTikTok && (!image || title === "No title found")) {
+            try {
+                const oEmbedUrl = `https://www.tiktok.com/oembed?url=${encodeURIComponent(url)}`;
+                const oEmbedRes = await fetch(oEmbedUrl, { signal: AbortSignal.timeout(5000) });
+                if (oEmbedRes.ok) {
+                    const oEmbed = await oEmbedRes.json();
+                    if (!image && oEmbed.thumbnail_url) image = oEmbed.thumbnail_url;
+                    if (title === "No title found" && oEmbed.title) title = oEmbed.title;
+                    if (description === "No description found" && oEmbed.title) description = oEmbed.title;
+                }
+            } catch { /* TikTok oEmbed failed */ }
+        }
+
         const data = {
-            title: getTitle(html) || "No title found",
-            description: getDescription(html) || "No description found",
-            image: getImage(html) || null,
-            video: getVideo(html) || null,
+            title,
+            description,
+            image,
+            video,
             url: url,
         };
 

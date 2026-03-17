@@ -85,9 +85,12 @@ export function ImportDemo() {
                     .slice(0, 5)
                 : ["No ingredients found"];
 
+            // Fallback food image (Unsplash) when scraping can't extract one
+            const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=450&fit=crop&q=80";
+
             setRecipeData({
                 title: cleanTitle || "Imported Recipe",
-                image: data.image,
+                image: data.image || FALLBACK_IMAGE,
                 video: data.video,
                 ingredients: ingredients.length > 0 ? ingredients : ["1 cup quinoa", "Cherry tomatoes", "Cucumber", "Kalamata olives", "Fresh herbs"],
                 url: data.url
