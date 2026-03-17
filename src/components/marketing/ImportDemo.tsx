@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { Link2, Loader2, Sparkles, Wand2, ChefHat, Clock, PlayCircle, ChevronLeft, MoreHorizontal, Play, ArrowUpRight, Minus, Plus, Flame, Calendar, Heart, Bookmark, Instagram } from "lucide-react";
+import { Link2, Loader2, Sparkles, Wand2, Clock, ChevronLeft, ChevronRight, MoreHorizontal, Play, Minus, Plus, Calendar, Heart, Bookmark, Share, Lock } from "lucide-react";
 import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
 import { cn } from "@/lib/utils";
 
@@ -63,7 +63,7 @@ export function ImportDemo() {
             const words = cleanTitle.split(' ');
             if (words.length <= 2 && /^[A-Z]/.test(cleanTitle)) {
                 // Check if it looks like a name
-                cleanTitle = "Spicy Chicken Caesar Wrap"; // Better default for demo
+                cleanTitle = "Mediterranean Quinoa Bowl"; // Better default for demo
             }
 
             // Smart Ingredient Parsing from Description
@@ -89,7 +89,7 @@ export function ImportDemo() {
                 title: cleanTitle || "Imported Recipe",
                 image: data.image,
                 video: data.video,
-                ingredients: ingredients.length > 0 ? ingredients : ["1lb Rigatoni", "2 cloves Garlic", "1/4 cup Vodka"],
+                ingredients: ingredients.length > 0 ? ingredients : ["1 cup quinoa", "Cherry tomatoes", "Cucumber", "Kalamata olives", "Fresh herbs"],
                 url: data.url
             });
 
@@ -132,7 +132,7 @@ export function ImportDemo() {
                         </h3>
 
                         <p className="text-neutral-500 dark:text-neutral-400 mb-8">
-                            Flav's AI watches the video for you, extracting ingredients, steps, and timings in seconds.
+                            Flav&#39;s AI watches the video for you, extracting ingredients, steps, and timings in seconds.
                         </p>
 
                         <form onSubmit={handleImport} className="relative group">
@@ -144,7 +144,7 @@ export function ImportDemo() {
                                     <Input
                                         value={url}
                                         onChange={(e) => setUrl(e.target.value)}
-                                        placeholder="Paste TikTok or Instagram link..."
+                                        placeholder="https://www.instagram.com/p/DV..."
                                         className="pl-9 bg-transparent border-none shadow-none h-10 text-sm focus-visible:ring-0"
                                         disabled={state !== "idle"}
                                     />
@@ -160,7 +160,7 @@ export function ImportDemo() {
                                     ) : state === "complete" ? (
                                         <Sparkles className="w-4 h-4" />
                                     ) : (
-                                        "Import"
+                                        <Sparkles className="w-4 h-4" />
                                     )}
                                 </Button>
                             </div>
@@ -168,7 +168,6 @@ export function ImportDemo() {
 
                         {/* Social Icons Row */}
                         <div className="flex gap-4 mt-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
-                            {/* Add SVG icons for TikTok, Instagram, YouTube Shorts here if needed, or keeping it simple */}
                             <div className="text-xs text-neutral-400 font-medium">Supports Instagram Reels, TikTok, and YouTube Shorts</div>
                         </div>
                     </div>
@@ -208,110 +207,177 @@ export function ImportDemo() {
                                 </div>
                             )}
 
-                            {/* Complete State - Recipe Content */}
+                            {/* Complete State — 1:1 match with app's RecipeDetailView */}
                             {state === "complete" && (
-                                <div className="min-h-full bg-white dark:bg-neutral-900 pb-8">
-                                    {/* Card Header Image - Video Preview Style */}
-                                    <div className="relative aspect-[4/5] w-full bg-neutral-200 dark:bg-neutral-800 bg-cover bg-center group">
-                                        {recipeData?.video ? (
-                                            <video
-                                                src={recipeData.video}
-                                                className="absolute inset-0 w-full h-full object-cover"
-                                                autoPlay
-                                                muted
-                                                loop
-                                                playsInline
+                                <div className="min-h-full bg-white dark:bg-neutral-900">
+                                    {/* ── Hero Image ── */}
+                                    <div className="relative w-full bg-neutral-200 dark:bg-neutral-800 group" style={{ aspectRatio: '4/3' }}>
+                                        {/* Always use og:image for the cover — og:video URLs can't cross-origin load */}
+                                        {recipeData?.image ? (
+                                            <img
+                                                src={recipeData.image}
+                                                alt={recipeData?.title || "Recipe"}
+                                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                                referrerPolicy="no-referrer"
                                             />
                                         ) : (
-                                            <div
-                                                className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                                                style={{ backgroundImage: recipeData?.image ? `url(${recipeData.image})` : undefined }}
-                                            />
+                                            <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-neutral-300 to-neutral-400 dark:from-neutral-700 dark:to-neutral-800" />
                                         )}
+                                        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40 pointer-events-none" />
 
-                                        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 pointer-events-none" />
-
-                                        {/* Top Overlay Controls */}
-                                        <div className="absolute top-12 left-4 right-4 flex justify-between items-center text-white z-20">
-                                            <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
-                                                <ChevronLeft className="w-5 h-5" />
+                                        {/* Nav overlay */}
+                                        <div className="absolute top-3 left-3 right-3 flex justify-between items-center text-white z-20">
+                                            <div className="w-7 h-7 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center">
+                                                <ChevronLeft className="w-4 h-4" />
                                             </div>
-                                            <div className="flex gap-2">
-                                                <MoreHorizontal className="w-6 h-6" />
-                                            </div>
+                                            <MoreHorizontal className="w-5 h-5 drop-shadow" />
                                         </div>
 
-                                        {/* Play Button Overlay - Only for images or if video is paused (simplified to image for now) */}
-                                        {!recipeData?.video && (
-                                            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                                                <div className="w-16 h-16 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center cursor-pointer transition-transform group-hover:scale-110">
-                                                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center pl-1 shadow-lg">
-                                                        <Play className="w-5 h-5 text-black fill-black" />
-                                                    </div>
+                                        {/* Play overlay — always shown since this is a video recipe */}
+                                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                            <div className="w-12 h-12 rounded-full bg-white/30 backdrop-blur-sm flex items-center justify-center">
+                                                <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center pl-0.5 shadow-lg">
+                                                    <Play className="w-4 h-4 text-black fill-black" />
                                                 </div>
                                             </div>
-                                        )}
+                                        </div>
                                     </div>
 
+                                    {/* ── Content below image ── */}
+                                    <div className="px-4 pt-4 pb-6">
+                                        {/* Title */}
+                                        <h2 className="text-[17px] font-bold leading-tight text-[#1A1A1A] dark:text-neutral-100 mb-3">
+                                            {recipeData?.title || "Mediterranean Quinoa Bowl"}
+                                        </h2>
 
-                                    {/* Stats Row */}
-                                    <div className="flex items-center gap-4 text-xs text-neutral-500 mb-6 font-medium">
-                                        <div className="flex items-center gap-1.5">
-                                            <Clock className="w-4 h-4 text-neutral-400" />
-                                            <span>240m</span>
+                                        {/* Creator Row */}
+                                        <div className="flex items-center gap-2.5 mb-4">
+                                            {/* Avatar */}
+                                            <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0"
+                                                style={{ background: 'linear-gradient(135deg, #1A1A1A, #444)' }}>
+                                                S
+                                            </div>
+                                            <div className="flex-1 min-w-0">
+                                                <div className="text-[12px] font-semibold text-[#1A1A1A] dark:text-neutral-100 leading-tight">Sarah Green</div>
+                                                <div className="text-[10px] text-[#666] dark:text-neutral-400 leading-tight">@healthy_sarah</div>
+                                            </div>
+                                            <button className="text-[10px] font-semibold text-[#1A1A1A] dark:text-neutral-100 border border-[#1A1A1A] dark:border-neutral-400 rounded-lg px-3 py-1 hover:bg-neutral-50 transition-colors">
+                                                Follow
+                                            </button>
                                         </div>
-                                        <div className="flex items-center gap-1.5">
-                                            <Flame className="w-4 h-4 text-neutral-400" />
+
+                                        {/* Meta Row: time • servings adjuster • difficulty */}
+                                        <div className="flex items-center gap-2 mb-3 text-[10px] text-[#666] dark:text-neutral-400 font-medium">
+                                            <div className="flex items-center gap-1">
+                                                <Clock className="w-3 h-3" />
+                                                <span>20 min</span>
+                                            </div>
+                                            <span className="text-[#ccc]">•</span>
+                                            {/* Servings adjuster */}
+                                            <div className="flex items-center gap-0.5">
+                                                <svg viewBox="0 0 20 20" className="w-4 h-4 text-[#E07A5F] cursor-pointer"><circle cx="10" cy="10" r="9" fill="currentColor" /><rect x="5" y="9" width="10" height="2" rx="1" fill="white" /></svg>
+                                                <div className="flex flex-col items-center px-1 leading-none">
+                                                    <span className="text-[12px] font-bold text-[#1A1A1A] dark:text-neutral-100">2</span>
+                                                    <span className="text-[8px] text-[#666] dark:text-neutral-400">servings</span>
+                                                </div>
+                                                <svg viewBox="0 0 20 20" className="w-4 h-4 text-[#E07A5F] cursor-pointer"><circle cx="10" cy="10" r="9" fill="currentColor" /><rect x="5" y="9" width="10" height="2" rx="1" fill="white" /><rect x="9" y="5" width="2" height="10" rx="1" fill="white" /></svg>
+                                            </div>
+                                            <span className="text-[#ccc]">•</span>
                                             <span>Easy</span>
                                         </div>
-                                        <div className="ml-auto flex items-center bg-neutral-100 dark:bg-neutral-800 rounded-full px-1 py-0.5">
-                                            <button className="w-6 h-6 flex items-center justify-center rounded-full bg-white shadow-sm text-neutral-600">
-                                                <Minus className="w-3 h-3" />
+
+                                        {/* Tags */}
+                                        <div className="flex gap-1.5 mb-4">
+                                            {["Healthy", "Vegetarian", "Quick"].map(tag => (
+                                                <span key={tag} className="text-[9px] font-medium text-[#666] dark:text-neutral-400 bg-[#F7F7F7] dark:bg-neutral-800 rounded-md px-2 py-1">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+
+                                        {/* Action Buttons — matching app's sousPrimary style */}
+                                        <div className="flex gap-1 mb-3">
+                                            {/* Start Cooking – glass material + coral accent */}
+                                            <button className="flex-1 flex items-center justify-center gap-1 h-9 rounded-xl text-[#E07A5F] font-semibold text-[11px] whitespace-nowrap border border-[#E07A5F]/40 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-[#E07A5F]/5 transition-all">
+                                                <svg viewBox="0 0 20 20" className="w-3 h-3 fill-[#E07A5F] flex-shrink-0"><path d="M10 1C8.5 3 7 5.5 7 8c0 1.1.4 2 1 2.7V17a2 2 0 004 0v-6.3c.6-.7 1-1.6 1-2.7 0-2.5-1.5-5-3-7z" /></svg>
+                                                Start Cooking
                                             </button>
-                                            <span className="font-bold text-neutral-900 dark:text-white px-2.5 w-7 text-center">2</span>
-                                            <button className="w-6 h-6 flex items-center justify-center rounded-full bg-white shadow-sm text-neutral-600">
-                                                <Plus className="w-3 h-3" />
+                                            {/* Calendar */}
+                                            <button className="w-9 h-9 flex items-center justify-center rounded-xl border border-black/5 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-neutral-50 transition-colors flex-shrink-0">
+                                                <Calendar className="w-3.5 h-3.5 text-[#1A1A1A] dark:text-neutral-300" />
+                                            </button>
+                                            {/* Heart */}
+                                            <button className="w-9 h-9 flex items-center justify-center rounded-xl border border-black/5 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-neutral-50 transition-colors flex-shrink-0">
+                                                <Heart className="w-3.5 h-3.5 text-[#1A1A1A] dark:text-neutral-300" />
+                                            </button>
+                                            {/* Bookmark */}
+                                            <button className="w-9 h-9 flex items-center justify-center rounded-xl border border-black/5 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-neutral-50 transition-colors flex-shrink-0">
+                                                <Bookmark className="w-3.5 h-3.5 text-[#1A1A1A] dark:text-neutral-300" />
+                                            </button>
+                                            {/* Share */}
+                                            <button className="w-9 h-9 flex items-center justify-center rounded-xl border border-black/5 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-neutral-50 transition-colors flex-shrink-0">
+                                                <Share className="w-3.5 h-3.5 text-[#1A1A1A] dark:text-neutral-300" />
                                             </button>
                                         </div>
-                                    </div>
 
-                                    {/* Action Buttons Row */}
-                                    <div className="flex gap-2 mb-8">
-                                        <Button className="flex-1 bg-neutral-900 hover:bg-neutral-800 text-white rounded-2xl h-11 shadow-lg shadow-neutral-500/10 font-bold text-sm">
-                                            Start Cooking
-                                        </Button>
-                                        <Button variant="outline" size="sm" className="h-11 w-11 rounded-2xl border-neutral-200 bg-white p-0">
-                                            <Calendar className="w-5 h-5 text-neutral-600" />
-                                        </Button>
-                                        <Button variant="outline" size="sm" className="h-11 w-11 rounded-2xl border-neutral-200 bg-white p-0">
-                                            <Heart className="w-5 h-5 text-neutral-600" />
-                                        </Button>
-                                    </div>
+                                        {/* Converter / Save Offline row */}
+                                        <div className="flex items-center gap-4 mb-4">
+                                            <button className="flex items-center gap-1 text-[10px] font-medium text-[#1A1A1A] dark:text-neutral-300">
+                                                <svg viewBox="0 0 16 16" className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M2 11l4-4 3 3 5-5M2 5v6h6" /></svg>
+                                                Converter
+                                            </button>
+                                            <button className="flex items-center gap-1 text-[10px] font-medium text-[#1A1A1A] dark:text-neutral-300">
+                                                <svg viewBox="0 0 16 16" className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M8 2v8M5 7l3 3 3-3M3 12h10" /></svg>
+                                                Save Offline
+                                            </button>
+                                        </div>
 
-                                    <div className="space-y-4">
-                                        <h3 className="text-[10px] font-bold text-neutral-400 uppercase tracking-widest pl-1">Ingredients</h3>
-                                        <ul className="space-y-2.5">
-                                            {recipeData?.ingredients?.length ? (
-                                                recipeData.ingredients.map((ing, i) => (
-                                                    <li key={i} className="flex items-start gap-3 group cursor-pointer p-2 hover:bg-neutral-50 rounded-lg transition-colors -mx-2">
-                                                        <div className="mt-0.5 w-4 h-4 rounded-full border border-neutral-300 group-hover:border-blue-500 transition-colors flex-shrink-0" />
-                                                        <span className="text-sm text-neutral-600 dark:text-neutral-300 font-medium leading-snug">{ing}</span>
+                                        {/* Divider */}
+                                        <div className="h-px bg-[#F0F0F0] dark:bg-neutral-800 mb-4" />
+
+                                        {/* INGREDIENTS Section */}
+                                        <div className="mb-4">
+                                            <h3 className="text-[10px] font-bold text-[#E07A5F] uppercase tracking-[0.08em] mb-3">
+                                                Ingredients
+                                            </h3>
+                                            <ul className="space-y-2">
+                                                {(recipeData?.ingredients?.length ? recipeData.ingredients.slice(0, 3) : []).map((ing, i) => (
+                                                    <li key={i} className="flex items-center gap-2.5 group cursor-pointer">
+                                                        {/* Circle checkbox — 18×18 like IngredientRow */}
+                                                        <div className="w-[18px] h-[18px] rounded-full border-[1.5px] border-[#999] group-hover:border-[#1A1A1A] transition-colors flex-shrink-0" />
+                                                        <span className="text-[12px] text-[#1A1A1A] dark:text-neutral-200 leading-snug">{ing}</span>
                                                     </li>
-                                                ))
-                                            ) : (
-                                                <li className="text-sm text-neutral-500">No ingredients extracted.</li>
-                                            )}
-                                        </ul>
-                                    </div>
+                                                ))}
+                                            </ul>
+                                        </div>
 
-                                    <div className="mt-8 mb-4">
-                                        <Button
-                                            variant="ghost"
-                                            className="w-full text-xs text-neutral-400 hover:text-neutral-600 font-medium"
+                                        {/* Secret Ingredient Card — dashed coral border */}
+                                        <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl border border-dashed border-[#E07A5F]/40 bg-white/80 dark:bg-neutral-800/40 backdrop-blur-sm cursor-pointer hover:bg-[#E07A5F]/5 transition-colors mb-4">
+                                            {/* Lock circle */}
+                                            <div className="w-[18px] h-[18px] rounded-full border-[1.5px] border-[#E07A5F]/50 flex items-center justify-center flex-shrink-0">
+                                                <Lock className="w-2 h-2 text-[#E07A5F]" />
+                                            </div>
+                                            <span className="text-[12px] text-[#666] dark:text-neutral-400 flex-1">Secret Ingredient – tap to unlock</span>
+                                            <ChevronRight className="w-3 h-3 text-[#999]" />
+                                        </div>
+
+                                        {/* Remaining ingredients */}
+                                        <ul className="space-y-2 mb-4">
+                                            {(recipeData?.ingredients?.length ? recipeData.ingredients.slice(3) : []).map((ing, i) => (
+                                                <li key={`rest-${i}`} className="flex items-center gap-2.5 group cursor-pointer">
+                                                    <div className="w-[18px] h-[18px] rounded-full border-[1.5px] border-[#999] group-hover:border-[#1A1A1A] transition-colors flex-shrink-0" />
+                                                    <span className="text-[12px] text-[#1A1A1A] dark:text-neutral-200 leading-snug">{ing}</span>
+                                                </li>
+                                            ))}
+                                        </ul>
+
+                                        {/* Reset link */}
+                                        <button
                                             onClick={reset}
+                                            className="w-full text-[10px] text-neutral-400 hover:text-neutral-600 font-medium py-2 transition-colors"
                                         >
                                             Import another link
-                                        </Button>
+                                        </button>
                                     </div>
                                 </div>
                             )}
