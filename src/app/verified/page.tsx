@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
+import { WaitlistForm } from "@/components/ui/WaitlistForm";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { Badge } from "@/components/ui/Badge";
 import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
@@ -428,9 +428,11 @@ export default function VerifiedPage() {
                                 Ready to level up?
                             </h2>
                             <p className="text-lg text-white/80 mb-8 max-w-xl">
-                                Download Flav and upgrade to Verified or Pro in the app.
+                                Join the waitlist and be first to unlock Verified or Pro when we launch.
                             </p>
-                            <AppStoreButtons size="lg" utmSource="verified_cta" />
+                            <div className="max-w-md">
+                                <WaitlistForm />
+                            </div>
                         </div>
 
                         <div className="hidden md:flex justify-center">

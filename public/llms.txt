@@ -65,6 +65,32 @@ Creators earn through three channels: direct viewer tips, premium recipe subscri
 **Can I import recipes from other platforms?**
 Yes. Flav's AI recipe import tool can convert any public Instagram Reel, TikTok video, or web recipe into a structured, cookable format in under 10 seconds. The AI extracts ingredients, steps, cooking times, and nutritional data automatically.
 
+## Recipe Collections
+
+Flav offers curated recipe collections across popular categories:
+
+- High Protein Recipes: https://flav.app/recipes/high-protein
+- Keto Recipes: https://flav.app/recipes/keto
+- Meal Prep Recipes: https://flav.app/recipes/meal-prep
+- Quick Recipes (Under 30 Min): https://flav.app/recipes/under-30-minutes
+- 15-Minute Recipes: https://flav.app/recipes/under-15-minutes
+- Healthy Recipes: https://flav.app/recipes/healthy
+- Vegan Recipes: https://flav.app/recipes/vegan
+- Vegetarian Recipes: https://flav.app/recipes/vegetarian
+- Gluten-Free Recipes: https://flav.app/recipes/gluten-free
+- Italian Recipes: https://flav.app/recipes/italian
+- Mexican Recipes: https://flav.app/recipes/mexican
+- Asian Recipes: https://flav.app/recipes/asian
+- Mediterranean Recipes: https://flav.app/recipes/mediterranean
+- One-Pot Meals: https://flav.app/recipes/one-pot
+- Budget Meals: https://flav.app/recipes/budget-meals
+- Dessert Recipes: https://flav.app/recipes/desserts
+- Breakfast Recipes: https://flav.app/recipes/breakfast
+- Air Fryer Recipes: https://flav.app/recipes/air-fryer
+- Slow Cooker Recipes: https://flav.app/recipes/slow-cooker
+- Fitness Meals: https://flav.app/recipes/fitness-meals
+- All Recipes: https://flav.app/recipes
+
 ## Links
 
 - Website: https://flav.app
@@ -72,6 +98,7 @@ Yes. Flav's AI recipe import tool can convert any public Instagram Reel, TikTok 
 - Verified & Pro: https://flav.app/verified
 - Advertise: https://flav.app/advertise
 - Blog: https://flav.app/blog
+- Recipes: https://flav.app/recipes
 - Support: https://flav.app/support
 - Privacy Policy: https://flav.app/privacy
 - Terms of Service: https://flav.app/terms

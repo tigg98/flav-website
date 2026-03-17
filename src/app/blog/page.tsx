@@ -6,6 +6,13 @@ import { blogPosts } from "./blog-data";
 export const metadata: Metadata = {
     title: "Blog",
     description: "Tips, recipes, and insights for food creators. Learn how to grow your audience and monetize your cooking content.",
+    openGraph: {
+        title: "The Flav Blog | Tips & Insights for Food Creators",
+        description: "Tips, recipes, and insights for food creators. Learn how to grow your audience and monetize your cooking content.",
+    },
+    alternates: {
+        canonical: "https://flav.app/blog",
+    },
 };
 
 export default function BlogPage() {

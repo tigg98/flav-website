@@ -92,10 +92,7 @@ export default function AdvertisePage() {
                                 </Button>
                                 <div className="flex flex-col items-center sm:items-start">
                                     <span className="text-[var(--color-neutral-400)] text-sm font-medium">
-                                        Ads Manager
-                                    </span>
-                                    <span className="text-[var(--color-neutral-500)] text-xs">
-                                        Coming Soon
+                                        Managed campaigns available now
                                     </span>
                                 </div>
                             </div>
@@ -437,10 +434,10 @@ export default function AdvertisePage() {
             <section className="py-12 border-t border-[var(--color-neutral-200)]">
                 <div className="container-main text-center">
                     <p className="text-[var(--color-neutral-400)]">
-                        Already have an advertiser account?{" "}
-                        <span className="text-[var(--color-neutral-500)] font-medium">
-                            Ads Manager coming soon
-                        </span>
+                        Already an advertiser?{" "}
+                        <Link href="#contact" className="text-[var(--color-primary-600)] font-medium hover:underline">
+                            Contact our team
+                        </Link>
                     </p>
                 </div>
             </section>

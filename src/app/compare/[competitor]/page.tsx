@@ -165,35 +165,57 @@ export default async function ComparePage({ params }: Props) {
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "WebPage",
-                        "name": data.title,
-                        "description": data.description,
-                        "mainEntity": {
-                            "@type": "ItemList",
-                            "itemListElement": [
-                                {
-                                    "@type": "ListItem",
-                                    "position": 1,
-                                    "item": {
-                                        "@type": "SoftwareApplication",
-                                        "name": "Flav",
-                                        "applicationCategory": "LifestyleApplication"
+                    __html: JSON.stringify([
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "WebPage",
+                            "name": data.title,
+                            "description": data.description,
+                            "url": `https://flav.app/compare/${data.id}`,
+                            "breadcrumb": {
+                                "@type": "BreadcrumbList",
+                                "itemListElement": [
+                                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://flav.app" },
+                                    { "@type": "ListItem", "position": 2, "name": `Flav vs ${data.name}`, "item": `https://flav.app/compare/${data.id}` }
+                                ]
+                            },
+                            "mainEntity": {
+                                "@type": "ItemList",
+                                "itemListElement": [
+                                    {
+                                        "@type": "ListItem",
+                                        "position": 1,
+                                        "item": {
+                                            "@type": "SoftwareApplication",
+                                            "name": "Flav",
+                                            "applicationCategory": "LifestyleApplication"
+                                        }
+                                    },
+                                    {
+                                        "@type": "ListItem",
+                                        "position": 2,
+                                        "item": {
+                                            "@type": "SoftwareApplication",
+                                            "name": data.name,
+                                            "applicationCategory": "LifestyleApplication"
+                                        }
                                     }
+                                ]
+                            }
+                        },
+                        ...(data.faq.length > 0 ? [{
+                            "@context": "https://schema.org",
+                            "@type": "FAQPage",
+                            "mainEntity": data.faq.map((item) => ({
+                                "@type": "Question",
+                                "name": item.question,
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": item.answer,
                                 },
-                                {
-                                    "@type": "ListItem",
-                                    "position": 2,
-                                    "item": {
-                                        "@type": "SoftwareApplication",
-                                        "name": data.name,
-                                        "applicationCategory": "LifestyleApplication"
-                                    }
-                                }
-                            ]
-                        }
-                    }),
+                            })),
+                        }] : []),
+                    ]),
                 }}
             />
         </div>
