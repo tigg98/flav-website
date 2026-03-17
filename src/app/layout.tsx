@@ -43,8 +43,8 @@ export const metadata: Metadata = {
     "AI cooking assistant",
   ],
   authors: [{ name: "Flav Team" }],
-  creator: "Flav Inc.",
-  publisher: "Flav Inc.",
+  creator: "Tig Tech LLC",
+  publisher: "Tig Tech LLC",
   metadataBase: new URL("https://flav.app"),
   alternates: {
     canonical: "https://flav.app",

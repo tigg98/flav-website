@@ -11,7 +11,7 @@ function generateReferralCode(): string {
 
 export async function POST(request: Request) {
     try {
-        const { email, ref } = await request.json();
+        const { email, ref, utm_source, utm_medium, utm_campaign } = await request.json();
 
         if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
             return NextResponse.json(
@@ -30,6 +30,9 @@ export async function POST(request: Request) {
                 email,
                 referral_code: referralCode,
                 referred_by: ref || null,
+                utm_source: utm_source || null,
+                utm_medium: utm_medium || null,
+                utm_campaign: utm_campaign || null,
             })
             .select('id, referral_code, position, referral_count, tier')
             .single();

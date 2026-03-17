@@ -8,11 +8,16 @@ import { Check, X, ArrowRight } from "lucide-react";
 import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
 
 interface Props {
-    params: { competitor: string };
+    params: Promise<{ competitor: string }>;
+}
+
+export async function generateStaticParams() {
+    return Object.keys(competitors).map((competitor) => ({ competitor }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const data = competitors[params.competitor];
+    const { competitor } = await params;
+    const data = competitors[competitor];
     if (!data) return {};
 
     return {
@@ -28,8 +33,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
 }
 
-export default function ComparePage({ params }: Props) {
-    const data = competitors[params.competitor];
+export default async function ComparePage({ params }: Props) {
+    const { competitor } = await params;
+    const data = competitors[competitor];
 
     if (!data) {
         notFound();
@@ -133,7 +139,7 @@ export default function ComparePage({ params }: Props) {
                     <h3 className="font-bold text-lg mb-4 text-center">More Comparisons</h3>
                     <div className="flex flex-wrap justify-center gap-2 mb-8">
                         {Object.entries(competitors)
-                            .filter(([slug]) => slug !== params.competitor)
+                            .filter(([slug]) => slug !== competitor)
                             .slice(0, 6)
                             .map(([slug, comp]) => (
                                 <Link

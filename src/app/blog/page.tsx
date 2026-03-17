@@ -99,6 +99,24 @@ export default function BlogPage() {
                 </div>
             </section>
 
+            {/* Explore More */}
+            <section className="py-12">
+                <div className="container-main">
+                    <div className="max-w-3xl mx-auto">
+                        <h2 className="text-xl font-bold mb-4 text-center">Explore More on Flav</h2>
+                        <div className="flex flex-wrap justify-center gap-3">
+                            <Link href="/recipes/high-protein" className="px-4 py-2 rounded-full bg-[var(--background-elevated)] border border-[var(--color-neutral-200)] text-sm font-medium hover:border-[var(--color-primary-300)] transition-colors">High Protein Recipes</Link>
+                            <Link href="/recipes/meal-prep" className="px-4 py-2 rounded-full bg-[var(--background-elevated)] border border-[var(--color-neutral-200)] text-sm font-medium hover:border-[var(--color-primary-300)] transition-colors">Meal Prep Recipes</Link>
+                            <Link href="/recipes/keto" className="px-4 py-2 rounded-full bg-[var(--background-elevated)] border border-[var(--color-neutral-200)] text-sm font-medium hover:border-[var(--color-primary-300)] transition-colors">Keto Recipes</Link>
+                            <Link href="/creators" className="px-4 py-2 rounded-full bg-[var(--background-elevated)] border border-[var(--color-neutral-200)] text-sm font-medium hover:border-[var(--color-primary-300)] transition-colors">For Creators</Link>
+                            <Link href="/compare/allrecipes" className="px-4 py-2 rounded-full bg-[var(--background-elevated)] border border-[var(--color-neutral-200)] text-sm font-medium hover:border-[var(--color-primary-300)] transition-colors">Flav vs AllRecipes</Link>
+                            <Link href="/compare/yummly" className="px-4 py-2 rounded-full bg-[var(--background-elevated)] border border-[var(--color-neutral-200)] text-sm font-medium hover:border-[var(--color-primary-300)] transition-colors">Flav vs Yummly</Link>
+                            <Link href="/recipes" className="px-4 py-2 rounded-full bg-[var(--background-elevated)] border border-[var(--color-neutral-200)] text-sm font-medium hover:border-[var(--color-primary-300)] transition-colors">All Recipe Collections &rarr;</Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             {/* Newsletter CTA */}
             <section className="section bg-[var(--background-subtle)]">
                 <div className="container-main">

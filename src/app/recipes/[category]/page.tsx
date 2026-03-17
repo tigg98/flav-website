@@ -28,6 +28,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             title: `${data.title} | Flav`,
             description: data.description,
         },
+        alternates: {
+            canonical: `https://flav.app/recipes/${data.slug}`,
+        },
     };
 }
 

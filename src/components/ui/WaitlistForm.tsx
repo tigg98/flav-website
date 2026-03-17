@@ -54,6 +54,14 @@ export function WaitlistForm({ className, onSuccess, referralCode }: WaitlistFor
                 body: JSON.stringify({
                     email,
                     ref: referralCode || null,
+                    ...(() => {
+                        const params = new URLSearchParams(window.location.search);
+                        return {
+                            utm_source: params.get("utm_source") || undefined,
+                            utm_medium: params.get("utm_medium") || undefined,
+                            utm_campaign: params.get("utm_campaign") || undefined,
+                        };
+                    })(),
                 }),
             });
 

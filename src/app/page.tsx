@@ -38,24 +38,30 @@ const features = [
   },
 ];
 
-const howItWorks: { step: string; title: string; description: string; icon: LucideIcon }[] = [
+const howItWorks: { step: string; title: string; description: string; icon: LucideIcon; link: string; linkLabel: string }[] = [
   {
     step: "01",
     title: "Discover",
     description: "Swipe through personalized recipe videos tailored to your taste",
     icon: UtensilsCrossed,
+    link: "/recipes",
+    linkLabel: "Browse recipes",
   },
   {
     step: "02",
     title: "Save & Cook",
     description: "Save recipes and cook with step-by-step guidance and timers",
     icon: Clock,
+    link: "/#features",
+    linkLabel: "See cooking mode",
   },
   {
     step: "03",
     title: "Create & Share",
     description: "Upload your own recipes and grow your following",
     icon: Sparkles,
+    link: "/creators",
+    linkLabel: "Start creating",
   },
 ];
 
@@ -543,7 +549,10 @@ export default function HomePage() {
                   </div>
                   <div className="text-sm font-bold text-[var(--color-primary-500)] mb-2 uppercase tracking-wide">Step {item.step}</div>
                   <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-[var(--color-neutral-600)] leading-relaxed">{item.description}</p>
+                  <p className="text-[var(--color-neutral-600)] leading-relaxed mb-4">{item.description}</p>
+                  <Link href={item.link} className="text-sm font-semibold text-[var(--color-primary-500)] hover:text-[var(--color-primary-600)] transition-colors">
+                    {item.linkLabel} &rarr;
+                  </Link>
                 </div>
               );
             })}
