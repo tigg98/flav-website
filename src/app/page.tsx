@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { WaitlistForm } from "@/components/ui/WaitlistForm";
 import { StickyMobileCTA } from "@/components/ui/StickyMobileCTA";
+import { ScrollToButton } from "@/components/ui/ScrollToButton";
 import { ImportDemo } from "@/components/marketing/ImportDemo";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { Badge } from "@/components/ui/Badge";
@@ -154,6 +155,14 @@ export default function HomePage() {
                   <span>iOS & Android</span>
                 </div>
               </div>
+
+              <ScrollToButton
+                targetId="features"
+                className="mt-8 flex items-center gap-2 text-sm font-medium text-neutral-400 hover:text-[var(--color-primary-500)] transition-colors mx-auto lg:mx-0 cursor-pointer"
+              >
+                See how it works
+                <span className="animate-bounce inline-block">↓</span>
+              </ScrollToButton>
             </div>
 
             {/* Right: Phone Mockups */}
@@ -715,7 +724,7 @@ export default function HomePage() {
               "description": "The #1 short-form video app for food lovers. Discover recipes, cook with AI assistance, and earn money as a food creator.",
               "publisher": {
                 "@type": "Organization",
-                "name": "Flav Inc."
+                "name": "Tig Tech LLC"
               }
             },
             {

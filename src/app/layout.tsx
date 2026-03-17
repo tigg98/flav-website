@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { ExitIntentPopup } from "@/components/ui/ExitIntentPopup";
+import { PostHogProvider } from "@/components/PostHogProvider";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
@@ -108,9 +110,12 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          <main className="min-h-screen pt-16 md:pt-20">{children}</main>
-          <Footer />
+          <PostHogProvider>
+            <Header />
+            <main className="min-h-screen pt-16 md:pt-20">{children}</main>
+            <Footer />
+            <ExitIntentPopup />
+          </PostHogProvider>
         </ThemeProvider>
       </body>
     </html>

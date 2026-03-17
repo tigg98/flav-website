@@ -4,9 +4,17 @@ const footerLinks = {
     product: [
         { href: "/creators", label: "For Creators" },
         { href: "/verified", label: "Verified / Pro" },
+        { href: "/recipes", label: "Recipes" },
         { href: "/advertise", label: "Advertise" },
-        { href: "/ads/dashboard", label: "Advertiser Dashboard" },
         { href: "/blog", label: "Blog" },
+    ],
+    recipes: [
+        { href: "/recipes/high-protein", label: "High Protein" },
+        { href: "/recipes/meal-prep", label: "Meal Prep" },
+        { href: "/recipes/keto", label: "Keto" },
+        { href: "/recipes/under-30-minutes", label: "Under 30 Min" },
+        { href: "/recipes/healthy", label: "Healthy" },
+        { href: "/recipes/vegan", label: "Vegan" },
     ],
     support: [
         { href: "/support", label: "Help Center" },
@@ -53,7 +61,7 @@ export function Footer() {
     return (
         <footer className="bg-[var(--color-neutral-950)] text-white">
             <div className="container-main py-16">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+                <div className="grid grid-cols-2 md:grid-cols-5 gap-8 lg:gap-12">
                     {/* Brand Column */}
                     <div className="col-span-2 md:col-span-1">
                         <Link href="/" className="flex items-center gap-2 text-2xl font-bold mb-4">
@@ -92,6 +100,25 @@ export function Footer() {
                         </h3>
                         <ul className="space-y-3">
                             {footerLinks.product.map((link) => (
+                                <li key={link.href}>
+                                    <Link
+                                        href={link.href}
+                                        className="text-[var(--color-neutral-400)] hover:text-white transition-colors text-sm"
+                                    >
+                                        {link.label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Recipe Links */}
+                    <div>
+                        <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-[var(--color-neutral-300)]">
+                            Recipes
+                        </h3>
+                        <ul className="space-y-3">
+                            {footerLinks.recipes.map((link) => (
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
@@ -153,9 +180,15 @@ export function Footer() {
                             Flav is a product of Tig Tech LLC.
                         </p>
                     </div>
-                    <p className="text-[var(--color-neutral-500)] text-sm">
-                        Made with ❤️ for food lovers everywhere
-                    </p>
+                    <div className="flex items-center gap-4">
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-primary-500)]/10 border border-[var(--color-primary-500)]/20">
+                            <span className="relative flex h-2 w-2">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-primary-400)] opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-primary-500)]"></span>
+                            </span>
+                            <span className="text-xs font-semibold text-[var(--color-primary-400)]">Launching 2026</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </footer>

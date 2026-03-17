@@ -127,6 +127,34 @@ export default function ComparePage({ params }: Props) {
                 </div>
             </section>
 
+            {/* Cross-links */}
+            <section className="py-12 px-6">
+                <div className="max-w-3xl mx-auto">
+                    <h3 className="font-bold text-lg mb-4 text-center">More Comparisons</h3>
+                    <div className="flex flex-wrap justify-center gap-2 mb-8">
+                        {Object.entries(competitors)
+                            .filter(([slug]) => slug !== params.competitor)
+                            .slice(0, 6)
+                            .map(([slug, comp]) => (
+                                <Link
+                                    key={slug}
+                                    href={`/compare/${slug}`}
+                                    className="px-4 py-2 rounded-full bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 text-sm font-medium hover:border-[var(--color-primary-300)] transition-colors"
+                                >
+                                    Flav vs {comp.name}
+                                </Link>
+                            ))}
+                    </div>
+                    <div className="flex flex-wrap justify-center gap-3 text-sm">
+                        <Link href="/recipes" className="text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)] hover:underline">Browse Recipes</Link>
+                        <span className="text-neutral-300">|</span>
+                        <Link href="/creators" className="text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)] hover:underline">For Creators</Link>
+                        <span className="text-neutral-300">|</span>
+                        <Link href="/blog" className="text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)] hover:underline">Blog</Link>
+                    </div>
+                </div>
+            </section>
+
             {/* Structured Data for Generative AI / SEO */}
             <script
                 type="application/ld+json"

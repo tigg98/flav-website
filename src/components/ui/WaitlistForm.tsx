@@ -5,6 +5,13 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { ArrowRight, Check, Loader2, Copy, Share2 } from "lucide-react";
+import {
+    trackWaitlistFormFocus,
+    trackWaitlistSignup,
+    trackWaitlistError,
+    trackReferralLinkCopy,
+    trackReferralShare,
+} from "@/lib/analytics/posthog";
 
 const REWARD_TIERS = [
     { count: 3, label: "Early access", icon: "🚀" },
@@ -63,12 +70,18 @@ export function WaitlistForm({ className, onSuccess, referralCode }: WaitlistFor
                     referral_count: data.referral_count || 0,
                     tier: data.tier || "standard",
                 });
+                trackWaitlistSignup({
+                    referral_code: data.referral_code,
+                    position: data.position,
+                    referred_by: referralCode || null,
+                });
             }
             setEmail("");
             if (onSuccess) onSuccess();
         } catch (err: unknown) {
             const message = err instanceof Error ? err.message : "Something went wrong";
             setError(message);
+            trackWaitlistError(message);
         } finally {
             setIsLoading(false);
         }
@@ -79,6 +92,7 @@ export function WaitlistForm({ className, onSuccess, referralCode }: WaitlistFor
         : "";
 
     const copyLink = async () => {
+        trackReferralLinkCopy();
         try {
             await navigator.clipboard.writeText(referralLink);
             setCopied(true);
@@ -96,6 +110,7 @@ export function WaitlistForm({ className, onSuccess, referralCode }: WaitlistFor
     };
 
     const shareOnTwitter = () => {
+        trackReferralShare("twitter");
         const text = encodeURIComponent(
             "Just joined the @cookwithflav waitlist — it turns TikTok recipes into actual cookable meals with AI. Get in line 👇"
         );
@@ -104,6 +119,7 @@ export function WaitlistForm({ className, onSuccess, referralCode }: WaitlistFor
     };
 
     const shareViaText = () => {
+        trackReferralShare("text");
         const text = encodeURIComponent(
             `Check out Flav — it imports recipes from TikTok/IG and helps you actually cook them. Join the waitlist: ${referralLink}`
         );
@@ -111,6 +127,7 @@ export function WaitlistForm({ className, onSuccess, referralCode }: WaitlistFor
     };
 
     const shareNative = async () => {
+        trackReferralShare("native");
         if (navigator.share) {
             try {
                 await navigator.share({
@@ -239,6 +256,13 @@ export function WaitlistForm({ className, onSuccess, referralCode }: WaitlistFor
                         ? "Share your link to start earning rewards"
                         : `You've referred ${waitlistData.referral_count} friend${waitlistData.referral_count !== 1 ? "s" : ""}`}
                 </p>
+
+                <a
+                    href={`/waitlist/${waitlistData.referral_code}`}
+                    className="block text-center text-xs text-[var(--color-primary-500)] hover:text-[var(--color-primary-600)] font-medium mt-3 underline underline-offset-2"
+                >
+                    View full referral dashboard &rarr;
+                </a>
             </div>
         );
     }
@@ -258,6 +282,7 @@ export function WaitlistForm({ className, onSuccess, referralCode }: WaitlistFor
                             onChange={(e) => setEmail(e.target.value)}
                             disabled={isLoading}
                             required
+                            onFocus={() => trackWaitlistFormFocus()}
                         />
                     </div>
                     <Button

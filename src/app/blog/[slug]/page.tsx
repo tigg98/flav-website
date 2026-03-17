@@ -157,8 +157,20 @@ export default async function BlogPostPage({ params }: Props) {
               </div>
             </div>
 
+            {/* Related links */}
+            <div className="mt-12 p-6 rounded-2xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800">
+              <h4 className="font-bold mb-3 text-sm uppercase tracking-wider text-neutral-500">Explore More</h4>
+              <div className="flex flex-wrap gap-2">
+                <Link href="/recipes/meal-prep" className="px-3 py-1.5 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm hover:border-[var(--color-primary-300)] transition-colors">Meal Prep Recipes</Link>
+                <Link href="/recipes/high-protein" className="px-3 py-1.5 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm hover:border-[var(--color-primary-300)] transition-colors">High Protein Recipes</Link>
+                <Link href="/creators" className="px-3 py-1.5 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm hover:border-[var(--color-primary-300)] transition-colors">For Creators</Link>
+                <Link href="/compare/allrecipes" className="px-3 py-1.5 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm hover:border-[var(--color-primary-300)] transition-colors">Flav vs AllRecipes</Link>
+                <Link href="/compare/yummly" className="px-3 py-1.5 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm hover:border-[var(--color-primary-300)] transition-colors">Flav vs Yummly</Link>
+              </div>
+            </div>
+
             {/* Back to blog */}
-            <div className="mt-12 text-center">
+            <div className="mt-8 text-center">
               <Link
                 href="/blog"
                 className="text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)] font-medium hover:underline"
