@@ -299,9 +299,9 @@ export function ImportDemo() {
                                         </div>
 
                                         {/* Action Buttons — matching app's sousPrimary style */}
-                                        <div className="flex gap-1 mb-3">
+                                        <div className="flex gap-1.5 mb-3">
                                             {/* Start Cooking – stacked text with Flav flame logo */}
-                                            <button className="flex-1 flex items-center justify-center gap-1.5 h-11 rounded-xl text-[#E07A5F] font-semibold border border-black/5 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-neutral-50 transition-all">
+                                            <button className="flex-1 min-w-[5rem] flex items-center justify-center gap-1.5 h-11 rounded-xl text-[#E07A5F] font-semibold border border-black/10 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-neutral-50 transition-all">
                                                 <svg viewBox="0 0 20 20" className="w-4 h-4 fill-[#E07A5F] flex-shrink-0"><path d="M10 1C8.5 3 7 5.5 7 8c0 1.1.4 2 1 2.7V17a2 2 0 004 0v-6.3c.6-.7 1-1.6 1-2.7 0-2.5-1.5-5-3-7z" /></svg>
                                                 <span className="flex flex-col leading-tight text-[10px]">
                                                     <span>Start</span>
@@ -309,20 +309,20 @@ export function ImportDemo() {
                                                 </span>
                                             </button>
                                             {/* Calendar */}
-                                            <button className="w-9 h-9 flex items-center justify-center rounded-xl border border-black/5 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-neutral-50 transition-colors flex-shrink-0">
-                                                <Calendar className="w-3.5 h-3.5 text-[#1A1A1A] dark:text-neutral-300" />
+                                            <button className="w-10 h-11 flex items-center justify-center rounded-xl border border-black/10 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-neutral-50 transition-colors flex-shrink-0">
+                                                <Calendar className="w-4 h-4 text-[#1A1A1A] dark:text-neutral-300" />
                                             </button>
                                             {/* Heart */}
-                                            <button className="w-9 h-9 flex items-center justify-center rounded-xl border border-black/5 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-neutral-50 transition-colors flex-shrink-0">
-                                                <Heart className="w-3.5 h-3.5 text-[#1A1A1A] dark:text-neutral-300" />
+                                            <button className="w-10 h-11 flex items-center justify-center rounded-xl border border-black/10 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-neutral-50 transition-colors flex-shrink-0">
+                                                <Heart className="w-4 h-4 text-[#1A1A1A] dark:text-neutral-300" />
                                             </button>
                                             {/* Bookmark */}
-                                            <button className="w-9 h-9 flex items-center justify-center rounded-xl border border-black/5 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-neutral-50 transition-colors flex-shrink-0">
-                                                <Bookmark className="w-3.5 h-3.5 text-[#1A1A1A] dark:text-neutral-300" />
+                                            <button className="w-10 h-11 flex items-center justify-center rounded-xl border border-black/10 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-neutral-50 transition-colors flex-shrink-0">
+                                                <Bookmark className="w-4 h-4 text-[#1A1A1A] dark:text-neutral-300" />
                                             </button>
                                             {/* Share */}
-                                            <button className="w-9 h-9 flex items-center justify-center rounded-xl border border-black/5 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-neutral-50 transition-colors flex-shrink-0">
-                                                <Share className="w-3.5 h-3.5 text-[#1A1A1A] dark:text-neutral-300" />
+                                            <button className="w-10 h-11 flex items-center justify-center rounded-xl border border-black/10 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-neutral-50 transition-colors flex-shrink-0">
+                                                <Share className="w-4 h-4 text-[#1A1A1A] dark:text-neutral-300" />
                                             </button>
                                         </div>
 
