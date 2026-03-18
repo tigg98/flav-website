@@ -13,6 +13,7 @@ export function ImportDemo() {
     const [progress, setProgress] = React.useState(0);
     const [recipeData, setRecipeData] = React.useState<{
         title: string;
+        description: string;
         image: string;
         video?: string;
         ingredients: string[];
@@ -83,6 +84,7 @@ export function ImportDemo() {
 
             setRecipeData({
                 title: cleanTitle || "Imported Recipe",
+                description: data.description || "",
                 image: data.image || FALLBACK_IMAGE,
                 video: data.video,
                 ingredients: ingredients.length > 0 ? ingredients : ["Ingredients extracted in-app"],
