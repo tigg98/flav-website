@@ -16,6 +16,7 @@ export function ImportDemo() {
         image: string;
         video?: string;
         ingredients: string[];
+        author: string | null;
         url: string;
     } | null>(null);
 
@@ -58,14 +59,6 @@ export function ImportDemo() {
             // Remove trailing " - Instagram" etc
             cleanTitle = cleanTitle.replace(/ - Instagram.*/, "").replace(/ on TikTok.*/, "");
 
-            // If title is likely just a name (2 words, both capped) or very short, make it generic
-            // e.g. "Tom Judkins" -> "Delicious Recipe"
-            const words = cleanTitle.split(' ');
-            if (words.length <= 2 && /^[A-Z]/.test(cleanTitle)) {
-                // Check if it looks like a name
-                cleanTitle = "Mediterranean Quinoa Bowl"; // Better default for demo
-            }
-
             // Smart Ingredient Parsing from Description
             const ingredients = data.description
                 ? data.description.split(/,|\n/)
@@ -83,7 +76,7 @@ export function ImportDemo() {
                         return true;
                     })
                     .slice(0, 5)
-                : ["No ingredients found"];
+                : [];
 
             // Fallback food image (Unsplash) when scraping can't extract one
             const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=450&fit=crop&q=80";
@@ -92,7 +85,8 @@ export function ImportDemo() {
                 title: cleanTitle || "Imported Recipe",
                 image: data.image || FALLBACK_IMAGE,
                 video: data.video,
-                ingredients: ingredients.length > 0 ? ingredients : ["1 cup quinoa", "Cherry tomatoes", "Cucumber", "Kalamata olives", "Fresh herbs"],
+                ingredients: ingredients.length > 0 ? ingredients : ["Ingredients extracted in-app"],
+                author: data.author || null,
                 url: data.url
             });
 
@@ -250,24 +244,25 @@ export function ImportDemo() {
                                     <div className="px-4 pt-4 pb-6">
                                         {/* Title */}
                                         <h2 className="text-[17px] font-bold leading-tight text-[#1A1A1A] dark:text-neutral-100 mb-3">
-                                            {recipeData?.title || "Mediterranean Quinoa Bowl"}
+                                            {recipeData?.title || "Imported Recipe"}
                                         </h2>
 
                                         {/* Creator Row */}
-                                        <div className="flex items-center gap-2.5 mb-4">
-                                            {/* Avatar */}
-                                            <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0"
-                                                style={{ background: 'linear-gradient(135deg, #1A1A1A, #444)' }}>
-                                                S
+                                        {recipeData?.author && (
+                                            <div className="flex items-center gap-2.5 mb-4">
+                                                {/* Avatar */}
+                                                <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0"
+                                                    style={{ background: 'linear-gradient(135deg, #1A1A1A, #444)' }}>
+                                                    {recipeData.author.charAt(0).toUpperCase()}
+                                                </div>
+                                                <div className="flex-1 min-w-0">
+                                                    <div className="text-[12px] font-semibold text-[#1A1A1A] dark:text-neutral-100 leading-tight">@{recipeData.author}</div>
+                                                </div>
+                                                <button className="text-[10px] font-semibold text-[#1A1A1A] dark:text-neutral-100 border border-[#1A1A1A] dark:border-neutral-400 rounded-lg px-3 py-1 hover:bg-neutral-50 transition-colors">
+                                                    Follow
+                                                </button>
                                             </div>
-                                            <div className="flex-1 min-w-0">
-                                                <div className="text-[12px] font-semibold text-[#1A1A1A] dark:text-neutral-100 leading-tight">Sarah Green</div>
-                                                <div className="text-[10px] text-[#666] dark:text-neutral-400 leading-tight">@healthy_sarah</div>
-                                            </div>
-                                            <button className="text-[10px] font-semibold text-[#1A1A1A] dark:text-neutral-100 border border-[#1A1A1A] dark:border-neutral-400 rounded-lg px-3 py-1 hover:bg-neutral-50 transition-colors">
-                                                Follow
-                                            </button>
-                                        </div>
+                                        )}
 
                                         {/* Meta Row: time • servings adjuster • difficulty */}
                                         <div className="flex items-center gap-2 mb-3 text-[10px] text-[#666] dark:text-neutral-400 font-medium">
@@ -289,13 +284,13 @@ export function ImportDemo() {
                                             <span>Easy</span>
                                         </div>
 
-                                        {/* Tags */}
+                                        {/* Source tag */}
                                         <div className="flex gap-1.5 mb-4">
-                                            {["Healthy", "Vegetarian", "Quick"].map(tag => (
-                                                <span key={tag} className="text-[9px] font-medium text-[#666] dark:text-neutral-400 bg-[#F7F7F7] dark:bg-neutral-800 rounded-md px-2 py-1">
-                                                    {tag}
+                                            {recipeData?.url && (
+                                                <span className="text-[9px] font-medium text-[#666] dark:text-neutral-400 bg-[#F7F7F7] dark:bg-neutral-800 rounded-md px-2 py-1">
+                                                    {recipeData.url.includes("instagram.com") ? "Instagram" : recipeData.url.includes("tiktok.com") ? "TikTok" : recipeData.url.includes("youtube.com") || recipeData.url.includes("youtu.be") ? "YouTube" : "Imported"}
                                                 </span>
-                                            ))}
+                                            )}
                                         </div>
 
                                         {/* Action Buttons — matching app's sousPrimary style */}
