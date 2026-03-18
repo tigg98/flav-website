@@ -300,9 +300,9 @@ export function ImportDemo() {
 
                                         {/* Action Buttons — matching app's sousPrimary style */}
                                         <div className="flex gap-1.5 mb-3">
-                                            {/* Start Cooking – stacked text with Flav flame logo */}
+                                            {/* Start Cooking – stacked text with Flav logo */}
                                             <button className="flex-1 min-w-[5rem] flex items-center justify-center gap-1.5 h-11 rounded-xl text-[#E07A5F] font-semibold border border-black/10 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-neutral-50 transition-all">
-                                                <svg viewBox="0 0 20 20" className="w-4 h-4 fill-[#E07A5F] flex-shrink-0"><path d="M10 1C8.5 3 7 5.5 7 8c0 1.1.4 2 1 2.7V17a2 2 0 004 0v-6.3c.6-.7 1-1.6 1-2.7 0-2.5-1.5-5-3-7z" /></svg>
+                                                <img src="/logo.png" alt="Flav" className="w-4 h-4 flex-shrink-0" />
                                                 <span className="flex flex-col leading-tight text-[10px]">
                                                     <span>Start</span>
                                                     <span>Cooking</span>
