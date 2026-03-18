@@ -300,9 +300,9 @@ export function ImportDemo() {
 
                                         {/* Action Buttons — matching app's sousPrimary style */}
                                         <div className="flex gap-1 mb-3">
-                                            {/* Start Cooking – glass material + coral accent */}
-                                            <button className="flex-1 flex items-center justify-center gap-1 h-9 rounded-xl text-[#E07A5F] font-semibold text-[11px] whitespace-nowrap border border-[#E07A5F]/40 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-[#E07A5F]/5 transition-all">
-                                                <svg viewBox="0 0 20 20" className="w-3 h-3 fill-[#E07A5F] flex-shrink-0"><path d="M10 1C8.5 3 7 5.5 7 8c0 1.1.4 2 1 2.7V17a2 2 0 004 0v-6.3c.6-.7 1-1.6 1-2.7 0-2.5-1.5-5-3-7z" /></svg>
+                                            {/* Start Cooking – same glass style as other buttons, only text/icon in coral */}
+                                            <button className="flex-1 flex items-center justify-center gap-1.5 h-9 rounded-xl text-[#E07A5F] font-semibold text-[11px] whitespace-nowrap border border-black/5 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-neutral-50 transition-all">
+                                                <svg viewBox="0 0 20 20" className="w-3.5 h-3.5 fill-[#E07A5F] flex-shrink-0"><path d="M10 1C8.5 3 7 5.5 7 8c0 1.1.4 2 1 2.7V17a2 2 0 004 0v-6.3c.6-.7 1-1.6 1-2.7 0-2.5-1.5-5-3-7z" /></svg>
                                                 Start Cooking
                                             </button>
                                             {/* Calendar */}
