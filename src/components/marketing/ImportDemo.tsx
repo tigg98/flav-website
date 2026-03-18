@@ -3,7 +3,7 @@
 import * as React from "react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { Link2, Loader2, Sparkles, Wand2, Clock, ChevronLeft, ChevronRight, MoreHorizontal, Play, Minus, Plus, Calendar, Heart, Bookmark, Share, Lock } from "lucide-react";
+import { Link2, Loader2, Sparkles, Wand2, Clock, ChevronLeft, ChevronRight, MoreHorizontal, Play, Minus, Plus, Calendar, Heart, Bookmark, Share, Lock, Flame } from "lucide-react";
 import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
 import { cn } from "@/lib/utils";
 
@@ -300,9 +300,9 @@ export function ImportDemo() {
 
                                         {/* Action Buttons — matching app's sousPrimary style */}
                                         <div className="flex gap-1.5 mb-3">
-                                            {/* Start Cooking – stacked text with Flav logo */}
+                                            {/* Start Cooking – stacked text with flame.fill icon */}
                                             <button className="flex-1 min-w-[5rem] flex items-center justify-center gap-1.5 h-11 rounded-xl text-[#E07A5F] font-semibold border border-black/10 bg-white/80 dark:bg-neutral-800/80 backdrop-blur-md hover:bg-neutral-50 transition-all">
-                                                <img src="/logo.png" alt="Flav" className="w-4 h-4 flex-shrink-0" />
+                                                <Flame className="w-5 h-5 text-[#E07A5F] fill-[#E07A5F] flex-shrink-0" />
                                                 <span className="flex flex-col leading-tight text-[10px]">
                                                     <span>Start</span>
                                                     <span>Cooking</span>
