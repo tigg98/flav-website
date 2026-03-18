@@ -181,11 +181,28 @@ export async function POST(req: Request) {
             } catch { /* TikTok oEmbed failed */ }
         }
 
+        // Extract author/creator from URL or meta tags
+        let author: string | null = null;
+        if (isInstagram) {
+            // Extract username from Instagram URL patterns like /username/ or /p/shortcode/
+            const igUserMatch = url.match(/instagram\.com\/(?!p\/|reel\/|reels\/|tv\/|stories\/)([A-Za-z0-9._]+)/);
+            if (igUserMatch) author = igUserMatch[1];
+        }
+        if (isTikTok) {
+            const tkUserMatch = url.match(/tiktok\.com\/@([A-Za-z0-9._]+)/);
+            if (tkUserMatch) author = tkUserMatch[1];
+        }
+        // Fallback: try og:site_name or article:author
+        if (!author) {
+            author = getMetaTag(html, "article:author") || getMetaTag(html, "og:site_name") || null;
+        }
+
         const data = {
             title,
             description,
             image,
             video,
+            author,
             url: url,
         };
 
