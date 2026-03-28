@@ -32,7 +32,7 @@ export async function POST(request: Request) {
 
     try {
         const body = await request.json()
-        const { name, budget_total, budget_daily, start_date, end_date } = body
+        const { name, budget_total, budget_daily, start_date, end_date, targeting } = body
 
         if (!name || !budget_total) {
             return NextResponse.json({ error: 'Missing required fields' }, { status: 400 })
@@ -75,6 +75,7 @@ export async function POST(request: Request) {
                 budget_daily,
                 start_date,
                 end_date,
+                targeting: Array.isArray(targeting) ? targeting : [],
                 status: 'draft'
             })
             .select()
@@ -100,7 +101,7 @@ export async function PUT(request: Request) {
 
     try {
         const body = await request.json()
-        const { id, name, budget_total, budget_daily, start_date, end_date, status } = body
+        const { id, name, budget_total, budget_daily, start_date, end_date, status, targeting } = body
 
         if (!id) {
             return NextResponse.json({ error: 'Campaign ID is required' }, { status: 400 })
@@ -124,6 +125,7 @@ export async function PUT(request: Request) {
         if (start_date !== undefined) updateData.start_date = start_date
         if (end_date !== undefined) updateData.end_date = end_date
         if (status !== undefined) updateData.status = status
+        if (targeting !== undefined) updateData.targeting = Array.isArray(targeting) ? targeting : []
 
         const { data: campaign, error } = await supabase
             .from('campaigns')

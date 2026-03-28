@@ -49,13 +49,31 @@ export default function AdvertisePage() {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [submitError, setSubmitError] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        setIsSubmitting(false);
-        setIsSubmitted(true);
+        setSubmitError("");
+
+        try {
+            const res = await fetch("/api/advertise", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formData),
+            });
+
+            if (!res.ok) {
+                const data = await res.json();
+                throw new Error(data.error || "Something went wrong.");
+            }
+
+            setIsSubmitted(true);
+        } catch (err) {
+            setSubmitError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -408,6 +426,12 @@ export default function AdvertisePage() {
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                                     />
                                 </div>
+
+                                {submitError && (
+                                    <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm text-center">
+                                        {submitError}
+                                    </div>
+                                )}
 
                                 <Button
                                     type="submit"
