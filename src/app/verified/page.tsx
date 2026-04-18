@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { WaitlistForm } from "@/components/ui/WaitlistForm";
+import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { Badge } from "@/components/ui/Badge";
 import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
@@ -428,10 +428,10 @@ export default function VerifiedPage() {
                                 Ready to level up?
                             </h2>
                             <p className="text-lg text-white/80 mb-8 max-w-xl">
-                                Join the waitlist and be first to unlock Verified or Pro when we launch.
+                                Download the app to unlock Verified or Pro today.
                             </p>
                             <div className="max-w-md">
-                                <WaitlistForm />
+                                <AppStoreButtons iosUrl="https://apps.apple.com/us/app/flav/id6759994122" />
                             </div>
                         </div>
 

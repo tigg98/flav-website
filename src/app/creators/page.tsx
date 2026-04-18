@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { CreatorWaitlistForm } from "@/components/ui/CreatorWaitlistForm";
-import { WaitlistForm } from "@/components/ui/WaitlistForm";
+import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { Badge } from "@/components/ui/Badge";
 import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
 import {
@@ -77,7 +76,7 @@ export default function CreatorsPage() {
                             </p>
 
                             <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-8">
-                                <CreatorWaitlistForm />
+                                <AppStoreButtons iosUrl="https://apps.apple.com/us/app/flav/id6759994122" />
                             </div>
 
                             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-[var(--color-neutral-500)]">
@@ -227,7 +226,9 @@ export default function CreatorsPage() {
                                     </li>
                                 ))}
                             </ul>
-                            <WaitlistForm />
+                            <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4">
+                                <AppStoreButtons iosUrl="https://apps.apple.com/us/app/flav/id6759994122" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -335,9 +336,9 @@ export default function CreatorsPage() {
                                 Start your creator journey today
                             </h2>
                             <p className="text-lg text-white/80 mb-8 max-w-xl">
-                                Join the waitlist and be first to access creator tools when we launch.
+                                Download Flav and start creating amazing content today.
                             </p>
-                            <CreatorWaitlistForm />
+                            <AppStoreButtons iosUrl="https://apps.apple.com/us/app/flav/id6759994122" />
                             <p className="mt-6 text-white/60 text-sm">
                                 Want to learn about plans?{" "}
                                 <Link href="/verified" className="underline hover:text-white">

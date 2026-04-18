@@ -80,7 +80,7 @@ export function Header() {
                     {/* Desktop CTA */}
                     <div className="hidden md:flex items-center gap-3">
                         <Button size="sm" asChild className="rounded-full">
-                            <Link href="#waitlist">Get Early Access</Link>
+                            <Link href="/#download">Download App</Link>
                         </Button>
                     </div>
 
@@ -135,8 +135,8 @@ export function Header() {
                         ))}
                         <div className="flex flex-col gap-2 pt-2 mt-2 border-t border-neutral-200 dark:border-neutral-700">
                             <Button size="md" className="mx-4" asChild>
-                                <Link href="/#waitlist" onClick={() => setIsMenuOpen(false)}>
-                                    Get Early Access
+                                <Link href="/#download" onClick={() => setIsMenuOpen(false)}>
+                                    Download App
                                 </Link>
                             </Button>
                         </div>

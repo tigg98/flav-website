@@ -3,6 +3,8 @@
 import * as React from "react";
 import { Button } from "@/components/ui/Button";
 
+import Link from "next/link";
+
 export function StickyMobileCTA() {
   const [isVisible, setIsVisible] = React.useState(false);
 
@@ -23,21 +25,11 @@ export function StickyMobileCTA() {
         <Button
           size="lg"
           className="w-full rounded-xl text-base font-semibold"
-          onClick={() => {
-            const el = document.getElementById("waitlist");
-            if (el) {
-              el.scrollIntoView({ behavior: "smooth" });
-              // Focus the email input after scrolling
-              setTimeout(() => {
-                const input = el.querySelector("input[type='email']");
-                if (input instanceof HTMLInputElement) {
-                  input.focus();
-                }
-              }, 500);
-            }
-          }}
+          asChild
         >
-          Get Early Access
+          <Link href="https://apps.apple.com/us/app/flav/id6759994122">
+             Download the App
+          </Link>
         </Button>
       </div>
     </div>

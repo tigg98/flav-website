@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
-import { WaitlistForm } from "@/components/ui/WaitlistForm";
+import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { StickyMobileCTA } from "@/components/ui/StickyMobileCTA";
 import { ScrollToButton } from "@/components/ui/ScrollToButton";
 import { ImportDemo } from "@/components/marketing/ImportDemo";
@@ -126,10 +126,9 @@ export default function HomePage() {
             <div className="text-center lg:text-left max-w-2xl mx-auto lg:mx-0 animate-fade-in">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-primary-100)] dark:bg-[#E07A5F]/10 text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)] text-sm font-medium mb-8 border border-[var(--color-primary-200)] dark:border-[#E07A5F]/20">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-primary-400)] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-primary-500)]"></span>
                 </span>
-                Launching Soon — Join the Waitlist
+                Available Now
               </div>
 
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight">
@@ -143,8 +142,8 @@ export default function HomePage() {
                 Paste a TikTok or Instagram link. Get a full recipe — ingredients, steps, nutrition, and timers. Then cook it hands-free with Flav's AI cooking mode.
               </p>
 
-              <div id="waitlist" className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-8 scroll-mt-24">
-                <WaitlistForm />
+              <div id="download" className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-8 scroll-mt-24">
+                <AppStoreButtons iosUrl="https://apps.apple.com/us/app/flav/id6759994122" size="lg" />
               </div>
 
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 text-sm font-medium text-neutral-500 dark:text-neutral-400">
@@ -346,182 +345,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Meal Plan Section */}
-      <section className="section bg-white dark:bg-black overflow-hidden relative border-b border-neutral-100 dark:border-neutral-800" id="meal-plan">
-        <div className="container-main relative z-10">
-          <div className="text-center mb-16 lg:mb-24">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-primary-50)] dark:bg-[#E07A5F]/15 text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)] text-sm font-semibold mb-6">
-              ✨ AI Meal Planning
-            </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
-              Plan your week in <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E07A5F] to-[#e8967d]">seconds.</span>
-            </h2>
-            <p className="text-xl text-[var(--color-neutral-600)] max-w-2xl mx-auto leading-relaxed">
-              Let Flav AI generate the perfect meal plan based on your dietary needs, macros, and preferences. Or simply drag-and-drop your favorite saved recipes.
-            </p>
-            <p className="text-sm text-[var(--color-neutral-500)] mt-3 flex items-center justify-center gap-1.5">
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[var(--color-primary-50)] dark:bg-[#E07A5F]/15 text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)] text-xs font-semibold">★ Premium</span>
-              Available on Verified & Pro plans
-            </p>
-          </div>
 
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center max-w-6xl mx-auto">
-            {/* Left Mockup: AI Generation */}
-            <div className="flex justify-center md:justify-end relative group">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-[var(--color-primary-200)] dark:bg-[#E07A5F]/25 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="relative z-10 transform group-hover:scale-[1.02] group-hover:-rotate-2 transition-all duration-500">
-                <IPhoneMockup
-                  src="/screenshots/meal-plan-generation.webp"
-                  alt="Flav AI generating a personalized weekly meal plan based on dietary preferences"
-                  size="lg"
-                />
-              </div>
-            </div>
-
-            {/* Right Mockup: Calendar View */}
-            <div className="flex justify-center md:justify-start relative group">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-[var(--color-primary-300)] dark:bg-[#E07A5F]/20 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="relative z-10 transform group-hover:scale-[1.02] group-hover:rotate-2 transition-all duration-500 md:-mt-20">
-                <IPhoneMockup
-                  src="/screenshots/meal-plan-calendar.webp"
-                  alt="Flav weekly meal plan calendar view with scheduled breakfast, lunch, and dinner recipes"
-                  size="lg"
-                  showBackdrop
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Creator Economy Section - Distinct Dark Glassy Look */}
-      <section className="section bg-neutral-900 text-white overflow-hidden relative" id="creators">
-        {/* Background gradients */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] bg-[#E07A5F]/20 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#e8967d]/20 rounded-full blur-[120px]" />
-        </div>
-
-        <div className="container-main relative z-10">
-          {/* Top: Content + Phone side by side */}
-          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center mb-16 lg:mb-24">
-            {/* Left: Phone Mockup */}
-            <div className="flex justify-center perspective-1000 order-2 md:order-1">
-              <div className="relative transform hover:scale-[1.02] transition-transform duration-500">
-                <div className="absolute -inset-8 bg-gradient-to-tr from-[#E07A5F]/30 to-[#e8967d]/20 rounded-[4rem] blur-3xl" />
-                <div className="relative drop-shadow-2xl">
-                  <IPhoneMockup
-                    src="/screenshots/earnings-v3.webp"
-                    alt="Flav creator earnings dashboard showing revenue analytics"
-                    size="lg"
-                    priority={false}
-                  />
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Content */}
-            <div className="order-1 md:order-2">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 text-[var(--color-primary-300)] text-sm font-semibold mb-6 border border-white/10 backdrop-blur-md">
-                <span className="w-2 h-2 rounded-full bg-[var(--color-primary-500)] animate-pulse"></span>
-                For Creators
-              </div>
-
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight text-white">
-                The only platform where food creators{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-primary-400)] to-[var(--color-primary-200)]">keep 93%.</span>
-              </h2>
-
-              <p className="text-xl text-neutral-300 mb-10 leading-relaxed">
-                Instagram pays you nothing. TikTok&apos;s Creator Fund pays pennies. Flav was built to make food creators real money — from day one.
-              </p>
-
-              <ul className="space-y-5 mb-10">
-                {([
-                  { icon: DollarSign, title: "Tips & Premium Recipes", desc: "Fans pay you directly. You keep 90-97%. No middleman." },
-                  { icon: Sparkles, title: "Built-in Audience Growth", desc: "Flav's food-first algorithm reaches people who actually cook your recipes." },
-                  { icon: BarChart3, title: "Brand Partnerships", desc: "Get matched with food brands for sponsored content. Set your own rates." },
-                ] as { icon: LucideIcon; title: string; desc: string }[]).map((item, i) => {
-                  const IconComponent = item.icon;
-                  return (
-                    <li key={i} className="group flex gap-4 items-start p-4 rounded-2xl bg-white/5 hover:bg-white/10 transition-all border border-white/5 hover:border-[#E07A5F]/30">
-                      <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-neutral-800 to-neutral-900 flex items-center justify-center border border-white/10 group-hover:scale-110 transition-transform shrink-0 shadow-lg">
-                        <IconComponent className="w-6 h-6 text-[var(--color-primary-400)]" />
-                      </div>
-                      <div>
-                        <h4 className="font-bold text-lg mb-1 text-white">{item.title}</h4>
-                        <p className="text-neutral-400 text-base">{item.desc}</p>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ul>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/creators">
-                  <Button size="lg" className="bg-white text-neutral-900 hover:bg-neutral-200 border-none w-full sm:w-auto shadow-lg shadow-white/5">
-                    Apply as Creator
-                  </Button>
-                </Link>
-                <Link href="/verified">
-                  <Button size="lg" variant="outline" className="border-white/20 text-white hover:bg-white/10 w-full sm:w-auto">
-                    View Plans
-                  </Button>
-                </Link>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom: Platform Comparison Table */}
-          <div className="max-w-4xl mx-auto">
-            <h3 className="text-2xl font-bold text-center mb-8 text-white">How Flav compares</h3>
-            <div className="overflow-x-auto rounded-2xl border border-white/10">
-              <table className="w-full text-left">
-                <thead>
-                  <tr className="border-b border-white/10">
-                    <th className="p-4 text-sm font-semibold text-neutral-400"></th>
-                    <th className="p-4 text-sm font-semibold text-neutral-400">Instagram</th>
-                    <th className="p-4 text-sm font-semibold text-neutral-400">TikTok</th>
-                    <th className="p-4 text-sm font-semibold text-neutral-400">YouTube</th>
-                    <th className="p-4 text-sm font-semibold text-[var(--color-primary-400)]">Flav</th>
-                  </tr>
-                </thead>
-                <tbody className="text-sm">
-                  <tr className="border-b border-white/5">
-                    <td className="p-4 font-medium text-neutral-300">Creator payout</td>
-                    <td className="p-4 text-neutral-500">0%</td>
-                    <td className="p-4 text-neutral-500">~2-4%</td>
-                    <td className="p-4 text-neutral-500">~45%</td>
-                    <td className="p-4 font-bold text-[var(--color-primary-400)]">90-97%</td>
-                  </tr>
-                  <tr className="border-b border-white/5">
-                    <td className="p-4 font-medium text-neutral-300">Food-specific algorithm</td>
-                    <td className="p-4 text-neutral-500">&#x2717;</td>
-                    <td className="p-4 text-neutral-500">&#x2717;</td>
-                    <td className="p-4 text-neutral-500">&#x2717;</td>
-                    <td className="p-4 font-bold text-[var(--color-primary-400)]">&#x2713;</td>
-                  </tr>
-                  <tr className="border-b border-white/5">
-                    <td className="p-4 font-medium text-neutral-300">Recipe monetization</td>
-                    <td className="p-4 text-neutral-500">&#x2717;</td>
-                    <td className="p-4 text-neutral-500">&#x2717;</td>
-                    <td className="p-4 text-neutral-500">&#x2717;</td>
-                    <td className="p-4 font-bold text-[var(--color-primary-400)]">&#x2713;</td>
-                  </tr>
-                  <tr>
-                    <td className="p-4 font-medium text-neutral-300">Built-in cooking tools</td>
-                    <td className="p-4 text-neutral-500">&#x2717;</td>
-                    <td className="p-4 text-neutral-500">&#x2717;</td>
-                    <td className="p-4 text-neutral-500">&#x2717;</td>
-                    <td className="p-4 font-bold text-[var(--color-primary-400)]">&#x2713;</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* How It Works */}
       <section className="section bg-[var(--background-subtle)]">
@@ -560,50 +384,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* For Brands Section */}
-      <section className="section bg-gradient-to-br from-[var(--color-neutral-900)] to-[var(--color-neutral-950)] text-white">
-        <div className="container-main">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <Badge variant="beta" className="mb-4" />
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">
-                Reach food lovers where they're hungry to discover
-              </h2>
-              <p className="text-lg text-[var(--color-neutral-300)] mb-6">
-                Advertise on Flav to connect with an audience actively looking for their next meal.
-              </p>
-              <ul className="space-y-3 mb-8">
-                {[
-                  "In-feed promoted recipes",
-                  "Creator partnership campaigns",
-                  "Dietary & flavor-based targeting",
-                  "Brand-safe environment",
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center gap-3">
-                    <svg className="w-5 h-5 text-[var(--color-primary-500)] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    <span className="text-[var(--color-neutral-200)]">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Button asChild>
-                <Link href="/advertise">Advertise on Flav</Link>
-              </Button>
-            </div>
-            <div className="hidden md:flex justify-center">
-              <div className="relative w-96 h-80 rounded-3xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/advertiser-dashboard.webp"
-                  alt="Flav advertiser analytics dashboard showing impressions, clicks, and campaign performance"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* FAQ Section */}
       <section className="section" id="faq">
@@ -630,13 +411,13 @@ export default function HomePage() {
             Ready to cook?
           </h2>
           <p className="text-xl md:text-2xl text-[var(--color-primary-50)] mb-12 max-w-2xl mx-auto font-medium">
-            Join the waitlist and be first in line when we launch.
+            Download the app and discover a whole new way to cook.
           </p>
           <div className="flex justify-center max-w-md mx-auto">
-            <WaitlistForm className="w-full [&_form_.absolute]:!bg-gradient-to-r [&_form_.absolute]:!from-white/30 [&_form_.absolute]:!via-white/20 [&_form_.absolute]:!to-white/30" />
+            <AppStoreButtons iosUrl="https://apps.apple.com/us/app/flav/id6759994122" size="lg" />
           </div>
           <p className="text-sm text-white/70 mt-6 font-medium">
-            Free to join. No credit card required.
+            Free forever. No credit card required.
           </p>
         </div>
 
