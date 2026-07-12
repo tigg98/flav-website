@@ -321,3 +321,37 @@ h6 {
 .animate-pulse {
   animation: skeleton-pulse 1.5s ease-in-out infinite;
 }
+
+/* Gentle float for decorative chips */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+/* Frosted panel for floating UI chips */
+.glass-panel {
+  background: color-mix(in srgb, var(--background-elevated) 85%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid color-mix(in srgb, var(--foreground) 8%, transparent);
+}
+
+/* Respect iOS safe areas for sticky bars */
+.safe-bottom {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}

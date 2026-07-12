@@ -21,11 +21,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Flav — Your Recipes, Your Audience, Your Income",
+    default: "Flav — Save Any TikTok Recipe in 10 Seconds",
     template: "%s | Flav",
   },
   description:
-    "Flav is the short-form video app for food lovers. Discover recipes through swipeable videos, cook step-by-step with an AI sous-chef, import recipes from TikTok and Instagram in seconds, and earn 90–97% of revenue as a food creator. Free on iOS and Android.",
+    "Flav turns TikTok, Instagram, and web recipe videos into an AI-organized cookbook. Paste a link, get the full recipe — ingredients, steps, timers — then cook hands-free. Free on iOS. Android coming soon.",
   keywords: [
     "best cooking app 2026",
     "how to monetize food videos",
@@ -46,33 +46,33 @@ export const metadata: Metadata = {
   creator: "Tig Tech LLC",
   publisher: "Tig Tech LLC",
   metadataBase: new URL("https://flav.app"),
-  alternates: {
-    canonical: "https://flav.app",
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://flav.app",
     siteName: "Flav",
-    title: "Flav — The #1 Short-Form Video App for Food Lovers",
+    title: "Flav — Save Any TikTok Recipe in 10 Seconds",
     description:
-      "Discover viral recipes, cook step-by-step with an AI sous-chef, and earn 90–97% of revenue as a food creator. Import recipes from TikTok and Instagram. Free on iOS and Android.",
+      "Paste a link, get the full recipe — ingredients, steps, timers — in a cookbook that's actually yours. Free on iOS. Android coming soon.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Flav — Short-form video app for food lovers with AI cooking assistant and creator monetization",
+        alt: "Flav — turn TikTok and Instagram recipe videos into an AI-organized cookbook",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Flav — Your Recipes, Your Audience, Your Income",
+    title: "Flav — Save Any TikTok Recipe in 10 Seconds",
     description:
-      "The #1 short-form video app for food lovers. AI-powered recipe import, step-by-step cooking mode, and 90–97% creator payouts. Free on iOS & Android.",
+      "Turn TikTok and Instagram recipe videos into an AI-organized cookbook with hands-free Cook Mode. Free on iOS. Android coming soon.",
     images: ["/og-image.png"],
     creator: "@cookwithflav",
+  },
+  itunes: {
+    appId: "6759994122",
   },
   robots: {
     index: true,
