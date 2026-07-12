@@ -28,7 +28,7 @@ export const competitors: Record<string, CompetitorData> = {
             "Interactive Step-by-Step Cooking Mode with Timers",
             "Instant Recipe Import from any TikTok or Instagram URL",
             "Flav AI: Your personal sous-chef for substitutions and questions",
-            "Robust Creator Economy paying out 90-97%",
+            "Robust Creator Economy paying out up to 93%",
         ],
         faq: [
             {
@@ -110,7 +110,7 @@ export const competitors: Record<string, CompetitorData> = {
             "Original short-form video recipes from real creators",
             "AI sous-chef answers questions while you cook",
             "Step-by-step cooking mode with built-in timers",
-            "Creator monetization with 90-97% payouts",
+            "Creator monetization with payouts up to 93%",
         ],
         faq: [
             {
@@ -250,7 +250,7 @@ export const competitors: Record<string, CompetitorData> = {
         faq: [
             {
                 question: "How does Flav compare to SideChef?",
-                answer: "Both apps offer step-by-step cooking guidance, but Flav adds video-first recipe discovery, AI-powered cooking assistance, social media recipe import, and a creator monetization platform with 90-97% payouts.",
+                answer: "Both apps offer step-by-step cooking guidance, but Flav adds video-first recipe discovery, AI-powered cooking assistance, social media recipe import, and a creator monetization platform with payouts up to 93%.",
             },
             {
                 question: "Does Flav work with smart appliances like SideChef?",
@@ -263,7 +263,7 @@ export const competitors: Record<string, CompetitorData> = {
         name: "Cookpad",
         website: "cookpad.com",
         title: "Flav vs Cookpad: Community Cooking App Comparison 2026",
-        description: "Compare Flav and Cookpad. See why food creators prefer Flav's video platform, AI tools, and 90-97% monetization payouts.",
+        description: "Compare Flav and Cookpad. See why food creators prefer Flav's video platform, AI tools, and monetization payouts up to 93%.",
         heroImage: "/screenshots/home-feed-v5.webp",
         vsText: "Cookpad is a community recipe sharing platform popular internationally. Flav is the video-first evolution — combining community recipes with AI tools, cooking mode, and real creator monetization.",
         pros: ["Large global community", "User-submitted recipes", "Available in many languages"],
@@ -271,13 +271,13 @@ export const competitors: Record<string, CompetitorData> = {
         flavAdvantages: [
             "Video-first recipes that are easier to follow",
             "AI cooking assistant for real-time help",
-            "Creators earn 90-97% of tips and premium recipe revenue",
+            "Creators keep up to 93% of tips and premium recipe revenue",
             "Import recipes from any platform with AI",
         ],
         faq: [
             {
                 question: "Is Flav better than Cookpad?",
-                answer: "Flav is designed for the video generation. While Cookpad offers community text recipes, Flav provides video recipes, AI cooking assistance, interactive cooking mode, and lets creators monetize their content with 90-97% payouts.",
+                answer: "Flav is designed for the video generation. While Cookpad offers community text recipes, Flav provides video recipes, AI cooking assistance, interactive cooking mode, and lets creators monetize their content with payouts up to 93%.",
             },
             {
                 question: "Can I share recipes on Flav like Cookpad?",
@@ -296,10 +296,10 @@ export const competitors: Record<string, CompetitorData> = {
         pros: ["Samsung ecosystem integration", "Recipe saving from web", "Meal planning and grocery lists"],
         cons: ["Limited to Samsung ecosystem benefits", "No original video content", "No creator monetization"],
         flavAdvantages: [
-            "Works on any device — iOS, Android, no ecosystem lock-in",
+            "Works on iPhone today (Android coming soon) — no ecosystem lock-in",
             "AI-powered video recipe discovery and import",
             "Interactive cooking mode with timers and voice guidance",
-            "Creator monetization platform with 90-97% payouts",
+            "Creator monetization platform with payouts up to 93%",
         ],
         faq: [
             {

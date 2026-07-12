@@ -14,7 +14,7 @@ import {
 } from "@/lib/analytics/posthog";
 
 const REWARD_TIERS = [
-    { count: 3, label: "Early access", icon: "🚀" },
+    { count: 3, label: "First in line on Android", icon: "🚀" },
     { count: 10, label: "Creator badge", icon: "✨" },
     { count: 25, label: "3 months Premium free", icon: "💎" },
     { count: 50, label: "Lifetime Verified", icon: "👑" },
@@ -120,7 +120,7 @@ export function WaitlistForm({ className, onSuccess, referralCode }: WaitlistFor
     const shareOnTwitter = () => {
         trackReferralShare("twitter");
         const text = encodeURIComponent(
-            "Just joined the @cookwithflav waitlist — it turns TikTok recipes into actual cookable meals with AI. Get in line 👇"
+            "Just joined the @cookwithflav Android waitlist — it turns TikTok recipes into actual cookable meals with AI (already live on iOS). Get in line 👇"
         );
         const url = encodeURIComponent(referralLink);
         window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, "_blank");
@@ -129,7 +129,7 @@ export function WaitlistForm({ className, onSuccess, referralCode }: WaitlistFor
     const shareViaText = () => {
         trackReferralShare("text");
         const text = encodeURIComponent(
-            `Check out Flav — it imports recipes from TikTok/IG and helps you actually cook them. Join the waitlist: ${referralLink}`
+            `Check out Flav — it imports recipes from TikTok/IG and helps you actually cook them. Free on iOS now, or join the Android waitlist: ${referralLink}`
         );
         window.open(`sms:?&body=${text}`, "_self");
     };
@@ -140,7 +140,7 @@ export function WaitlistForm({ className, onSuccess, referralCode }: WaitlistFor
             try {
                 await navigator.share({
                     title: "Join Flav — The Cooking App",
-                    text: "Flav turns TikTok recipes into actual cookable meals. Join the waitlist!",
+                    text: "Flav turns TikTok recipes into actual cookable meals. Free on iOS, Android waitlist open!",
                     url: referralLink,
                 });
             } catch {
@@ -165,7 +165,7 @@ export function WaitlistForm({ className, onSuccess, referralCode }: WaitlistFor
                         <Check className="w-7 h-7 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-neutral-900 dark:text-white">
-                        You&apos;re #{waitlistData.position?.toLocaleString() || "—"} on the waitlist!
+                        You&apos;re #{waitlistData.position?.toLocaleString() || "—"} on the Android waitlist!
                     </h3>
                     <p className="text-sm text-neutral-500 dark:text-neutral-400 mt-1">
                         Share your link to move up and unlock rewards

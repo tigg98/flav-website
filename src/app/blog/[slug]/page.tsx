@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { blogPosts, getBlogPost } from "../blog-data";
-import { WaitlistForm } from "@/components/ui/WaitlistForm";
+import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -148,12 +148,12 @@ export default async function BlogPostPage({ params }: Props) {
 
             {/* CTA */}
             <div className="mt-16 p-8 rounded-3xl bg-[var(--background-subtle)] border border-[var(--color-neutral-200)] dark:border-[var(--color-neutral-800)] text-center">
-              <h3 className="text-2xl font-bold mb-3">Join the Flav Waitlist</h3>
+              <h3 className="text-2xl font-bold mb-3">Get Flav on the App Store</h3>
               <p className="text-[var(--color-neutral-600)] mb-6 max-w-md mx-auto">
-                Get early access to the cooking app that turns viral recipes into tonight&apos;s dinner.
+                The cooking app that turns viral recipes into tonight&apos;s dinner. Free on iOS — 10 AI recipe imports a month.
               </p>
-              <div className="max-w-md mx-auto">
-                <WaitlistForm />
+              <div className="flex justify-center">
+                <AppStoreButtons utmSource="blog" />
               </div>
             </div>
 

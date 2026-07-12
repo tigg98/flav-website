@@ -2,6 +2,8 @@ import Link from "next/link";
 
 const footerLinks = {
     product: [
+        { href: "https://apps.apple.com/us/app/flav/id6759994122", label: "Download for iOS" },
+        { href: "/waitlist", label: "Android Waitlist" },
         { href: "/creators", label: "For Creators" },
         { href: "/verified", label: "Verified / Pro" },
         { href: "/recipes", label: "Recipes" },
@@ -75,7 +77,7 @@ export function Footer() {
                             <span>Flav</span>
                         </Link>
                         <p className="text-[var(--color-neutral-400)] text-sm mb-6 max-w-xs">
-                            The short-form video app for food lovers. Discover, create, and earn from your recipes.
+                            The recipe layer for your feed. Turn TikTok and Instagram recipe videos into a cookbook that&apos;s actually yours.
                         </p>
                         <div className="flex gap-4">
                             {socialLinks.map((social) => (
@@ -181,13 +183,16 @@ export function Footer() {
                         </p>
                     </div>
                     <div className="flex items-center gap-4">
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-primary-500)]/10 border border-[var(--color-primary-500)]/20">
+                        <a
+                            href="https://apps.apple.com/us/app/flav/id6759994122?utm_source=website&utm_medium=footer&utm_campaign=ios_download"
+                            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[var(--color-primary-500)]/10 border border-[var(--color-primary-500)]/20 hover:bg-[var(--color-primary-500)]/20 transition-colors"
+                        >
                             <span className="relative flex h-2 w-2">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-primary-400)] opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-primary-500)]"></span>
                             </span>
-                            <span className="text-xs font-semibold text-[var(--color-primary-400)]">Launching 2026</span>
-                        </div>
+                            <span className="text-xs font-semibold text-[var(--color-primary-400)]">Now on the App Store</span>
+                        </a>
                     </div>
                 </div>
             </div>

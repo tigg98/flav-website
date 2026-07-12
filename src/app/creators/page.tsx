@@ -13,17 +13,19 @@ import {
     User,
     ChefHat,
     Wallet,
+    Link2,
+    BarChart3,
     type LucideIcon,
 } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: "For Creators",
+    title: "For Creators — All Your Recipes, One Link",
     description:
-        "Turn your recipes into real income. Join Flav and monetize your cooking content with tips, premium recipes, and brand partnerships.",
+        "Get your flav.app/@handle bio-link page — every recipe you've posted behind one link. Monetize with tips, premium recipes, and brand partnerships, keeping up to 93%.",
     openGraph: {
-        title: "For Creators | Flav",
+        title: "Flav for Creators — All Your Recipes, One Link",
         description:
-            "Turn your recipes into real income. Monetize your cooking content with tips, premium recipes, and brand partnerships.",
+            "A premium bio-link page for food creators, plus tips, premium recipes, and brand partnerships with payouts up to 93%.",
     },
 };
 
@@ -71,8 +73,9 @@ export default function CreatorsPage() {
                             </h1>
 
                             <p className="text-lg md:text-xl text-[var(--color-neutral-600)] mb-8 max-w-xl">
-                                Join thousands of food creators building their audience and earning money on Flav.
-                                Your passion for cooking can become your career.
+                                Every Flav creator gets a premium bio-link page, real monetization,
+                                and an audience that actually cooks. Your passion for cooking can
+                                become your career.
                             </p>
 
                             <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-8">
@@ -117,6 +120,74 @@ export default function CreatorsPage() {
             </section>
 
 
+
+            {/* Bio-link: Your recipes. One link. */}
+            <section className="section bg-[var(--color-neutral-950)] text-white overflow-hidden">
+                <div className="container-main">
+                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                        <div className="text-center lg:text-left">
+                            <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary-400)] mb-4">
+                                Your Bio-Link Page
+                            </p>
+                            <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
+                                Your recipes.{" "}
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E07A5F] to-[#e8967d]">
+                                    One link.
+                                </span>
+                            </h2>
+                            <p className="text-lg text-neutral-300 mb-8 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                                Put{" "}
+                                <span className="font-mono text-[var(--color-primary-300)]">flav.app/@yourhandle</span>{" "}
+                                in your TikTok and Instagram bio. Followers tap once and land on
+                                every recipe you&apos;ve ever posted — structured, cookable, and
+                                saveable straight into their Flav cookbook.
+                            </p>
+
+                            <div className="grid sm:grid-cols-3 gap-4 mb-10 text-left">
+                                <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                                    <Link2 className="w-5 h-5 text-[var(--color-primary-400)] mb-3" />
+                                    <p className="text-sm font-semibold mb-1">One link, every recipe</p>
+                                    <p className="text-xs text-neutral-400">No more &quot;recipe in comments&quot;</p>
+                                </div>
+                                <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                                    <BadgeCheck className="w-5 h-5 text-[var(--color-primary-400)] mb-3" />
+                                    <p className="text-sm font-semibold mb-1">Verified badge</p>
+                                    <p className="text-xs text-neutral-400">Stand out with Flav Verified</p>
+                                </div>
+                                <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+                                    <BarChart3 className="w-5 h-5 text-[var(--color-primary-400)] mb-3" />
+                                    <p className="text-sm font-semibold mb-1">Real analytics</p>
+                                    <p className="text-xs text-neutral-400">See what people actually cook</p>
+                                </div>
+                            </div>
+
+                            <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4">
+                                <AppStoreButtons showAndroid={false} utmSource="creators_biolink" />
+                                <Button variant="outline" size="md" className="border-white/30 text-white hover:border-white hover:text-white" asChild>
+                                    <Link href="/verified">See Verified plans</Link>
+                                </Button>
+                            </div>
+                        </div>
+
+                        <div className="relative flex justify-center lg:justify-end">
+                            <div className="relative z-20">
+                                <div className="absolute -inset-4 bg-gradient-to-tr from-[#E07A5F]/25 to-[#e8967d]/15 rounded-[3rem] blur-3xl" />
+                                <IPhoneMockup
+                                    src="/screenshots/creator-profile-v3.webp"
+                                    alt="A Flav creator profile page with recipe grid, follower count, and verified badge"
+                                    size="md"
+                                />
+                            </div>
+                            <div className="absolute -left-2 bottom-14 z-30 hidden xl:block">
+                                <div className="bg-white/10 backdrop-blur border border-white/15 px-4 py-3 rounded-2xl shadow-xl">
+                                    <div className="text-xs text-neutral-400 mb-0.5">In your bio</div>
+                                    <div className="font-mono text-sm font-semibold">flav.app/@yourhandle</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* Multiple Ways to Earn */}
             <section className="section">
@@ -165,7 +236,7 @@ export default function CreatorsPage() {
                             <ul className="space-y-3 mb-8">
                                 {[
                                     "Real-time revenue tracking",
-                                    "53% savings with Flav Pro",
+                                    "Keep up to 93% of every dollar",
                                     "Weekly automatic payouts",
                                     "Transaction history",
                                 ].map((item, index) => (
@@ -248,7 +319,7 @@ export default function CreatorsPage() {
 
                     <div className="grid md:grid-cols-4 gap-8 max-w-4xl mx-auto">
                         {([
-                            { step: "01", title: "Download", description: "Get Flav free on iOS or Android", icon: Smartphone },
+                            { step: "01", title: "Download", description: "Get Flav free on iOS (Android soon)", icon: Smartphone },
                             { step: "02", title: "Create Profile", description: "Set up your creator bio and photo", icon: User },
                             { step: "03", title: "Upload Recipes", description: "Share your first recipe video", icon: ChefHat },
                             { step: "04", title: "Start Earning", description: "Enable tips once you hit 100 followers", icon: Wallet },
@@ -278,7 +349,7 @@ export default function CreatorsPage() {
                             "@context": "https://schema.org",
                             "@type": "WebPage",
                             "name": "Flav for Creators — Monetize Your Cooking Content",
-                            "description": "Turn your recipes into real income. Flav creators retain 90–97% of earnings through tips, premium recipes, and brand partnerships.",
+                            "description": "Turn your recipes into real income. Flav creators keep up to 93% of earnings through tips, premium recipes, and brand partnerships.",
                             "url": "https://flav.app/creators",
                             "isPartOf": {
                                 "@type": "WebSite",
@@ -302,7 +373,7 @@ export default function CreatorsPage() {
                                     "name": "How do food creators earn money on Flav?",
                                     "acceptedAnswer": {
                                         "@type": "Answer",
-                                        "text": "Flav creators earn through three revenue channels: direct viewer tips, premium locked recipes, and brand partnership deals. Creators retain 90% of earnings on the Verified plan ($7.99/month) and 97% on the Pro plan ($19.99/month) — the highest payout rates in the food creator economy."
+                                        "text": "Flav creators earn through three revenue channels: direct viewer tips, premium locked recipes, and brand partnership deals. Creators keep 90% of earnings on the Verified plan ($7.99/month) and 93% on the Pro plan ($19.99/month) — among the highest payout rates in the food creator economy."
                                     }
                                 },
                                 {
@@ -318,7 +389,7 @@ export default function CreatorsPage() {
                                     "name": "How do I get started as a creator on Flav?",
                                     "acceptedAnswer": {
                                         "@type": "Answer",
-                                        "text": "Getting started is simple: download Flav for free on iOS or Android, create your creator profile, upload your first recipe video, and enable monetization once you reach 100 followers. Upgrade to Verified ($7.99/month) or Pro ($19.99/month) to unlock tips, premium recipes, and brand partnerships."
+                                        "text": "Getting started is simple: download Flav for free on iOS (Android coming soon), create your creator profile, upload your first recipe video, and enable monetization once you reach 100 followers. Upgrade to Verified ($7.99/month) or Pro ($19.99/month) to unlock tips, premium recipes, and brand partnerships."
                                     }
                                 }
                             ]

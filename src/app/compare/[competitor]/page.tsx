@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { competitors } from "../competitor-data";
-import { WaitlistForm } from "@/components/ui/WaitlistForm";
+import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { Check, X, ArrowRight } from "lucide-react";
 import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
@@ -59,10 +59,10 @@ export default async function ComparePage({ params }: Props) {
 
                     <div className="flex flex-col items-center justify-center gap-4 bg-white dark:bg-neutral-900 p-8 rounded-3xl shadow-xl border border-neutral-200 dark:border-neutral-800 max-w-xl mx-auto">
                         <h3 className="font-bold text-lg mb-2">Ready to make the switch?</h3>
-                        <div className="w-full">
-                            <WaitlistForm />
+                        <div className="flex justify-center">
+                            <AppStoreButtons utmSource="compare" />
                         </div>
-                        <p className="text-sm text-neutral-500 mt-2">Join the waitlist and be first to try Flav.</p>
+                        <p className="text-sm text-neutral-500 mt-2">Free on iOS. Android coming soon.</p>
                     </div>
                 </div>
             </section>

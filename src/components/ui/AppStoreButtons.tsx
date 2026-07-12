@@ -6,17 +6,18 @@ import { cn } from "@/lib/utils";
 interface AppStoreButtonsProps {
     className?: string;
     iosUrl?: string;
-    androidUrl?: string;
     utmSource?: string;
     size?: "sm" | "md" | "lg";
+    /** Set false to render only the iOS badge (e.g. on the Android waitlist page). */
+    showAndroid?: boolean;
 }
 
 export function AppStoreButtons({
     className,
     iosUrl = "https://apps.apple.com/us/app/flav/id6759994122",
-    androidUrl = "#",
     utmSource = "website",
     size = "md",
+    showAndroid = true,
 }: AppStoreButtonsProps) {
     const buildUrl = (baseUrl: string, platform: string) => {
         if (baseUrl === "#") return "#";
@@ -35,7 +36,7 @@ export function AppStoreButtons({
             <Link
                 href={buildUrl(iosUrl, "ios")}
                 className={cn(
-                    "inline-flex items-center gap-2 bg-[var(--color-neutral-900)] hover:bg-[var(--color-neutral-800)] text-white transition-colors rounded-xl px-5 cursor-pointer",
+                    "inline-flex items-center gap-2 bg-[var(--color-neutral-900)] hover:bg-[var(--color-neutral-800)] text-white transition-all duration-200 rounded-xl px-5 cursor-pointer hover:-translate-y-0.5 hover:shadow-lg",
                     sizeClasses[size]
                 )}
             >
@@ -48,20 +49,24 @@ export function AppStoreButtons({
                 </div>
             </Link>
 
-            <div
-                className={cn(
-                    "inline-flex items-center gap-2 bg-[var(--color-neutral-900)]/60 text-white/70 rounded-xl px-5 cursor-default",
-                    sizeClasses[size]
-                )}
-            >
-                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.302 2.302-8.636-8.635z" />
-                </svg>
-                <div className="flex flex-col items-start">
-                    <span className="text-[10px] leading-tight opacity-80">Coming Soon</span>
-                    <span className="text-sm font-semibold leading-tight">Google Play</span>
-                </div>
-            </div>
+            {showAndroid && (
+                <Link
+                    href="/waitlist"
+                    title="Join the Android waitlist"
+                    className={cn(
+                        "inline-flex items-center gap-2 bg-[var(--color-neutral-900)]/60 hover:bg-[var(--color-neutral-900)]/80 text-white/70 hover:text-white/90 transition-colors rounded-xl px-5",
+                        sizeClasses[size]
+                    )}
+                >
+                    <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.302 2.302-8.636-8.635z" />
+                    </svg>
+                    <div className="flex flex-col items-start">
+                        <span className="text-[10px] leading-tight opacity-80">Coming soon — get notified</span>
+                        <span className="text-sm font-semibold leading-tight">Google Play</span>
+                    </div>
+                </Link>
+            )}
         </div>
     );
 }

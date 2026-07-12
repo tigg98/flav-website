@@ -101,7 +101,7 @@ export default function AdvertisePage() {
                             </h1>
 
                             <p className="text-xl md:text-2xl text-[var(--color-neutral-300)] mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-                                Connect with millions of passionate home cooks on the world's most engaging food platform.
+                                Reach passionate home cooks at the exact moment they decide what to make for dinner.
                             </p>
 
                             <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4 mb-12">

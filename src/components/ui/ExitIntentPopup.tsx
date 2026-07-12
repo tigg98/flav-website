@@ -1,8 +1,9 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { X } from "lucide-react";
-import { WaitlistForm } from "@/components/ui/WaitlistForm";
+import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 
 export function ExitIntentPopup() {
     const [show, setShow] = React.useState(false);
@@ -12,12 +13,13 @@ export function ExitIntentPopup() {
         // Only trigger on desktop (mouseleave-based)
         if (window.innerWidth < 768) return;
 
-        // Don't show if already on waitlist (check localStorage)
-        if (localStorage.getItem("flav_waitlist_joined")) return;
+        // Don't nag repeat visitors
+        if (localStorage.getItem("flav_exit_intent_shown")) return;
 
         const handleMouseLeave = (e: MouseEvent) => {
             if (e.clientY <= 0 && !hasShown.current) {
                 hasShown.current = true;
+                localStorage.setItem("flav_exit_intent_shown", "true");
                 setShow(true);
             }
         };
@@ -56,18 +58,28 @@ export function ExitIntentPopup() {
                 <div className="text-center mb-6">
                     <div className="text-4xl mb-4">👋</div>
                     <h2 className="text-2xl font-bold mb-2">
-                        Wait — don&apos;t miss out
+                        That recipe you saved last week?
                     </h2>
                     <p className="text-neutral-600 dark:text-neutral-400 text-sm">
-                        Join the waitlist and be first to import recipes from TikTok with AI. Free forever, no credit card required.
+                        Flav can find it, organize it, and walk you through cooking it.
+                        Free on iOS — 10 AI recipe imports a month, no credit card.
                     </p>
                 </div>
 
-                <WaitlistForm
-                    onSuccess={() => {
-                        localStorage.setItem("flav_waitlist_joined", "true");
-                    }}
-                />
+                <div className="flex justify-center">
+                    <AppStoreButtons showAndroid={false} utmSource="exit_intent" />
+                </div>
+
+                <p className="text-center text-xs text-neutral-400 mt-4">
+                    On Android?{" "}
+                    <Link
+                        href="/waitlist"
+                        onClick={() => setShow(false)}
+                        className="text-[var(--color-primary-500)] hover:text-[var(--color-primary-600)] font-medium underline underline-offset-2"
+                    >
+                        Join the waitlist
+                    </Link>
+                </p>
 
                 <button
                     onClick={() => setShow(false)}

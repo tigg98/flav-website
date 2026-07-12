@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { WaitlistForm } from "@/components/ui/WaitlistForm";
+import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { recipeCategories } from "./recipe-categories";
 
 export const metadata: Metadata = {
@@ -92,11 +92,14 @@ export default function RecipesIndexPage() {
                         Import any recipe in 10 seconds
                     </h2>
                     <p className="text-lg text-white/80 mb-8 max-w-xl mx-auto">
-                        Join the waitlist for Flav — the cooking app that turns TikTok videos into real meals.
+                        Download Flav — the cooking app that turns TikTok videos into real meals.
                     </p>
                     <div className="flex justify-center max-w-md mx-auto">
-                        <WaitlistForm />
+                        <AppStoreButtons size="lg" utmSource="recipes_index" />
                     </div>
+                    <p className="text-sm text-white/70 mt-6 font-medium">
+                        Free on iOS. Android coming soon.
+                    </p>
                 </div>
             </section>
         </>

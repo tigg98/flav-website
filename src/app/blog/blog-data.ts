@@ -74,7 +74,7 @@ Food creators pour hours into developing recipes, filming content, and building 
 ## Three Ways to Monetize on Flav
 
 ### 1. Direct Tips from Fans
-When someone cooks your recipe and loves it, they can tip you directly. It's the digital equivalent of a friend saying "this is incredible, let me buy you a coffee." On Flav, creators keep 90-97% of every tip depending on their subscription tier.
+When someone cooks your recipe and loves it, they can tip you directly. It's the digital equivalent of a friend saying "this is incredible, let me buy you a coffee." On Flav, creators keep up to 93% of every tip depending on their subscription tier.
 
 ### 2. Premium Recipes
 Lock your best recipes behind a paywall. Fans who want access to your exclusive content pay a one-time or recurring fee. Think of it like a cookbook — but one that updates weekly with new content. Pricing is flexible, so you can charge what your recipes are worth.
@@ -103,7 +103,7 @@ The key differentiator is Flav's payout structure. Where other platforms take 50
 
 ## The Creator-First Philosophy
 
-Flav was built with a simple belief: the people who create the content should earn the most from it. That's why creators keep 90-97% of revenue. It's not a marketing gimmick — it's the business model.
+Flav was built with a simple belief: the people who create the content should earn the most from it. That's why creators keep up to 93% of revenue. It's not a marketing gimmick — it's the business model.
 
 *Ready to start earning from your recipes? Join Flav as a creator today.*`,
   },

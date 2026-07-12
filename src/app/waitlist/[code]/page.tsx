@@ -9,7 +9,7 @@ import { Check, Copy, Share2, Loader2, ArrowLeft } from "lucide-react";
 import { trackReferralDashboardView, trackReferralLinkCopy, trackReferralShare } from "@/lib/analytics/posthog";
 
 const REWARD_TIERS = [
-    { count: 3, label: "Early access", icon: "🚀", description: "Be first to download when Flav launches" },
+    { count: 3, label: "First in line on Android", icon: "🚀", description: "Be first to download when Flav lands on Google Play" },
     { count: 10, label: "Creator badge", icon: "✨", description: "Verified-style badge on your profile" },
     { count: 25, label: "3 months Premium free", icon: "💎", description: "Verified plan free for 3 months ($24 value)" },
     { count: 50, label: "Lifetime Verified", icon: "👑", description: "Verified membership forever ($96/year value)" },
@@ -71,7 +71,7 @@ export default function WaitlistDashboardPage() {
     const shareOnTwitter = () => {
         trackReferralShare("twitter");
         const text = encodeURIComponent(
-            "Just joined the @cookwithflav waitlist — it turns TikTok recipes into actual cookable meals with AI. Get in line 👇"
+            "Just joined the @cookwithflav Android waitlist — it turns TikTok recipes into actual cookable meals with AI (already live on iOS). Get in line 👇"
         );
         const url = encodeURIComponent(referralLink);
         window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, "_blank");
@@ -80,7 +80,7 @@ export default function WaitlistDashboardPage() {
     const shareViaText = () => {
         trackReferralShare("text");
         const text = encodeURIComponent(
-            `Check out Flav — it imports recipes from TikTok/IG and helps you actually cook them. Join the waitlist: ${referralLink}`
+            `Check out Flav — it imports recipes from TikTok/IG and helps you actually cook them. Free on iOS now, or join the Android waitlist: ${referralLink}`
         );
         window.open(`sms:?&body=${text}`, "_self");
     };
@@ -91,7 +91,7 @@ export default function WaitlistDashboardPage() {
             try {
                 await navigator.share({
                     title: "Join Flav — The Cooking App",
-                    text: "Flav turns TikTok recipes into actual cookable meals. Join the waitlist!",
+                    text: "Flav turns TikTok recipes into actual cookable meals. Free on iOS, Android waitlist open!",
                     url: referralLink,
                 });
             } catch {
@@ -116,10 +116,10 @@ export default function WaitlistDashboardPage() {
                 <div className="text-center max-w-md">
                     <h1 className="text-2xl font-bold mb-4">Referral code not found</h1>
                     <p className="text-neutral-600 dark:text-neutral-400 mb-6">
-                        This referral code doesn&apos;t exist or may have expired. Join the waitlist to get your own referral link.
+                        This referral code doesn&apos;t exist or may have expired. Join the Android waitlist to get your own referral link.
                     </p>
                     <Button asChild>
-                        <Link href="/#waitlist">Join the Waitlist</Link>
+                        <Link href="/waitlist">Join the Android Waitlist</Link>
                     </Button>
                 </div>
             </div>
@@ -147,7 +147,7 @@ export default function WaitlistDashboardPage() {
                     <div className="text-center mb-8">
                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 text-sm font-medium mb-4">
                             <Check className="w-4 h-4" />
-                            You&apos;re on the waitlist
+                            You&apos;re on the Android waitlist
                         </div>
 
                         <h1 className="text-5xl md:text-6xl font-bold mb-2">

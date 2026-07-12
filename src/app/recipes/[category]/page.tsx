@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Button } from "@/components/ui/Button";
-import { WaitlistForm } from "@/components/ui/WaitlistForm";
+import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
 import { recipeCategories, getAllCategorySlugs, getRecipeCategory } from "../recipe-categories";
@@ -76,10 +76,12 @@ export default async function RecipeCategoryPage({ params }: Props) {
                                 {data.heroDescription}
                             </p>
 
-                            <WaitlistForm />
+                            <div className="flex justify-center lg:justify-start">
+                                <AppStoreButtons utmSource="recipes_category" />
+                            </div>
 
                             <p className="text-sm text-neutral-500 mt-4 text-center lg:text-left">
-                                Free forever. Import recipes from TikTok & Instagram.
+                                Free to download on iOS. Import recipes from TikTok &amp; Instagram.
                             </p>
                         </div>
 
@@ -170,10 +172,10 @@ export default async function RecipeCategoryPage({ params }: Props) {
                         Ready to cook {data.title.toLowerCase().replace(" recipes", "")}?
                     </h2>
                     <p className="text-lg text-white/80 mb-8 max-w-xl mx-auto">
-                        Join the waitlist and be first to import, save, and cook {data.title.toLowerCase()} with Flav.
+                        Download Flav to import, save, and cook {data.title.toLowerCase()} — free on iOS.
                     </p>
                     <div className="flex justify-center max-w-md mx-auto">
-                        <WaitlistForm />
+                        <AppStoreButtons size="lg" utmSource="recipes_category" />
                     </div>
                 </div>
             </section>

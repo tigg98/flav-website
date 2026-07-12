@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { blogPosts } from './blog/blog-data';
 import { competitors } from './compare/competitor-data';
 import { getAllCategorySlugs } from './recipes/recipe-categories';
+import { SHOW_FLAV_PLUS } from '@/lib/flags';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://flav.app';
@@ -14,6 +15,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { route: '', changeFrequency: 'weekly', priority: 1.0 },
         { route: '/creators', changeFrequency: 'weekly', priority: 0.9 },
         { route: '/verified', changeFrequency: 'weekly', priority: 0.9 },
+        ...(SHOW_FLAV_PLUS
+            ? [{ route: '/pricing', changeFrequency: 'weekly' as const, priority: 0.9 }]
+            : []),
+        { route: '/waitlist', changeFrequency: 'monthly', priority: 0.6 },
+        { route: '/features/meal-plan', changeFrequency: 'monthly', priority: 0.7 },
         { route: '/advertise', changeFrequency: 'monthly', priority: 0.8 },
         { route: '/blog', changeFrequency: 'weekly', priority: 0.8 },
         { route: '/recipes', changeFrequency: 'weekly', priority: 0.8 },

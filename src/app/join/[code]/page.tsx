@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { WaitlistForm } from "@/components/ui/WaitlistForm";
+import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
 
 interface Props {
@@ -9,11 +10,11 @@ interface Props {
 export const metadata: Metadata = {
     title: "Join Flav — Your Friend Invited You",
     description:
-        "Your friend invited you to Flav — the cooking app that turns TikTok recipes into actual meals. Join the waitlist and get early access.",
+        "Your friend invited you to Flav — the cooking app that turns TikTok recipes into actual meals. Download free on iOS, or join the Android waitlist.",
     openGraph: {
         title: "You've Been Invited to Flav",
         description:
-            "Import any recipe from TikTok in 10 seconds. Cook hands-free with AI. Join the waitlist!",
+            "Save any TikTok recipe in 10 seconds. Cook hands-free with AI. Free on iOS — Android waitlist open.",
     },
 };
 
@@ -34,7 +35,7 @@ export default async function JoinReferralPage({ params }: Props) {
                         </div>
 
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-[1.1] tracking-tight">
-                            Import Any Recipe{" "}
+                            Save Any TikTok Recipe{" "}
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E07A5F] to-[#e8967d]">
                                 in 10 Seconds.
                             </span>
@@ -43,19 +44,19 @@ export default async function JoinReferralPage({ params }: Props) {
                         <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed">
                             Flav turns TikTok and Instagram cooking videos into step-by-step
                             recipes with AI — then helps you actually cook them. Your friend
-                            is already on the waitlist.
+                            is already cooking with it.
                         </p>
 
-                        <div className="mb-8">
-                            <WaitlistForm referralCode={code} />
+                        <div className="mb-8 flex justify-center lg:justify-start">
+                            <AppStoreButtons showAndroid={false} size="lg" utmSource="referral" />
                         </div>
 
-                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 text-sm font-medium text-neutral-500 dark:text-neutral-400">
+                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-8 gap-y-4 text-sm font-medium text-neutral-500 dark:text-neutral-400 mb-10">
                             <div className="flex items-center gap-2">
                                 <div className="w-5 h-5 rounded-full bg-green-100 dark:bg-green-500/20 text-green-600 dark:text-green-400 flex items-center justify-center text-xs">
                                     ✓
                                 </div>
-                                <span>Free forever</span>
+                                <span>Free to download</span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <div className="w-5 h-5 rounded-full bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xs">
@@ -63,6 +64,13 @@ export default async function JoinReferralPage({ params }: Props) {
                                 </div>
                                 <span>No credit card required</span>
                             </div>
+                        </div>
+
+                        <div className="pt-8 border-t border-neutral-200 dark:border-neutral-800">
+                            <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400 mb-4">
+                                On Android? Join the waitlist — your friend moves up the line too.
+                            </p>
+                            <WaitlistForm referralCode={code} />
                         </div>
                     </div>
 
