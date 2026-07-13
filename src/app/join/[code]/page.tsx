@@ -86,6 +86,7 @@ export default async function JoinReferralPage({ params }: Props) {
                                 src="/screenshots/home-feed-v5.webp"
                                 alt="Flav home feed showing recipe discovery"
                                 size="lg"
+                                priority
                             />
                         </div>
                     </div>

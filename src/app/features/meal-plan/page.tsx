@@ -58,6 +58,7 @@ export default function MealPlanPage() {
                                     src="/screenshots/meal-plan-generation.webp"
                                     alt="Flav AI generating a personalized weekly meal plan based on dietary preferences"
                                     size="lg"
+                                    priority
                                 />
                             </div>
                         </div>
@@ -70,6 +71,7 @@ export default function MealPlanPage() {
                                     src="/screenshots/meal-plan-calendar.webp"
                                     alt="Flav weekly meal plan calendar view with scheduled breakfast, lunch, and dinner recipes"
                                     size="lg"
+                                    priority
                                     showBackdrop
                                 />
                             </div>

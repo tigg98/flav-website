@@ -208,7 +208,7 @@ export default function BillingPage() {
                                 </div>
                                 <p className="text-neutral-500">
                                     {entitlements?.tier === "pro"
-                                        ? "Full-time creator tier with 97% payouts"
+                                        ? "Full-time creator tier with 90% payouts"
                                         : entitlements?.tier === "verified"
                                             ? "Monetization enabled with 90% payouts"
                                             : "Free tier — upgrade to start earning"}

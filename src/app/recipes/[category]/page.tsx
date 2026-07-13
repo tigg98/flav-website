@@ -90,6 +90,7 @@ export default async function RecipeCategoryPage({ params }: Props) {
                                 src="/screenshots/home-feed-v5.webp"
                                 alt={`Flav app showing ${data.title.toLowerCase()}`}
                                 size="md"
+                                priority
                             />
                         </div>
                     </div>

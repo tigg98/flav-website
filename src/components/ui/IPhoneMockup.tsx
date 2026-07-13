@@ -54,8 +54,8 @@ export function IPhoneMockup({
 
                     {/* Screen bezel - ultra thin */}
                     <div className="relative rounded-[2.9rem] bg-black p-[3px] overflow-hidden z-10">
-                        {/* Screen content */}
-                        <div className="relative w-full aspect-[9/19.5] rounded-[2.7rem] overflow-hidden bg-black">
+                        {/* Screen content — neutral backdrop so an unloaded screenshot reads as a lit screen, not a dead black slab */}
+                        <div className="relative w-full aspect-[9/19.5] rounded-[2.7rem] overflow-hidden bg-neutral-200 dark:bg-neutral-800">
                             {src ? (
                                 <Image
                                     src={src}

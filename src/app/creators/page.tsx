@@ -115,6 +115,7 @@ export default function CreatorsPage() {
                                     src="/screenshots/earnings-v3.webp"
                                     alt="Flav creator earnings dashboard with real-time revenue and payout tracking"
                                     size="md"
+                                    priority
                                 />
                             </div>
                         </div>
