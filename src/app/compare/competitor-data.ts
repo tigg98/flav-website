@@ -1,3 +1,16 @@
+/**
+ * Feature-by-feature grid values.
+ * `true` renders a check, `false` renders an ✗, a string renders as text (for nuanced/partial support).
+ */
+export interface FeatureGrid {
+    videoImport: boolean | string;
+    cookMode: boolean | string;
+    aiAssistant: boolean | string;
+    mealPlanning: boolean | string;
+    creatorMonetization: boolean | string;
+    price: string;
+}
+
 export interface CompetitorData {
     id: string;
     name: string;
@@ -9,8 +22,19 @@ export interface CompetitorData {
     pros: string[];
     cons: string[];
     flavAdvantages: string[];
+    features: FeatureGrid;
     faq: { question: string; answer: string }[];
 }
+
+/** Flav's column in every comparison table. */
+export const flavFeatures: FeatureGrid = {
+    videoImport: "Yes — TikTok, Instagram & web in ~10 seconds",
+    cookMode: "Yes — hands-free, step-by-step with built-in timers",
+    aiAssistant: "Yes — Flav AI sous-chef for substitutions & questions",
+    mealPlanning: "Yes — AI meal plans + auto grocery lists",
+    creatorMonetization: "Yes — tips, premium recipes & brand deals, up to 90% payout",
+    price: "Free (10 AI imports/mo); creator plans from $7.99/mo",
+};
 
 export const competitors: Record<string, CompetitorData> = {
     "mob-kitchen": {
@@ -22,6 +46,14 @@ export const competitors: Record<string, CompetitorData> = {
             "Compare Flav and MOB Kitchen. See why food lovers are switching to Flav for interactive cooking modes, AI meal planning, and creator-first monetization.",
         heroImage: "/screenshots/home-feed-v5.webp",
         vsText: "MOB Kitchen is great for static utilitarian meal planning, but Flav brings recipes to life with swipeable video, AI integration, and a creator-centric ecosystem.",
+        features: {
+            videoImport: false,
+            cookMode: false,
+            aiAssistant: false,
+            mealPlanning: "Yes — editorial meal plans",
+            creatorMonetization: false,
+            price: "Free; paid premium tier",
+        },
         pros: ["Good for budget meals", "Simple meal planning structure", "Strong UK presence"],
         cons: ["Static recipe formats", "No AI assistance", "Limited creator monetization"],
         flavAdvantages: [
@@ -50,6 +82,14 @@ export const competitors: Record<string, CompetitorData> = {
             "Choosing between Flav and Tasty? Discover why modern home cooks prefer Flav's AI assistant and creator monetization over traditional Tasty videos.",
         heroImage: "/screenshots/home-feed-v5.webp",
         vsText: "While Tasty revolutionized top-down cooking videos, Flav is the next evolution: turning every video into a fully interactive, cookable utility powered by AI.",
+        features: {
+            videoImport: false,
+            cookMode: "Basic step view (no hands-free mode)",
+            aiAssistant: "Limited chatbot",
+            mealPlanning: "Limited — grocery integrations",
+            creatorMonetization: false,
+            price: "Free with ads",
+        },
         pros: ["Massive recipe library", "Entertaining short videos", "High brand recognition"],
         cons: ["Videos lack integrated step-by-step cooking modes", "Ads interrupt the cooking experience", "Not friendly for independent creators to monetize"],
         flavAdvantages: [
@@ -77,6 +117,14 @@ export const competitors: Record<string, CompetitorData> = {
         description: "Compare Flav and AllRecipes. See why home cooks are switching from text-based recipes to Flav's AI-powered video cooking experience.",
         heroImage: "/screenshots/recipe-detail-v2.webp",
         vsText: "AllRecipes is a legacy recipe database with text-heavy pages. Flav is built for the video-first generation — swipeable recipes, AI cooking assistance, and hands-free cooking mode.",
+        features: {
+            videoImport: false,
+            cookMode: false,
+            aiAssistant: false,
+            mealPlanning: "Limited — saved collections",
+            creatorMonetization: false,
+            price: "Free with heavy ads",
+        },
         pros: ["Huge recipe database", "User reviews and ratings", "Community-submitted recipes"],
         cons: ["Heavy ads on every page", "No video content", "Dated interface and experience"],
         flavAdvantages: [
@@ -104,6 +152,14 @@ export const competitors: Record<string, CompetitorData> = {
         description: "Compare Flav and Yummly. Discover why food lovers prefer Flav's video recipes and AI cooking assistant over Yummly's recommendation engine.",
         heroImage: "/screenshots/home-feed-v5.webp",
         vsText: "Yummly aggregates recipes from around the web. Flav creates a complete cooking experience — from video discovery to hands-free cooking with AI guidance.",
+        features: {
+            videoImport: false,
+            cookMode: "Guided steps on select recipes",
+            aiAssistant: false,
+            mealPlanning: "Yes — planner + grocery lists",
+            creatorMonetization: false,
+            price: "Free with ads",
+        },
         pros: ["Smart recipe recommendations", "Integration with smart appliances", "Grocery delivery partnerships"],
         cons: ["No original video content", "Recipes sourced from other sites", "Limited creator features"],
         flavAdvantages: [
@@ -131,6 +187,14 @@ export const competitors: Record<string, CompetitorData> = {
         description: "Compare Flav and Paprika Recipe Manager. See why home cooks prefer Flav's AI import, video recipes, and social features over Paprika's manual approach.",
         heroImage: "/screenshots/import-recipe-v3.webp",
         vsText: "Paprika is a solid recipe manager for manual organization. Flav takes it further with AI-powered import, video recipes, a social community, and hands-free cooking mode.",
+        features: {
+            videoImport: "Web pages only (no video)",
+            cookMode: "Basic — tap-to-start timers in recipe view",
+            aiAssistant: false,
+            mealPlanning: "Yes — manual planner + grocery lists",
+            creatorMonetization: false,
+            price: "$4.99 one-time per platform",
+        },
         pros: ["Good recipe organization", "Meal planning features", "Grocery list generation"],
         cons: ["No social features", "Manual recipe entry", "No video content or community"],
         flavAdvantages: [
@@ -158,6 +222,14 @@ export const competitors: Record<string, CompetitorData> = {
         description: "Compare Flav and Mealime for meal planning. Discover why Flav's AI meal planner and video recipes offer a better cooking experience.",
         heroImage: "/screenshots/meal-plan-calendar.webp",
         vsText: "Mealime focuses on simple meal planning with grocery lists. Flav combines AI meal planning with video recipes, cooking mode, and a creator community — the complete cooking experience.",
+        features: {
+            videoImport: false,
+            cookMode: "Step-by-step view",
+            aiAssistant: false,
+            mealPlanning: "Yes — core feature",
+            creatorMonetization: false,
+            price: "Free; Pro $5.99/mo",
+        },
         pros: ["Simple meal planning workflow", "Auto-generated grocery lists", "Good for beginners"],
         cons: ["Limited recipe variety", "No video content", "No social or creator features"],
         flavAdvantages: [
@@ -185,6 +257,14 @@ export const competitors: Record<string, CompetitorData> = {
         description: "Compare Flav and Epicurious. See why modern home cooks prefer Flav's video-first approach and AI cooking assistant.",
         heroImage: "/screenshots/home-feed-v5.webp",
         vsText: "Epicurious offers editorial recipes from Bon Appetit and Gourmet. Flav democratizes food content — anyone can be a creator, and AI makes every recipe interactive and cookable.",
+        features: {
+            videoImport: false,
+            cookMode: false,
+            aiAssistant: false,
+            mealPlanning: false,
+            creatorMonetization: false,
+            price: "Free with ads; some content paywalled",
+        },
         pros: ["High-quality editorial recipes", "Professional food photography", "Trusted brand"],
         cons: ["Paywall for premium content", "No user-generated content", "No interactive cooking features"],
         flavAdvantages: [
@@ -212,6 +292,14 @@ export const competitors: Record<string, CompetitorData> = {
         description: "Compare Flav and NYT Cooking. Discover why home cooks prefer Flav's free video recipes and AI features over NYT Cooking's subscription model.",
         heroImage: "/screenshots/recipe-detail-v2.webp",
         vsText: "NYT Cooking offers premium editorial recipes at $5/month. Flav is free, video-first, and AI-powered — with a growing creator community.",
+        features: {
+            videoImport: false,
+            cookMode: false,
+            aiAssistant: false,
+            mealPlanning: "Recipe boxes & collections",
+            creatorMonetization: false,
+            price: "$5/mo subscription",
+        },
         pros: ["Expertly tested recipes", "Beautiful photography", "Strong editorial voice"],
         cons: ["Requires $5/month subscription", "No video content", "No interactive cooking features"],
         flavAdvantages: [
@@ -239,6 +327,14 @@ export const competitors: Record<string, CompetitorData> = {
         description: "Compare Flav and SideChef. See why Flav's AI-powered video recipes and creator economy offer a better cooking experience.",
         heroImage: "/screenshots/home-feed-v5.webp",
         vsText: "SideChef offers step-by-step cooking instructions with smart appliance integration. Flav goes further with video-first discovery, AI assistance, and a creator monetization platform.",
+        features: {
+            videoImport: false,
+            cookMode: "Yes — step-by-step with timers",
+            aiAssistant: "Limited",
+            mealPlanning: "Yes — planner + grocery lists",
+            creatorMonetization: "Limited creator program",
+            price: "Free; paid premium tier",
+        },
         pros: ["Step-by-step instructions", "Smart appliance integration", "Meal planning features"],
         cons: ["Limited video content", "Small creator community", "Less engaging discovery experience"],
         flavAdvantages: [
@@ -266,6 +362,14 @@ export const competitors: Record<string, CompetitorData> = {
         description: "Compare Flav and Cookpad. See why food creators prefer Flav's video platform, AI tools, and monetization payouts up to 90%.",
         heroImage: "/screenshots/home-feed-v5.webp",
         vsText: "Cookpad is a community recipe sharing platform popular internationally. Flav is the video-first evolution — combining community recipes with AI tools, cooking mode, and real creator monetization.",
+        features: {
+            videoImport: false,
+            cookMode: false,
+            aiAssistant: false,
+            mealPlanning: false,
+            creatorMonetization: false,
+            price: "Free; Premium tier for search features",
+        },
         pros: ["Large global community", "User-submitted recipes", "Available in many languages"],
         cons: ["Text and photo only — no video", "No AI features", "No creator monetization"],
         flavAdvantages: [
@@ -293,6 +397,14 @@ export const competitors: Record<string, CompetitorData> = {
         description: "Compare Flav and Samsung Food (formerly Whisk). Discover why home cooks prefer Flav's video recipes, AI assistant, and creator community.",
         heroImage: "/screenshots/home-feed-v5.webp",
         vsText: "Samsung Food (formerly Whisk) focuses on recipe saving and meal planning with Samsung ecosystem integration. Flav is platform-agnostic and built for the creator economy.",
+        features: {
+            videoImport: "Web recipe saving (no video import)",
+            cookMode: "Guided cooking",
+            aiAssistant: "Food AI features (Samsung account)",
+            mealPlanning: "Yes — planner + grocery lists",
+            creatorMonetization: false,
+            price: "Free; Food+ $6.99/mo",
+        },
         pros: ["Samsung ecosystem integration", "Recipe saving from web", "Meal planning and grocery lists"],
         cons: ["Limited to Samsung ecosystem benefits", "No original video content", "No creator monetization"],
         flavAdvantages: [
@@ -320,6 +432,14 @@ export const competitors: Record<string, CompetitorData> = {
         description: "Compare Flav and BigOven. See why modern home cooks prefer Flav's video recipes and AI cooking features over BigOven's traditional approach.",
         heroImage: "/screenshots/home-feed-v5.webp",
         vsText: "BigOven is a traditional recipe manager with a large database. Flav reimagines cooking for the video era with AI-powered features, creator content, and interactive cooking mode.",
+        features: {
+            videoImport: "Web import + photo scan (no video)",
+            cookMode: false,
+            aiAssistant: false,
+            mealPlanning: "Yes — planner + grocery lists",
+            creatorMonetization: false,
+            price: "Free; Pro $2.99/mo",
+        },
         pros: ["Large recipe database", "Leftover recipe finder", "Grocery list features"],
         cons: ["Dated interface", "No video content", "Limited AI features"],
         flavAdvantages: [

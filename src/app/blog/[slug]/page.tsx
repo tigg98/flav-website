@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { blogPosts, getBlogPost } from "../blog-data";
+import { blogPosts, getBlogPost, formatPostDate } from "../blog-data";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 
 interface Props {
@@ -25,6 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.excerpt,
       type: "article",
       publishedTime: post.date,
+      modifiedTime: post.dateModified,
     },
     alternates: {
       canonical: `https://flav.app/blog/${post.slug}`,
@@ -51,6 +52,7 @@ export default async function BlogPostPage({ params }: Props) {
             headline: post.title,
             description: post.excerpt,
             datePublished: post.date,
+            dateModified: post.dateModified,
             url: `https://flav.app/blog/${post.slug}`,
             author: {
               "@type": "Organization",
@@ -105,7 +107,7 @@ export default async function BlogPostPage({ params }: Props) {
               <div className="mt-6 flex items-center gap-3 text-sm text-[var(--color-neutral-500)]">
                 <span>By Flav Team</span>
                 <span>·</span>
-                <time>{post.date}</time>
+                <time dateTime={post.date}>{formatPostDate(post.date)}</time>
               </div>
             </header>
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { blogPosts } from "./blog-data";
+import { blogPosts, formatPostDate } from "./blog-data";
 
 export const metadata: Metadata = {
     title: "Blog",
@@ -40,6 +40,7 @@ export default function BlogPage() {
                                 "headline": post.title,
                                 "description": post.excerpt,
                                 "datePublished": post.date,
+                                "dateModified": post.dateModified,
                                 "url": `https://flav.app/blog/${post.slug}`,
                                 "author": {
                                     "@type": "Organization",
@@ -98,7 +99,9 @@ export default function BlogPage() {
                                     <p className="text-[var(--color-neutral-600)] text-sm mb-4 line-clamp-2">
                                         {post.excerpt}
                                     </p>
-                                    <p className="text-xs text-[var(--color-neutral-500)]">{post.date}</p>
+                                    <p className="text-xs text-[var(--color-neutral-500)]">
+                                        <time dateTime={post.date}>{formatPostDate(post.date)}</time>
+                                    </p>
                                 </div>
                             </article>
                         ))}

@@ -3,10 +3,23 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   category: string;
+  /** Publication date, ISO 8601 (YYYY-MM-DD). */
   date: string;
+  /** Last substantive edit, ISO 8601 (YYYY-MM-DD). */
+  dateModified: string;
   readTime: string;
   image: string;
   content: string;
+}
+
+/** Format an ISO date (YYYY-MM-DD) for display, e.g. "January 5, 2026". */
+export function formatPostDate(iso: string): string {
+  return new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC",
+  });
 }
 
 export const blogPosts: BlogPost[] = [
@@ -16,7 +29,8 @@ export const blogPosts: BlogPost[] = [
     excerpt:
       "Looking to build muscle or just stay full longer? Here are our top picks for high-protein meal prep that tastes amazing and saves you time.",
     category: "Recipes",
-    date: "January 5, 2026",
+    date: "2026-01-05",
+    dateModified: "2026-01-05",
     readTime: "5 min read",
     image: "\u{1F957}",
     content: `Whether you're bulking, cutting, or just trying to eat better, high-protein meal prep is one of the most effective ways to stay on track with your nutrition goals. The key is finding recipes that are both delicious and easy to batch-cook.
@@ -60,7 +74,8 @@ High-protein meal prep doesn't have to be boring or complicated. With the right 
     excerpt:
       "From tips to premium content to brand deals, here's everything you need to know about turning your cooking passion into income.",
     category: "Creator Tips",
-    date: "January 2, 2026",
+    date: "2026-01-02",
+    dateModified: "2026-07-12",
     readTime: "8 min read",
     image: "\u{1F4B0}",
     content: `The creator economy is worth over $100 billion, but food creators have historically been underserved. General social platforms like Instagram and TikTok weren't designed for recipe monetization — they were designed for attention. That's changing.
@@ -108,7 +123,8 @@ Flav was built with a simple belief: the people who create the content should ea
     excerpt:
       "The creator economy is booming. Here are proven strategies to stand out, build your audience, and create content that converts.",
     category: "Growth",
-    date: "December 28, 2025",
+    date: "2025-12-28",
+    dateModified: "2026-07-12",
     readTime: "7 min read",
     image: "\u{1F680}",
     content: `The food content space is more crowded than ever. But that's actually good news — it means the audience is massive and hungry for great content. Here's how to stand out and grow your food creator career in 2026.

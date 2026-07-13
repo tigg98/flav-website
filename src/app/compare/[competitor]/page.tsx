@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { competitors } from "../competitor-data";
+import { competitors, flavFeatures, type FeatureGrid } from "../competitor-data";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
 import { Check, X, ArrowRight } from "lucide-react";
@@ -9,6 +9,35 @@ import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
 
 interface Props {
     params: Promise<{ competitor: string }>;
+}
+
+const FEATURE_ROWS: { key: keyof FeatureGrid; label: string }[] = [
+    { key: "videoImport", label: "Video recipe import" },
+    { key: "cookMode", label: "Hands-free Cook Mode" },
+    { key: "aiAssistant", label: "AI cooking assistant" },
+    { key: "mealPlanning", label: "Meal planning & grocery lists" },
+    { key: "creatorMonetization", label: "Creator monetization" },
+    { key: "price", label: "Price" },
+];
+
+function FeatureCell({ value }: { value: boolean | string }) {
+    if (value === true) {
+        return (
+            <span className="inline-flex items-center gap-1.5 font-medium text-green-600 dark:text-green-400">
+                <Check className="w-4 h-4 shrink-0" aria-hidden />
+                Yes
+            </span>
+        );
+    }
+    if (value === false) {
+        return (
+            <span className="inline-flex items-center gap-1.5 text-neutral-400">
+                <X className="w-4 h-4 shrink-0" aria-hidden />
+                No
+            </span>
+        );
+    }
+    return <span>{value}</span>;
 }
 
 export async function generateStaticParams() {
@@ -63,6 +92,57 @@ export default async function ComparePage({ params }: Props) {
                             <AppStoreButtons utmSource="compare" />
                         </div>
                         <p className="text-sm text-neutral-500 mt-2">Free on iOS. Android coming soon.</p>
+                    </div>
+                </div>
+            </section>
+
+            {/* Feature-by-feature table */}
+            <section className="py-8 px-6">
+                <div className="max-w-4xl mx-auto">
+                    <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
+                        Flav vs {data.name} at a glance
+                    </h2>
+                    <div className="overflow-x-auto rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-sm">
+                        <table className="w-full text-sm text-left border-collapse">
+                            <caption className="sr-only">
+                                Feature comparison between Flav and {data.name}
+                            </caption>
+                            <thead>
+                                <tr className="border-b border-neutral-200 dark:border-neutral-800">
+                                    <th scope="col" className="px-4 py-3.5 font-semibold text-neutral-500 dark:text-neutral-400 w-1/4">
+                                        Feature
+                                    </th>
+                                    <th scope="col" className="px-4 py-3.5 font-bold text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)]">
+                                        Flav
+                                    </th>
+                                    <th scope="col" className="px-4 py-3.5 font-semibold">
+                                        {data.name}
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {FEATURE_ROWS.map((row, i) => (
+                                    <tr
+                                        key={row.key}
+                                        className={
+                                            i < FEATURE_ROWS.length - 1
+                                                ? "border-b border-neutral-100 dark:border-neutral-800/60"
+                                                : ""
+                                        }
+                                    >
+                                        <th scope="row" className="px-4 py-3.5 font-medium align-top">
+                                            {row.label}
+                                        </th>
+                                        <td className="px-4 py-3.5 align-top text-neutral-700 dark:text-neutral-300 bg-[var(--color-primary-50)]/40 dark:bg-[#E07A5F]/5">
+                                            <FeatureCell value={flavFeatures[row.key]} />
+                                        </td>
+                                        <td className="px-4 py-3.5 align-top text-neutral-600 dark:text-neutral-400">
+                                            <FeatureCell value={data.features[row.key]} />
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </section>
