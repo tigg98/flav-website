@@ -76,7 +76,7 @@ function getFeatures(tier: string) {
         case 'verified':
             return {
                 can_monetize: true,
-                payout_rate: 0.90,
+                payout_rate: 0.85,
                 verified_badge: true,
                 pro_badge: false,
                 advanced_analytics: true,
