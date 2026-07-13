@@ -109,12 +109,12 @@ const faqItems = [
   {
     question: "How do creators earn money on Flav?",
     answer:
-      "Food creators on Flav earn through direct viewer tips, premium locked recipes, and brand partnerships — keeping up to 93% of revenue, well above the industry average. Every creator also gets a flav.app/@handle page: all their recipes behind one link for their TikTok or Instagram bio. Monetization unlocks at 100 followers, with weekly payouts.",
+      "Food creators on Flav earn through direct viewer tips, premium locked recipes, and brand partnerships — keeping up to 90% of revenue, well above the industry average. Subscription fees (Flav+ and Verified/Pro) are how Flav sustains the platform — they are not part of the creator revenue pool. Every creator also gets a flav.app/@handle page: all their recipes behind one link for their TikTok or Instagram bio. Monetization unlocks at 100 followers, with weekly payouts.",
   },
   {
     question: "Do I need followers to join as a creator?",
     answer:
-      "Nope. Anyone can create and share recipes on Flav. Monetization features unlock at 100 followers — which most active creators reach within their first month on the platform.",
+      "Nope. Anyone can create and share recipes on Flav. Monetization unlocks at 100 followers — the fastest way to get there is importing your existing recipe catalog and sharing your flav.app/@handle bio-link page with your audience.",
   },
 ];
 
@@ -418,7 +418,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <span className="font-semibold">Tips &amp; premium recipes</span>
-                    <span className="text-neutral-400"> — keep up to 93% of what you earn</span>
+                    <span className="text-neutral-400"> — keep up to 90% of what you earn</span>
                   </div>
                 </li>
               </ul>
@@ -535,7 +535,7 @@ export default function HomePage() {
                   "@type": "Offer",
                   "price": "19.99",
                   "priceCurrency": "USD",
-                  "description": "Pro creator subscription with 93% payout rate, priority support, and all Verified benefits",
+                  "description": "Pro creator subscription with 90% payout rate, priority support, and all Verified benefits",
                   "priceSpecification": {
                     "@type": "UnitPriceSpecification",
                     "price": "19.99",
@@ -550,7 +550,7 @@ export default function HomePage() {
                 "AI Meal Planning",
                 "Automatic Grocery Lists",
                 "Photo-Scan Handwritten Recipe Cards",
-                "Creator Monetization (up to 93% payout)"
+                "Creator Monetization (up to 90% payout)"
               ],
               "screenshot": "https://flav.app/screenshots/home-feed-v5.webp",
               "installUrl": "https://apps.apple.com/us/app/flav/id6759994122",

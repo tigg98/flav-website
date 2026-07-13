@@ -13,7 +13,7 @@ export const recipeCategories: Record<string, RecipeCategory> = {
         slug: "high-protein",
         title: "High Protein Recipes",
         description: "Discover high protein recipes on Flav — from meal prep bowls to protein-packed dinners. Import any recipe from TikTok or Instagram and cook with AI guidance.",
-        heroDescription: "Build muscle and stay full with protein-rich meals. Browse high protein recipes from top food creators, import them in seconds, and cook step-by-step with Flav.",
+        heroDescription: "Build muscle and stay full with protein-rich meals. Browse high protein recipes from food creators, import them in seconds, and cook step-by-step with Flav.",
         keywords: ["high protein recipes", "high protein meal prep", "protein rich meals", "high protein dinner ideas"],
         relatedCategories: ["meal-prep", "keto", "healthy", "fitness-meals"],
         faq: [
@@ -30,7 +30,7 @@ export const recipeCategories: Record<string, RecipeCategory> = {
         relatedCategories: ["low-carb", "high-protein", "meal-prep", "healthy"],
         faq: [
             { question: "How many carbs can I eat on keto?", answer: "Most keto diets limit net carbs to 20-50g per day. Flav's AI automatically calculates macro breakdowns for imported recipes so you can track your carb intake easily." },
-            { question: "What are easy keto meals to make?", answer: "Popular easy keto meals include cauliflower fried rice, zucchini noodle pasta, sheet pan chicken with vegetables, and avocado egg bowls. Browse hundreds of creator-made keto recipes on Flav." },
+            { question: "What are easy keto meals to make?", answer: "Popular easy keto meals include cauliflower fried rice, zucchini noodle pasta, sheet pan chicken with vegetables, and avocado egg bowls. Browse creator-made keto recipes on Flav, or import any keto recipe from TikTok in seconds." },
         ],
     },
     "meal-prep": {
@@ -65,7 +65,7 @@ export const recipeCategories: Record<string, RecipeCategory> = {
         keywords: ["15 minute meals", "quick easy recipes", "fast dinner recipes", "5 ingredient recipes"],
         relatedCategories: ["under-30-minutes", "one-pot", "budget-meals"],
         faq: [
-            { question: "Can you really make a full meal in 15 minutes?", answer: "Absolutely. Pastas, wraps, salads, stir-fries, and omelets can all be done in under 15 minutes. Flav creators share hundreds of time-tested quick recipes with step-by-step guidance." },
+            { question: "Can you really make a full meal in 15 minutes?", answer: "Absolutely. Pastas, wraps, salads, stir-fries, and omelets can all be done in under 15 minutes. Flav creators share quick, time-tested recipes with step-by-step guidance." },
         ],
     },
     "healthy": {
@@ -84,7 +84,7 @@ export const recipeCategories: Record<string, RecipeCategory> = {
         slug: "vegan",
         title: "Vegan Recipes",
         description: "Discover delicious plant-based vegan recipes on Flav. Import vegan recipes from TikTok, get ingredient substitution tips from AI, and cook hands-free.",
-        heroDescription: "Plant-based eating made easy and delicious. Find vegan recipes from top creators, import them in seconds, and use Flav's AI for ingredient substitutions.",
+        heroDescription: "Plant-based eating made easy and delicious. Find vegan recipes from food creators, import them in seconds, and use Flav's AI for ingredient substitutions.",
         keywords: ["vegan recipes", "plant based recipes", "vegan dinner ideas", "easy vegan meals", "vegan meal prep"],
         relatedCategories: ["vegetarian", "healthy", "meal-prep", "gluten-free"],
         faq: [
@@ -133,7 +133,7 @@ export const recipeCategories: Record<string, RecipeCategory> = {
         keywords: ["mexican recipes", "taco recipes", "authentic mexican food", "enchilada recipes", "mexican dinner ideas"],
         relatedCategories: ["under-30-minutes", "meal-prep", "budget-meals"],
         faq: [
-            { question: "What are the most popular Mexican dishes?", answer: "Tacos, enchiladas, tamales, pozole, chilaquiles, and mole are staples. Flav has hundreds of authentic Mexican recipes from creators who specialize in Latin cuisine." },
+            { question: "What are the most popular Mexican dishes?", answer: "Tacos, enchiladas, tamales, pozole, chilaquiles, and mole are staples. Find authentic Mexican recipes on Flav from creators who specialize in Latin cuisine, or import any recipe from TikTok in seconds." },
         ],
     },
     "asian": {

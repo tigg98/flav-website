@@ -74,7 +74,7 @@ Food creators pour hours into developing recipes, filming content, and building 
 ## Three Ways to Monetize on Flav
 
 ### 1. Direct Tips from Fans
-When someone cooks your recipe and loves it, they can tip you directly. It's the digital equivalent of a friend saying "this is incredible, let me buy you a coffee." On Flav, creators keep up to 93% of every tip depending on their subscription tier.
+When someone cooks your recipe and loves it, they can tip you directly. It's the digital equivalent of a friend saying "this is incredible, let me buy you a coffee." On Flav, creators keep up to 90% of every tip depending on their subscription tier.
 
 ### 2. Premium Recipes
 Lock your best recipes behind a paywall. Fans who want access to your exclusive content pay a one-time or recurring fee. Think of it like a cookbook — but one that updates weekly with new content. Pricing is flexible, so you can charge what your recipes are worth.
@@ -84,14 +84,9 @@ Food brands are actively looking for creators to promote their products in authe
 
 ## How Much Can You Actually Earn?
 
-Earnings vary widely based on audience size and engagement. Here's a rough breakdown:
+Earnings vary widely based on audience size, engagement, and how many revenue streams you activate. Rather than chasing a magic follower number, focus on the progression: tips come first, then premium recipes, then brand partnerships as your audience and engagement grow.
 
-- **1,000 followers:** $100-500/month from tips and premium content
-- **10,000 followers:** $500-2,000/month plus brand deals
-- **50,000 followers:** $2,000-10,000/month with diversified revenue
-- **100,000+ followers:** $10,000+/month with established brand partnerships
-
-The key differentiator is Flav's payout structure. Where other platforms take 50% or more, Flav's 3-10% platform fee means significantly more money in your pocket.
+The key differentiator is Flav's payout structure. Where other platforms take 50% or more, Flav's 10-15% platform fee means significantly more money in your pocket. Creators earn from tips and premium recipe sales; subscription fees (Flav+ and Verified/Pro) are how Flav sustains the platform — they are not part of the creator revenue pool.
 
 ## Getting Started
 
@@ -103,7 +98,7 @@ The key differentiator is Flav's payout structure. Where other platforms take 50
 
 ## The Creator-First Philosophy
 
-Flav was built with a simple belief: the people who create the content should earn the most from it. That's why creators keep up to 93% of revenue. It's not a marketing gimmick — it's the business model.
+Flav was built with a simple belief: the people who create the content should earn the most from it. That's why creators keep up to 90% of revenue. It's not a marketing gimmick — it's the business model.
 
 *Ready to start earning from your recipes? Join Flav as a creator today.*`,
   },

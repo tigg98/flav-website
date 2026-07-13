@@ -21,11 +21,11 @@ import {
 export const metadata: Metadata = {
     title: "For Creators — All Your Recipes, One Link",
     description:
-        "Get your flav.app/@handle bio-link page — every recipe you've posted behind one link. Monetize with tips, premium recipes, and brand partnerships, keeping up to 93%.",
+        "Get your flav.app/@handle bio-link page — every recipe you've posted behind one link. Monetize with tips, premium recipes, and brand partnerships, keeping up to 90%.",
     openGraph: {
         title: "Flav for Creators — All Your Recipes, One Link",
         description:
-            "A premium bio-link page for food creators, plus tips, premium recipes, and brand partnerships with payouts up to 93%.",
+            "A premium bio-link page for food creators, plus tips, premium recipes, and brand partnerships with payouts up to 90%.",
     },
 };
 
@@ -85,7 +85,7 @@ export default function CreatorsPage() {
                             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm text-[var(--color-neutral-500)]">
                                 <div className="flex items-center gap-2">
                                     <span className="text-lg">✓</span>
-                                    <span>Keep 93% of earnings</span>
+                                    <span>Keep up to 90% of earnings</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <span className="text-lg">✓</span>
@@ -236,7 +236,7 @@ export default function CreatorsPage() {
                             <ul className="space-y-3 mb-8">
                                 {[
                                     "Real-time revenue tracking",
-                                    "Keep up to 93% of every dollar",
+                                    "Keep up to 90% of every dollar",
                                     "Weekly automatic payouts",
                                     "Transaction history",
                                 ].map((item, index) => (
@@ -349,7 +349,7 @@ export default function CreatorsPage() {
                             "@context": "https://schema.org",
                             "@type": "WebPage",
                             "name": "Flav for Creators — Monetize Your Cooking Content",
-                            "description": "Turn your recipes into real income. Flav creators keep up to 93% of earnings through tips, premium recipes, and brand partnerships.",
+                            "description": "Turn your recipes into real income. Flav creators keep up to 90% of earnings through tips, premium recipes, and brand partnerships.",
                             "url": "https://flav.app/creators",
                             "isPartOf": {
                                 "@type": "WebSite",
@@ -373,7 +373,7 @@ export default function CreatorsPage() {
                                     "name": "How do food creators earn money on Flav?",
                                     "acceptedAnswer": {
                                         "@type": "Answer",
-                                        "text": "Flav creators earn through three revenue channels: direct viewer tips, premium locked recipes, and brand partnership deals. Creators keep 90% of earnings on the Verified plan ($7.99/month) and 93% on the Pro plan ($19.99/month) — among the highest payout rates in the food creator economy."
+                                        "text": "Flav creators earn through three revenue channels: direct viewer tips, premium locked recipes, and brand partnership deals. Creators keep 85% of earnings on the Verified plan ($7.99/month) and 90% on the Pro plan ($19.99/month) — among the highest payout rates in the food creator economy. Subscription fees (Flav+ and Verified/Pro) are how Flav sustains the platform — they are not part of the creator revenue pool."
                                     }
                                 },
                                 {

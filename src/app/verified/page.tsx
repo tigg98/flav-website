@@ -59,8 +59,8 @@ const tiers = [
             { label: "Unlimited video uploads", included: true },
             { label: "Basic analytics", included: true },
             { label: "Community features", included: true },
-            { label: "Tips (90% payout)", included: true },
-            { label: "Premium recipe sales (90%)", included: true },
+            { label: "Tips (85% payout)", included: true },
+            { label: "Premium recipe sales (85%)", included: true },
             { label: "Verified badge", included: true },
             { label: "Meal prep mode", included: true },
             { label: "AI meal plan generation", included: true },
@@ -81,8 +81,8 @@ const tiers = [
             { label: "Unlimited video uploads", included: true },
             { label: "Basic analytics", included: true },
             { label: "Community features", included: true },
-            { label: "Tips (93% payout)", included: true },
-            { label: "Premium recipe sales (93%)", included: true },
+            { label: "Tips (90% payout)", included: true },
+            { label: "Premium recipe sales (90%)", included: true },
             { label: "Pro badge", included: true },
             { label: "Meal prep mode", included: true },
             { label: "AI meal plan generation", included: true },
@@ -99,7 +99,7 @@ const faqItems = [
     {
         question: "What does 'Verified' mean on Flav?",
         answer:
-            "Flav Verified is a creator subscription at $7.99/month that unlocks full monetization capabilities, a visible verified badge, advanced audience analytics, and priority placement in Flav's recommendation algorithm. Verified creators retain 90% of all earnings — nearly double the industry standard payout rate of approximately 50% on competing platforms.",
+            "Flav Verified is a creator subscription at $7.99/month that unlocks full monetization capabilities, a visible verified badge, advanced audience analytics, and priority placement in Flav's recommendation algorithm. Verified creators retain 85% of all earnings — nearly double the industry standard payout rate of approximately 50% on competing platforms.",
     },
     {
         question: "Can I earn money on the Free tier?",
@@ -109,7 +109,7 @@ const faqItems = [
     {
         question: "What's the difference between Verified and Pro?",
         answer:
-            "Both tiers unlock monetization, but Pro ($19.99/month) offers a 93% payout rate compared to Verified's 90%, plus priority support with faster response times, early access to new features, and a distinct Pro badge. The 3% payout difference means Pro creators earning $1,000/month keep an additional $30 compared to Verified. Pro is designed for full-time creators and food businesses.",
+            "Both tiers unlock monetization, but Pro ($19.99/month) offers a 90% payout rate compared to Verified's 85%, plus priority support with faster response times, early access to new features, and a distinct Pro badge. The 5% payout difference means Pro creators earning $1,000/month keep an additional $50 compared to Verified. Pro is designed for full-time creators and food businesses.",
     },
     {
         question: "Is there annual pricing?",
@@ -124,7 +124,7 @@ const faqItems = [
     {
         question: "How do payouts work?",
         answer:
-            "Creator earnings from tips and premium recipe sales are paid out weekly via direct deposit or PayPal. Verified creators receive 90% of gross revenue and Pro creators receive 93%. All transactions are tracked in real-time through the Flav earnings dashboard, which displays net earnings, pending payouts, and historical fee savings.",
+            "Creator earnings from tips and premium recipe sales are paid out weekly via direct deposit or PayPal. Verified creators receive 85% of gross revenue and Pro creators receive 90%. Subscription fees (Flav+ and Verified/Pro) are how Flav sustains the platform — they are not part of the creator revenue pool. All transactions are tracked in real-time through the Flav earnings dashboard, which displays net earnings, pending payouts, and historical fee savings.",
     },
 ];
 
@@ -190,7 +190,7 @@ export default function VerifiedPage() {
                         <div className="flex justify-center">
                             <IPhoneMockup
                                 src="/screenshots/earnings-v3.webp"
-                                alt="Flav Pro earnings dashboard showing 93% payout rate and revenue breakdown"
+                                alt="Flav Pro earnings dashboard showing 90% payout rate and revenue breakdown"
                                 size="md"
                                 showBackdrop
                             />
@@ -201,7 +201,7 @@ export default function VerifiedPage() {
                                 Keep more of what you earn
                             </h2>
                             <p className="text-lg text-[var(--color-neutral-300)] mb-6">
-                                With Flav Pro, you keep 93% of your earnings—one of the highest payout rates anywhere. Free users need to upgrade to unlock monetization.
+                                With Flav Pro, you keep 90% of your earnings—one of the highest payout rates anywhere. Free users need to upgrade to unlock monetization.
                             </p>
                             <div className="grid grid-cols-2 gap-4 mb-8">
                                 <div className="p-4 rounded-xl bg-white/10">
@@ -211,7 +211,7 @@ export default function VerifiedPage() {
                                 </div>
                                 <div className="p-4 rounded-xl bg-gradient-to-br from-[var(--color-primary-500)]/30 to-[var(--color-primary-600)]/30 border border-[var(--color-primary-500)]/50">
                                     <p className="text-sm text-[var(--color-primary-300)]">Pro Creator</p>
-                                    <p className="text-2xl font-bold">93%</p>
+                                    <p className="text-2xl font-bold">90%</p>
                                     <p className="text-xs text-[var(--color-primary-400)]">payout rate</p>
                                 </div>
                             </div>
@@ -241,7 +241,7 @@ export default function VerifiedPage() {
                             { icon: DollarSign, title: "Unlock Monetization", description: "Start earning from tips and premium recipe sales—only available to Verified and Pro subscribers." },
                             { icon: BadgeCheck, title: "Verified Badge", description: "A visible checkmark that signals authenticity and trust to your audience." },
                             { icon: BarChart3, title: "Advanced Analytics", description: "Deep insights into audience demographics, best posting times, and revenue trends." },
-                            { icon: TrendingUp, title: "Industry-Leading Payouts", description: "Keep 90% (Verified) or 93% (Pro) of your earnings—the best rates available." },
+                            { icon: TrendingUp, title: "Industry-Leading Payouts", description: "Keep 85% (Verified) or 90% (Pro) of your earnings—the best rates available." },
                             { icon: Rocket, title: "Discovery Boost", description: "Priority placement in recommendations to help you reach new audiences faster." },
                             { icon: Headphones, title: "Priority Support", description: "Pro creators get dedicated support with faster response times." },
                         ] as { icon: LucideIcon; title: string; description: string }[]).map((benefit, index) => {
@@ -352,7 +352,7 @@ export default function VerifiedPage() {
                             "@context": "https://schema.org",
                             "@type": "WebPage",
                             "name": "Flav Verified & Pro — Creator Subscription Plans",
-                            "description": "Compare Flav's Free, Verified ($7.99/mo), and Pro ($19.99/mo) tiers. Unlock monetization, verified badges, advanced analytics, and payout rates of up to 93%.",
+                            "description": "Compare Flav's Free, Verified ($7.99/mo), and Pro ($19.99/mo) tiers. Unlock monetization, verified badges, advanced analytics, and payout rates of up to 90%.",
                             "url": "https://flav.app/verified",
                             "isPartOf": {
                                 "@type": "WebSite",
@@ -371,7 +371,7 @@ export default function VerifiedPage() {
                             "@context": "https://schema.org",
                             "@type": "Product",
                             "name": "Flav Verified",
-                            "description": "Creator subscription that unlocks monetization, verified badge, and advanced analytics with 90% payout rate.",
+                            "description": "Creator subscription that unlocks monetization, verified badge, and advanced analytics with 85% payout rate.",
                             "brand": { "@type": "Brand", "name": "Flav" },
                             "offers": {
                                 "@type": "Offer",
@@ -389,7 +389,7 @@ export default function VerifiedPage() {
                             "@context": "https://schema.org",
                             "@type": "Product",
                             "name": "Flav Pro",
-                            "description": "Premium creator subscription with 93% payout rate, priority support, and all Verified benefits for full-time food creators.",
+                            "description": "Premium creator subscription with 90% payout rate, priority support, and all Verified benefits for full-time food creators.",
                             "brand": { "@type": "Brand", "name": "Flav" },
                             "offers": {
                                 "@type": "Offer",
