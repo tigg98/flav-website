@@ -82,9 +82,12 @@ export default function AdsLoginPage() {
                                 <input type="checkbox" className="rounded" />
                                 <span className="text-[var(--color-neutral-600)]">Remember me</span>
                             </label>
-                            <Link href="/ads/forgot-password" className="text-[var(--color-primary-600)] hover:underline">
+                            <a
+                                href="mailto:support@flav.app?subject=Flav%20Ads%20password%20reset"
+                                className="text-[var(--color-primary-600)] hover:underline"
+                            >
                                 Forgot password?
-                            </Link>
+                            </a>
                         </div>
 
                         <Button type="submit" size="lg" className="w-full" disabled={isLoading}>

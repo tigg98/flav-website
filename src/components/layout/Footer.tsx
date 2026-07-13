@@ -2,7 +2,10 @@ import Link from "next/link";
 
 const footerLinks = {
     product: [
-        { href: "https://apps.apple.com/us/app/flav/id6759994122", label: "Download for iOS" },
+        {
+            href: "https://apps.apple.com/us/app/flav/id6759994122?utm_source=website&utm_medium=footer&utm_campaign=ios_download",
+            label: "Download for iOS",
+        },
         { href: "/waitlist", label: "Android Waitlist" },
         { href: "/creators", label: "For Creators" },
         { href: "/verified", label: "Verified / Pro" },
@@ -28,6 +31,21 @@ const footerLinks = {
         { href: "/terms", label: "Terms of Service" },
     ],
 };
+
+const compareLinks = [
+    { href: "/compare/tasty", label: "Flav vs Tasty" },
+    { href: "/compare/allrecipes", label: "Flav vs AllRecipes" },
+    { href: "/compare/yummly", label: "Flav vs Yummly" },
+    { href: "/compare/paprika", label: "Flav vs Paprika" },
+    { href: "/compare/mealime", label: "Flav vs Mealime" },
+    { href: "/compare/nytcooking", label: "Flav vs NYT Cooking" },
+    { href: "/compare/sidechef", label: "Flav vs SideChef" },
+    { href: "/compare/cookpad", label: "Flav vs Cookpad" },
+    { href: "/compare/samsung-food", label: "Flav vs Samsung Food" },
+    { href: "/compare/bigoven", label: "Flav vs BigOven" },
+    { href: "/compare/epicurious", label: "Flav vs Epicurious" },
+    { href: "/compare/mob-kitchen", label: "Flav vs MOB Kitchen" },
+];
 
 const socialLinks = [
     {
@@ -172,8 +190,27 @@ export function Footer() {
                     </div>
                 </div>
 
+                {/* Compare Row */}
+                <div className="border-t border-[var(--color-neutral-800)] mt-12 pt-8">
+                    <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-[var(--color-neutral-300)]">
+                        Compare
+                    </h3>
+                    <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-3">
+                        {compareLinks.map((link) => (
+                            <li key={link.href}>
+                                <Link
+                                    href={link.href}
+                                    className="text-[var(--color-neutral-400)] hover:text-white transition-colors text-sm"
+                                >
+                                    {link.label}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
                 {/* Bottom Bar */}
-                <div className="border-t border-[var(--color-neutral-800)] mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div className="border-t border-[var(--color-neutral-800)] mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                     <div className="text-center md:text-left">
                         <p className="text-[var(--color-neutral-500)] text-sm">
                             © {new Date().getFullYear()} Tig Tech LLC. All rights reserved.

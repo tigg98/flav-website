@@ -27,7 +27,7 @@ export function StickyMobileCTA() {
           className="w-full rounded-xl text-base font-semibold"
           asChild
         >
-          <Link href="https://apps.apple.com/us/app/flav/id6759994122">
+          <Link href="https://apps.apple.com/us/app/flav/id6759994122?utm_source=website&utm_medium=sticky_cta&utm_campaign=ios_download">
              Download the App
           </Link>
         </Button>
