@@ -85,10 +85,8 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
-  },
+  // Icons are served via the app-directory file conventions:
+  // src/app/icon.png (favicon) and src/app/apple-icon.png (180×180 apple-touch-icon).
   other: {
     "tiktok-developers-site-verification": "f33UOQnG7Y9jrIEuK33OVAk8hTsHCkb7",
   },
