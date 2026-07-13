@@ -3,23 +3,40 @@
 import * as React from "react";
 import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
-import { Link2, Loader2, Sparkles, Wand2, Clock, ChevronLeft, ChevronRight, MoreHorizontal, Play, Minus, Plus, Calendar, Heart, Bookmark, Share, Lock, Flame } from "lucide-react";
+import { Link2, Loader2, Sparkles, Clock, ChevronLeft, ChevronRight, MoreHorizontal, Play, Calendar, Heart, Bookmark, Share, Lock, Flame } from "lucide-react";
 import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
-import { cn } from "@/lib/utils";
+
+interface DemoRecipe {
+    title: string;
+    description: string;
+    image: string;
+    video?: string;
+    ingredients: string[];
+    author: string | null;
+    url: string;
+}
+
+/** Static example shown in the phone before anyone pastes a link — the frame should never sit empty. */
+const SAMPLE_RECIPE: DemoRecipe = {
+    title: "Creamy Garlic Butter Salmon",
+    description: "",
+    image: "https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&h=450&fit=crop&q=80",
+    ingredients: [
+        "4 salmon fillets",
+        "3 tbsp butter",
+        "4 cloves garlic, minced",
+        "1/2 cup heavy cream",
+        "Fresh parsley & lemon",
+    ],
+    author: "cookwithflav",
+    url: "https://www.tiktok.com/@cookwithflav",
+};
 
 export function ImportDemo() {
     const [url, setUrl] = React.useState("");
     const [state, setState] = React.useState<"idle" | "importing" | "complete">("idle");
     const [progress, setProgress] = React.useState(0);
-    const [recipeData, setRecipeData] = React.useState<{
-        title: string;
-        description: string;
-        image: string;
-        video?: string;
-        ingredients: string[];
-        author: string | null;
-        url: string;
-    } | null>(null);
+    const [recipeData, setRecipeData] = React.useState<DemoRecipe | null>(null);
 
     const handleImport = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -109,7 +126,12 @@ export function ImportDemo() {
         setUrl("");
         setState("idle");
         setProgress(0);
+        setRecipeData(null);
     };
+
+    // The phone always shows a recipe card — the visitor's import when there is one, a polished example otherwise.
+    const shownRecipe = recipeData ?? SAMPLE_RECIPE;
+    const isExample = !recipeData;
 
     return (
         <div className="w-full max-w-4xl mx-auto">
@@ -119,23 +141,23 @@ export function ImportDemo() {
 
                 <div className="grid md:grid-cols-2">
                     {/* Left Panel: Input */}
-                    <div className="p-8 md:p-12 flex flex-col justify-center relative z-10 bg-white/50 dark:bg-neutral-900/50 backdrop-blur-sm">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300 text-xs font-semibold mb-6 w-fit border border-blue-100 dark:border-blue-800">
+                    <div className="p-8 md:p-10 flex flex-col justify-center relative z-10 bg-white/50 dark:bg-neutral-900/50 backdrop-blur-sm">
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-primary-50)] dark:bg-[#E07A5F]/10 text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)] text-xs font-semibold mb-5 w-fit border border-[var(--color-primary-100)] dark:border-[#E07A5F]/20">
                             <Link2 className="w-3 h-3" />
                             Import from Social
                         </div>
 
-                        <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                        <h3 className="text-2xl md:text-3xl font-bold mb-3">
                             Paste a video link. <br />
                             <span className="text-neutral-400">Get a recipe instantly.</span>
                         </h3>
 
-                        <p className="text-neutral-500 dark:text-neutral-400 mb-8">
+                        <p className="text-neutral-500 dark:text-neutral-400 mb-6">
                             Flav&#39;s AI watches the video for you, extracting ingredients, steps, and timings in seconds.
                         </p>
 
                         <form onSubmit={handleImport} className="relative group">
-                            <div className="flex gap-2 p-1.5 bg-neutral-100 dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 focus-within:ring-2 focus-within:ring-blue-500/20 transition-all">
+                            <div className="flex gap-2 p-1.5 bg-neutral-100 dark:bg-neutral-800 rounded-xl border border-neutral-200 dark:border-neutral-700 focus-within:ring-2 focus-within:ring-[#E07A5F]/25 transition-all">
                                 <div className="relative flex-1">
                                     <div className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400">
                                         <Link2 className="w-4 h-4" />
@@ -152,12 +174,10 @@ export function ImportDemo() {
                                     type="submit"
                                     size="sm"
                                     disabled={state !== "idle" || !url}
-                                    className="bg-blue-600 hover:bg-blue-700 text-white transition-all shadow-md shadow-blue-500/20"
+                                    className="bg-[#E07A5F] hover:bg-[#cf6a50] text-white transition-all shadow-md shadow-[#E07A5F]/25"
                                 >
                                     {state === "importing" ? (
                                         <Loader2 className="w-4 h-4 animate-spin" />
-                                    ) : state === "complete" ? (
-                                        <Sparkles className="w-4 h-4" />
                                     ) : (
                                         <Sparkles className="w-4 h-4" />
                                     )}
@@ -166,35 +186,25 @@ export function ImportDemo() {
                         </form>
 
                         {/* Social Icons Row */}
-                        <div className="flex gap-4 mt-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                        <div className="flex gap-4 mt-6 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
                             <div className="text-xs text-neutral-400 font-medium">Supports Instagram Reels, TikTok, and YouTube Shorts</div>
                         </div>
                     </div>
 
                     {/* Right Panel: Result Preview (Phone Mockup) */}
-                    <div className="bg-neutral-50 dark:bg-neutral-950/50 p-8 md:p-12 flex items-center justify-center border-t md:border-t-0 md:border-l border-neutral-200 dark:border-neutral-800">
+                    <div className="bg-neutral-50 dark:bg-neutral-950/50 p-8 md:p-10 flex items-center justify-center border-t md:border-t-0 md:border-l border-neutral-200 dark:border-neutral-800">
                         <IPhoneMockup size="md" showBackdrop>
-                            {/* Empty/Idle State */}
-                            {state === "idle" && (
-                                <div className="h-full flex flex-col items-center justify-center p-8 text-center">
-                                    <div className="w-16 h-16 rounded-2xl bg-neutral-100 dark:bg-neutral-800 flex items-center justify-center mb-6">
-                                        <Wand2 className="w-8 h-8 text-neutral-400" />
-                                    </div>
-                                    <p className="text-sm font-medium text-neutral-400">Paste a link to see the magic</p>
-                                </div>
-                            )}
-
                             {/* Processing State */}
                             {state === "importing" && (
                                 <div className="h-full flex flex-col items-center justify-center p-8 text-center bg-white dark:bg-neutral-900">
                                     <div className="w-full max-w-[200px] space-y-4">
-                                        <div className="flex justify-between text-xs font-semibold text-blue-500 mb-1">
+                                        <div className="flex justify-between text-xs font-semibold text-[#E07A5F] mb-1">
                                             <span>Analyzing video...</span>
                                             <span>{Math.round(progress)}%</span>
                                         </div>
                                         <div className="h-2 w-full bg-neutral-200 dark:bg-neutral-800 rounded-full overflow-hidden">
                                             <div
-                                                className="h-full bg-blue-500 transition-all duration-100 ease-linear rounded-full"
+                                                className="h-full bg-gradient-to-r from-[#E07A5F] to-[#e8967d] transition-all duration-100 ease-linear rounded-full"
                                                 style={{ width: `${progress}%` }}
                                             />
                                         </div>
@@ -206,16 +216,16 @@ export function ImportDemo() {
                                 </div>
                             )}
 
-                            {/* Complete State — 1:1 match with app's RecipeDetailView */}
-                            {state === "complete" && (
+                            {/* Recipe card — the visitor's import, or a static example while idle. 1:1 match with app's RecipeDetailView */}
+                            {state !== "importing" && (
                                 <div className="min-h-full bg-white dark:bg-neutral-900">
                                     {/* ── Hero Image ── */}
                                     <div className="relative w-full bg-neutral-200 dark:bg-neutral-800 group" style={{ aspectRatio: '4/3' }}>
                                         {/* Always use og:image for the cover — og:video URLs can't cross-origin load */}
-                                        {recipeData?.image ? (
+                                        {shownRecipe.image ? (
                                             <img
-                                                src={recipeData.image}
-                                                alt={recipeData?.title || "Recipe"}
+                                                src={shownRecipe.image}
+                                                alt={shownRecipe.title || "Recipe"}
                                                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                                                 referrerPolicy="no-referrer"
                                             />
@@ -223,6 +233,13 @@ export function ImportDemo() {
                                             <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-neutral-300 to-neutral-400 dark:from-neutral-700 dark:to-neutral-800" />
                                         )}
                                         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/40 pointer-events-none" />
+
+                                        {/* Example tag — only while showing the static sample */}
+                                        {isExample && (
+                                            <div className="absolute bottom-2 right-2 z-20 px-2 py-0.5 rounded-md bg-black/45 backdrop-blur-sm text-[8px] font-semibold uppercase tracking-wider text-white/90">
+                                                Example import
+                                            </div>
+                                        )}
 
                                         {/* Nav overlay */}
                                         <div className="absolute top-3 left-3 right-3 flex justify-between items-center text-white z-20">
@@ -246,19 +263,19 @@ export function ImportDemo() {
                                     <div className="px-4 pt-4 pb-6">
                                         {/* Title */}
                                         <h2 className="text-[17px] font-bold leading-tight text-[#1A1A1A] dark:text-neutral-100 mb-3">
-                                            {recipeData?.title || "Imported Recipe"}
+                                            {shownRecipe.title || "Imported Recipe"}
                                         </h2>
 
                                         {/* Creator Row */}
-                                        {recipeData?.author && (
+                                        {shownRecipe.author && (
                                             <div className="flex items-center gap-2.5 mb-4">
                                                 {/* Avatar */}
                                                 <div className="w-8 h-8 rounded-full flex items-center justify-center text-white text-[11px] font-bold flex-shrink-0"
                                                     style={{ background: 'linear-gradient(135deg, #1A1A1A, #444)' }}>
-                                                    {recipeData.author.charAt(0).toUpperCase()}
+                                                    {shownRecipe.author.charAt(0).toUpperCase()}
                                                 </div>
                                                 <div className="flex-1 min-w-0">
-                                                    <div className="text-[12px] font-semibold text-[#1A1A1A] dark:text-neutral-100 leading-tight">@{recipeData.author}</div>
+                                                    <div className="text-[12px] font-semibold text-[#1A1A1A] dark:text-neutral-100 leading-tight">@{shownRecipe.author}</div>
                                                 </div>
                                                 <button className="text-[10px] font-semibold text-[#1A1A1A] dark:text-neutral-100 border border-[#1A1A1A] dark:border-neutral-400 rounded-lg px-3 py-1 hover:bg-neutral-50 transition-colors">
                                                     Follow
@@ -288,9 +305,9 @@ export function ImportDemo() {
 
                                         {/* Source tag */}
                                         <div className="flex gap-1.5 mb-4">
-                                            {recipeData?.url && (
+                                            {shownRecipe.url && (
                                                 <span className="text-[9px] font-medium text-[#666] dark:text-neutral-400 bg-[#F7F7F7] dark:bg-neutral-800 rounded-md px-2 py-1">
-                                                    {recipeData.url.includes("instagram.com") ? "Instagram" : recipeData.url.includes("tiktok.com") ? "TikTok" : recipeData.url.includes("youtube.com") || recipeData.url.includes("youtu.be") ? "YouTube" : "Imported"}
+                                                    {shownRecipe.url.includes("instagram.com") ? "Instagram" : shownRecipe.url.includes("tiktok.com") ? "TikTok" : shownRecipe.url.includes("youtube.com") || shownRecipe.url.includes("youtu.be") ? "YouTube" : "Imported"}
                                                 </span>
                                             )}
                                         </div>
@@ -344,7 +361,7 @@ export function ImportDemo() {
                                                 Ingredients
                                             </h3>
                                             <ul className="space-y-2">
-                                                {(recipeData?.ingredients?.length ? recipeData.ingredients.slice(0, 3) : []).map((ing, i) => (
+                                                {shownRecipe.ingredients.slice(0, 3).map((ing, i) => (
                                                     <li key={i} className="flex items-center gap-2.5 group cursor-pointer">
                                                         {/* Circle checkbox — 18×18 like IngredientRow */}
                                                         <div className="w-[18px] h-[18px] rounded-full border-[1.5px] border-[#999] group-hover:border-[#1A1A1A] transition-colors flex-shrink-0" />
@@ -366,7 +383,7 @@ export function ImportDemo() {
 
                                         {/* Remaining ingredients */}
                                         <ul className="space-y-2 mb-4">
-                                            {(recipeData?.ingredients?.length ? recipeData.ingredients.slice(3) : []).map((ing, i) => (
+                                            {shownRecipe.ingredients.slice(3).map((ing, i) => (
                                                 <li key={`rest-${i}`} className="flex items-center gap-2.5 group cursor-pointer">
                                                     <div className="w-[18px] h-[18px] rounded-full border-[1.5px] border-[#999] group-hover:border-[#1A1A1A] transition-colors flex-shrink-0" />
                                                     <span className="text-[12px] text-[#1A1A1A] dark:text-neutral-200 leading-snug">{ing}</span>
@@ -374,13 +391,15 @@ export function ImportDemo() {
                                             ))}
                                         </ul>
 
-                                        {/* Reset link */}
-                                        <button
-                                            onClick={reset}
-                                            className="w-full text-[10px] text-neutral-400 hover:text-neutral-600 font-medium py-2 transition-colors"
-                                        >
-                                            Import another link
-                                        </button>
+                                        {/* Reset link — only after a real import */}
+                                        {!isExample && (
+                                            <button
+                                                onClick={reset}
+                                                className="w-full text-[10px] text-neutral-400 hover:text-neutral-600 font-medium py-2 transition-colors"
+                                            >
+                                                Import another link
+                                            </button>
+                                        )}
                                     </div>
                                 </div>
                             )}
