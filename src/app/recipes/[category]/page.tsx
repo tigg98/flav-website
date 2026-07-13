@@ -181,30 +181,34 @@ export default async function RecipeCategoryPage({ params }: Props) {
                 </div>
             </section>
 
-            {/* JSON-LD */}
+            {/* JSON-LD — CollectionPage plus a separate FAQPage node for rich-result eligibility */}
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{
-                    __html: JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "CollectionPage",
-                        "name": data.title,
-                        "description": data.description,
-                        "url": `https://flav.app/recipes/${data.slug}`,
-                        "isPartOf": {
-                            "@type": "WebSite",
-                            "name": "Flav",
-                            "url": "https://flav.app"
+                    __html: JSON.stringify([
+                        {
+                            "@context": "https://schema.org",
+                            "@type": "CollectionPage",
+                            "name": data.title,
+                            "description": data.description,
+                            "url": `https://flav.app/recipes/${data.slug}`,
+                            "isPartOf": {
+                                "@type": "WebSite",
+                                "name": "Flav",
+                                "url": "https://flav.app"
+                            },
+                            "breadcrumb": {
+                                "@type": "BreadcrumbList",
+                                "itemListElement": [
+                                    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://flav.app" },
+                                    { "@type": "ListItem", "position": 2, "name": "Recipes", "item": "https://flav.app/recipes" },
+                                    { "@type": "ListItem", "position": 3, "name": data.title, "item": `https://flav.app/recipes/${data.slug}` },
+                                ]
+                            },
                         },
-                        "breadcrumb": {
-                            "@type": "BreadcrumbList",
-                            "itemListElement": [
-                                { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://flav.app" },
-                                { "@type": "ListItem", "position": 2, "name": "Recipes", "item": "https://flav.app/recipes" },
-                                { "@type": "ListItem", "position": 3, "name": data.title, "item": `https://flav.app/recipes/${data.slug}` },
-                            ]
-                        },
-                        ...(data.faq.length > 0 ? {
+                        ...(data.faq.length > 0 ? [{
+                            "@context": "https://schema.org",
+                            "@type": "FAQPage",
                             "mainEntity": data.faq.map((item) => ({
                                 "@type": "Question",
                                 "name": item.question,
@@ -213,8 +217,8 @@ export default async function RecipeCategoryPage({ params }: Props) {
                                     "text": item.answer,
                                 },
                             })),
-                        } : {}),
-                    }),
+                        }] : []),
+                    ]),
                 }}
             />
         </>

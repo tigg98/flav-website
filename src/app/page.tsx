@@ -20,6 +20,9 @@ import {
   BadgeCheck,
   BarChart3,
   HandCoins,
+  Smartphone,
+  NotebookPen,
+  UtensilsCrossed,
   type LucideIcon,
 } from "lucide-react";
 
@@ -247,21 +250,27 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <div className="text-center p-8 rounded-3xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <div className="text-4xl mb-5">📱</div>
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#E07A5F]/10 to-[#e8967d]/10 mb-5">
+                <Smartphone className="w-8 h-8 text-[var(--color-primary-500)]" />
+              </div>
               <h3 className="text-xl font-bold mb-3">Lost in the Scroll</h3>
               <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
                 You saved that amazing pasta recipe on TikTok. Good luck finding it in 3,000 saved videos.
               </p>
             </div>
             <div className="text-center p-8 rounded-3xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <div className="text-4xl mb-5">📝</div>
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#E07A5F]/10 to-[#e8967d]/10 mb-5">
+                <NotebookPen className="w-8 h-8 text-[var(--color-primary-500)]" />
+              </div>
               <h3 className="text-xl font-bold mb-3">Manual Ingredient Lists</h3>
               <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
                 Pausing a video 47 times to write down ingredients is not a grocery list.
               </p>
             </div>
             <div className="text-center p-8 rounded-3xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-100 dark:border-neutral-800 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <div className="text-4xl mb-5">🍳</div>
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-[#E07A5F]/10 to-[#e8967d]/10 mb-5">
+                <UtensilsCrossed className="w-8 h-8 text-[var(--color-primary-500)]" />
+              </div>
               <h3 className="text-xl font-bold mb-3">No Way to Actually Cook</h3>
               <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
                 Social media shows you what to cook. It never helps you actually cook it.
@@ -606,6 +615,22 @@ export default function HomePage() {
                   "@type": "Answer",
                   "text": item.answer
                 }
+              }))
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "HowTo",
+              "name": "How to save a TikTok recipe with Flav",
+              "description":
+                "Turn any TikTok, Instagram, or web recipe video into a structured, cookable recipe in about 10 seconds using the Flav app.",
+              "totalTime": "PT1M",
+              "tool": [{ "@type": "HowToTool", "name": "Flav app for iOS" }],
+              "step": howItWorks.map((item, index) => ({
+                "@type": "HowToStep",
+                "position": index + 1,
+                "name": item.title,
+                "text": item.description,
+                "url": "https://flav.app/#how-it-works"
               }))
             }
           ]),

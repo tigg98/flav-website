@@ -42,11 +42,6 @@ export default function MealPlanPage() {
                         <div className="flex justify-center mb-4">
                             <AppStoreButtons iosUrl="https://apps.apple.com/us/app/flav/id6759994122" />
                         </div>
-                        
-                        <p className="text-sm text-[var(--color-neutral-500)] mt-6 flex items-center justify-center gap-1.5">
-                            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[var(--color-primary-50)] dark:bg-[#E07A5F]/15 text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)] text-xs font-semibold">★ Premium</span>
-                            Available on Verified & Pro plans
-                        </p>
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-12 lg:gap-24 items-center max-w-6xl mx-auto">
