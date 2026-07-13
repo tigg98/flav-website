@@ -25,6 +25,9 @@ export const metadata: Metadata = {
         description:
             "Stand out, grow faster, and earn more with Flav Verified and Pro tiers.",
     },
+    alternates: {
+        canonical: "https://flav.app/verified",
+    },
 };
 
 const tiers = [

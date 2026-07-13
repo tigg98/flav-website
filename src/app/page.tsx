@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
 import { StickyMobileCTA } from "@/components/ui/StickyMobileCTA";
@@ -21,6 +22,12 @@ import {
   HandCoins,
   type LucideIcon,
 } from "lucide-react";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://flav.app",
+  },
+};
 
 const APP_STORE_URL = "https://apps.apple.com/us/app/flav/id6759994122";
 

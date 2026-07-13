@@ -9,6 +9,9 @@ export const metadata: Metadata = {
         description:
             "Connect with food lovers through native in-feed ads, creator partnerships, and dietary-based targeting on Flav.",
     },
+    alternates: {
+        canonical: "https://flav.app/advertise",
+    },
 };
 
 export default function AdvertiseLayout({

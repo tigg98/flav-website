@@ -11,6 +11,9 @@ export const metadata: Metadata = {
         title: "Recipes | Flav",
         description: "Browse recipe collections by category. Import from TikTok, cook with AI.",
     },
+    alternates: {
+        canonical: "https://flav.app/recipes",
+    },
 };
 
 const categoryGroups = [

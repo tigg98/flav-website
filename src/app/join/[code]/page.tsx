@@ -16,6 +16,10 @@ export const metadata: Metadata = {
         description:
             "Save any TikTok recipe in 10 seconds. Cook hands-free with AI. Free on iOS — Android waitlist open.",
     },
+    robots: {
+        index: false,
+        follow: true,
+    },
 };
 
 export default async function JoinReferralPage({ params }: Props) {

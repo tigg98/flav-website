@@ -9,6 +9,9 @@ export const metadata: Metadata = {
         description:
             "Get help with your Flav account, billing, content, and more. Browse FAQs or contact support.",
     },
+    alternates: {
+        canonical: "https://flav.app/support",
+    },
 };
 
 export default function SupportLayout({

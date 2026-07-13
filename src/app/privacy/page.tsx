@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Privacy Policy",
     description: "Flav Privacy Policy - How we collect, use, and protect your data.",
+    alternates: {
+        canonical: "https://flav.app/privacy",
+    },
 };
 
 export default function PrivacyPage() {

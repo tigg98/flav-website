@@ -14,6 +14,9 @@ export const metadata: Metadata = {
         description:
             "Let Flav AI generate the perfect meal plan based on your dietary needs, macros, and preferences.",
     },
+    alternates: {
+        canonical: "https://flav.app/features/meal-plan",
+    },
 };
 
 export default function MealPlanPage() {

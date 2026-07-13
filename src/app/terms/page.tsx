@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Terms of Service",
     description: "Flav Terms of Service - Rules and guidelines for using our platform.",
+    alternates: {
+        canonical: "https://flav.app/terms",
+    },
 };
 
 export default function TermsPage() {

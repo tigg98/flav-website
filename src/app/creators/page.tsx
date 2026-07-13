@@ -27,6 +27,9 @@ export const metadata: Metadata = {
         description:
             "A premium bio-link page for food creators, plus tips, premium recipes, and brand partnerships with payouts up to 90%.",
     },
+    alternates: {
+        canonical: "https://flav.app/creators",
+    },
 };
 
 const monetizationMethods: { icon: LucideIcon; title: string; description: string }[] = [

@@ -145,14 +145,14 @@ export default function WaitlistDashboardPage() {
                 {/* Position card */}
                 <div className="bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-3xl shadow-xl p-8 md:p-10 mb-8">
                     <div className="text-center mb-8">
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 text-sm font-medium mb-4">
+                        <h1 className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400 text-sm font-medium mb-4">
                             <Check className="w-4 h-4" />
                             You&apos;re on the Android waitlist
-                        </div>
-
-                        <h1 className="text-5xl md:text-6xl font-bold mb-2">
-                            #{data.position?.toLocaleString() || "—"}
                         </h1>
+
+                        <p className="text-5xl md:text-6xl font-bold mb-2">
+                            #{data.position?.toLocaleString() || "—"}
+                        </p>
                         <p className="text-neutral-500 dark:text-neutral-400">
                             Your position in line
                         </p>
