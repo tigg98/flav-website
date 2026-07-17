@@ -260,7 +260,7 @@ export default function CreatorsPage() {
                         <div className="order-1 md:order-2 flex justify-center">
                             <IPhoneMockup
                                 src="/screenshots/earnings-v3.webp"
-                                alt="Flav earnings dashboard displaying net earnings, weekly payouts, and fee savings"
+                                alt="Flav earnings dashboard displaying net earnings, monthly payouts, and fee savings"
                                 size="md"
                             />
                         </div>

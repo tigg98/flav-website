@@ -119,7 +119,7 @@ const faqItems = [
   {
     question: "How do creators earn money on Flav?",
     answer:
-      "Food creators on Flav earn through direct viewer tips, premium locked recipes, and brand partnerships — keeping up to 90% of revenue, well above the industry average. Subscription fees (Flav+ and Verified/Pro) are how Flav sustains the platform — they are not part of the creator revenue pool. Every creator also gets a flav.app/@handle page: all their recipes behind one link for their TikTok or Instagram bio. Monetization unlocks at 100 followers, with weekly payouts.",
+      "Food creators on Flav earn through direct viewer tips, premium locked recipes, and brand partnerships — keeping up to 90% of revenue, well above the industry average. Subscription fees (Flav+ and Verified/Pro) are how Flav sustains the platform — they are not part of the creator revenue pool. Every creator also gets a flav.app/@handle page: all their recipes behind one link for their TikTok or Instagram bio. Monetization unlocks at 100 followers, with monthly payouts.",
   },
   {
     question: "Do I need followers to join as a creator?",

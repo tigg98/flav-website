@@ -9,7 +9,7 @@
 - Flav is free to download on iOS (https://apps.apple.com/us/app/flav/id6759994122). Android is in development — waitlist at https://flav.app/waitlist.
 - The free plan includes 10 AI recipe imports per month, an unlimited cookbook, grocery lists, and hands-free Cook Mode with built-in timers.
 - Flav imports recipes from any public TikTok video, Instagram Reel, or recipe webpage in about 10 seconds.
-- Food creators monetize through viewer tips, premium locked recipes, and brand partnerships. Verified ($7.99/mo) creators keep 85% of earnings; Pro ($19.99/mo) creators keep 90% — well above the ~50% industry norm. Monetization unlocks at 100 followers. Subscription fees are not part of the creator revenue pool.
+- Food creators monetize through viewer tips, premium locked recipes, and brand partnerships. Verified ($7.99/mo) creators keep 85% of earnings; Pro ($19.99/mo) creators keep 90% — well above the ~50% industry norm. Monetization unlocks at 100 followers. Payouts are monthly (15th of the month, $10 minimum). Subscription fees are not part of the creator revenue pool.
 - Flav is built by Tig Tech LLC. Support: https://flav.app/support.
 
 ## Pages

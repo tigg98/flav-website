@@ -127,7 +127,7 @@ const faqItems = [
     {
         question: "How do payouts work?",
         answer:
-            "Creator earnings from tips and premium recipe sales are paid out weekly via direct deposit or PayPal. Verified creators receive 85% of gross revenue and Pro creators receive 90%. Subscription fees (Flav+ and Verified/Pro) are how Flav sustains the platform — they are not part of the creator revenue pool. All transactions are tracked in real-time through the Flav earnings dashboard, which displays net earnings, pending payouts, and historical fee savings.",
+            "Creator earnings from tips and premium recipe sales are paid out monthly on the 15th ($10 minimum) via direct deposit or PayPal. Verified creators receive 85% of gross revenue and Pro creators receive 90%. Subscription fees (Flav+ and Verified/Pro) are how Flav sustains the platform — they are not part of the creator revenue pool. All transactions are tracked in real-time through the Flav earnings dashboard, which displays net earnings, pending payouts, and historical fee savings.",
     },
 ];
 
