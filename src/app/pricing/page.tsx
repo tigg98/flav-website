@@ -1,62 +1,117 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { FlavPlusPricing } from "@/components/marketing/FlavPlusPricing";
-import { AppStoreButtons } from "@/components/ui/AppStoreButtons";
-import { SHOW_FLAV_PLUS } from "@/lib/flags";
+import { JsonLd } from "@/components/flav/JsonLd";
+import { FLAV, appStoreUrl } from "@/lib/flav-config";
 
 export const metadata: Metadata = {
     title: "Pricing",
-    description:
-        "Flav is free to download on iOS with 10 AI recipe imports every month. Upgrade to Flav+ for unlimited imports, AI meal planning, and photo-scanned recipe cards.",
-    alternates: {
-        canonical: "https://flav.app/pricing",
-    },
+    description: `Flav is free on iPhone for ${FLAV.freeImportsPerMonth} recipes a month. Flav+ is ${FLAV.prices.monthly} a month, ${FLAV.prices.yearly} a year or ${FLAV.prices.lifetime} once, with no monthly limit.`,
+    alternates: { canonical: "https://flav.app/pricing" },
     openGraph: {
-        title: "Pricing | Flav",
-        description:
-            "Free to download. 10 AI recipe imports a month. Flav+ unlocks unlimited imports and AI meal planning.",
+        title: "Flav pricing",
+        description: `Free for ${FLAV.freeImportsPerMonth} recipes a month. Flav+ when you want more.`,
     },
-    // Keep the page out of the index until the flag flips on.
-    robots: SHOW_FLAV_PLUS ? undefined : { index: false, follow: false },
 };
 
-export default function PricingPage() {
-    if (!SHOW_FLAV_PLUS) notFound();
+const free = [
+    `${FLAV.freeImportsPerMonth} recipe imports a month`,
+    "Cookbook, private by default",
+    "Cook Mode, timers, Lock Screen and Watch",
+    "Grocery list",
+];
 
+const plus = [
+    "Everything in Free",
+    "No monthly import limit",
+    "Plan the week from your cookbook",
+    "More questions to Ask Flav while you cook",
+];
+
+const faqs = [
+    { q: "What counts as an import?", a: "Each video or recipe link Flav reads for you." },
+    { q: "What happens at ten?", a: "Everything you saved stays. New imports open up again next month, or straight away with Flav+." },
+    { q: "How do I cancel?", a: "Flav+ is billed by Apple. On your iPhone open Settings, tap your name, then Subscriptions, then Flav. You keep Flav+ until the end of the period you paid for." },
+];
+
+function List({ items }: { items: string[] }) {
     return (
-        <>
-            {/* Hero */}
-            <section className="relative overflow-hidden pt-20 pb-4 md:pt-28 md:pb-8">
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[var(--color-primary-100)]/40 via-background to-background dark:from-[var(--color-primary-900)]/20" />
-                <div className="container-main relative z-10 text-center">
-                    <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-                        Simple pricing for{" "}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E07A5F] to-[#e8967d]">
-                            serious cooks
-                        </span>
-                    </h1>
-                    <p className="text-lg md:text-xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-                        Every plan includes your full cookbook, grocery lists, and hands-free Cook
-                        Mode. Flav+ removes the import limit and plans your week.
+        <ul className="fl-rows" style={{ margin: 0, padding: 0, listStyle: "none", display: "flex", flexDirection: "column" }}>
+            {items.map((i) => (
+                <li key={i} style={{ padding: "12px 0", fontSize: 15, fontWeight: 500, color: "var(--fl-ink-2)" }}>
+                    {i}
+                </li>
+            ))}
+        </ul>
+    );
+}
+
+export default function PricingPage() {
+    return (
+        <div className="fl-page">
+            <div className="fl-narrow" style={{ paddingTop: 88, paddingBottom: 96, display: "flex", flexDirection: "column", gap: 48 }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: 16, maxWidth: 640 }}>
+                    <h1 className="fl-h1">Cook from your feed for free.</h1>
+                    <p className="fl-lead">
+                        The cookbook, Cook Mode and grocery list cost nothing. Flav+ is for when {FLAV.freeImportsPerMonth} recipes a month isn&apos;t enough.
                     </p>
                 </div>
-            </section>
 
-            <FlavPlusPricing showHeading={false} />
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 20, alignItems: "stretch" }}>
+                    <section aria-labelledby="free-h" className="fl-card-hero" style={{ flex: "1 1 300px", minWidth: 0, padding: 32, display: "flex", flexDirection: "column", gap: 20, boxShadow: "var(--fl-shadow-card)" }}>
+                        <h2 id="free-h" className="fl-heading">Free</h2>
+                        <span className="fl-num" style={{ fontSize: 44, lineHeight: 1, fontWeight: 800, letterSpacing: "-.05em" }}>$0</span>
+                        <List items={free} />
+                        <a href={appStoreUrl("web-pricing-free")} className="fl-btn fl-btn-soft" style={{ marginTop: "auto" }}>
+                            Download free
+                        </a>
+                    </section>
 
-            {/* Bottom CTA */}
-            <section className="section">
-                <div className="container-main text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">Start free today</h2>
-                    <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-8 max-w-xl mx-auto">
-                        Download Flav on the App Store and import your first recipe in under a
-                        minute.
-                    </p>
-                    <div className="flex justify-center">
-                        <AppStoreButtons size="lg" />
+                    <section aria-labelledby="plus-h" className="fl-card-hero" style={{ flex: "1.3 1 380px", minWidth: 0, padding: 32, display: "flex", flexDirection: "column", gap: 20 }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                            <h2 id="plus-h" className="fl-heading">Flav+</h2>
+                            <span className="fl-badge">FLAV+</span>
+                        </div>
+                        <div className="fl-rows" style={{ display: "flex", flexDirection: "column" }}>
+                            {[
+                                ["Monthly", FLAV.prices.monthly],
+                                ["Yearly", FLAV.prices.yearly],
+                                ["Once, for good", FLAV.prices.lifetime],
+                            ].map(([label, price]) => (
+                                <div key={label} style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", padding: "12px 0" }}>
+                                    <span style={{ fontSize: 15, fontWeight: 700 }}>{label}</span>
+                                    <span className="fl-num" style={{ fontSize: 26, fontWeight: 800, letterSpacing: "-.05em" }}>{price}</span>
+                                </div>
+                            ))}
+                        </div>
+                        <List items={plus} />
+                        <a href={appStoreUrl("web-pricing-plus")} className="fl-btn fl-btn-ink" style={{ marginTop: "auto" }}>
+                            Get Flav+ in the app
+                        </a>
+                    </section>
+                </div>
+
+                <p className="fl-body" style={{ fontSize: 13, lineHeight: "20px", maxWidth: 680 }}>
+                    US prices; other countries see local prices in the App Store. Flav+ is bought and managed through Apple.
+                </p>
+
+                <section aria-labelledby="pfaq-h" style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+                    <h2 id="pfaq-h" className="fl-title">About the limit</h2>
+                    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 16 }}>
+                        {faqs.map((f) => (
+                            <div key={f.q} className="fl-card" style={{ padding: 24, display: "flex", flexDirection: "column", gap: 8 }}>
+                                <span style={{ fontSize: 17, fontWeight: 800, letterSpacing: "-.03em" }}>{f.q}</span>
+                                <span className="fl-body">{f.a}</span>
+                            </div>
+                        ))}
                     </div>
-                </div>
-            </section>
-        </>
+                </section>
+            </div>
+            <JsonLd
+                data={{
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+                }}
+            />
+        </div>
     );
 }

@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-import { ExitIntentPopup } from "@/components/ui/ExitIntentPopup";
+import { SiteHeader } from "@/components/flav/SiteHeader";
+import { SiteFooter } from "@/components/flav/SiteFooter";
 import { PostHogProvider } from "@/components/PostHogProvider";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
+import "../styles/flav.css";
 
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
@@ -21,11 +21,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Flav — Save Any TikTok Recipe in 10 Seconds",
+    default: "Flav: save any TikTok recipe, then cook it",
     template: "%s | Flav",
   },
   description:
-    "Flav turns TikTok, Instagram, and web recipe videos into an AI-organized cookbook. Paste a link, get the full recipe — ingredients, steps, timers — then cook hands-free. Free on iOS. Android coming soon.",
+    "Share a TikTok or Instagram Reel to Flav and get the ingredients, steps and timers in your cookbook, then cook it hands free. Free on iPhone for 10 recipes a month.",
   keywords: [
     "best cooking app 2026",
     "AI recipe generator",
@@ -48,23 +48,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://flav.app",
     siteName: "Flav",
-    title: "Flav — Save Any TikTok Recipe in 10 Seconds",
+    title: "Flav: save any TikTok recipe, then cook it",
     description:
-      "Paste a link, get the full recipe — ingredients, steps, timers — in a cookbook that's actually yours. Free on iOS. Android coming soon.",
+      "Share a TikTok or a Reel and get the ingredients, steps and timers in your own cookbook. Free on iPhone.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Flav — turn TikTok and Instagram recipe videos into an AI-organized cookbook",
+        alt: "Flav turns TikTok and Instagram cooking videos into recipes you can cook from",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Flav — Save Any TikTok Recipe in 10 Seconds",
+    title: "Flav: save any TikTok recipe, then cook it",
     description:
-      "Turn TikTok and Instagram recipe videos into an AI-organized cookbook with hands-free Cook Mode. Free on iOS. Android coming soon.",
+      "Share a TikTok or a Reel and get the ingredients, steps and timers in your own cookbook. Free on iPhone.",
     images: ["/og-image.png"],
     creator: "@cookwithflav",
   },
@@ -101,15 +101,14 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <PostHogProvider>
-            <Header />
-            <main className="min-h-screen pt-16 md:pt-20">{children}</main>
-            <Footer />
-            <ExitIntentPopup />
+            <SiteHeader />
+            <main className="min-h-screen">{children}</main>
+            <SiteFooter />
           </PostHogProvider>
         </ThemeProvider>
       </body>
