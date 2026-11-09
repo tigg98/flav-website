@@ -1,21 +1,35 @@
 # Flav
 
-> Flav is a free iOS app that turns TikTok, Instagram, and web recipe videos
-> into structured, cookable recipes in about 10 seconds. Paste a link; Flav's
-> AI extracts ingredients, steps, times, and nutrition into a personal cookbook
-> with hands-free Cook Mode, AI meal planning, and grocery lists.
+> Flav is an iPhone app that saves recipes from TikTok, Instagram Reels and recipe web pages. You share a cooking video to Flav from the iPhone share sheet, or paste its link, and Flav reads the caption and the page and saves the recipe (title, ingredients with quantities, steps in order, and the video link) to a private cookbook. Cook Mode then walks you through the steps with timers.
 
-## Key Facts
-- Flav is free to download on iOS (https://apps.apple.com/us/app/flav/id6759994122). Android is in development — waitlist at https://flav.app/waitlist.
-- The free plan includes 10 AI recipe imports per month, an unlimited cookbook, grocery lists, and hands-free Cook Mode with built-in timers.
-- Flav imports recipes from any public TikTok video, Instagram Reel, or recipe webpage in about 10 seconds.
-- Food creators monetize through viewer tips, premium locked recipes, and brand partnerships. Verified ($7.99/mo) creators keep 85% of earnings; Pro ($19.99/mo) creators keep 90% — well above the ~50% industry norm. Monetization unlocks at 100 followers. Payouts are monthly (15th of the month, $10 minimum). Subscription fees are not part of the creator revenue pool.
-- Flav is built by Tig Tech LLC. Support: https://flav.app/support.
+Key facts:
+
+- iPhone only. Not available on Android.
+- How import works: Flav reads the video's caption and page. An import usually takes a few seconds; a long caption can take about 15.
+- Limit: if the recipe is only spoken in the video and not written in the caption or on the page, Flav 2.0 may return a thin or empty recipe. Flav does not read the video itself; that is planned for a later version.
+- Imports are private by default.
+- Cook Mode: one step at a time with timers, a Lock Screen Live Activity, and Apple Watch.
+- Also: a meal plan, a grocery list built from a recipe's ingredients, and household sharing.
+- Free plan: 10 AI imports a month, plus the cookbook, Cook Mode and grocery list.
+- Flav+: no import limit, plus AI meal planning. $4.99 a month, $29.99 a year, or $59.99 once (lifetime), US App Store prices.
+- Made by Tig Tech LLC, Austin, Texas. Support: https://flav.app/support
 
 ## Pages
-- Home: https://flav.app — what Flav does, how import works, FAQ
-- For Creators: https://flav.app/creators — monetization and bio-link pages
-- Verified & Pro: https://flav.app/verified — creator tiers and payout rates
-- Recipe Collections: https://flav.app/recipes — 20 category guides
-- Comparisons: https://flav.app/compare/{tasty|allrecipes|yummly|paprika|mealime|nytcooking|sidechef|cookpad|samsung-food|bigoven|epicurious|mob-kitchen}
-- Blog: https://flav.app/blog · Advertise: https://flav.app/advertise · Support: https://flav.app/support
+
+- [Flav](https://flav.app/): what Flav does, how import works, common questions
+- [Pricing](https://flav.app/pricing): the free plan and Flav+, monthly, yearly and lifetime
+- [Try Flav](https://flav.app/try): paste a recipe video link and see what Flav pulls out
+- [Support](https://flav.app/support): common questions and how to reach us
+- [Privacy policy](https://flav.app/privacy)
+- [How do I save a recipe from TikTok?](https://flav.app/guides/how-to-save-a-recipe-from-tiktok): Favorites saves the video, not the recipe; copying the caption by hand, or sharing to a recipe app
+- [How do I get the recipe from a TikTok when it isn't in the caption?](https://flav.app/guides/tiktok-recipe-not-in-caption): the pinned comment, the link in bio, the creator's site, writing it down with captions on, and what recipe apps can't do yet
+- [How do I save recipes from Instagram Reels?](https://flav.app/guides/how-to-save-recipes-from-instagram-reels): what Instagram's Save does, copying a caption, sharing a Reel to a recipe app, carousels and "link in bio"
+- [What app saves recipes from TikTok?](https://flav.app/guides/what-app-saves-recipes-from-tiktok): ReciMe, Pestle, Paprika, Honeydew, Mela, Samsung Food, TikTok Favorites and Flav compared on import, free plan, price, household and platforms, checked November 2026
+- [How do I organize recipes I saved from TikTok?](https://flav.app/guides/how-to-organize-recipes-saved-from-tiktok): one pass through Favorites, keep what you'd cook this month, turn it into text, sort by when you'd make it
+- [How do I cook from a TikTok without pausing the video every ten seconds?](https://flav.app/guides/cook-from-a-tiktok-without-pausing): watch once, cook from text one step at a time, timers from the recipe, and Flav's Cook Mode
+- [How do I turn a cooking video into a grocery list?](https://flav.app/guides/turn-a-cooking-video-into-a-grocery-list): find the ingredients, get amounts, check what you have, sort for the store, plan the week on one list
+- [Why is TikTok Favorites a bad place to keep recipes?](https://flav.app/guides/why-tiktok-favorites-is-a-bad-recipe-box): what Favorites does well, five ways it falls short for recipes, and using both
+- [How do I save a recipe from YouTube Shorts?](https://flav.app/guides/how-to-save-a-recipe-from-youtube-shorts): where the description is on a Short, linked longer videos, and saving the link as a recipe
+- [How do I share saved recipes with my partner or household?](https://flav.app/guides/share-saved-recipes-with-your-household): one shared place instead of sending links, Notes and Reminders for free, and Flav's household sharing
+- [All guides](https://flav.app/guides): the ten guides on one page
+- [App Store listing](https://apps.apple.com/us/app/flav/id6759994122)

@@ -3,11 +3,12 @@ import { blogPosts } from './blog/blog-data';
 import { competitors } from './compare/competitor-data';
 import { getAllCategorySlugs } from './recipes/recipe-categories';
 import { SHOW_FLAV_PLUS } from '@/lib/flags';
+import { getAllGuides } from '@/lib/guides';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://flav.app';
 
-    // Note: static/compare/recipe pages intentionally omit `lastModified` —
+    // Note: static/compare/recipe pages intentionally omit `lastModified`:
     // we don't track real modification dates for them, and stamping a fresh
     // date on every build fakes freshness to crawlers.
     const staticPages: {
@@ -19,6 +20,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ...(SHOW_FLAV_PLUS
             ? [{ route: '/pricing', changeFrequency: 'weekly' as const, priority: 0.9 }]
             : []),
+        { route: '/try', changeFrequency: 'monthly', priority: 0.8 },
+        { route: '/guides', changeFrequency: 'weekly', priority: 0.8 },
         { route: '/waitlist', changeFrequency: 'monthly', priority: 0.6 },
         { route: '/features/meal-plan', changeFrequency: 'monthly', priority: 0.7 },
         { route: '/blog', changeFrequency: 'weekly', priority: 0.8 },
@@ -47,6 +50,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
     }));
 
+    // Guides with an open "CONFIRM before publishing" note stay out until it is cleared.
+    const guidePages = getAllGuides()
+        .filter((guide) => !guide.unconfirmed)
+        .map((guide) => ({
+            url: `${baseUrl}/guides/${guide.slug}`,
+            lastModified: new Date(`${guide.dateModified}T00:00:00Z`),
+            changeFrequency: 'monthly' as const,
+            priority: 0.7,
+        }));
+
     return [
         ...staticPages.map((page) => ({
             url: `${baseUrl}${page.route}`,
@@ -56,5 +69,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ...blogPages,
         ...comparePages,
         ...recipePages,
+        ...guidePages,
     ];
 }

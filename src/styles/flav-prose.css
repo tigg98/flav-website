@@ -1,0 +1,48 @@
+/*
+ * Article typography for /guides, per the approved Guide.dc.html mockup.
+ * Uses only the tokens in flav.css. Tailwind preflight resets lists and
+ * headings, so everything the markdown renders is styled here.
+ */
+.fl-guide-h1 { font-size: clamp(36px, 5vw, 52px); line-height: 1.04; }
+
+.fl-guide-meta { font-size: 13px; font-weight: 600; color: var(--fl-muted); }
+.fl-guide-back { font-size: 13px; font-weight: 700; color: var(--fl-muted); text-decoration: none; align-self: flex-start; }
+.fl-guide-back:hover { color: var(--fl-ink); }
+.fl-guide-back:focus-visible { outline: 2px solid var(--fl-ink); outline-offset: 3px; }
+
+.fl-guide-short { margin: 0; font-size: 17px; line-height: 26px; font-weight: 600; color: var(--fl-ink); }
+
+/* The link pill sits on a white card here, so it takes the ground colour instead of a shadow. */
+.fl-guide-try .fl-pill { background: var(--fl-ground); box-shadow: none; }
+
+.fl-prose { color: var(--fl-ink-2); font-size: 17px; line-height: 28px; font-weight: 500; }
+.fl-prose > * { margin: 0; }
+.fl-prose > * + * { margin-top: 20px; }
+.fl-prose > h2 { margin-top: 44px; font-size: 30px; line-height: 32px; font-weight: 800; letter-spacing: -0.05em; color: var(--fl-ink); }
+.fl-prose > h2:first-child { margin-top: 16px; }
+.fl-prose > h3 { margin-top: 32px; font-size: 22px; line-height: 26px; font-weight: 800; letter-spacing: -0.04em; color: var(--fl-ink); }
+.fl-prose > h2 + *, .fl-prose > h3 + * { margin-top: 16px; }
+.fl-prose p { margin: 0; }
+.fl-prose strong { font-weight: 700; color: var(--fl-ink); }
+.fl-prose a { color: var(--fl-ink); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+.fl-prose a:hover { color: var(--fl-ink-2); }
+.fl-prose a:focus-visible { outline: 2px solid var(--fl-ink); outline-offset: 3px; }
+.fl-prose ul, .fl-prose ol { padding-left: 24px; }
+.fl-prose ul { list-style: disc; }
+.fl-prose ol { list-style: decimal; }
+.fl-prose li + li { margin-top: 8px; }
+.fl-prose li::marker { color: var(--fl-muted); font-weight: 700; }
+.fl-prose blockquote { padding-left: 20px; border-left: 2px solid var(--fl-track); color: var(--fl-muted); }
+.fl-prose code { font-family: var(--font-geist-mono), ui-monospace, monospace; font-size: 0.9em; padding: 2px 6px; border-radius: var(--fl-radius-sm); background: var(--fl-surface-2); color: var(--fl-ink); }
+.fl-prose hr { border: 0; border-top: 1px solid var(--fl-hairline); }
+
+/* Tables sit in a scrolling white card. */
+.fl-prose-table { overflow-x: auto; background: var(--fl-surface); border-radius: var(--fl-radius-lg); box-shadow: var(--fl-shadow-card); }
+.fl-prose table { width: 100%; min-width: 560px; border-collapse: collapse; font-size: 14px; line-height: 20px; }
+.fl-prose th { padding: 16px 20px; text-align: left; vertical-align: bottom; font-size: 11px; line-height: 14px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fl-muted); }
+.fl-prose td { padding: 16px 20px; text-align: left; vertical-align: top; font-weight: 500; color: var(--fl-ink-2); }
+.fl-prose tbody tr { border-top: 1px solid var(--fl-hairline); }
+.fl-prose td:first-child { font-weight: 700; color: var(--fl-ink); }
+
+/* FAQ answers can carry inline markdown. */
+.fl-faq details p a { color: var(--fl-ink); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
