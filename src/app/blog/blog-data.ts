@@ -22,7 +22,7 @@ export function formatPostDate(iso: string): string {
   });
 }
 
-export const blogPosts: BlogPost[] = [
+const allBlogPosts: BlogPost[] = [
   {
     slug: "best-high-protein-meal-prep-recipes-2026",
     title: "Best High-Protein Meal Prep Recipes for 2026",
@@ -176,6 +176,11 @@ Growing as a food creator isn't about gaming algorithms or following trends blin
 *Join Flav to start building your food creator career with tools designed specifically for cooking content.*`,
   },
 ];
+
+// Flav 2.0: creator posts are kept in the data but not listed or served.
+const HIDDEN_SLUGS = new Set(["how-to-monetize-recipes-food-creator", "grow-as-food-creator-2026"]);
+
+export const blogPosts: BlogPost[] = allBlogPosts.filter((p) => !HIDDEN_SLUGS.has(p.slug));
 
 export function getBlogPost(slug: string): BlogPost | undefined {
   return blogPosts.find((post) => post.slug === slug);

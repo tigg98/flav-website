@@ -25,6 +25,14 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Flav 2.0 (Gate 3, 2026-11-08): creator, Verified/Pro and advertising
+      // surfaces are off. Temporary redirects so this is reversible.
+      { source: '/creators', destination: '/', permanent: false },
+      { source: '/verified', destination: '/pricing', permanent: false },
+      { source: '/advertise', destination: '/', permanent: false },
+      { source: '/ads/signup', destination: '/', permanent: false },
+      { source: '/blog/how-to-monetize-recipes-food-creator', destination: '/blog', permanent: false },
+      { source: '/blog/grow-as-food-creator-2026', destination: '/blog', permanent: false },
       // Legacy creator-profile path → canonical flav.app/@handle bio-link page.
       // The negative lookahead keeps the creator-portal routes (dashboard,
       // earnings, settings) untouched. A route-level permanentRedirect in

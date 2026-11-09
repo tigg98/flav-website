@@ -7,10 +7,8 @@ const footerLinks = {
             label: "Download for iOS",
         },
         { href: "/waitlist", label: "Android Waitlist" },
-        { href: "/creators", label: "For Creators" },
-        { href: "/verified", label: "Verified / Pro" },
+        { href: "/pricing", label: "Pricing" },
         { href: "/recipes", label: "Recipes" },
-        { href: "/advertise", label: "Advertise" },
         { href: "/blog", label: "Blog" },
     ],
     recipes: [

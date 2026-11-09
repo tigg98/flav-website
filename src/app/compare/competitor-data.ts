@@ -33,7 +33,7 @@ export const flavFeatures: FeatureGrid = {
     aiAssistant: "Yes — Flav AI sous-chef for substitutions & questions",
     mealPlanning: "Yes — AI meal plans + auto grocery lists",
     creatorMonetization: "Yes — tips, premium recipes & brand deals, up to 90% payout",
-    price: "Free (10 AI imports/mo); creator plans from $7.99/mo",
+    price: "Free (10 AI imports/mo); Flav+ $4.99/mo, $29.99/yr or $59.99 once",
 };
 
 export const competitors: Record<string, CompetitorData> = {
@@ -43,7 +43,7 @@ export const competitors: Record<string, CompetitorData> = {
         website: "mob.co.uk",
         title: "Flav vs MOB Kitchen: Which Cooking App is Better in 2026?",
         description:
-            "Compare Flav and MOB Kitchen. See why food lovers are switching to Flav for interactive cooking modes, AI meal planning, and creator-first monetization.",
+            "Compare Flav and MOB Kitchen. See why food lovers are switching to Flav for interactive cooking modes, and AI meal planning.",
         heroImage: "/screenshots/home-feed-v5.webp",
         vsText: "MOB Kitchen is great for static utilitarian meal planning, but Flav brings recipes to life with swipeable video, AI integration, and a creator-centric ecosystem.",
         features: {
@@ -55,12 +55,11 @@ export const competitors: Record<string, CompetitorData> = {
             price: "Free; paid premium tier",
         },
         pros: ["Good for budget meals", "Simple meal planning structure", "Strong UK presence"],
-        cons: ["Static recipe formats", "No AI assistance", "Limited creator monetization"],
+        cons: ["Static recipe formats", "No AI assistance"],
         flavAdvantages: [
             "Interactive Step-by-Step Cooking Mode with Timers",
             "Instant Recipe Import from any TikTok or Instagram URL",
             "Flav AI: Your personal sous-chef for substitutions and questions",
-            "Creator monetization paying out up to 90%",
         ],
         faq: [
             {
@@ -79,7 +78,7 @@ export const competitors: Record<string, CompetitorData> = {
         website: "tasty.co",
         title: "Flav vs Tasty: The Ultimate Recipe App Comparison",
         description:
-            "Choosing between Flav and Tasty? Discover why modern home cooks prefer Flav's AI assistant and creator monetization over traditional Tasty videos.",
+            "Choosing between Flav and Tasty? Discover why modern home cooks prefer Flav's AI import and Cook Mode over traditional Tasty videos.",
         heroImage: "/screenshots/home-feed-v5.webp",
         vsText: "While Tasty revolutionized top-down cooking videos, Flav is the next evolution: turning every video into a fully interactive, cookable utility powered by AI.",
         features: {
@@ -91,17 +90,16 @@ export const competitors: Record<string, CompetitorData> = {
             price: "Free with ads",
         },
         pros: ["Massive recipe library", "Entertaining short videos", "High brand recognition"],
-        cons: ["Videos lack integrated step-by-step cooking modes", "Ads interrupt the cooking experience", "Not friendly for independent creators to monetize"],
+        cons: ["Videos lack integrated step-by-step cooking modes", "Ads interrupt the cooking experience"],
         flavAdvantages: [
             "No invasive ads during the cooking experience",
             "AI Sous-Chef to answer questions while cooking",
-            "Support independent creators directly",
             "Auto-generate grocery lists from any video",
         ],
         faq: [
             {
                 question: "What is the difference between Flav and Tasty?",
-                answer: "Tasty is primarily a media publisher of food videos, whereas Flav is an interactive platform that lets you cook step-by-step from videos and allows independent creators to monetize their content.",
+                answer: "Tasty is primarily a media publisher of food videos, whereas Flav is an interactive platform that lets you cook step-by-step from videos, and saves recipes from any TikTok or Instagram video into your own cookbook.",
             },
             {
                 question: "Does Flav have videos like Tasty?",
@@ -166,7 +164,6 @@ export const competitors: Record<string, CompetitorData> = {
             "Original short-form video recipes from real creators",
             "AI sous-chef answers questions while you cook",
             "Step-by-step cooking mode with built-in timers",
-            "Creator monetization with payouts up to 90%",
         ],
         faq: [
             {
@@ -206,7 +203,7 @@ export const competitors: Record<string, CompetitorData> = {
         faq: [
             {
                 question: "Is Flav a good alternative to Paprika?",
-                answer: "Yes. Flav offers everything Paprika does (recipe saving, meal planning, grocery lists) plus AI-powered recipe import, video-based discovery, social features, and an interactive cooking mode. Flav is free to use.",
+                answer: "Yes. Flav offers everything Paprika does (recipe saving, meal planning, grocery lists) plus AI-powered recipe import, video-based discovery, social features, and an interactive cooking mode. Flav is free to download, with 10 AI imports a month; Flav+ removes the limit.",
             },
             {
                 question: "Can I import my Paprika recipes into Flav?",
@@ -280,7 +277,7 @@ export const competitors: Record<string, CompetitorData> = {
             },
             {
                 question: "Is Flav free unlike Epicurious?",
-                answer: "Yes, Flav is completely free to use. All recipes, the AI cooking assistant, and cooking mode are available on the free tier. Optional paid plans unlock creator monetization features.",
+                answer: "Flav is free to download. The free plan includes 10 AI recipe imports a month, your cookbook, grocery lists and Cook Mode. Flav+ ($4.99 a month, $29.99 a year or $59.99 once) removes the import limit and adds AI meal planning.",
             },
         ],
     },
@@ -326,7 +323,7 @@ export const competitors: Record<string, CompetitorData> = {
         title: "Flav vs SideChef: Cooking App Comparison 2026",
         description: "Compare Flav and SideChef. See why Flav's AI-powered video recipes and creator economy offer a better cooking experience.",
         heroImage: "/screenshots/home-feed-v5.webp",
-        vsText: "SideChef offers step-by-step cooking instructions with smart appliance integration. Flav goes further with video-first discovery, AI assistance, and a creator monetization platform.",
+        vsText: "SideChef offers step-by-step cooking instructions with smart appliance integration. Flav goes further with video-first discovery and AI assistance.",
         features: {
             videoImport: false,
             cookMode: "Yes — step-by-step with timers",
@@ -341,12 +338,11 @@ export const competitors: Record<string, CompetitorData> = {
             "TikTok-style video discovery that makes browsing recipes fun",
             "AI sous-chef provides real-time cooking help",
             "Import recipes from any social media platform instantly",
-            "Creator monetization with payouts among the highest in the industry",
         ],
         faq: [
             {
                 question: "How does Flav compare to SideChef?",
-                answer: "Both apps offer step-by-step cooking guidance, but Flav adds video-first recipe discovery, AI-powered cooking assistance, social media recipe import, and a creator monetization platform with payouts up to 90%.",
+                answer: "Both apps offer step-by-step cooking guidance, but Flav adds video-first recipe discovery, AI-powered cooking assistance, and social media recipe import.",
             },
             {
                 question: "Does Flav work with smart appliances like SideChef?",
@@ -359,9 +355,9 @@ export const competitors: Record<string, CompetitorData> = {
         name: "Cookpad",
         website: "cookpad.com",
         title: "Flav vs Cookpad: Community Cooking App Comparison 2026",
-        description: "Compare Flav and Cookpad. See why food creators prefer Flav's video platform, AI tools, and monetization payouts up to 90%.",
+        description: "Compare Flav and Cookpad. See why home cooks prefer Flav's AI import and Cook Mode.",
         heroImage: "/screenshots/home-feed-v5.webp",
-        vsText: "Cookpad is a community recipe sharing platform popular internationally. Flav is the video-first evolution — combining community recipes with AI tools, cooking mode, and real creator monetization.",
+        vsText: "Cookpad is a community recipe sharing platform popular internationally. Flav is the video-first evolution — combining community recipes with AI import and Cook Mode.",
         features: {
             videoImport: false,
             cookMode: false,
@@ -371,17 +367,16 @@ export const competitors: Record<string, CompetitorData> = {
             price: "Free; Premium tier for search features",
         },
         pros: ["Large global community", "User-submitted recipes", "Available in many languages"],
-        cons: ["Text and photo only — no video", "No AI features", "No creator monetization"],
+        cons: ["Text and photo only — no video", "No AI features"],
         flavAdvantages: [
             "Video-first recipes that are easier to follow",
             "AI cooking assistant for real-time help",
-            "Creators keep up to 90% of tips and premium recipe revenue",
             "Import recipes from any platform with AI",
         ],
         faq: [
             {
                 question: "Is Flav better than Cookpad?",
-                answer: "Flav is designed for the video generation. While Cookpad offers community text recipes, Flav provides video recipes, AI cooking assistance, interactive cooking mode, and lets creators monetize their content with payouts up to 90%.",
+                answer: "Flav is designed for the video generation. While Cookpad offers community text recipes, Flav provides video recipes, AI cooking assistance, and an interactive cooking mode.",
             },
             {
                 question: "Can I share recipes on Flav like Cookpad?",
@@ -406,17 +401,16 @@ export const competitors: Record<string, CompetitorData> = {
             price: "Free; Food+ $6.99/mo",
         },
         pros: ["Samsung ecosystem integration", "Recipe saving from web", "Meal planning and grocery lists"],
-        cons: ["Limited to Samsung ecosystem benefits", "No original video content", "No creator monetization"],
+        cons: ["Limited to Samsung ecosystem benefits", "No original video content"],
         flavAdvantages: [
             "Works on iPhone today (Android coming soon) — no ecosystem lock-in",
             "AI-powered video recipe discovery and import",
             "Interactive cooking mode with timers and voice guidance",
-            "Creator monetization platform with payouts up to 90%",
         ],
         faq: [
             {
                 question: "How does Flav compare to Samsung Food?",
-                answer: "Samsung Food is primarily a recipe organizer with Samsung device integration. Flav is a video-first cooking platform with AI assistance, interactive cooking mode, social features, and creator monetization — available on any device.",
+                answer: "Samsung Food is primarily a recipe organizer with Samsung device integration. Flav is a video-first cooking platform with AI assistance, interactive cooking mode and social recipe import — available on any device.",
             },
             {
                 question: "Can I import recipes from Samsung Food to Flav?",

@@ -16,7 +16,6 @@ const FEATURE_ROWS: { key: keyof FeatureGrid; label: string }[] = [
     { key: "cookMode", label: "Hands-free Cook Mode" },
     { key: "aiAssistant", label: "AI cooking assistant" },
     { key: "mealPlanning", label: "Meal planning & grocery lists" },
-    { key: "creatorMonetization", label: "Creator monetization" },
     { key: "price", label: "Price" },
 ];
 
@@ -234,7 +233,7 @@ export default async function ComparePage({ params }: Props) {
                     <div className="flex flex-wrap justify-center gap-3 text-sm">
                         <Link href="/recipes" className="text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)] hover:underline">Browse Recipes</Link>
                         <span className="text-neutral-300">|</span>
-                        <Link href="/creators" className="text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)] hover:underline">For Creators</Link>
+                        <Link href="/pricing" className="text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)] hover:underline">Pricing</Link>
                         <span className="text-neutral-300">|</span>
                         <Link href="/blog" className="text-[var(--color-primary-600)] dark:text-[var(--color-primary-400)] hover:underline">Blog</Link>
                     </div>

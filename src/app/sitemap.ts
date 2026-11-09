@@ -16,14 +16,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: number;
     }[] = [
         { route: '', changeFrequency: 'weekly', priority: 1.0 },
-        { route: '/creators', changeFrequency: 'weekly', priority: 0.9 },
-        { route: '/verified', changeFrequency: 'weekly', priority: 0.9 },
         ...(SHOW_FLAV_PLUS
             ? [{ route: '/pricing', changeFrequency: 'weekly' as const, priority: 0.9 }]
             : []),
         { route: '/waitlist', changeFrequency: 'monthly', priority: 0.6 },
         { route: '/features/meal-plan', changeFrequency: 'monthly', priority: 0.7 },
-        { route: '/advertise', changeFrequency: 'monthly', priority: 0.8 },
         { route: '/blog', changeFrequency: 'weekly', priority: 0.8 },
         { route: '/recipes', changeFrequency: 'weekly', priority: 0.8 },
         { route: '/support', changeFrequency: 'monthly', priority: 0.7 },

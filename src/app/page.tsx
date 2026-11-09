@@ -6,7 +6,6 @@ import { ScrollToButton } from "@/components/ui/ScrollToButton";
 import { ImportDemo } from "@/components/marketing/ImportDemo";
 import { FlavPlusPricing } from "@/components/marketing/FlavPlusPricing";
 import { FAQAccordion } from "@/components/ui/FAQAccordion";
-import { Button } from "@/components/ui/Button";
 import { IPhoneMockup } from "@/components/ui/IPhoneMockup";
 import { SHOW_FLAV_PLUS } from "@/lib/flags";
 import {
@@ -17,9 +16,6 @@ import {
   CalendarRange,
   ShoppingCart,
   ScanLine,
-  BadgeCheck,
-  BarChart3,
-  HandCoins,
   Smartphone,
   NotebookPen,
   UtensilsCrossed,
@@ -32,7 +28,6 @@ export const metadata: Metadata = {
   },
 };
 
-const APP_STORE_URL = "https://apps.apple.com/us/app/flav/id6759994122";
 
 const howItWorks: { step: string; title: string; description: string; icon: LucideIcon }[] = [
   {
@@ -99,7 +94,7 @@ const faqItems = [
   {
     question: "Is Flav free to use?",
     answer:
-      "Flav is free to download on iOS. The free plan includes 10 AI recipe imports per month, plus your full cookbook, grocery lists, and the hands-free Cook Mode. Creators can optionally subscribe to Verified ($7.99/month) or Pro ($19.99/month) to unlock monetization, a verified badge, and advanced analytics.",
+      "Flav is free to download on iOS. The free plan includes 10 AI recipe imports per month, plus your full cookbook, grocery lists, and the hands-free Cook Mode. Flav+ removes the import limit and adds AI meal planning for $4.99 a month, $29.99 a year, or $59.99 once.",
   },
   {
     question: "How does Cook Mode work?",
@@ -115,16 +110,6 @@ const faqItems = [
     question: "How is Flav different from saving recipes on TikTok?",
     answer:
       "TikTok is for watching. Flav is for cooking. We turn any video into a structured recipe with ingredients, steps, timers, and nutrition info — then help you actually cook it with a hands-free cooking mode. No more pausing videos or writing things down.",
-  },
-  {
-    question: "How do creators earn money on Flav?",
-    answer:
-      "Food creators on Flav earn through direct viewer tips, premium locked recipes, and brand partnerships — keeping up to 90% of revenue, well above the industry average. Subscription fees (Flav+ and Verified/Pro) are how Flav sustains the platform — they are not part of the creator revenue pool. Every creator also gets a flav.app/@handle page: all their recipes behind one link for their TikTok or Instagram bio. Monetization unlocks at 100 followers, with monthly payouts.",
-  },
-  {
-    question: "Do I need followers to join as a creator?",
-    answer:
-      "Nope. Anyone can create and share recipes on Flav. Monetization unlocks at 100 followers — the fastest way to get there is importing your existing recipe catalog and sharing your flav.app/@handle bio-link page with your audience.",
   },
 ];
 
@@ -390,85 +375,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Creator Section */}
-      <section className="section bg-[var(--color-neutral-950)] text-white overflow-hidden" id="creators">
-        <div className="container-main">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div className="text-center lg:text-left">
-              <p className="text-sm font-semibold uppercase tracking-widest text-[var(--color-primary-400)] mb-4">For Creators</p>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-                Your recipes. <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E07A5F] to-[#e8967d]">One link.</span>
-              </h2>
-              <p className="text-lg text-neutral-300 mb-4 leading-relaxed">
-                Every Flav creator gets a premium{" "}
-                <span className="font-mono text-[var(--color-primary-300)]">flav.app/@handle</span>{" "}
-                page — all your recipes behind one link, built for your TikTok and Instagram bio.
-              </p>
-              <p className="text-neutral-400 mb-8 leading-relaxed">
-                Your followers tap once and land on every recipe you&apos;ve ever posted —
-                cookable, saveable, and yours.
-              </p>
-
-              <ul className="space-y-4 mb-10 text-left max-w-md mx-auto lg:mx-0">
-                <li className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0 mt-0.5">
-                    <BadgeCheck className="w-4 h-4 text-[var(--color-primary-400)]" />
-                  </div>
-                  <div>
-                    <span className="font-semibold">Verified badge</span>
-                    <span className="text-neutral-400"> — stand out on your profile and bio-link page</span>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0 mt-0.5">
-                    <BarChart3 className="w-4 h-4 text-[var(--color-primary-400)]" />
-                  </div>
-                  <div>
-                    <span className="font-semibold">Audience analytics</span>
-                    <span className="text-neutral-400"> — see which recipes people actually cook</span>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center shrink-0 mt-0.5">
-                    <HandCoins className="w-4 h-4 text-[var(--color-primary-400)]" />
-                  </div>
-                  <div>
-                    <span className="font-semibold">Tips &amp; premium recipes</span>
-                    <span className="text-neutral-400"> — keep up to 90% of what you earn</span>
-                  </div>
-                </li>
-              </ul>
-
-              <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start gap-4">
-                <Button size="lg" asChild>
-                  <Link href="/creators">Claim your @handle</Link>
-                </Button>
-                <Button variant="outline" size="lg" className="border-white/30 text-white hover:border-white hover:text-white" asChild>
-                  <Link href="/verified">Explore Verified</Link>
-                </Button>
-              </div>
-            </div>
-
-            <div className="relative flex justify-center lg:justify-end">
-              <div className="relative z-20">
-                <div className="absolute -inset-4 bg-gradient-to-tr from-[#E07A5F]/25 to-[#e8967d]/15 rounded-[3rem] blur-3xl" />
-                <IPhoneMockup
-                  src="/screenshots/creator-profile-v3.webp"
-                  alt="Flav creator profile page with recipe grid and verified badge"
-                  size="md"
-                />
-              </div>
-              {/* Bio-link chip */}
-              <div className="absolute -left-4 bottom-16 z-30 hidden xl:block">
-                <div className="bg-white/10 backdrop-blur border border-white/15 px-4 py-3 rounded-2xl shadow-xl">
-                  <div className="text-xs text-neutral-400 mb-0.5">In your bio</div>
-                  <div className="font-mono text-sm font-semibold text-white">flav.app/@yourhandle</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Flav+ Pricing (behind flag — flips on with v1.1) */}
       {SHOW_FLAV_PLUS && <FlavPlusPricing />}
@@ -537,27 +443,33 @@ export default function HomePage() {
                 },
                 {
                   "@type": "Offer",
-                  "price": "7.99",
+                  "price": "4.99",
                   "priceCurrency": "USD",
-                  "description": "Verified creator subscription with monetization, verified badge, and analytics",
+                  "description": "Flav+ monthly: unlimited AI recipe imports and AI meal planning",
                   "priceSpecification": {
                     "@type": "UnitPriceSpecification",
-                    "price": "7.99",
+                    "price": "4.99",
                     "priceCurrency": "USD",
                     "billingDuration": "P1M"
                   }
                 },
                 {
                   "@type": "Offer",
-                  "price": "19.99",
+                  "price": "29.99",
                   "priceCurrency": "USD",
-                  "description": "Pro creator subscription with 90% payout rate, priority support, and all Verified benefits",
+                  "description": "Flav+ yearly",
                   "priceSpecification": {
                     "@type": "UnitPriceSpecification",
-                    "price": "19.99",
+                    "price": "29.99",
                     "priceCurrency": "USD",
-                    "billingDuration": "P1M"
+                    "billingDuration": "P1Y"
                   }
+                },
+                {
+                  "@type": "Offer",
+                  "price": "59.99",
+                  "priceCurrency": "USD",
+                  "description": "Flav+ lifetime, one purchase"
                 }
               ],
               "featureList": [
@@ -565,8 +477,7 @@ export default function HomePage() {
                 "Step-by-step Cook Mode with Timers",
                 "AI Meal Planning",
                 "Automatic Grocery Lists",
-                "Photo-Scan Handwritten Recipe Cards",
-                "Creator Monetization (up to 90% payout)"
+                "Photo-Scan Handwritten Recipe Cards"
               ],
               "screenshot": "https://flav.app/screenshots/home-feed-v5.webp",
               "installUrl": "https://apps.apple.com/us/app/flav/id6759994122",
@@ -580,7 +491,7 @@ export default function HomePage() {
               "url": "https://flav.app",
               "logo": "https://flav.app/logo.png",
               "foundingDate": "2025",
-              "description": "Flav is the recipe layer on top of social video — turning TikTok and Instagram recipe videos into an organized, cookable cookbook, with monetization tools for food creators.",
+              "description": "Flav is the recipe layer on top of social video — turning TikTok and Instagram recipe videos into an organized, cookable cookbook.",
               "sameAs": [
                 "https://twitter.com/cookwithflav",
                 "https://instagram.com/cookwithflav",

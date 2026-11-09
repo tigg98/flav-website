@@ -10,7 +10,6 @@ import {
     ChefHat,
     ShieldAlert,
     Lock,
-    BarChart3,
     Search,
     Mail,
     MessageCircle,
@@ -48,12 +47,6 @@ const helpTopics = [
         description: "Data privacy, security settings, two-factor auth",
         href: "#privacy",
     },
-    {
-        icon: BarChart3,
-        title: "Creator Tools",
-        description: "Analytics, monetization, Verified features",
-        href: "#creator",
-    },
 ];
 
 const faqItems = [
@@ -73,14 +66,9 @@ const faqItems = [
             "Tap the three dots on any video or profile and select 'Report'. Choose the reason and submit. Our team reviews all reports within 24 hours.",
     },
     {
-        question: "When do creators get paid?",
+        question: "How do I cancel Flav+?",
         answer:
-            "Payouts are processed monthly on the 15th for the previous month's earnings. Minimum payout is $10. Set up your payment method in Settings > Payments.",
-    },
-    {
-        question: "How do I cancel my Verified subscription?",
-        answer:
-            "Go to Settings > Subscription > Manage Subscription in the app. You can cancel anytime and will retain benefits until the end of your billing period.",
+            "Flav+ is billed by Apple. On your iPhone open Settings, tap your name, then Subscriptions, then Flav, and cancel. You keep Flav+ until the end of the period you paid for.",
     },
 ];
 
@@ -280,7 +268,6 @@ export default function SupportPage() {
                                         <option value="content">Content & Recipes</option>
                                         <option value="reporting">Reporting & Safety</option>
                                         <option value="privacy">Privacy & Security</option>
-                                        <option value="creator">Creator Tools</option>
                                         <option value="other">Other</option>
                                     </select>
                                 </div>

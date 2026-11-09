@@ -165,7 +165,7 @@ export default async function BlogPostPage({ params }: Props) {
               <div className="flex flex-wrap gap-2">
                 <Link href="/recipes/meal-prep" className="px-3 py-1.5 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm hover:border-[var(--color-primary-300)] transition-colors">Meal Prep Recipes</Link>
                 <Link href="/recipes/high-protein" className="px-3 py-1.5 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm hover:border-[var(--color-primary-300)] transition-colors">High Protein Recipes</Link>
-                <Link href="/creators" className="px-3 py-1.5 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm hover:border-[var(--color-primary-300)] transition-colors">For Creators</Link>
+                <Link href="/pricing" className="px-3 py-1.5 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm hover:border-[var(--color-primary-300)] transition-colors">Pricing</Link>
                 <Link href="/compare/allrecipes" className="px-3 py-1.5 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm hover:border-[var(--color-primary-300)] transition-colors">Flav vs AllRecipes</Link>
                 <Link href="/compare/yummly" className="px-3 py-1.5 rounded-full bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 text-sm hover:border-[var(--color-primary-300)] transition-colors">Flav vs Yummly</Link>
               </div>

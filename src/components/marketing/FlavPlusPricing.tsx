@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { Check, Sparkles, BadgeCheck } from "lucide-react";
+import { Check, Sparkles } from "lucide-react";
 
 const APP_STORE_URL = "https://apps.apple.com/us/app/flav/id6759994122";
 
@@ -32,22 +32,21 @@ const consumerTiers = [
             "Photo-scan handwritten recipe cards",
             "Everything in Free",
         ],
-        cta: "Start 1-Week Free Trial",
+        cta: "Get Flav+",
         href: APP_STORE_URL,
         highlight: true,
-        footnote: "or $29.99/year — 1-week free trial",
+        footnote: "or $29.99 a year. Buy and manage it in the app.",
     },
     {
         name: "Lifetime",
-        price: "$24.99",
+        price: "$59.99",
         period: " once",
         tagline: "Every Flav+ feature. One payment, forever.",
         features: [
             "All Flav+ features, forever",
             "Every future Flav+ feature included",
             "No subscription, no renewals",
-            "Pays for itself in 5 months",
-        ],
+                    ],
         cta: "Get Lifetime",
         href: APP_STORE_URL,
         highlight: false,
@@ -122,26 +121,6 @@ export function FlavPlusPricing({ showHeading = true }: FlavPlusPricingProps) {
                     ))}
                 </div>
 
-                {/* Creator tier */}
-                <div className="max-w-5xl mx-auto mt-8">
-                    <div className="flex flex-col md:flex-row items-start md:items-center gap-6 p-6 md:p-8 rounded-3xl bg-[var(--color-neutral-950)] text-white">
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[var(--color-primary-500)] to-[var(--color-primary-600)] flex items-center justify-center shrink-0">
-                            <BadgeCheck className="w-6 h-6 text-white" />
-                        </div>
-                        <div className="flex-1">
-                            <h3 className="text-lg font-bold">
-                                Creator? Flav Verified is <span className="text-[var(--color-primary-400)]">$7.99/month</span>
-                            </h3>
-                            <p className="text-sm text-neutral-400 mt-1">
-                                Verified badge, audience analytics, tips, and your own flav.app/@handle
-                                bio-link page — all your recipes, one link.
-                            </p>
-                        </div>
-                        <Button variant="outline" className="border-white/30 text-white hover:border-white hover:text-white shrink-0" asChild>
-                            <Link href="/verified">Explore Verified &rarr;</Link>
-                        </Button>
-                    </div>
-                </div>
             </div>
         </section>
     );
