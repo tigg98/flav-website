@@ -6,9 +6,9 @@ import { LinkForm } from "@/components/flav/LinkForm";
 import { FLAV } from "@/lib/flav-config";
 import { TryClient } from "./TryClient";
 
-const TITLE = "Try Flav on any cooking video";
+const TITLE = "Try Flav on a TikTok or Instagram recipe video";
 const DESCRIPTION =
-    "Paste a TikTok, Instagram Reel or recipe page link and see the ingredients and steps Flav pulls from it. Free on the web, 3 tries a day, nothing saved to an account.";
+    "Paste a TikTok or Instagram Reel link and see the ingredients and steps Flav pulls from it. Free on the web, 3 tries a day, nothing saved to an account.";
 
 export const metadata: Metadata = {
     title: { absolute: TITLE },
@@ -32,11 +32,15 @@ const FAQ = [
     },
     {
         q: "Why only 3 a day?",
-        a: `Each try opens the video or page and sometimes runs an AI model, which costs us money, so the web version is kept small. The Flav app gives you ${FLAV.freeImportsPerMonth} recipes a month free, and you can share a video straight to it.`,
+        a: `Each try opens the video and usually runs an AI model, which costs us money, so the web version is kept small. The Flav app gives you ${FLAV.freeImportsPerMonth} recipes a month free, and you can share a video straight to it.`,
     },
     {
         q: "What if the recipe is spoken, not written?",
-        a: "The web version reads the caption or the page, so it cannot pull a recipe that is only said out loud. Check the creator's pinned comment or the link in their bio, and paste that link instead.",
+        a: "The web version reads the caption, so it cannot pull a recipe that is only said out loud. Check the creator's pinned comment or the link in their bio for the written version.",
+    },
+    {
+        q: "Do recipe websites work?",
+        a: "Some do, but many recipe sites block readers like ours on the web. This page is built for TikTok and Instagram links.",
     },
 ];
 
@@ -56,11 +60,11 @@ export default function TryPage() {
                 }}
             />
             <div className="fl-narrow flex flex-col gap-7 pt-18 pb-24">
-                <h1 className="fl-h1">Try it on any cooking video.</h1>
+                <h1 className="fl-h1">Try it on a TikTok or a Reel.</h1>
                 <Suspense
                     fallback={
                         <>
-                            <LinkForm id="try-link" placeholder="Paste a TikTok, Reel or recipe link" />
+                            <LinkForm id="try-link" placeholder="Paste a TikTok or Instagram link" />
                             <p className="m-0 text-[13px] font-medium" style={{ color: "var(--fl-muted)" }}>
                                 3 free tries a day on the web. Nothing here is saved to an account or published; the recipe stays credited to the video.
                             </p>

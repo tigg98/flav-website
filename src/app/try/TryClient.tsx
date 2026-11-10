@@ -219,7 +219,7 @@ function NoRecipeCard({ res }: { res: TryResponse }) {
                 <>
                     <h2 className="fl-title">This one says the recipe out loud.</h2>
                     <p className="fl-body" style={{ maxWidth: 620 }}>
-                        {"The caption only has a title and hashtags, so there's nothing written for Flav to read yet. Check the creator's pinned comment or the link in their bio, and paste that link here instead."}
+                        {"The caption only has a title and hashtags, so there's nothing written for Flav to read yet. Check the creator's pinned comment or the link in their bio for the written version."}
                     </p>
                     <Link href="/guides/tiktok-recipe-not-in-caption" className="fl-link self-start text-[15px]">
                         {"What to do when the recipe isn't in the caption"}
@@ -360,7 +360,7 @@ export function TryClient({ enabled }: { enabled: boolean }) {
         <>
             <LinkForm
                 id="try-link"
-                placeholder="Paste a TikTok, Reel or recipe link"
+                placeholder="Paste a TikTok or Instagram link"
                 initial={paramUrl}
                 onSubmitUrl={(url) => void run(url)}
                 busy={busy}

@@ -1,6 +1,6 @@
 # /try
 
-flav.app/try lets someone paste a TikTok, an Instagram Reel or a recipe page link and see the recipe Flav pulls from it, then sends them to the App Store. It is also the page for "tiktok recipe extractor" searches. Approved for launch 2026-11-08.
+flav.app/try lets someone paste a TikTok or Instagram Reel link (recipe pages are still accepted, but most recipe sites block Vercel, so the page only promises TikTok and Instagram) and see the recipe Flav pulls from it, then sends them to the App Store. It is also the page for "tiktok recipe extractor" searches. Approved for launch 2026-11-08.
 
 ## How a run works
 

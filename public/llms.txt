@@ -18,7 +18,7 @@ Key facts:
 
 - [Flav](https://flav.app/): what Flav does, how import works, common questions
 - [Pricing](https://flav.app/pricing): the free plan and Flav+, monthly, yearly and lifetime
-- [Try Flav](https://flav.app/try): paste a recipe video link and see what Flav pulls out
+- [Try Flav](https://flav.app/try): paste a TikTok or Instagram recipe video link and see what Flav pulls out
 - [Support](https://flav.app/support): common questions and how to reach us
 - [Privacy policy](https://flav.app/privacy)
 - [How do I save a recipe from TikTok?](https://flav.app/guides/how-to-save-a-recipe-from-tiktok): Favorites saves the video, not the recipe; copying the caption by hand, or sharing to a recipe app
