@@ -9,6 +9,16 @@ import type { TryPlatform } from "./types";
 
 export const MAX_URL_LENGTH = 500;
 
+/**
+ * Instagram is off (2026-11-13). Instagram stopped serving post and embed pages
+ * to server requests, so scrape-instagram cannot read a caption. While this is
+ * false an Instagram link is answered before anything is fetched and does not
+ * use a try. Set it to true only once scrape-instagram returns captions again.
+ */
+export const INSTAGRAM_SUPPORTED = false;
+
+export const INSTAGRAM_OFF_MESSAGE = "Instagram links aren't supported yet. TikTok links work here.";
+
 export type ValidUrl = { ok: true; url: URL; platform: TryPlatform };
 export type InvalidUrl = { ok: false; message: string };
 
@@ -77,7 +87,7 @@ export function platformFor(url: URL): TryPlatform | null {
 
 export function validateTryUrl(raw: unknown): ValidUrl | InvalidUrl {
     if (typeof raw !== "string" || !raw.trim()) {
-        return { ok: false, message: "Paste a link to a TikTok, an Instagram Reel or a recipe page." };
+        return { ok: false, message: "Paste a TikTok link." };
     }
     const input = raw.trim();
     if (input.length > MAX_URL_LENGTH) {
@@ -97,6 +107,9 @@ export function validateTryUrl(raw: unknown): ValidUrl | InvalidUrl {
     }
     if (isBlockedHostname(url.hostname)) {
         return { ok: false, message: "That link cannot be read here." };
+    }
+    if (!INSTAGRAM_SUPPORTED && hostIs(url.hostname.toLowerCase(), "instagram.com")) {
+        return { ok: false, message: INSTAGRAM_OFF_MESSAGE };
     }
     const platform = platformFor(url);
     if (!platform) {

@@ -219,7 +219,7 @@ export async function fetchPublicHtml(start: URL): Promise<{ html: string; final
         }
         if (res.status < 200 || res.status >= 300) {
             // Most recipe sites answer 401 to 404 or 429 to datacenter traffic (seen from Vercel on 2026-11-09).
-            throw new SourceError("That site doesn't let us read it from the web. TikTok and Instagram links work here.", `web ${res.status} ${url.href}`);
+            throw new SourceError("That site doesn't let us read it from the web. TikTok links work here.", `web ${res.status} ${url.href}`);
         }
         if (res.contentType && !/html|xml/i.test(res.contentType)) {
             throw new SourceError("That link is not a web page we can read.", `content-type ${res.contentType}`);

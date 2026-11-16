@@ -244,7 +244,7 @@ function LimitedCard({ res }: { res: TryResponse }) {
                 {res.limit === "global" ? "The web tries are used up for today." : `That's today's ${TRY_PER_VISITOR_PER_DAY} free tries.`}
             </h2>
             <p className="fl-body" style={{ maxWidth: 620 }}>
-                The Flav app gives you {FLAV.freeImportsPerMonth} recipes a month free. Share a TikTok or a Reel straight to it and the recipe lands in your cookbook. The web tries reset at midnight UTC.
+                The Flav app gives you {FLAV.freeImportsPerMonth} recipes a month free. Share a TikTok straight to it and the recipe lands in your cookbook. The web tries reset at midnight UTC.
             </p>
             <AppButton label="Get Flav on the App Store" />
         </article>
@@ -360,7 +360,7 @@ export function TryClient({ enabled }: { enabled: boolean }) {
         <>
             <LinkForm
                 id="try-link"
-                placeholder="Paste a TikTok or Instagram link"
+                placeholder="Paste a TikTok link"
                 initial={paramUrl}
                 onSubmitUrl={(url) => void run(url)}
                 busy={busy}

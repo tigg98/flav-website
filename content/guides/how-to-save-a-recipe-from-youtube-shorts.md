@@ -54,7 +54,7 @@ And if the recipe is only spoken in the Short, Flav 2.0 can't pull it out. It re
 
 ## What Flav does
 
-Flav is an iPhone app that saves recipes from TikTok, Instagram Reels and web links into a private cookbook, with ingredients, steps and the video link together. Cook Mode walks you through the steps with timers, and you can add a recipe's ingredients to a grocery list. Free for 10 imports a month; Flav+ is $4.99 a month, $29.99 a year, or $59.99 once. [Get Flav on the App Store](https://apps.apple.com/us/app/flav/id6759994122).
+Flav is an iPhone app that saves recipes from TikTok and web links into a private cookbook, with ingredients, steps and the video link together. Cook Mode walks you through the steps with timers, and you can add a recipe's ingredients to a grocery list. Free for 10 imports a month; Flav+ is $4.99 a month, $29.99 a year, or $59.99 once. [Get Flav on the App Store](https://apps.apple.com/us/app/flav/id6759994122).
 
 ## FAQ
 

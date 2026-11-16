@@ -60,7 +60,7 @@ A recipe typed by a viewer is a guess at what the creator did. Watch the video o
 
 ## What Flav does
 
-Flav is an iPhone app that saves recipes from TikTok, Instagram Reels and web pages into a private cookbook, with the ingredients, steps and video link together. It reads the caption and the page, so it works best when the recipe is written down somewhere. Cook Mode takes you through the steps with timers. Free for 10 imports a month. [Get Flav on the App Store](https://apps.apple.com/us/app/flav/id6759994122).
+Flav is an iPhone app that saves recipes from TikTok and web pages into a private cookbook, with the ingredients, steps and video link together. It reads the caption and the page, so it works best when the recipe is written down somewhere. Cook Mode takes you through the steps with timers. Free for 10 imports a month. [Get Flav on the App Store](https://apps.apple.com/us/app/flav/id6759994122).
 
 ## FAQ
 

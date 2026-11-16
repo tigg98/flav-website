@@ -42,7 +42,7 @@ In Flav, invite your partner or housemate to your household. Once they join, you
 
 <!-- CONFIRM before publishing: where the household invite lives in 2.0, how a private import gets shared to the household, which plan includes household sharing, how many members, and exactly what is shared (recipes, plan, grocery list). -->
 
-Then either of you can share a TikTok, Reel or recipe link to Flav, and the recipe lands where you can both see it, with the ingredients, steps and the video link. Imports start private, so the 2 am pasta video you saved for yourself stays yours until you share it.
+Then either of you can share a TikTok or recipe link to Flav, and the recipe lands where you can both see it, with the ingredients, steps and the video link. Imports start private, so the 2 am pasta video you saved for yourself stays yours until you share it.
 
 When you plan the week, put recipes on the shared meal plan. Add their ingredients to the grocery list, and whoever's at the store sees the same list and ticks it off as they go.
 
@@ -50,7 +50,7 @@ Flav is iPhone only for now. If someone in your house uses Android, they won't b
 
 ## What Flav does
 
-Flav is an iPhone app that turns TikToks, Instagram Reels and recipe web pages into a private cookbook, with Cook Mode, a meal plan, a grocery list, and household sharing so everyone who cooks works from the same recipes. Free for 10 imports a month; Flav+ is $4.99 a month, $29.99 a year, or $59.99 once. [Get Flav on the App Store](https://apps.apple.com/us/app/flav/id6759994122).
+Flav is an iPhone app that turns TikToks and recipe web pages into a private cookbook, with Cook Mode, a meal plan, a grocery list, and household sharing so everyone who cooks works from the same recipes. Free for 10 imports a month; Flav+ is $4.99 a month, $29.99 a year, or $59.99 once. [Get Flav on the App Store](https://apps.apple.com/us/app/flav/id6759994122).
 
 ## FAQ
 

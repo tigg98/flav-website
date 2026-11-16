@@ -8,7 +8,7 @@ import { FLAV, appStoreUrl } from "@/lib/flav-config";
 export const metadata: Metadata = {
     title: { absolute: "Flav: any cooking video, written down" },
     description:
-        "Share a TikTok or an Instagram Reel to Flav and get the ingredients, steps and timers in your own cookbook, then cook it hands free. Free on iPhone for 10 recipes a month.",
+        "Share a TikTok to Flav and get the ingredients, steps and timers in your own cookbook, then cook it hands free. Free on iPhone for 10 recipes a month.",
     alternates: { canonical: "https://flav.app" },
 };
 
@@ -16,7 +16,7 @@ const steps = [
     {
         label: "1 · Share",
         title: "Tap Share on TikTok, then Flav.",
-        body: "Or paste the link. Instagram Reels and recipe websites work the same way.",
+        body: "Or paste the link. Recipe websites work the same way.",
     },
     {
         label: "2 · Read",
@@ -48,7 +48,7 @@ const faqs = [
     },
     {
         q: "Which links work?",
-        a: "Public TikTok videos, Instagram Reels and posts, and recipe websites.",
+        a: "Public TikTok videos and recipe websites. Instagram links aren't supported yet.",
     },
     {
         q: "Is there an Android app?",
@@ -86,11 +86,11 @@ export default function HomePage() {
                 <div style={{ flex: "1 1 520px", minWidth: 0, display: "flex", flexDirection: "column", gap: 28 }}>
                     <span className="fl-eyebrow" style={{ display: "inline-flex", alignItems: "center", gap: 10, color: "var(--fl-ink-2)" }}>
                         <span className="fl-dot-inline" aria-hidden="true" />
-                        TikTok and Instagram, to recipe
+                        TikTok to recipe
                     </span>
                     <h1 id="hero-h" className="fl-display">Any cooking video, written down.</h1>
                     <p className="fl-lead" style={{ maxWidth: 520, fontSize: 19, lineHeight: "28px" }}>
-                        Share a TikTok or a Reel to Flav. It writes the ingredients, the steps and the timers, keeps them in your cookbook, and walks you through them while you cook.
+                        Share a TikTok to Flav. It writes the ingredients, the steps and the timers, keeps them in your cookbook, and walks you through them while you cook.
                     </p>
                     <div style={{ maxWidth: 540 }}>
                         <LinkForm id="hero-link" />
@@ -283,7 +283,7 @@ export default function HomePage() {
                             applicationCategory: "LifestyleApplication",
                             operatingSystem: "iOS",
                             description:
-                                "Flav turns TikTok, Instagram and web cooking videos into recipes: ingredients, steps and timers in your own cookbook, then hands-free Cook Mode.",
+                                "Flav turns TikTok cooking videos and recipe pages into written recipes: ingredients, steps and timers in your own cookbook, then hands-free Cook Mode.",
                             url: "https://flav.app",
                             installUrl: appStoreUrl(),
                             offers: [

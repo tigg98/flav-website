@@ -5,7 +5,7 @@ import { appStoreUrl } from "@/lib/flav-config";
 import { getAllGuides } from "@/lib/guides";
 
 const BASE = "https://flav.app";
-const TITLE = "Guides: saving recipes from TikTok, Reels and Shorts";
+const TITLE = "Guides: saving and cooking recipes from TikTok";
 const DESCRIPTION =
     "Short answers to the questions people ask when a recipe lives inside a video: saving it, finding it when it isn't in the caption, cooking from it and shopping for it.";
 
@@ -113,7 +113,7 @@ export default function GuidesIndexPage() {
                             Flav writes the recipe down for you.
                         </h2>
                         <p className="fl-body">
-                            Share a TikTok or a Reel to Flav and get the ingredients, steps and timers in your
+                            Share a TikTok to Flav and get the ingredients, steps and timers in your
                             cookbook.
                         </p>
                     </div>

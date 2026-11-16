@@ -6,7 +6,7 @@ import { recipeCategories } from "./recipe-categories";
 export const metadata: Metadata = {
     title: "Recipes — Browse by Category",
     description:
-        "Browse recipe collections on Flav by category — high protein, keto, meal prep, quick meals, and more. Import any recipe from TikTok or Instagram and cook with AI.",
+        "Browse recipe collections on Flav by category — high protein, keto, meal prep, quick meals, and more. Import any recipe from TikTok and cook with AI.",
     openGraph: {
         title: "Recipes | Flav",
         description: "Browse recipe collections by category. Import from TikTok, cook with AI.",
@@ -48,7 +48,7 @@ export default function RecipesIndexPage() {
                         </span>
                     </h1>
                     <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto mb-10">
-                        Explore recipes by diet, cuisine, cooking time, or style. Import any recipe from TikTok or Instagram and cook step-by-step with Flav.
+                        Explore recipes by diet, cuisine, cooking time, or style. Import any recipe from TikTok and cook step-by-step with Flav.
                     </p>
                 </div>
             </section>

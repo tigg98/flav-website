@@ -39,7 +39,7 @@ If you're cooking three things from three videos this week, put all three on one
 
 ## Doing it in Flav
 
-Share the video to Flav from TikTok, Instagram or a recipe site. Flav reads the caption and the page and saves the recipe with each ingredient and its quantity. From the recipe, add the ingredients to your grocery list. Do the same for anything else you're cooking this week, or put the recipes on your meal plan first, and the list builds up as you go.
+Share the video to Flav from TikTok or a recipe site. Flav reads the caption and the page and saves the recipe with each ingredient and its quantity. From the recipe, add the ingredients to your grocery list. Do the same for anything else you're cooking this week, or put the recipes on your meal plan first, and the list builds up as you go.
 
 <!-- CONFIRM before publishing: how 2.0 handles the same ingredient from two recipes (combined, or listed twice), and whether items can be skipped when adding (e.g. "already have salt"). -->
 
@@ -57,7 +57,7 @@ Flav reads what's written in the caption and on the page. When the creator only 
 
 ## What Flav does
 
-Flav is an iPhone app that turns TikToks, Instagram Reels and recipe web pages into recipes in a private cookbook, with ingredients and quantities you can send to a grocery list. Cook Mode walks you through the steps with timers. Free for 10 imports a month; Flav+ is $4.99 a month, $29.99 a year, or $59.99 once. [Get Flav on the App Store](https://apps.apple.com/us/app/flav/id6759994122).
+Flav is an iPhone app that turns TikToks and recipe web pages into recipes in a private cookbook, with ingredients and quantities you can send to a grocery list. Cook Mode walks you through the steps with timers. Free for 10 imports a month; Flav+ is $4.99 a month, $29.99 a year, or $59.99 once. [Get Flav on the App Store](https://apps.apple.com/us/app/flav/id6759994122).
 
 ## FAQ
 

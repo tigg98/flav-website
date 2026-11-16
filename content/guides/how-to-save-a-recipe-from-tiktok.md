@@ -56,7 +56,7 @@ There are still ways to get it. [This guide covers them](/guides/tiktok-recipe-n
 
 ## What Flav does
 
-Flav is an iPhone app that turns a TikTok, Instagram Reel or recipe web page into a recipe you can cook from: ingredients with quantities, steps in order, the video link kept on it. Cook Mode walks you through the steps with timers. The free plan includes 10 imports a month. Flav+ removes the limit for $4.99 a month, $29.99 a year, or $59.99 once. iPhone only for now. [Get Flav on the App Store](https://apps.apple.com/us/app/flav/id6759994122).
+Flav is an iPhone app that turns a TikTok or recipe web page into a recipe you can cook from: ingredients with quantities, steps in order, the video link kept on it. Cook Mode walks you through the steps with timers. The free plan includes 10 imports a month. Flav+ removes the limit for $4.99 a month, $29.99 a year, or $59.99 once. iPhone only for now. [Get Flav on the App Store](https://apps.apple.com/us/app/flav/id6759994122).
 
 ## FAQ
 

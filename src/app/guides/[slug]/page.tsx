@@ -182,8 +182,8 @@ export default async function GuidePage({ params }: Props) {
                             Keep the recipe, not just the video.
                         </h2>
                         <p className="fl-body">
-                            Flav is free on iPhone for {FLAV.freeImportsPerMonth} imports a month. Share a TikTok or a
-                            Reel and get the ingredients, steps and timers in your cookbook.
+                            Flav is free on iPhone for {FLAV.freeImportsPerMonth} imports a month. Share a TikTok and get
+                            the ingredients, steps and timers in your cookbook.
                         </p>
                     </div>
                     <a href={storeUrl} className="fl-btn fl-btn-ink">

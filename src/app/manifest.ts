@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
         name: "Flav — Save Any TikTok Recipe in 10 Seconds",
         short_name: "Flav",
         description:
-            "Flav turns TikTok, Instagram, and web recipe videos into an AI-organized cookbook with hands-free Cook Mode, meal planning, and grocery lists.",
+            "Flav turns TikTok cooking videos and recipe pages into an AI-organized cookbook with hands-free Cook Mode, meal planning, and grocery lists.",
         start_url: "/",
         display: "browser",
         background_color: "#ffffff",

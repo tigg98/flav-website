@@ -46,7 +46,7 @@ export default async function JoinReferralPage({ params }: Props) {
                         </h1>
 
                         <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed">
-                            Flav turns TikTok and Instagram cooking videos into step-by-step
+                            Flav turns TikTok cooking videos into step-by-step
                             recipes with AI — then helps you actually cook them. Your friend
                             is already cooking with it.
                         </p>

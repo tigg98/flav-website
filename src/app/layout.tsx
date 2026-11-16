@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     template: "%s | Flav",
   },
   description:
-    "Share a TikTok or Instagram Reel to Flav and get the ingredients, steps and timers in your cookbook, then cook it hands free. Free on iPhone for 10 recipes a month.",
+    "Share a TikTok to Flav and get the ingredients, steps and timers in your cookbook, then cook it hands free. Free on iPhone for 10 recipes a month.",
   keywords: [
     "best cooking app 2026",
     "AI recipe generator",
@@ -50,13 +50,13 @@ export const metadata: Metadata = {
     siteName: "Flav",
     title: "Flav: save any TikTok recipe, then cook it",
     description:
-      "Share a TikTok or a Reel and get the ingredients, steps and timers in your own cookbook. Free on iPhone.",
+      "Share a TikTok and get the ingredients, steps and timers in your own cookbook. Free on iPhone.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Flav turns TikTok and Instagram cooking videos into recipes you can cook from",
+        alt: "Flav turns TikTok cooking videos into recipes you can cook from",
       },
     ],
   },
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Flav: save any TikTok recipe, then cook it",
     description:
-      "Share a TikTok or a Reel and get the ingredients, steps and timers in your own cookbook. Free on iPhone.",
+      "Share a TikTok and get the ingredients, steps and timers in your own cookbook. Free on iPhone.",
     images: ["/og-image.png"],
     creator: "@cookwithflav",
   },

@@ -6,9 +6,9 @@ import { LinkForm } from "@/components/flav/LinkForm";
 import { FLAV } from "@/lib/flav-config";
 import { TryClient } from "./TryClient";
 
-const TITLE = "Try Flav on a TikTok or Instagram recipe video";
+const TITLE = "Try Flav on a TikTok recipe video";
 const DESCRIPTION =
-    "Paste a TikTok or Instagram Reel link and see the ingredients and steps Flav pulls from it. Free on the web, 3 tries a day, nothing saved to an account.";
+    "Paste a TikTok link and see the ingredients and steps Flav pulls from it. Free on the web, 3 tries a day, nothing saved to an account.";
 
 export const metadata: Metadata = {
     title: { absolute: TITLE },
@@ -40,7 +40,11 @@ const FAQ = [
     },
     {
         q: "Do recipe websites work?",
-        a: "Some do, but many recipe sites block readers like ours on the web. This page is built for TikTok and Instagram links.",
+        a: "Some do, but many recipe sites block readers like ours on the web. This page is built for TikTok links.",
+    },
+    {
+        q: "Do Instagram Reels work?",
+        a: "Not yet. Flav can't read Instagram links right now, here or in the app. TikTok links work.",
     },
 ];
 
@@ -60,11 +64,11 @@ export default function TryPage() {
                 }}
             />
             <div className="fl-narrow flex flex-col gap-7 pt-18 pb-24">
-                <h1 className="fl-h1">Try it on a TikTok or a Reel.</h1>
+                <h1 className="fl-h1">Try it on a TikTok.</h1>
                 <Suspense
                     fallback={
                         <>
-                            <LinkForm id="try-link" placeholder="Paste a TikTok or Instagram link" />
+                            <LinkForm id="try-link" placeholder="Paste a TikTok link" />
                             <p className="m-0 text-[13px] font-medium" style={{ color: "var(--fl-muted)" }}>
                                 3 free tries a day on the web. Nothing here is saved to an account or published; the recipe stays credited to the video.
                             </p>

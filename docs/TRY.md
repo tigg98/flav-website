@@ -1,17 +1,17 @@
 # /try
 
-flav.app/try lets someone paste a TikTok or Instagram Reel link (recipe pages are still accepted, but most recipe sites block Vercel, so the page only promises TikTok and Instagram) and see the recipe Flav pulls from it, then sends them to the App Store. It is also the page for "tiktok recipe extractor" searches. Approved for launch 2026-11-08.
+flav.app/try lets someone paste a TikTok link (recipe pages are still accepted, but most recipe sites block Vercel, so the page only promises TikTok) and see the recipe Flav pulls from it, then sends them to the App Store. It is also the page for "tiktok recipe extractor" searches. Approved for launch 2026-11-08.
 
 ## How a run works
 
 `POST /api/try` with `{ "url": "..." }`. Code is in `src/lib/try/`, the route in `src/app/api/try/route.ts`.
 
-1. Validate the link: https, 500 characters max. TikTok (tiktok.com, vt., vm.), Instagram (/p/, /reel/, /reels/, /tv/) or any other public https site. Localhost, IP literals and private ranges are refused, and every DNS answer and redirect hop for web pages is checked again, so a public name pointing at a private address is refused too.
+1. Validate the link: https, 500 characters max. TikTok (tiktok.com, vt., vm.) or any other public https site. Instagram links are answered here with "Instagram links aren't supported yet" and do not count as a run (see Instagram below). Localhost, IP literals and private ranges are refused, and every DNS answer and redirect hop for web pages is checked again, so a public name pointing at a private address is refused too.
 2. Cache by normalized link for 7 days (`web_try_cache`). A cached result comes back with `cached: true` and does not count against any limit.
 3. Limits, before any fetch: 3 runs per visitor per UTC day, keyed by `sha256(ip + TRY_IP_SALT)`, and `TRY_DAILY_CAP` runs per UTC day site wide (default 200), which is the AI spend cap. A run reserves its slot by writing a `running` row to `web_try_events` and then counting, so parallel requests cannot slip past. If Supabase is unreachable the run is refused rather than spending.
 4. Source text:
    - TikTok: the `scrape-tiktok` edge function, caption from `rawCaption`.
-   - Instagram: the `scrape-instagram` edge function with the anon key. Its response shape is not verified yet; caption is read from `rawCaption`, `caption`, `description` or `text`, creator from `creator`, `author` or `username`, image from `imageUrl`, `image` or `thumbnail`.
+   - Instagram: off. See Instagram below.
    - Web: the page itself (10 s, 2 MB). If it has a schema.org Recipe in JSON-LD the recipe is built from that with no AI call. Otherwise up to 12,000 characters of visible text go to the model.
 5. Model, only when needed: Anthropic Messages API over fetch, `FLAV_TRY_MODEL` (default `claude-haiku-5-5`), 1,500 max tokens, 25 s. It is told to use only what is written and to return `found: false` when there is no recipe. A caption that is only a title and hashtags skips the model and returns `no_recipe` straight away.
 6. Every run is logged to `web_try_events` (platform, status, ms, cached, ip hash, created_at). The raw IP is never stored.
@@ -51,3 +51,10 @@ select status, count(*) from web_try_events
 where created_at >= date_trunc('day', now() at time zone 'utc')
 group by status;
 ```
+
+## Instagram
+
+Off since 2026-11-13. Instagram stopped serving post and embed pages to server requests (tested from Supabase: the embed URL returns Instagram's generic error page with no caption), so `scrape-instagram` cannot read a Reel. Flav 2.0 launches TikTok only.
+
+- `INSTAGRAM_SUPPORTED` in `src/lib/try/validate.ts` is `false`. Any instagram.com link gets the `INSTAGRAM_OFF_MESSAGE` answer before the cache, the limits or any fetch, so it costs nothing and does not use a try.
+- The Instagram code path (`platformFor`, `cacheKeyFor`, `fetchInstagram`) is still in place. To turn Instagram back on: get `scrape-instagram` returning `rawCaption` again, set `INSTAGRAM_SUPPORTED` to `true`, restore the wording on /try, home and `llms.txt`, and take the Reels guide out of `HIDDEN` in `src/lib/guides.ts`.

@@ -81,7 +81,7 @@ export default async function RecipeCategoryPage({ params }: Props) {
                             </div>
 
                             <p className="text-sm text-neutral-500 mt-4 text-center lg:text-left">
-                                Free to download on iOS. Import recipes from TikTok &amp; Instagram.
+                                Free to download on iOS. Import recipes from TikTok.
                             </p>
                         </div>
 
@@ -111,7 +111,7 @@ export default async function RecipeCategoryPage({ params }: Props) {
                             <div className="text-3xl mb-4">📲</div>
                             <h3 className="font-bold mb-2">Import Instantly</h3>
                             <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                                Paste any TikTok or Instagram link. Flav's AI extracts the full recipe in under 10 seconds.
+                                Paste any TikTok link. Flav's AI extracts the full recipe in under 10 seconds.
                             </p>
                         </div>
                         <div className="text-center p-6 rounded-2xl bg-neutral-50 dark:bg-neutral-900">

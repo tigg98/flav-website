@@ -55,6 +55,13 @@ const ORDER = [
 
 const CONFIRM_MARK = "CONFIRM before publishing";
 
+/**
+ * Guides kept in the repo but not built: no page, not in the index, the
+ * sitemap or llms.txt. The Instagram guide is here while Instagram import is
+ * off (2026-11-13). Take it out of this set when Instagram works again.
+ */
+const HIDDEN = new Set(["how-to-save-recipes-from-instagram-reels"]);
+
 const md = new Marked({ gfm: true, breaks: false });
 
 function renderBlock(src: string): string {
@@ -195,9 +202,9 @@ export function loadGuides(dir: string): Guide[] {
     if (!fs.existsSync(dir)) return [];
     const files = fs.readdirSync(dir).filter((f) => f.endsWith(".md"));
     return sortGuides(
-        files.map((file) =>
-            parseGuide(fs.readFileSync(path.join(dir, file), "utf8"), file.replace(/\.md$/, "")),
-        ),
+        files
+            .map((file) => parseGuide(fs.readFileSync(path.join(dir, file), "utf8"), file.replace(/\.md$/, "")))
+            .filter((g) => !HIDDEN.has(g.slug)),
     );
 }
 

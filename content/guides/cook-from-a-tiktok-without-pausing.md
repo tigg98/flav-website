@@ -49,7 +49,7 @@ Fix the recipe while it's fresh. If it needed more salt, or the 12 minutes was r
 
 ## What Flav does
 
-Flav is an iPhone app that turns TikToks, Instagram Reels and recipe web pages into recipes you can cook from. Cook Mode walks through the steps hands-free with timers, a Lock Screen Live Activity and Apple Watch. Recipes are private by default. Free for 10 imports a month; Flav+ is $4.99 a month, $29.99 a year, or $59.99 once. [Get Flav on the App Store](https://apps.apple.com/us/app/flav/id6759994122).
+Flav is an iPhone app that turns TikToks and recipe web pages into recipes you can cook from. Cook Mode walks through the steps hands-free with timers, a Lock Screen Live Activity and Apple Watch. Recipes are private by default. Free for 10 imports a month; Flav+ is $4.99 a month, $29.99 a year, or $59.99 once. [Get Flav on the App Store](https://apps.apple.com/us/app/flav/id6759994122).
 
 ## FAQ
 

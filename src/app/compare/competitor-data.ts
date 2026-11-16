@@ -28,7 +28,7 @@ export interface CompetitorData {
 
 /** Flav's column in every comparison table. */
 export const flavFeatures: FeatureGrid = {
-    videoImport: "Yes — TikTok, Instagram & web in ~10 seconds",
+    videoImport: "Yes: TikTok and web in ~10 seconds",
     cookMode: "Yes — hands-free, step-by-step with built-in timers",
     aiAssistant: "Yes — Flav AI sous-chef for substitutions & questions",
     mealPlanning: "Yes — AI meal plans + auto grocery lists",
@@ -58,7 +58,7 @@ export const competitors: Record<string, CompetitorData> = {
         cons: ["Static recipe formats", "No AI assistance"],
         flavAdvantages: [
             "Interactive Step-by-Step Cooking Mode with Timers",
-            "Instant Recipe Import from any TikTok or Instagram URL",
+            "Instant Recipe Import from any TikTok URL",
             "Flav AI: Your personal sous-chef for substitutions and questions",
         ],
         faq: [
@@ -99,7 +99,7 @@ export const competitors: Record<string, CompetitorData> = {
         faq: [
             {
                 question: "What is the difference between Flav and Tasty?",
-                answer: "Tasty is primarily a media publisher of food videos, whereas Flav is an interactive platform that lets you cook step-by-step from videos, and saves recipes from any TikTok or Instagram video into your own cookbook.",
+                answer: "Tasty is primarily a media publisher of food videos, whereas Flav is an interactive platform that lets you cook step-by-step from videos, and saves recipes from any TikTok video into your own cookbook.",
             },
             {
                 question: "Does Flav have videos like Tasty?",
@@ -233,7 +233,7 @@ export const competitors: Record<string, CompetitorData> = {
             "AI generates personalized meal plans based on your macros and preferences",
             "A growing library of video recipes from real food creators",
             "Interactive cooking mode guides you through every step",
-            "Import recipes from TikTok, Instagram, or any website",
+            "Import recipes from TikTok or any website",
         ],
         faq: [
             {
@@ -439,7 +439,7 @@ export const competitors: Record<string, CompetitorData> = {
         flavAdvantages: [
             "Modern video-first interface with swipeable recipe discovery",
             "AI cooking assistant provides real-time help and substitutions",
-            "Import recipes from TikTok, Instagram, or any URL instantly",
+            "Import recipes from TikTok or a recipe website instantly",
             "A creator community sharing video-first recipes",
         ],
         faq: [

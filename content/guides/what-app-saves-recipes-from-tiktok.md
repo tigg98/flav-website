@@ -29,7 +29,7 @@ Checked on each app's website and US App Store page in November 2026. Apps chang
 | Honeydew | Yes, on Honeydew Plus | App is free, social import needs Plus | $6.99 a month or $39.99 a year | Up to 6 family members | iPhone, Android |
 | Mela | From the video's description | Free download | $6.99 once on iPhone and iPad | Shared iCloud library | iPhone, iPad |
 | Samsung Food | Websites; TikTok not listed | Free | Food+ $6.99 a month or $59.99 a year | Shared meal plans and lists | iPhone, iPad, Android, web |
-| Flav (ours) | Yes, plus Instagram Reels and web pages | 10 imports a month | $4.99 a month, $29.99 a year, $59.99 once | Household sharing | iPhone |
+| Flav (ours) | Yes, plus web pages | 10 imports a month | $4.99 a month, $29.99 a year, $59.99 once | Household sharing | iPhone |
 
 ## TikTok Favorites
 
@@ -61,7 +61,7 @@ Strong on meal planning, shared grocery lists and delivery. Its store pages cove
 
 ## Flav
 
-Ours. Share a TikTok, Reel or web page to Flav and it saves a recipe with quantities and ordered steps, private by default. Cook Mode goes step by step with timers, on the Lock Screen and Apple Watch. Recipes go to a meal plan or grocery list, shared with your household if you like.
+Ours. Share a TikTok or web page to Flav and it saves a recipe with quantities and ordered steps, private by default. Cook Mode goes step by step with timers, on the Lock Screen and Apple Watch. Recipes go to a meal plan or grocery list, shared with your household if you like.
 
 What it isn't: it's iPhone only, and Flav 2.0 reads the caption and page, not the video. If the creator only says the recipe out loud, you'll get a thin or empty recipe. Reading the video is planned for a later version.
 

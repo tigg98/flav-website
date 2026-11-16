@@ -12,7 +12,7 @@ export const recipeCategories: Record<string, RecipeCategory> = {
     "high-protein": {
         slug: "high-protein",
         title: "High Protein Recipes",
-        description: "Discover high protein recipes on Flav — from meal prep bowls to protein-packed dinners. Import any recipe from TikTok or Instagram and cook with AI guidance.",
+        description: "Discover high protein recipes on Flav — from meal prep bowls to protein-packed dinners. Import any recipe from TikTok and cook with AI guidance.",
         heroDescription: "Build muscle and stay full with protein-rich meals. Browse high protein recipes from food creators, import them in seconds, and cook step-by-step with Flav.",
         keywords: ["high protein recipes", "high protein meal prep", "protein rich meals", "high protein dinner ideas"],
         relatedCategories: ["meal-prep", "keto", "healthy", "fitness-meals"],
@@ -195,7 +195,7 @@ export const recipeCategories: Record<string, RecipeCategory> = {
         slug: "breakfast",
         title: "Breakfast Recipes",
         description: "Start your day right with breakfast recipes on Flav — from overnight oats to egg dishes to smoothie bowls. Import breakfast ideas from TikTok and cook with AI.",
-        heroDescription: "Morning meals worth waking up for. Browse breakfast recipes from food creators, import them from TikTok or Instagram, and cook hands-free with Flav.",
+        heroDescription: "Morning meals worth waking up for. Browse breakfast recipes from food creators, import them from TikTok, and cook hands-free with Flav.",
         keywords: ["breakfast recipes", "healthy breakfast ideas", "easy breakfast", "breakfast meal prep", "brunch recipes"],
         relatedCategories: ["under-15-minutes", "meal-prep", "healthy", "high-protein"],
         faq: [

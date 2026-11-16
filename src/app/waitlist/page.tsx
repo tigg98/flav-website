@@ -37,7 +37,7 @@ export default function AndroidWaitlistPage() {
                         </h1>
 
                         <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-10 leading-relaxed">
-                            Save any TikTok or Instagram recipe in seconds, then cook it hands-free.
+                            Save any TikTok recipe in seconds, then cook it hands-free.
                             Join the waitlist and we&apos;ll email you the moment Flav lands on
                             Google Play.
                         </p>

@@ -4,12 +4,12 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 /**
- * The link pill: paste a TikTok, Instagram or recipe link. Sends the visitor
+ * The link pill: paste a TikTok or recipe link. Sends the visitor
  * to /try?url=..., which runs the import. Used on home, guides and /try.
  */
 export function LinkForm({
     id = "link",
-    placeholder = "Paste a TikTok or Instagram link",
+    placeholder = "Paste a TikTok link",
     button = "Get recipe",
     initial = "",
     onSubmitUrl,
