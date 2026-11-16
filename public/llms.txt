@@ -31,5 +31,8 @@ Key facts:
 - [Why is TikTok Favorites a bad place to keep recipes?](https://flav.app/guides/why-tiktok-favorites-is-a-bad-recipe-box): what Favorites does well, five ways it falls short for recipes, and using both
 - [How do I save a recipe from YouTube Shorts?](https://flav.app/guides/how-to-save-a-recipe-from-youtube-shorts): where the description is on a Short, linked longer videos, and saving the link as a recipe
 - [How do I share saved recipes with my partner or household?](https://flav.app/guides/share-saved-recipes-with-your-household): one shared place instead of sending links, Notes and Reminders for free, and Flav's household sharing
-- [All guides](https://flav.app/guides): the nine guides on one page
+- [Can I get the recipe from a TikTok link without installing an app?](https://flav.app/guides/get-a-tiktok-recipe-without-installing-an-app): copying the caption by hand, pasting the link into flav.app/try, where both stop, and when an app makes sense
+- [How do I plan a week of meals from recipes I saved on TikTok?](https://flav.app/guides/plan-a-week-of-meals-from-tiktok-recipes): pick three or four, get each one written down, put them on days, shop once from one list
+- [What do I do when a TikTok recipe has no measurements?](https://flav.app/guides/tiktok-recipe-with-no-measurements): check for a written version, read the video for clues, start low on salt and heat, write down what you used
+- [All guides](https://flav.app/guides): the twelve guides on one page
 - [App Store listing](https://apps.apple.com/us/app/flav/id6759994122)
