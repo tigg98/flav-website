@@ -1,7 +1,7 @@
 ---
 title: "How do I get the recipe from a TikTok when it isn't in the caption?"
 slug: tiktok-recipe-not-in-caption
-description: "Check the pinned comment, the creator's bio link and their site, then write it down while it plays. What works today, and what recipe apps can't do yet."
+description: "Check the pinned comment, the creator's bio link and their site, then write it down while it plays. What works today, and what a recipe app can and can't read."
 date: 2026-11-08
 ---
 
@@ -50,7 +50,7 @@ If you can't find it anywhere, ask in the comments, kindly. Creators want people
 
 Apps that save recipes from TikTok work by reading what's written: the caption, and the text on the video's page. When the recipe is there, they do a good job of turning it into a clean list. When it isn't, there's nothing to read.
 
-Flav 2.0 works this way. Share a TikTok with an empty caption and you'll get a thin recipe, maybe a title and a few ingredients, or nothing. We'd rather show you that than invent amounts. Reading the video itself is something we plan to add in a later version. It isn't in 2.0.
+Flav reads the caption and the page first. Share a TikTok with an empty caption and what happens next depends on the video. If it has captions, Flav+ writes the recipe from what's said and marks any amount that wasn't said out loud as an estimate. Free accounts get one of these video reads. If it has no captions either, Flav writes its own version of the dish and labels it as Flav's version, not the creator's own. Flav doesn't watch the video itself, so on-screen text and videos with no speech aren't read. That is planned for a later version.
 
 If you've found the recipe on the creator's site, you can still use Flav for it. Share or paste that page's link and you get the same recipe format as any other import.
 
@@ -68,7 +68,7 @@ Flav is an iPhone app that saves recipes from TikTok and web pages into a privat
 A: Captions are short, and many creators keep the full recipe on their website or newsletter to bring people there. Others just say it out loud. Check the pinned comment and the link in the creator's bio before anything else.
 
 **Q: Can an app get the recipe from the video itself?**
-A: Some apps say they work from a video's spoken words, and results vary. Flav 2.0 doesn't: it reads the caption and the page. If the recipe is only spoken, Flav may return a thin or empty recipe. Reading the video is planned for a later version.
+A: Some do, and results vary. On TikToks that have captions, Flav+ writes the recipe from what's said and marks amounts that weren't said out loud as estimates. Free accounts get one of these video reads. Flav doesn't watch the video itself, so on-screen text and videos with no speech aren't read.
 
 **Q: Can ChatGPT find the recipe for a TikTok?**
 A: It can help you search for the creator's written version, and it can tidy up a recipe you've copied from a comment. It can't reliably watch the TikTok for you. Paste it the text you found and ask for an ingredient list and numbered steps.

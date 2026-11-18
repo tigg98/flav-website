@@ -43,7 +43,7 @@ Imports are private. Nobody sees your cookbook unless you share it with your hou
 
 ## When the caption is empty
 
-Some creators say the recipe out loud and write nothing down, or the caption just says "recipe on my page". A copy and paste gets you nothing, and so does an app that reads captions. Flav 2.0 reads the caption and the page, not the video itself, so on a video like that you'll get a thin recipe or an empty one. We'd rather tell you that than guess at amounts.
+Some creators say the recipe out loud and write nothing down, or the caption just says "recipe on my page". A copy and paste gets you nothing, and so does an app that only reads captions. Flav reads the caption and the page first. If the TikTok has captions, Flav+ writes the recipe from what's said and marks any amount that wasn't said out loud as an estimate. Free accounts get one of these video reads. With nothing written and no captions, Flav writes its own version of the dish and labels it as Flav's version, not the creator's own.
 
 There are still ways to get it. [This guide covers them](/guides/tiktok-recipe-not-in-caption): the comments, the link in the creator's bio, and writing it down yourself while the video plays.
 

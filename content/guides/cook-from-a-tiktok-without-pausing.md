@@ -41,7 +41,7 @@ The video link stays on the recipe, so the one step you need to see is a tap awa
 
 <!-- CONFIRM before publishing: Apple Watch shows the current step and timer in 2.0 (Watch support is not on the current App Store listing). -->
 
-Flav reads the recipe from the caption and the page. If the creator only says it out loud, Flav 2.0 will give you a thin recipe or nothing to cook from, and you're back to writing it down yourself. Reading the video itself is planned for a later version.
+Flav reads the recipe from the caption and the page. If the creator only says it out loud and the TikTok has captions, Flav+ writes the recipe from what's said and marks any amount that wasn't said out loud as an estimate. Free accounts get one of these video reads. With nothing written and no captions, you get Flav's own version of the dish, labelled as Flav's version and not the creator's own, so check it against the video before you cook.
 
 ## After you cook
 

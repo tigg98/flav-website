@@ -63,7 +63,7 @@ Strong on meal planning, shared grocery lists and delivery. Its store pages cove
 
 Ours. Share a TikTok or web page to Flav and it saves a recipe with quantities and ordered steps, private by default. Cook Mode goes step by step with timers, on the Lock Screen and Apple Watch. Recipes go to a meal plan or grocery list, shared with your household if you like.
 
-What it isn't: it's iPhone only, and Flav 2.0 reads the caption and page, not the video. If the creator only says the recipe out loud, you'll get a thin or empty recipe. Reading the video is planned for a later version.
+What it isn't: it's iPhone only, and it doesn't watch the video itself. It reads the caption and the page, and on TikToks with captions Flav+ writes the recipe from what's said (free accounts get one of these video reads). If there's nothing written and no captions, you get Flav's own version of the dish, labelled as Flav's version and not the creator's own.
 
 ## How to pick
 

@@ -7,7 +7,7 @@ date: 2026-11-16
 
 # What do I do when a TikTok recipe has no measurements?
 
-Short answer: treat the first cook as the measuring. Check the amounts aren't written somewhere else, then read the video for clues, start low on anything you can't take back out, taste as you go, and write down what you used. After one cook you have a real recipe. We make Flav, a recipe app, and it keeps amounts the way the creator wrote them, so this part is still yours to do.
+Short answer: treat the first cook as the measuring. Check the amounts aren't written somewhere else, then read the video for clues, start low on anything you can't take back out, taste as you go, and write down what you used. After one cook you have a real recipe. We make Flav, a recipe app. It saves the recipe from the caption or from what's said in the video, but the amounts a creator never gave are still yours to work out.
 
 ## Why the amounts go missing
 
@@ -54,13 +54,11 @@ This is the step that turns a guess into a recipe. While you still remember, rep
 
 ## Doing it in Flav
 
-<!-- CONFIRM before publishing: three things in this guide are not in the site's fact file. (1) "Flav doesn't guess at amounts that aren't there" and "keeps amounts the way the creator wrote them" (short answer, this section, last FAQ answer). As of 2026-11-15 the app's importer can write a recipe from the dish name when the description has none, and a recipe written from the video's captions marks some amounts as estimates, so this needs rewording once the video import labelling decision is made. (2) "Open the recipe and fix it": confirm a saved recipe can be edited in 2.0. (3) "Reads the caption and the page, not the video" is out of date for Flav+ on TikTok videos with captions. -->
+Share the TikTok to Flav and it reads the caption and the page and saves the recipe. If the amounts were only said out loud and the TikTok has captions, Flav+ writes the recipe from what's said and marks any amount that wasn't said as an estimate. Free accounts get one of these video reads. Treat an estimate as a starting point, not a measurement.
 
-Share the TikTok to Flav and it reads the caption and the page and saves the recipe with the ingredients and steps as written. If the creator wrote "a splash of soy", that's what you'll see. Flav doesn't guess at amounts that aren't there.
+After your first cook, write down the amounts and times you used and keep them with the recipe. The video link stays on the recipe in Flav, so the moment you need to see again is a tap away.
 
-After your first cook, open the recipe and fix it: put in the amounts and times you used. The video link stays on the recipe, so the moment you need to see again is a tap away. Next time, Cook Mode takes you through your version one step at a time with timers.
-
-Flav 2.0 reads the caption and the page, not the video. If nothing is written at all, you'll get a thin recipe or an empty one. Reading the video itself is planned for a later version.
+With nothing written and no captions, Flav writes its own version of the dish and labels it as Flav's version, not the creator's own. Flav doesn't watch the video itself yet, so amounts shown only as on-screen text aren't read.
 
 ## What Flav does
 
@@ -75,7 +73,7 @@ A: Many creators cook by eye, and a short video has no room for a full recipe. S
 A: Look for packages, measuring tools, things you can count, and how full the pan is. Write a number for each ingredient, start with less salt and spice than you think, and taste as you go.
 
 **Q: Can a recipe app fill in the missing measurements?**
-A: An app that reads the caption can only save what's written there. Flav keeps amounts as the creator wrote them and doesn't guess the ones that are missing. You can fix the recipe yourself after the first cook.
+A: An app that reads the caption can only save what's written there. On TikToks with captions, Flav+ can also write the recipe from what's said, and it marks an amount as an estimate when it wasn't said out loud. The amounts nobody gave are still yours to work out on the first cook.
 
 **Q: Does guessing work for baking?**
 A: Not as well as it does on the stove. In baking the amounts depend on each other, so use a written recipe for the same bake and watch the video for technique.

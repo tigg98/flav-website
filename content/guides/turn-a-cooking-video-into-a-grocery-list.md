@@ -47,7 +47,7 @@ On the grocery list, tick things off as you shop. If you share Flav with your ho
 
 <!-- CONFIRM before publishing: grocery list is part of household sharing in 2.0. -->
 
-Flav reads what's written in the caption and on the page. When the creator only says the ingredients out loud, Flav 2.0 will come back with a short list or nothing, so you'll need the by-hand way for that video. Reading the video itself is planned for a later version.
+Flav reads what's written in the caption and on the page. When the creator only says the ingredients out loud and the TikTok has captions, Flav+ writes the recipe from what's said and marks amounts that weren't said out loud as estimates, so look those over before you shop. Free accounts get one of these video reads. With nothing written and no captions, Flav writes its own version of the dish and labels it as Flav's version, so use the by-hand way if you want the creator's own list.
 
 ## A few things that go wrong
 

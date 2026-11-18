@@ -53,7 +53,7 @@ Share a TikTok to Flav, and it reads the caption and the page and saves the reci
 
 <!-- CONFIRM before publishing: recipe text persists in the user's cookbook if the source video is deleted. -->
 
-Flav 2.0 reads the caption and the page, not the video. If the recipe is only spoken, you'll get a thin result. Reading the video itself is planned for a later version.
+Flav reads the caption and the page first. If the recipe is only spoken and the TikTok has captions, Flav+ writes it from what's said and marks amounts that weren't said out loud as estimates. Free accounts get one of these video reads. With nothing written and no captions, Flav writes its own version of the dish and labels it as Flav's version, not the creator's own. It doesn't watch the video itself yet.
 
 ## What Flav does
 

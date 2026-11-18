@@ -57,7 +57,7 @@ In Flav, every import lands in your Cookbook as a recipe, with the ingredients, 
 
 The quickest way through a big Favorites backlog: open each keeper in TikTok, share it to Flav, and move on. Each one usually takes a few seconds. The free plan covers 10 imports a month, which is enough for the keepers pile if you're strict. Flav+ removes the limit.
 
-One thing to know: Flav 2.0 reads the caption and the page, not the video. If a keeper has no recipe written in its caption, you'll get a thin result. Check the comments and the creator's bio link first. [Here's how](/guides/tiktok-recipe-not-in-caption).
+One thing to know: Flav reads the caption and the page first. If a keeper has no recipe written in its caption and the TikTok has captions, Flav+ writes it from what's said (free accounts get one of these video reads). Otherwise you get Flav's own version of the dish, labelled as Flav's version and not the creator's own. To find the creator's written recipe, check the comments and their bio link first. [Here's how](/guides/tiktok-recipe-not-in-caption).
 
 ## What Flav does
 

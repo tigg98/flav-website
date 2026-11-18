@@ -64,7 +64,7 @@ Share each TikTok to Flav from the iPhone share sheet, or paste its link. Flav r
 
 The free plan includes 10 imports a month. Flav+ removes the import limit and adds AI meal planning.
 
-One thing to know: Flav 2.0 reads the caption and the page, not the video. If a recipe is only spoken, you'll get a thin recipe or an empty one, so check each import before it goes on the plan. Reading the video itself is planned for a later version.
+One thing to know: Flav reads the caption and the page first. If a recipe is only spoken and the TikTok has captions, Flav+ writes it from what's said and marks amounts that weren't said out loud as estimates. Free accounts get one of these video reads. With nothing written and no captions, you get Flav's own version of the dish, labelled as Flav's version. Either way, check each import before it goes on the plan.
 
 ## What Flav does
 
