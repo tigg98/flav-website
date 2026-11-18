@@ -54,6 +54,8 @@ This is the step that turns a guess into a recipe. While you still remember, rep
 
 ## Doing it in Flav
 
+<!-- CONFIRM before publishing: three things in this guide are not in the site's fact file. (1) "Flav doesn't guess at amounts that aren't there" and "keeps amounts the way the creator wrote them" (short answer, this section, last FAQ answer). As of 2026-11-15 the app's importer can write a recipe from the dish name when the description has none, and a recipe written from the video's captions marks some amounts as estimates, so this needs rewording once the video import labelling decision is made. (2) "Open the recipe and fix it": confirm a saved recipe can be edited in 2.0. (3) "Reads the caption and the page, not the video" is out of date for Flav+ on TikTok videos with captions. -->
+
 Share the TikTok to Flav and it reads the caption and the page and saves the recipe with the ingredients and steps as written. If the creator wrote "a splash of soy", that's what you'll see. Flav doesn't guess at amounts that aren't there.
 
 After your first cook, open the recipe and fix it: put in the amounts and times you used. The video link stays on the recipe, so the moment you need to see again is a tap away. Next time, Cook Mode takes you through your version one step at a time with timers.
