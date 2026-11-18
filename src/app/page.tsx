@@ -40,7 +40,7 @@ const keepers = [
 const faqs = [
     {
         q: "Does it work if the recipe isn't written in the caption?",
-        a: "Flav reads the caption and the video's page. If the creator only says the recipe out loud, you may get a partial recipe that you can finish by hand. Reading the video itself is coming next.",
+        a: "On TikToks with captions, yes. Flav+ writes the recipe from what's said in the video and marks any amount that wasn't said out loud as an estimate. Free accounts get one of these video reads. With no written recipe and no captions, Flav writes its own version of the dish and labels it as Flav's, not the creator's.",
     },
     {
         q: "Is my cookbook public?",
@@ -205,7 +205,7 @@ export default function HomePage() {
                     <span className="fl-badge" style={{ alignSelf: "flex-start" }}>FLAV+</span>
                     <h2 id="plus-h" className="fl-h2">Free for {FLAV.freeImportsPerMonth} recipes a month. Flav+ when you want more.</h2>
                     <p className="fl-lead" style={{ maxWidth: 460, fontSize: 17, lineHeight: "26px" }}>
-                        Your cookbook, Cook Mode and grocery list are free. Flav+ removes the monthly limit and plans your week.
+                        Your cookbook, Cook Mode and grocery list are free. Flav+ removes the monthly limit, writes recipes from videos that never wrote them down, and plans your week.
                     </p>
                     <Link href="/pricing" className="fl-link" style={{ alignSelf: "flex-start", fontSize: 15 }}>
                         Compare plans

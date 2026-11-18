@@ -17,10 +17,12 @@ const free = [
     "Cookbook, private by default",
     "Cook Mode, timers, Lock Screen and Watch",
     "Grocery list",
+    "One video read, to try it",
 ];
 
 const plus = [
     "Everything in Free",
+    "Recipes from videos that never wrote them down",
     "No monthly import limit",
     "Plan the week from your cookbook",
     "More questions to Ask Flav while you cook",
@@ -28,6 +30,7 @@ const plus = [
 
 const faqs = [
     { q: "What counts as an import?", a: "Each video or recipe link Flav reads for you." },
+    { q: "What is a video read?", a: "When a TikTok doesn't have the recipe written down, Flav writes it from what's said in the video. Amounts nobody said out loud are marked as estimates. It works on TikToks that have captions." },
     { q: "What happens at ten?", a: "Everything you saved stays. New imports open up again next month, or straight away with Flav+." },
     { q: "How do I cancel?", a: "Flav+ is billed by Apple. On your iPhone open Settings, tap your name, then Subscriptions, then Flav. You keep Flav+ until the end of the period you paid for." },
 ];
