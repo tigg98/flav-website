@@ -224,6 +224,14 @@ function NoRecipeCard({ res }: { res: TryResponse }) {
                     <Link href="/guides/tiktok-recipe-not-in-caption" className="fl-link self-start text-[15px]">
                         {"What to do when the recipe isn't in the caption"}
                     </Link>
+                    {res.source.platform === "tiktok" ? (
+                        <p className="fl-body" style={{ maxWidth: 620 }}>
+                            {"The app can go further than this page. When a TikTok has captions, Flav+ writes the recipe from what's said in the video, and your first video read is free. "}
+                            <a href={appStoreUrl("web-try-spoken")} className="fl-link">
+                                Get Flav on the App Store
+                            </a>
+                        </p>
+                    ) : null}
                 </>
             ) : (
                 <>
