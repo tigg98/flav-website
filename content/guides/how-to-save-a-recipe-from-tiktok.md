@@ -31,21 +31,21 @@ This works and costs nothing. The catch is step 4. Captions are written for scro
 A recipe app that understands TikTok links does the copying and the tidying. Here's how it goes in Flav:
 
 1. On the TikTok, tap Share. TikTok's own panel comes up first. Tap More (or the share icon at the end of the row) to open the iPhone share sheet.
-2. Pick Flav. The first time, you may need to scroll to the end of the app row, tap More, and add Flav to your favorites so it shows up next time.
+2. Pick Flav in the share sheet.
 3. Flav reads the caption and the page and saves a recipe: a title, the ingredients with quantities, and the steps in order, with the video link kept on the recipe.
-4. Check it once. If the creator wrote "a splash of soy", that's what you'll see. Fix anything you want while you're there.
+4. Check it once against the video before you cook.
 
 If you'd rather not use the share sheet, tap Copy link on the TikTok, open Flav, and paste it. Same result.
 
-An import usually takes a few seconds. A very long caption can take about 15.
+An import usually takes a few seconds. A long caption can take about 15.
 
-Imports are private. Nobody sees your cookbook unless you share it with your household.
+Imports are private by default.
 
 ## When the caption is empty
 
 Some creators say the recipe out loud and write nothing down, or the caption just says "recipe on my page". A copy and paste gets you nothing, and so does an app that only reads captions. Flav reads the caption and the page first. If the TikTok has captions, Flav+ writes the recipe from what's said and marks any amount that wasn't said out loud as an estimate. Free accounts get one of these video reads. With nothing written and no captions, Flav writes its own version of the dish and labels it as Flav's version, not the creator's own.
 
-There are still ways to get it. [This guide covers them](/guides/tiktok-recipe-not-in-caption): the comments, the link in the creator's bio, and writing it down yourself while the video plays.
+To find the creator's own written recipe, [this guide covers where to look](/guides/tiktok-recipe-not-in-caption): the comments, the link in the creator's bio, and their site. To write a spoken recipe down yourself, [this guide goes through it](/guides/tiktok-recipe-only-spoken).
 
 ## A few habits that help
 
@@ -56,7 +56,7 @@ There are still ways to get it. [This guide covers them](/guides/tiktok-recipe-n
 
 ## What Flav does
 
-Flav is an iPhone app that turns a TikTok or recipe web page into a recipe you can cook from: ingredients with quantities, steps in order, the video link kept on it. Cook Mode walks you through the steps with timers. The free plan includes 10 imports a month. Flav+ removes the limit for $4.99 a month, $29.99 a year, or $59.99 once. iPhone only for now. [Get Flav on the App Store](https://apps.apple.com/us/app/flav/id6759994122).
+Flav is an iPhone app that turns a TikTok or recipe web page into a recipe you can cook from: ingredients with quantities, steps in order, the video link kept on it. Cook Mode walks you through the steps with timers. The free plan includes 10 imports a month. Flav+ removes the limit for $4.99 a month, $29.99 a year, or $59.99 once. iPhone only. [Get Flav on the App Store](https://apps.apple.com/us/app/flav/id6759994122).
 
 ## FAQ
 
@@ -70,7 +70,7 @@ A: Yes. Expand the caption, copy the text (or screenshot it and copy with Live T
 A: Sometimes. If you paste the caption text into ChatGPT, it can turn it into a clean ingredient list and steps. Whether it can open a TikTok link and read it depends on the assistant and the video. Either way it won't keep the recipe anywhere you'll find it when you're cooking next week.
 
 **Q: What if the TikTok recipe isn't in the caption?**
-A: Check the comments for a pinned recipe, and the creator's bio for a link to their site. If they only say it out loud, write it down while the video plays. Apps that read the caption and page, Flav 2.0 included, can't pull a recipe that was never written down.
+A: Check the comments for a pinned recipe, and the creator's bio for a link to their site. If they only say it out loud, write it down while the video plays. In Flav, when the TikTok has captions, Flav+ writes the recipe from what's said and marks any amount that wasn't said out loud as an estimate. Free accounts get one of these video reads.
 
 **Q: Is Flav free?**
 A: The free plan includes 10 imports a month, plus your cookbook, Cook Mode and grocery list. Flav+ removes the import limit for $4.99 a month, $29.99 a year, or $59.99 once. It's iPhone only.
