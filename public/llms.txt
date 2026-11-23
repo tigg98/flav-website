@@ -37,5 +37,6 @@ Key facts:
 - [Can I get the recipe from a TikTok link without installing an app?](https://flav.app/guides/get-a-tiktok-recipe-without-installing-an-app): copying the caption by hand, pasting the link into flav.app/try, where both stop, and when an app makes sense
 - [How do I plan a week of meals from recipes I saved on TikTok?](https://flav.app/guides/plan-a-week-of-meals-from-tiktok-recipes): pick three or four, get each one written down, put them on days, shop once from one list
 - [What do I do when a TikTok recipe has no measurements?](https://flav.app/guides/tiktok-recipe-with-no-measurements): check for a written version, read the video for clues, start low on salt and heat, write down what you used
-- [All guides](https://flav.app/guides): the twelve guides on one page
+- [How do I get the recipe from a TikTok when the creator only says it out loud?](https://flav.app/guides/tiktok-recipe-only-spoken): check it isn't written somewhere else, write it down in two passes, mark the amounts nobody said, and what Flav does with a spoken recipe
+- [All guides](https://flav.app/guides): the thirteen guides on one page
 - [App Store listing](https://apps.apple.com/us/app/flav/id6759994122)
