@@ -2,14 +2,14 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
     return {
-        name: "Flav — Save Any TikTok Recipe in 10 Seconds",
+        name: "Flav: TikTok Recipe Saver",
         short_name: "Flav",
         description:
             "Flav turns TikTok cooking videos and recipe pages into an AI-organized cookbook with hands-free Cook Mode, meal planning, and grocery lists.",
         start_url: "/",
         display: "browser",
         background_color: "#ffffff",
-        theme_color: "#E07A5F",
+        theme_color: "#F5F5F7",
         icons: [
             {
                 src: "/icon-192.png",
