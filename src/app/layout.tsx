@@ -82,6 +82,11 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  // Google Search Console ownership for https://flav.app/ (added 2026-11-27).
+  // Removing this unverifies the property.
+  verification: {
+    google: "OhyaYc0x8F6AYXwgcqHveU0KIuW4MQctehtDyFzTUIw",
+  },
   // Icons are served via the app-directory file conventions:
   // src/app/icon.png (favicon) and src/app/apple-icon.png (180×180 apple-touch-icon).
   other: {
